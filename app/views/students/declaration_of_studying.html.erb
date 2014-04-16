@@ -1,18 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
   <head>
-    <title></title>
-    <meta content="portrait" name="pdfkit-orientation" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link REL="SHORTCUT ICON" href="/images/favicon.ico" />
-
-    <%= stylesheet_link_tag 'relatorio_syens', :media => "all" %>
+    <title>Cempre<%= "- #{title}" unless title.blank? %></title>
+    <%= stylesheet_link_tag "report", :media => "all" %>
+    <%= csrf_meta_tags %>
   </head>
   <body>
     <hr />
     <%= render 'layouts/head_report' %>
     <p class="corpo">
+      <h1 align='center'>Declaração</h1>
+      <p><font size=3> Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso de <><%= @group.classroom.course.type_course_humanize %></b> por nós ministrado e encontra-se regulamente matriculada, tenho aulas <b><%= @group.classroom.day_week_humanize %></b>, no horário de <b><%= @group.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= @group.classroom.time_end.try(:strftime, '%H:%M') %></b></font></p>
       <br/>
       <br/>
       <br/>
