@@ -7,7 +7,9 @@ class StudentsController < ApplicationController
 
   def declaration_of_studying
     @group = @student.groups.active.first
-    render layout: false
+
+    render :declaration_of_studying, :layout => false
+
   end
 
   def show
