@@ -1,0 +1,30 @@
+<table class="table table-striped table-hover table-bordered">
+  <colc.oup>
+    <col>
+    <col width="160">
+  </colc.oup>
+  <thead>
+    <tr>
+      <th>Turma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @course.classrooms.any? %>
+      <% @course.classrooms.each do |c| %>
+        <tr>
+          <td>
+            <%= c %><br/>
+            <b>Professor:</b> <%= c.teacher%><br/>
+            <b>Horário:</b> <%= c.time_start.try(:strftime, '%H:%M') %> às  <%= c.time_end.try(:strftime, '%H:%M') %> <br/>
+            <b>Dia da Semana:</b>
+            <%= c.day_week_humanize %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='2'>Nenhum rec.stro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

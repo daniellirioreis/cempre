@@ -1,0 +1,23 @@
+pt-BR:
+  title:
+    calendars:
+      index: 'Listagem de Períodos'
+      new: 'Novo Período'
+      edit: 'Editar Período'
+      create: 'Novo Período'
+      update: 'Editar Período'
+      show: 'Período'
+      results: 'Resultado Final'
+      classrooms: 'Turmas'
+      events: 'Eventos'
+
+  activerecord:
+    models:
+      calendar:
+        one: "Período"
+        many: "Períodos"
+    attributes:
+      calendar:
+        name: "Nome"
+        date_start: "Data Início"
+        date_end: 'Data Final'

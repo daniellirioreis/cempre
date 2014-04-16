@@ -1,0 +1,19 @@
+pt-BR:
+  title:
+    faults:
+      index: 'Listagem de Faltas'
+      new: 'Nova Falta'
+      edit: 'Editar Falta'
+      create: 'Nova Falta'
+      update: 'Editar Falta'
+  activerecord:
+    models:
+      fault:
+        one: "Falta"
+        many: "Faltas"
+    attributes:
+      fault:
+        lesson: "Aula"
+        lesson_id: "Aula"
+        group: 'Aluno'
+        justification: 'Justificativa'

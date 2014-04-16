@@ -1,0 +1,23 @@
+pt-BR:
+  title:
+    events:
+      index: 'Listagem de eventos'
+      new: 'Novo Evento'
+      edit: 'Editar Evento'
+      create: 'Novo Evento'
+      update: 'Editar Evento'
+      show: 'Informação'
+  activerecord:
+    models:
+      event:
+        one: "Evento"
+        many: "Eventos"
+    attributes:
+      event:
+        description: "Nome"
+        lesson_id: 'Dia'
+        type_event: 'Tipo de evento'
+        time_end: 'Hora final'
+        time_start: 'Hora inicial'
+        teacher_id: 'Monitor(a)'
+        student_id: 'Aluno'

@@ -1,0 +1,15 @@
+<div class="row-fluid">
+  <div class="span6"><%= f.input :name, input_html: { class: 'span12' } %></div>
+</div>
+<div class="row-fluid">
+  <div class="span4">
+  <%= f.input :birth_date, start_year: Date.today.year - 63,
+                              end_year: Date.today.year + 37, input_html: { class: 'span4' } %>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span6"><%= f.input :email, input_html: { class: 'span12' } %></div>
+</div>
+<div class="row-fluid">
+  <div class="span6"><%= f.input :phone, input_html: { class: 'span12' } %></div>
+</div>

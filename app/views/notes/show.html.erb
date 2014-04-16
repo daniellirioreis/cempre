@@ -1,0 +1,11 @@
+<%= @note.subject %>
+<br/>
+<br/>
+Ass: <%= @note.user%>
+<% unless current_user.profile == 'student'%>
+  <div class="form-actions">
+    <%= link_to 'Editar', edit_note_path(@note), class: 'btn btn-primary' %>
+    <%= link_to 'Deletar', @note, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+    <%= link_to 'Voltar', :back, class: 'btn' %>
+  </div>
+<% end %>

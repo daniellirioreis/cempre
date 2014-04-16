@@ -1,0 +1,5 @@
+<p><%= I18n.t "title.devise.mailer.confirmation_instructions", :email => @email %></p>
+
+<p><%= I18n.t "context.devise.mailer.confirmation_instructions" %></p>
+
+<p><%= link_to I18n.t("helpers.submit.devise.mailer.confirmation_instructions"), confirmation_url(@resource, :confirmation_token => @token) %></p>

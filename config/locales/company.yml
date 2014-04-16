@@ -1,0 +1,27 @@
+pt-BR:
+  title:
+    companies:
+      index: 'Listagem de Escola'
+      new: 'Nova Escola'
+      edit: 'Editar Escola'
+      create: 'Editar Escola'
+      update: 'Editar Escola'
+
+  activerecord:
+    models:
+      company:
+        one: "Escola"
+        many: "Escolas"
+    attributes:
+      company:
+        name: "Nome"
+        vacancy: "Vagas Abertas"
+        street: 'Logradouro'
+        house_number: 'Número'
+        complement: 'Complemento'
+        zip_code: 'CEP'
+        neighborhood: 'Bairro'
+        district: 'Distrito'
+        city: 'Cidade'
+        federal_unit: 'UF'
+        phone: 'telefone'

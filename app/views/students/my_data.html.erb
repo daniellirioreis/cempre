@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Nome: </strong><%=@student%><br>
+  <strong>Data Nascimento: </strong><%= l @student.birth_date unless @student.birth_date.nil?  %><br>
+  <strong>Idade: </strong><%= @student.age %><br>
+</p>
+<hr/>
+<h4>Endereço</h4>
+<address>
+  <%= @student.street %>, <%= @student.house_number %> <%= @student.neighborhood %><br/>
+  <%= @student.zip_code%> - <%= @student.city %><br/>
+  <%= @student.email%>
+</address>
+<hr/>
+<h4>Turmas</h4>
+<%= render 'groups'%>
+
+<div class="form-actions">
+  <%= link_to 'Editar', edit_student_path(@student), class: 'btn btn-primary' %>
+</div>
+

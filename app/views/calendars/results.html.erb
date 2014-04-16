@@ -1,0 +1,78 @@
+<p>
+  <b>Período:</b> <%= @calendar %>
+</p>
+<div id='div_color'>
+  <table class="table table-striped table-hover table-bordered">
+    <colgroup>
+      <col>
+      <col width="160">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Aluno</th>
+        <th>Curso</th>
+        <th>Situação</th>
+        <th>Nota</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @groups.any? %>
+        <% @groups.each do |g| %>
+        <tr class="
+            <% if g.approved? %>
+              success
+            <%end%>
+            <% if g.failed? %>
+              error
+            <%end%>
+            <% if g.active? %>
+              warning
+            <%end%>
+            ">
+            <td><%= g %></td>
+            <td><%= g.classroom.course %></td>
+            <td>
+              <% if g.active? %>
+                  NÃO AVALIADO
+              <% else %>
+                <%= g.status_humanize.upcase %>
+              <% end %>
+            </td>
+            <td><%= g.value_tatal %></td>
+            <td align='center'>
+              <div class="btn-group">
+                <%= link_to 'Informações Avaliações', exams_path(group_id: g.id), class: 'btn btn-info' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+      <tr>
+        <td colspan='2'>Nenhum registro foi encontrado.</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br/>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+  <td>
+    <p class="text-success"><i class="icon-user"></i><b><%= @quant_approved %> <%= link_to "alunos aprovados" ,   results_calendar_path(status: 'approved') %><b></p>
+  </td>
+  <td>
+    <p class="text-error"><i class="icon-user"></i> <b><%= @quant_failed %> <%= link_to "alunos reprovados" ,   results_calendar_path(status: 'failed') %><b></p>
+  </td>
+  <td>
+    <p class="text-warning"><i class="icon-user"></i> <b><%= @quant_active %> <%= link_to "alunos não avaliados" ,   results_calendar_path(status: 'active') %><b></p>
+  </td>
+  <td>
+    <i class="icon-user"></i> <b><%= link_to "Todos" ,   results_calendar_path %><b>
+  </td>
+
+</table>
+
+<div class="form-actions">
+  <%= link_to 'Voltar', :back, :class => "btn" %>
+</div>

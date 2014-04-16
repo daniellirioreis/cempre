@@ -1,0 +1,42 @@
+
+<table class="table table-striped table-hover table-bordered">
+  <colgroup>
+    <col>
+    <col width="160">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @calendars.any? %>
+      <% @calendars.each do |calendar| %>
+       <tr class="<% if calendar.closed %>success<%else%>warning<%end%>">
+          <td><%= calendar %></td>
+          <td align='center'>
+            <div class="btn-group">
+              <%= link_to "Ver calendário", calendar, :class => "btn btn-info" %>
+              <%= link_to "Editar", edit_calendar_path(calendar), :class => "btn btn-primary", :title => "Editar #{calendar}" unless calendar.closed %>
+              <% if  calendar.closed %>
+                <%= link_to "Abrir",finalize_calendar_path(calendar, yes_or_no: false), :class => "btn btn-danger", :title => "Abrir #{calendar}" %>
+
+              <% else %>
+                <%= link_to "Finalizar",finalize_calendar_path(calendar, yes_or_no: true), :class => "btn btn-success", :title => "Finalizar #{calendar}" %>
+              <% end %>
+              <%= link_to 'Deletar', calendar, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger"  unless calendar.closed  %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='2'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="form-actions">
+  <%= link_to 'Novo Calendário', new_calendar_path, :class => "btn" %>
+</div>

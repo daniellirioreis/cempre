@@ -1,0 +1,9 @@
+pt-BR:
+  enumerations:
+    type_event:
+      day_trial: "Dia de Prova"
+      recess: "Recesso"
+      holiday: "Feriado"
+      important: "Importante"
+      party: "Festa"
+      monitoring: "Monitoria"

@@ -1,0 +1,21 @@
+<% @notes.each do |m| %>
+  <div class="
+  <% if m.student?%>post_yellow<%end%>
+  <% if m.company?%>post_purple<%end%>
+  <% if m.secretary?%>post_green<%end%>
+  <% if m.administrator?%>post_green<%end%>
+  ">
+    <%= link_to m, role: 'button' do %>
+      <%= truncate(m.to_s, length: 100)%>
+    <% end %>
+  </div>
+<% end %>
+
+<% @events.each do |e| %>
+  <div class="post_purple">
+    <%= link_to e, role: 'button' do %>
+      <%= truncate( e.calendar_day.to_s + "-" + e.to_s, length: 100)%>
+    <% end %>
+  </div>
+<% end %>
+

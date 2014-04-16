@@ -1,0 +1,14 @@
+<table width="1400" >
+  <tr>
+    <td id="brasao"><%= image_tag '/images/logo.png', :width => 130 %>
+    </td>
+    <td><h2><%= current_company%></h2>
+      <%= current_company.street %>, <%= current_company.house_number %> <%= current_company.neighborhood %><br/>
+      <%= current_company.zip_code%> - <%= current_company.city %><br/>
+      <%= current_company.phone%><br/>
+      <%= current_company.email%>
+    </td>
+    <td id="logo"></td>
+  </tr>
+</table>
+<hr/>

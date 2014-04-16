@@ -1,0 +1,52 @@
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Nº</th>
+      <th>Nome</th>
+      <th>Faltas</th>
+      <th>Situação</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% count = 0 %>
+    <% if @classroom.groups.any? %>
+      <% @classroom.groups.each do |group| %>
+        <tr>
+          <td><%count  = count + 1 %>
+            <%= count %>
+          </td>
+          <td><%= group%></td>
+          <td><%= group.faults.count %></td>
+          <td title="<%= group.justification %>"><%= group.status_humanize %></td>
+          <td>
+            <div class="btn-group">
+              <% if params[:controller] != 'classrooms' %>
+                <% unless group.transfer? %>
+                  <% unless group.locked? %>
+                    <%= link_to 'Trancar', edit_group_path(group, status: StatusGroup::LOCKED), class: 'btn btn-warning' %>
+                  <% end %>
+                  <% unless group.folded? %>
+                    <%= link_to 'Desistir', edit_group_path(group, status: StatusGroup::FOLDED), class: 'btn btn-danger' %>
+                  <% end %>
+                  <% if group.active? %>
+                    <%= link_to 'Transferir', edit_group_path(group, status: StatusGroup::TRANSFER), class: 'btn btn-primary' %>
+                  <% end %>
+                <% end %>
+            <% else %>
+              <%= link_to 'Lançar Faltas', new_fault_path(group_id: group.id), class: 'btn btn-success' if group.active? %>
+              <%= link_to 'Lançar Avaliações', new_exam_path(group_id: group.id), class: 'btn btn-success' if group.active? %>
+              <%= link_to 'Inf.faltas', faults_path(group_id: group.id), :class => "btn btn-info"  %>
+              <%= link_to 'Inf. avaliações', exams_path(group_id: group.id), :class => "btn btn-info"  %>
+            <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='2'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

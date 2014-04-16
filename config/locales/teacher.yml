@@ -1,0 +1,17 @@
+pt-BR:
+  title:
+    teachers:
+      index: 'Listagem de professores'
+      new: 'Novo Professor'
+      edit: 'Editar Professor'
+      create: 'Novo Professor'
+      update: 'Editar Professor'
+      show: 'Informações'
+  activerecord:
+    models:
+      teacher:
+        one: "Professor"
+        many: "Professores"
+    attributes:
+      teacher:
+        name: "Nome"

@@ -1,0 +1,21 @@
+<% if @event.monitoring? %>
+  <%= render 'monitoring' %>
+<% end %>
+
+<% if @event.party? %>
+  <%= render 'party' %>
+<% end %>
+
+<% if @event.recess? %>
+<% end %>
+
+<% if @event.holiday? %>
+<% end %>
+
+<% if @event.day_trial? %>
+<% end %>
+
+<% if @event.important? %>
+  <%= render 'important' %>
+<% end %>
+

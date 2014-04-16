@@ -1,0 +1,63 @@
+<blockquote>
+  <p>
+    <b>Turma:</b> <%= @group.classroom %>
+  </p>
+  <p>
+    <b>Aluno:</b> <%= @group %>
+  </p>
+  <p>
+    <b>Nivel:</b> <%= @group.classroom.course %>
+  </p>
+  <p>
+    <b>Status: </b><%= @group.status_humanize.upcase %>
+  <p/>
+</blockquote>
+<br/>
+<table class="table table-striped table-hover table-bordered">
+  <colgroup>
+    <col>
+    <col width="160">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Dia</th>
+      <th>Tipo</th>
+      <th>Nota</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @exams.any? %>
+      <% @exams.each do |e| %>
+        <tr>
+          <td><%= e.lesson %></td>
+          <td><%= e.type_exam_humanize %></td>
+          <td><%= e.value %></td>
+          <td align='center'>
+            <div class="btn-group">
+              <% unless @group.classroom.closed %>
+                <%= link_to 'Deletar', e, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan='2'><b>Total:</b></td>
+        <td colspan='2'><b><%=@group.value_tatal%></b></td>
+      </tr>
+    <% else %>
+    <tr>
+      <td colspan='4'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="form-actions">
+  <%= link_to 'Voltar', :back, class: 'btn' %>
+  <% unless @group.classroom.closed? %>
+    <%= link_to 'Nova Avaliação', new_exam_path(group_id: @group.id), class: 'btn' %>
+    <%= link_to 'APROVAR ALUNO', edit_group_path(@group, status: StatusGroup::APPROVED), class: 'btn btn-success' if @exams.any? %>
+    <%= link_to 'REPROVAR ALUNO', edit_group_path(@group, status: StatusGroup::FAILED), class: 'btn btn-danger' if @exams.any? %>
+  <% end %>
+</div>

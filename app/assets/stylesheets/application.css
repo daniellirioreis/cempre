@@ -1,0 +1,88 @@
+/*
+ *= require bootstrap
+ *= require font-awesome
+ *= require jquery.easy-pie-chart
+ *= require bootstrap-admin
+ *= require_self
+ */
+
+#div_color{
+  margin: 0 10px 0 0;
+  padding: 0;
+  border: solid 1px #ccc;
+  overflow-y: auto;
+  height: 383px;
+  width: 800px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: #efefef;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+#div_small{
+  margin: 0 10px 0 0;
+  padding: 0;
+  border: solid 1px #ccc;
+  overflow-y: auto;
+  height: 100px;
+  width: 800px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: #efefef;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.post_purple{
+  background: transparent url(/images/post_purple.png) no-repeat;
+  width: 150px;
+  height: 180px;
+  padding: 30px 10px 0 17px;
+  color: #000;
+  margin: 0 5px 0 1px;
+  padding-bottom: 5px;
+  letter-spacing: .3mm;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+  font-style: italic;
+  font-family: Arial;
+  float: left;
+}
+
+.post_yellow{
+  background: transparent url(/images/post_yellow.png) no-repeat;
+  width: 150px;
+  height: 180px;
+  padding: 30px 10px 0 17px;
+  color: #000;
+  margin: 0 5px 0 1px;
+  padding-bottom: 5px;
+  letter-spacing: .3mm;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+  font-style: italic;
+  font-family: Arial;
+  float: left;
+}
+
+.post_green{
+  background: transparent url(/images/post_green.png) no-repeat;
+  width: 150px;
+  height: 180px;
+  padding: 30px 10px 0 17px;
+  color: #000;
+  margin: 0 5px 0 1px;
+  padding-bottom: 5px;
+  letter-spacing: .3mm;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+  font-style: italic;
+  font-family: Arial;
+  float: left;
+}

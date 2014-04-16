@@ -1,0 +1,81 @@
+class Classroom < ActiveRecord::Base
+  belongs_to :course
+  belongs_to :company
+  belongs_to :teacher
+  belongs_to :calendar
+  has_many :groups
+  has_many :lessons
+
+  has_enumeration_for :day_week, :with => Day, :create_helpers => true, :create_scopes => true
+
+  validates :course_id, :teacher_id, :calendar_id, :capacity, presence: true
+
+  scope :open, -> {where(closed: false )}
+  scope :day_week, lambda { |day_week| where("day_week = ?", day_week) }
+  scope :sorted, -> { order(:time_start) }
+
+  def to_s
+    name
+  end
+
+  def count_students
+    groups.active.count
+  end
+
+  def vacancy
+    capacity - count_students
+  end
+
+
+  def build_lessons
+    unless calendar_id == nil
+      calendar.days.each do |day|
+        if monday_and_wednesday?
+          if day.day.wday == 1
+            lesson = Lesson.new(:calendar_day_id => day.id, :classroom_id => self.id)
+            if lesson.save
+            end
+          end
+          if day.day.wday == 3
+            lesson = Lesson.new(:calendar_day_id => day.id, :classroom_id => self.id)
+            if lesson.save
+            end
+          end
+        end
+        if tuesday_and_thursday?
+          if day.day.wday == 2
+            lesson = Lesson.new(:calendar_day_id => day.id, :classroom_id => self.id)
+            if lesson.save
+            end
+          end
+          if day.day.wday == 4
+            lesson = Lesson.new(:calendar_day_id => day.id, :classroom_id => self.id)
+            if lesson.save
+            end
+          end
+        end
+        if saturday?
+          if day.day.wday == 6
+            lesson = Lesson.new(:calendar_day_id => day.id, :classroom_id => self.id)
+            if lesson.save
+            end
+          end
+        end
+        if wednesday?
+          if day.day.wday == 3
+            lesson = Lesson.new(:calendar_day_id => day.id, :classroom_id => self.id)
+            if lesson.save
+            end
+          end
+        end
+        if monday?
+          if day.day.wday == 1
+            lesson = Lesson.new(:calendar_day_id => day.id, :classroom_id => self.id)
+            if lesson.save
+            end
+          end
+        end
+      end
+    end
+  end
+end

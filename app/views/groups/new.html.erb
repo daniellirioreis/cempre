@@ -1,0 +1,23 @@
+<%= simple_form_for(@group) do |f| %>
+  <div class="row-fluid">
+    <div class="span8">
+      <%= f.input :classroom_id, :as => "hidden"%>
+      <%= hidden_field_tag :classroom_id, @classroom.id %>
+      <%= f.input :classroom_id, :as => "hidden"%>
+      <%= f.input :status, as: :hidden %>
+      <%= f.input :status, as: :hidden %>
+      <%= f.input :student_id, collection: Student.sorted, input_html: { class: 'span10' } %>
+    </div>
+    <div class="span3">
+      <br/>
+      <%= f.button :submit, class: 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>
+  <hr/>
+    <h4 align='center'>Turma: <%= @classroom%></h4>
+  <hr/>
+<%= render 'groups' %>
+<div class="form-actions">
+  <%= link_to 'Voltar', groups_path, class: 'btn' %>
+</div>

@@ -1,0 +1,28 @@
+pt-BR:
+  title:
+    dashboard:
+      index: "Bem vindo ao Cempre"
+    devise:
+      confirmations:
+        new: "Reenviar instrução de registro?"
+        create: "Reenviar instrução de registro?"
+      mailer:
+        confirmation_instructions: "Bem vindo %{email}!"
+        reset_password_instructions: "Olá %{email}!"
+        unlock_instructions: "Olá %{email}!"
+      passwords:
+        new: "Recuperar sua senha?"
+        create: "Recuperar sua senha?"
+        edit: "Altere sua senha"
+        update: "Altere sua senha"
+      registrations:
+        new: "Registrar-se no sistema"
+        create: "Registrar-se no sistema"
+        edit: "Editar conta"
+        create: "Editar conta"
+      sessions:
+        new: "Acesso ao sistema"
+        create: "Acesso ao sistema"
+      unlocks:
+        new: "Reenviar instrução de desbloqueio?"
+        create: "Reenviar instrução de desbloqueio?"

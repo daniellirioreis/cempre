@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+  <head>
+    <title></title>
+    <meta content="portrait" name="pdfkit-orientation" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link REL="SHORTCUT ICON" href="/images/favicon.ico" />
+
+    <%= stylesheet_link_tag 'relatorio_syens', :media => "all" %>
+  </head>
+  <body>
+    <%= render 'layouts/head_report' %>
+    <p class="titulo1">
+      <b>NOME: </b><%= @classroom.name %><br/>
+      <b>CURSO: </b><%= @classroom.course %><br/>
+      <b>PROFESSOR: </b><%= @classroom.teacher %><br/>
+      <b>DIA DA SEMANA: </b><%= @classroom.day_week_humanize %><br/>
+      <b>HORÁRIO: </b><%= @classroom.time_start.try(:strftime, '%H:%M') %> às <%= @classroom.time_end.try(:strftime, '%H:%M') %>
+    </p>
+    <table cellspacing="1" cellpadding="1" border="1" align="" width="940" summary="" border-style= 'solid'>
+        <tbody>
+          <tr>
+            <td class="titulo4" align="center" rowspan="2"><b>Nº</b></td>
+            <td class="titulo1" align="center" rowspan="2"><b>Nome do Aluno</b></td>
+            <td class="titulo4" align="center" colspan="<%=@lessons.count%>"><b>Frequência</b></td>
+          </tr>
+          <tr>
+            <% @lessons.each do |lesson| %>
+              <td align="center"><b><%= lesson.calendar_day%></b></td>
+            <% end %>
+          </tr>
+          <% count = 0 %>
+          <% @classroom.groups.each do |g| %>
+          <tr>
+            <td align="center">
+              <%= count = count + 1 %>
+            </td>
+            <td>
+              <%= g%>
+              <% unless  g.active? %>(<%= g.status_humanize %>)<%end%>
+            </td>
+            <% @lessons.each do |lesson| %>
+              <td align="center">
+                <span style="padding-left:20px">
+                  <% if g.transfer? %>
+                     <% date_transfer = g.updated_at.strftime("%Y%m%d").to_i %>
+                     <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
+                     <% if date_transfer >= date_lesson %>
+                       <%= g.faults.find_by_group_id_and_lesson_id(g.id, lesson.id ).present? ? "F" : " " %>
+                    <% else %>
+                      ---
+                    <% end %>
+                  <% else %>
+                    <% date_active = g.created_at.strftime("%Y%m%d").to_i %>
+                    <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
+                     <% if date_active <= date_lesson %>
+                       <%= g.faults.find_by_group_id_and_lesson_id(g.id, lesson.id ).present? ? "F" : " " %>
+                    <% else %>
+                        -
+                    <% end %>
+                  <% end %>
+                </span>
+              </td>
+            <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br/>
+      <table cellspacing="1" cellpadding="1" border="1" align="" width="940" summary="">
+        <tbody>
+          <tr>
+            <td class="titulo1" align="center"><b>Dia</b></td>
+            <td class="titulo1" align="center"><b>Atividades</b></td>
+          </tr>
+          <% (1..30).each do |a|%>
+          <tr>
+            <td class="titulo1" align="center"><span style="padding-left:20px"></span></td>
+            <td class="titulo1" align="center"><span style="padding-left:20px"></span></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <h2><%= link_to 'Voltar', @classroom %></h2>
+    </table>
+  </body>
+</html>

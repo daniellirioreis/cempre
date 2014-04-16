@@ -1,0 +1,30 @@
+<b>Professor: </b><%= @teacher %><br/>
+<hr/>
+  <%total = 0 %>
+  <% @courses.each do |c| %>
+    <blockquote>
+      <% classrooms = @teacher.classrooms.find_all_by_teacher_id_and_course_id_and_closed(@teacher.id, c.id, false) %>
+      <% if classrooms.any? %>
+        <h4><%= c %></h4>
+        <% sub_total = 0%>
+        <% classrooms.each do |cc |%>
+          <b>Turma:</b> <%= cc %>
+          <% sub_total =  sub_total + cc.groups.active.count %>
+          <b>Quantidade de alunos: </b><%= cc.groups.active.count %>
+          <hr/>
+        <% end %>
+          <% total =  total + sub_total %>
+          <b>SubTotal de Alunos: <%= sub_total %> <b>
+          <hr/>
+      <% end %>
+    </blockquote>
+  <% end %>
+  <b>Total de Alunos: <%= total %></b>
+<hr/>
+<div class="form-actions">
+  <%= link_to 'Editar', edit_teacher_path(@teacher), class: 'btn btn-primary' %>
+  <%= link_to 'Deletar', @teacher, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+  <%= link_to 'Voltar', teachers_path, class: 'btn' %>
+</div>
+
+

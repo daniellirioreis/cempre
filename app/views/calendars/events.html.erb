@@ -1,0 +1,28 @@
+<table class="table table-striped table-hover table-bordered">
+  <colgroup>
+    <col>
+    <col width="160">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Dia</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @events.any? %>
+      <% @events.each do |e| %>
+        <tr>
+          <td><%= e.calendar_day %></td>
+          <td><%= e.type_event %></td>
+          <td><%= e.description %></td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='4'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

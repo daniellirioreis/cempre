@@ -1,0 +1,7 @@
+pt-BR:
+  menu:
+    dashboard: "Dashboard"
+    configuration: "Configuração"
+    parametrization: "Parametrização"
+    permission: "Permissão"
+    my_profile: "Meu perfil"

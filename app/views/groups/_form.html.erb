@@ -1,0 +1,9 @@
+  <%= f.input :status, as: :hidden %>
+  <%= f.input :student_id, as: :hidden %>
+  <%= f.input :classroom_id, as: :hidden %>
+  <p class="lead active">
+    Você deseja realmente Transferir  <%= @group%> da turma <%= @group.classroom%> para
+  </p>
+  <div class="row-fluid">
+    <div class="span2"><%= f.input :new_classroom_id, collection: Classroom.all %></div>
+  </div>

@@ -1,0 +1,49 @@
+<p>
+  <strong>Nome:</strong>
+  <%= @classroom.name %>
+</p>
+
+<p>
+  <strong>Curso:</strong>
+  <%= @classroom.course %>
+</p>
+
+<p>
+  <strong>Escola:</strong>
+  <%= @classroom.company %>
+</p>
+
+<p>
+  <strong>Dia da Semana:</strong>
+  <%= @classroom.day_week_humanize %>
+</p>
+
+<p>
+  <strong>Hora Inicial:</strong>
+  <%= @classroom.time_start.try(:strftime, '%H:%M') %>
+
+</p>
+
+<p>
+  <strong>Hora final:</strong>
+  <%= @classroom.time_end.try(:strftime, '%H:%M') %>
+</p>
+
+<p>
+  <strong>Professor:</strong>
+  <%= @classroom.teacher %>
+</p>
+<hr/>
+  <h3 align='center'>Alunos</h3>
+<hr/>
+<%= render '/groups/groups'%>
+
+
+<div class="form-actions">
+  <%= link_to 'Editar', edit_classroom_path(@classroom), class: 'btn btn-primary' %>
+  <%= link_to 'Gerar Aulas', generate_lessons_classroom_path(@classroom), class: 'btn btn-primary' %>
+  <%= link_to 'Imprimir chamada', print_classroom_path(@classroom), class: 'btn btn-primary' %>
+  <%= link_to 'Deletar', @classroom, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+  <%= link_to 'Voltar', :back, class: 'btn' %>
+</div>
+

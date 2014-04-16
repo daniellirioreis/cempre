@@ -1,0 +1,80 @@
+<blockquote>
+  <table class='table'>
+    <tr>
+      <td>
+        <%= link_to edit_student_path(@student), role: 'button' do %>
+          <h2 class="text-info" title='Editar Aluno'><i class="icon-user"></i></h2>
+        <% end %>
+      </td>
+      <td>
+        <li class="dropdown">
+          <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+            <h2><i class="icon-print"></i></h2>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to declaration_of_studying_student_path(@student), :tabindex => "-1" do %>
+                <i class="icon-print"></i>
+                Declaração de cursando
+              <% end %>
+            </li>
+            <li>
+              <%= link_to declaration_of_studying_student_path(@student), :tabindex => "-1" do %>
+                <i class="icon-print"></i>
+                Declaração de carga horária cursada
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </td>
+      <td>
+        <%= link_to @student, method: :delete, role: 'button' do %>
+          <h2 class="text-error" title='Apagar'><i class=" icon-remove"></i></h2>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</blockquote>
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"> <%= link_to "Geral", "#main", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Endereço", "#address", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Turmas", "#classrooms", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Faltas", "#faults", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Avaliações", "#exams", :"data-toggle" => :tab %></li>
+
+  </ul>
+</div>
+<div class="tab-content">
+  <div class="tab-pane fade active in" id="main">
+    <blockquote>
+      <p>
+        <strong>Nome: </strong><%=@student%><br>
+        <strong>Data Nascimento: </strong><%= l @student.birth_date unless @student.birth_date.nil?  %><br>
+        <strong>Idade: </strong><%= @student.age %><br>
+        <strong>email: </strong> <%= @student.email%><br>
+        <strong>Telefones: </strong> <%= @student.phone%><br>
+        <strong>Observações: </strong> <%= @student.obs%>
+      </p>
+    </blockquote>
+  </div>
+  <div class="tab-pane" id="address">
+    <blockquote>
+      <address>
+        <p>
+          <%= @student.street %>, <%= @student.house_number %> <%= @student.neighborhood %><br/>
+          <%= @student.zip_code%> - <%= @student.city %><br/>
+        </p>
+      </address>
+    </blockquote>
+  </div>
+  <div class="tab-pane" id="classrooms">
+    <%= render 'groups'%>
+  </div>
+  <div class="tab-pane" id="faults">
+    <%= render 'faults'%>
+  </div>
+  <div class="tab-pane" id="exams">
+    <%= render 'exams'%>
+  </div>
+</div>

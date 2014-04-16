@@ -1,0 +1,19 @@
+<%= Menu.create self, 1, :class => "nav nav-list bs-docs-sidenav nav-collapse collapse" do |menu| %>
+  <%= menu.item :id => :dashboard, :icon => :dashboard, :path => root_path%>
+  <% unless current_user.profile == 'student'%>
+    <%= menu.item :id => 'Escolas', :icon => :home, :path => companies_path %>
+    <%= menu.item :id => 'Cursos', :icon => :tasks, :path => courses_path %>
+    <%= menu.item :id => 'Profesores', :icon => :user, :path => teachers_path %>
+    <%= menu.item :id => 'Períodos', :icon => :calendar, :path => calendars_path %>
+    <%= menu.item :id => 'Turmas', :icon => :home, :path => classrooms_path %>
+    <%= menu.item :id => 'Quadro_de_horários', :icon => :time, :path => schedules_classrooms_path %>
+    <%= menu.item :id => 'Alunos', :icon => :user, :path => students_path %>
+    <%= menu.item :id => 'Agrupar_Alunos', :icon => :tasks, :path => groups_path %>
+    <%= menu.item :id => :notes, :icon => :comment, :path => new_note_path %>
+  <% else %>
+    <%= menu.item :id => "Minhas_Informações", :icon => :star, :path => my_data_student_path(current_user.student) %>
+    <%= menu.item :id => "Avaliações", :icon => :tasks, :path => my_exams_student_path(current_user.student) %>
+    <%= menu.item :id => "Boletins", :icon => :heart, :path => my_data_student_path(current_user.student) %>
+    <%= menu.item :id => "Calendário", :icon => :calendar, :path => events_calendar_path(current_calendar) %>
+  <% end %>
+<% end -%>

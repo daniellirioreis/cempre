@@ -1,0 +1,37 @@
+<%@student = @event.student%>
+<blockquote>
+  <% if @event.closed %>
+    <h3 class='text-success'>Monitoria Realizada</h3>
+  <% else  %>
+    <h3>Monitoria</h3>
+  <% end %>
+  <hr>
+  <p>
+    <strong>Nome: </strong><%=@event.student%><br>
+    <strong>Data Nascimento: </strong><%= l @event.student.birth_date unless @event.student.birth_date.nil?  %><br>
+    <strong>Idade: </strong><%= @event.student.age %><br>
+    <strong>email: </strong> <%= @event.student.email%><br>
+    <strong>Telefones: </strong> <%= @event.student.phone%><br>
+    <strong>Observações: </strong> <%= @event.student.obs%>
+  </p>
+  <br/>
+  <%= render 'students/groups'%>
+</blockquote>
+<blockquote>
+  <p>
+    <strong>Monitor(a): </strong><%=@event.teacher%><br>
+  </p>
+</blockquote>
+
+<% unless current_user.profile == 'student'%>
+  <div class="form-actions">
+    <%= link_to 'Editar', edit_event_path(@event), class: 'btn btn-primary' unless @event.closed %>
+    <% if @event.closed %>
+      <%= link_to "Revisar Monitoria", finalize_event_path(@event), class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to "Fechar Monitoria", finalize_event_path(@event), class: 'btn btn-success' %>
+    <% end %>
+    <%= link_to 'Deletar', @event, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger"  unless @event.closed%>
+    <%= link_to 'Voltar', :back, class: 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,42 @@
+<p>
+  <b>Turma:</b> <%= @group.classroom %>
+</p>
+<p>
+  <b>Aluno:</b> <%= @group %>
+</p>
+<table class="table table-striped table-hover table-bordered">
+  <colgroup>
+    <col>
+    <col width="160">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Aula</th>
+      <th>Justificativa</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @faults.any? %>
+      <% @faults.each do |f| %>
+        <tr>
+          <td><%= f %></td>
+          <td><%= f.justification_humanize %></td>
+          <td align='center'>
+            <div class="btn-group">
+              <%= link_to "Editar", edit_fault_path(f), :class => "btn btn-primary" %>
+              <%= link_to 'Deletar', f, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='3'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="form-actions">
+  <%= link_to 'Voltar', @group.classroom, class: 'btn' %>
+</div>

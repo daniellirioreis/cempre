@@ -1,0 +1,66 @@
+  <%= form_tag @calendar, :method => 'get' do  %>
+    <form class="form-search">
+      <div class="input-append">
+        <%= text_field_tag "day" , "", class: 'span12 search-query date' %>
+        <%= submit_tag  "Pesquisar", :class => :btn%>
+      </div>
+    </form>
+  <% end %>
+
+  <% if @calendar_days.any?%>
+    <%@calendar_days.each do |cd|%>
+      <table class="table table-striped table-bordered table-hover" >
+        <tr>
+          <td>
+            <h1><small><%= cd.weekday%></small></h1>
+          </td>
+          <td>
+            <h1><small><%= cd.month_string%>/<%= cd.day.year%></small><h1>
+          </td>
+          <td>
+            <h1><%= cd.day.day%></h1>
+            <%= link_to "Criar Eventos", new_event_path(calendar_day_id: cd.id), :class => 'btn btn-success'%>
+          </td>
+        </tr>
+        <% if cd.events.any? %>
+          <% cd.events.sorted_time_start.each do |e|%>
+            <tr class= "
+            <% if e.day_trial? %>error<% end %>
+            <% if e.important? %>error<% end %>
+            <% if e.monitoring? %>info<% end %>
+            <% if e.recess? %>warning<% end %>
+            <% if e.party? %>success<% end %>
+
+            ">
+              <td colspan='2'><b><%= e.time_start.try(:strftime, '%H:%M')%> às <%= e.time_end.try(:strftime, '%H:%M')%></b> - <%= e %>(<%= e.type_event_humanize %>)
+              </td>
+              <td colspan=>
+                <div class="btn-group">
+                  <%= link_to "Editar evento", edit_event_path(e), class: "btn btn-primary" %>
+                  <%= link_to "Deletar", edit_event_path(e), class: "btn btn-danger" %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan='3'>Nenhum foi encontrado.</td>
+          </tr>
+        <% end %>
+      <table>
+    <% end %>
+  <%else%>
+    <div class="alert alert-block">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4>Data não foi encontra!</h4>
+        Data não foi encontrar ou data é inválida.
+    </div>
+  <%end%>
+ <div class="form-actions">
+    <%=link_to 'Voltar', calendars_path , class: 'btn'%>
+    <% if @calendar.closed %>
+      <%= link_to 'Turmas', classrooms_calendar_path, :class => "btn" %>
+      <%= link_to 'Resultados', results_calendar_path(@calendar), :class => "btn" %>
+      <%= link_to 'Provas', new_calendar_path, :class => "btn" %>
+   <% end %>
+  <div>

@@ -1,0 +1,35 @@
+pt-BR:
+  messages:
+    environment: "Voce está no ambiente %{environment}!"
+  helpers:
+    confirmation:
+      sure: "Tem certeza?"
+  hints: &hints
+    # user:
+      # password: "sua senha é intransferível, para sua segurança não a compartilhe com ninguem!"
+    devise:
+      registrations:
+        edit:
+          current_password: "precisamos de sua senha atual para confirmar as alterações"
+          password: "deixe em branco se você não quiser mudá-la"
+  context:
+    # dashboard:
+      # index: "Seja bem vindo ao sistema Skeleton!"
+    devise:
+      mailer:
+        confirmation_instructions: "Você pode confirmar a sua conta de e-mail através do link abaixo:"
+        reset_password_instructions:
+          ignore: "Se você não solicitou isso, por favor, ignore este e-mail."
+          request: "Alguém solicitou um link para alterar sua senha. Você pode fazer isso através do link abaixo."
+          warnning: "Sua senha não será alterada até que você acesse o link acima e crie uma nova."
+        unlock_instructions:
+          confirmation: "Clique no link abaixo para desbloquear sua conta:"
+          information: "Sua conta foi bloqueada devido a um número excessivo de tentativas de acesso malsucedidas."
+      registrations:
+        edit:
+          unconfirmed_mail: "Aguardando confirmação para: %{email}"
+  simple_form:
+    hints:
+      <<: *hints
+    error_notification:
+      default_message: "Por favor, verifique os problemas abaixo:"
