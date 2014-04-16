@@ -1,6 +1,7 @@
-<p class="corpo">
-  <h1 align='center'>Declaração</h1>
-  <p><font size=3> Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso de <b><%= @group.classroom.course.type_course_humanize %></b> por nós ministrado e encontra-se regulamente matriculada, tenho aulas <b><%= @group.classroom.day_week_humanize %></b>, no horário de <b><%= @group.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= @group.classroom.time_end.try(:strftime, '%H:%M') %></b></font></p>
+<p>
+  <h3 align='center'>Declaração</h3>
+<p class="lead">
+Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso de <b><%= @group.classroom.course.type_course_humanize %></b> por nós ministrado e encontra-se regulamente matriculada, tenho aulas <b><%= @group.classroom.day_week_humanize %></b>, no horário de <b><%= @group.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= @group.classroom.time_end.try(:strftime, '%H:%M') %></b></p>
   <br/>
   <br/>
   <br/>

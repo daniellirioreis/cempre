@@ -55,7 +55,15 @@ class ApplicationController < ActionController::Base
   # helper_method :policy
 
   def define_layout
-    user_signed_in? ? nil : "login"
+    if user_signed_in?
+      if params['action'] == 'declaration_of_studying'
+        'print'
+      else
+        nil
+      end
+    else
+      "login"
+    end
   end
 
   def configure_permitted_parameters

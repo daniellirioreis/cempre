@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cempre<%= "- #{title}" unless title.blank? %></title>
-    <%= stylesheet_link_tag "report", :media => "all" %>
+    <title>oi</title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
     <%= csrf_meta_tags %>
-    <%= render 'layouts/head_report' %>
   </head>
-  <body>
-    <%= yield %>
+    <body style="position: relative; top: 1px;">
+    <div class="page-header">
+      <%= render 'layouts/head_report' %>
+    <div>
+    <div class="container">
+        <%= yield %>
+    </div>
+    <p>
+    </div>
+    </div>
+    <div id="footer">
   </body>
 </html>
