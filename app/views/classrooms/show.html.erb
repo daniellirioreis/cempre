@@ -42,7 +42,7 @@
 <div class="form-actions">
   <%= link_to 'Editar', edit_classroom_path(@classroom), class: 'btn btn-primary' %>
   <%= link_to 'Gerar Aulas', generate_lessons_classroom_path(@classroom), class: 'btn btn-primary' %>
-  <%= link_to 'Imprimir chamada', print_classroom_path(@classroom), class: 'btn btn-primary' %>
+  <%= link_to 'Imprimir chamada', for_month_print_daily_classroom_path(@classroom), class: 'btn btn-primary' %>
   <%= link_to 'Deletar', @classroom, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
   <%= link_to 'Voltar', :back, class: 'btn' %>
 </div>

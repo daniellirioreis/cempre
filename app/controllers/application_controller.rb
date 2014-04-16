@@ -59,7 +59,11 @@ class ApplicationController < ActionController::Base
       if params['action'] == 'declaration_of_studying'
         'print'
       else
-        nil
+        if params['action'] == 'daily'
+          'print'
+        else
+          nil
+        end
       end
     else
       "login"

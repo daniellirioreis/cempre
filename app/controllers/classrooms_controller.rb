@@ -1,8 +1,12 @@
 class ClassroomsController < ApplicationController
-  before_action :set_classroom, only: [:show, :edit, :update, :destroy, :print, :generate_lessons]
+  before_action :set_classroom, only: [:show, :edit, :update, :destroy, :daily, :generate_lessons, :for_month_print_daily]
 
   def index
     @classrooms = current_company.classrooms.open
+  end
+
+  def for_month_print_daily
+    @lessons = @classroom.lessons
   end
 
   def schedules
@@ -32,9 +36,8 @@ class ClassroomsController < ApplicationController
     @classroom = Classroom.new
   end
 
-  def print
-    @lessons = @classroom.lessons
-    render layout: false
+  def daily
+    @lessons = @classroom.lessons.by_month(params[:month])
   end
 
   def generate_lessons

@@ -25,9 +25,8 @@
   margin: 0 10px 0 0;
   padding: 0;
   border: solid 1px #ccc;
-  overflow-y: auto;
-  height: 100px;
-  width: 800px;
+  height: 1000px;
+  width: 1000px;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;

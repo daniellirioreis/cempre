@@ -8,6 +8,8 @@ pt-BR:
       update: 'Editar Turma'
       show: 'Informações'
       schedules: 'Quadro Horários'
+      daily: "Diário"
+      for_month_print_daily: 'Imprimir Diário'
   activerecord:
     models:
       classroom:

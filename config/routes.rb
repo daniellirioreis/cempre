@@ -23,9 +23,11 @@ Donald::Application.routes.draw do
   resources :groups
 
   resources :classrooms do
-    get :print, on: :member
+    get :daily, on: :member
     get :generate_lessons, on: :member
     get :schedules, on: :collection
+    get :for_month_print_daily, on: :member
+
   end
 
   resources :teachers

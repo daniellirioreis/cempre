@@ -17,6 +17,14 @@ class Calendar < ActiveRecord::Base
     Event.calendar_id(id)
   end
 
+  def months
+     ms = []
+     (date_start.month.to_i..date_end.month).each do  |m|
+       ms << m
+     end
+     ms
+  end
+
   protected
 
   def build_days

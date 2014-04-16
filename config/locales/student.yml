@@ -9,6 +9,7 @@ pt-BR:
       show: 'Ficha do aluno'
       my_data: 'Minhas Informações'
       my_exams: 'Minhas Avaliações'
+      declaration_of_studying: 'Declaração de Cursando'
   activerecord:
     models:
       student:

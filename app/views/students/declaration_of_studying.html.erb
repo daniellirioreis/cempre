@@ -1,7 +1,7 @@
 <p>
   <h3 align='center'>Declaração</h3>
 <p class="lead">
-Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso de <b><%= @group.classroom.course.type_course_humanize %></b> por nós ministrado e encontra-se regulamente matriculada, tenho aulas <b><%= @group.classroom.day_week_humanize %></b>, no horário de <b><%= @group.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= @group.classroom.time_end.try(:strftime, '%H:%M') %></b></p>
+Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso de <b><%= @group.classroom.course.type_course_humanize %></b> <br/>por nós ministrado e encontra-se regulamente matriculado(a), tendo aulas <b><%= @group.classroom.day_week_humanize %></b>, no horário de <b><%= @group.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= @group.classroom.time_end.try(:strftime, '%H:%M') %></b></p>
   <br/>
   <br/>
   <br/>
@@ -15,13 +15,14 @@ Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso d
   <br/>
   <br/>
   <br/>
-  <p align='right'>
-    <font size=3> <b><%= current_company%></b><br/>
-    PARCEIRO CREDENDICIADO - CCAA <br/>
-    <%= current_company.phone%> <br/>
-    <%= current_company.email%></font>
-  </p>
-  <br/>
-  <br/>
-  <hr/>
 </p>
+<p class="text-center">
+  <font size=3> <b><%= current_company%></b><br/>
+  PARCEIRO CREDENDICIADO - CCAA <br/>
+  <%= current_company.phone%> <br/>
+  <%= current_company.email%></font>
+</p>
+<br/>
+<br/>
+
+

@@ -1,0 +1,12 @@
+<%= form_tag daily_classroom_path(@classroom), :method => 'get' do  %>
+<div class="row-fluid">
+  <div class="span3">
+  <%= label_tag :month, 'Mês' %>
+  <%= select_tag :month, options_for_select(@classroom.calendar.months, :selected => Date.today.month), :class => 'span12'%><br/></div>
+</div>
+<div class="form-actions">
+  <%= submit_tag  "Imprimir", :class => "btn btn-success"%>
+  <%= link_to 'Voltar', @classroom, :class => "btn" %>
+</div>
+</div>
+<% end %>
