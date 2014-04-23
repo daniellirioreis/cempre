@@ -11,7 +11,7 @@ class Classroom < ActiveRecord::Base
   validates :course_id, :teacher_id, :calendar_id, :capacity, presence: true
 
   scope :open, -> {where(closed: false )}
-  scope :day_week, lambda { |day_week| where("day_week = ?", day_week) }
+  scope :day_week, lambda { |day_week, day_week1| where("day_week = ? OR day_week = ?", day_week, day_week1) }
   scope :sorted, -> { order(:time_start) }
 
   def to_s

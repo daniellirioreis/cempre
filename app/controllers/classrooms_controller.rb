@@ -19,18 +19,24 @@ class ClassroomsController < ApplicationController
       when 1
         #segunda
         wday =  Day::MONDAY_AND_WEDNESDAY
+        wday1 =  Day::MONDAY
       when 2
         wday =  Day::TUESDAY_AND_THURSDAY
+        wday1 =  Day::TUESDAY_AND_THURSDAY
       when 3
         wday =  Day::MONDAY_AND_WEDNESDAY
+        wday1 =  Day::WEDNESDAY
       when 4
         wday =  Day::TUESDAY_AND_THURSDAY
+        wday1 =  Day::TUESDAY_AND_THURSDAY
       when 5
       when 6
         wday =  Day::SATURDAY
+        wday1 =  Day::SATURDAY
+
     end
 
-    @classrooms = current_company.classrooms.day_week(wday).open
+    @classrooms = current_company.classrooms.day_week(wday, wday1).open
   end
 
   def new
