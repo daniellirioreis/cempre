@@ -15,3 +15,13 @@ pt-BR:
     attributes:
       teacher:
         name: "Nome"
+        street: 'Logradouro'
+        house_number: 'Número'
+        complement: 'Complemento'
+        zip_code: 'CEP'
+        neighborhood: 'Bairro'
+        district: 'Distrito'
+        city: 'Cidade'
+        federal_unit: 'UF'
+        phone: 'Fone'
+        birth_date: 'Data Nascimento'

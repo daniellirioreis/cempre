@@ -15,6 +15,7 @@ class TeachersController < ApplicationController
 
   def show
     @courses =  current_company.courses
+    @classrooms =  @teacher.classrooms.open
   end
 
   def create
@@ -40,6 +41,7 @@ class TeachersController < ApplicationController
     end
 
     def teacher_params
-      params.require(:teacher).permit(:name)
+      params.require(:teacher).permit(:name,:street, :house_number, :complement, :zip_code, :neighborhood,
+                                      :district, :city, :federal_unit, :email, :birth_date, :phone)
     end
 end

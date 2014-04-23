@@ -1,26 +1,70 @@
-<b>Professor: </b><%= @teacher %><br/>
-<hr/>
-  <%total = 0 %>
-  <% @courses.each do |c| %>
+<blockquote>
+  <p>
+    <b>Professor: </b><%= @teacher %><br><br>
+  </p>
+</blockquote>
+
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"> <%= link_to "Dados", "#general", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Endereço", "#address", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Turmas", "#classrooms", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Quantidade de alunos por nível", "#quant_students_for_level", :"data-toggle" => :tab %></li>
+  </ul>
+</div>
+<div class="tab-content">
+  <div class="tab-pane fade active in" id="general">
     <blockquote>
-      <% classrooms = @teacher.classrooms.find_all_by_teacher_id_and_course_id_and_closed(@teacher.id, c.id, false) %>
-      <% if classrooms.any? %>
-        <h4><%= c %></h4>
-        <% sub_total = 0%>
-        <% classrooms.each do |cc |%>
-          <b>Turma:</b> <%= cc %>
-          <% sub_total =  sub_total + cc.groups.active.count %>
-          <b>Quantidade de alunos: </b><%= cc.groups.active.count %>
-          <hr/>
-        <% end %>
-          <% total =  total + sub_total %>
-          <b>SubTotal de Alunos: <%= sub_total %> <b>
-          <hr/>
-      <% end %>
+      <p>
+        <strong>Nome: </strong><%=@teacher%><br>
+        <strong>Data Nascimento: </strong><%= l @teacher.birth_date unless @teacher.birth_date.nil?  %><br>
+        <strong>Idade: </strong><%= @teacher.age %><br>
+        <strong>email: </strong> <%= @teacher.email%><br>
+        <strong>Telefones: </strong> <%= @teacher.phone%><br>
+      </p>
     </blockquote>
-  <% end %>
-  <b>Total de Alunos: <%= total %></b>
-<hr/>
+  </div>
+
+  <div class="tab-pane" id="address">
+    <blockquote>
+      <address>
+        <p>
+          <%= @teacher.street %>, <%= @teacher.house_number %> <%= @teacher.neighborhood %><br/>
+          <%= @teacher.zip_code%> - <%= @teacher.city %><br/>
+        </p>
+      </address>
+    </blockquote>
+  </div>
+
+  <div class="tab-pane" id="classrooms">
+    <%= render "classrooms", :classrooms => @classrooms %>
+  </div>
+
+  <div class="tab-pane" id="quant_students_for_level">
+    <hr/>
+      <%total = 0 %>
+      <% @courses.each do |c| %>
+        <blockquote>
+          <% classrooms = @teacher.classrooms.find_all_by_teacher_id_and_course_id_and_closed(@teacher.id, c.id, false) %>
+          <% if classrooms.any? %>
+            <h4><%= c %></h4>
+            <% sub_total = 0%>
+            <% classrooms.each do |cc |%>
+              <b>Turma:</b> <%= cc %>
+              <% sub_total =  sub_total + cc.groups.active.count %>
+              <b>Quantidade de alunos: </b><%= cc.groups.active.count %>
+              <hr/>
+            <% end %>
+              <% total =  total + sub_total %>
+              <b>SubTotal de Alunos: <%= sub_total %> <b>
+              <hr/>
+          <% end %>
+        </blockquote>
+      <% end %>
+      <b>Total de Alunos: <%= total %></b>
+    <hr/>
+  </div>
+</div>
 <div class="form-actions">
   <%= link_to 'Editar', edit_teacher_path(@teacher), class: 'btn btn-primary' %>
   <%= link_to 'Deletar', @teacher, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
