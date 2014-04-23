@@ -11,7 +11,8 @@ class ClassroomsController < ApplicationController
 
   def schedules
     @head = Date.today
-    @time_now = Time.now  - 3.time
+    @time_now = Time.now - 3.hours
+    # @time_now = Time.now
 
     case Date.today.wday
       when 0
