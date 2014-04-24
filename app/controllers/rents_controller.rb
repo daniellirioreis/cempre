@@ -34,7 +34,7 @@ class RentsController < ApplicationController
     end
 
     def rent_params
-      params.require(:rent).permit(:book_id, :student_id)
+      params.require(:rent).permit(:book_id, :student_id, :returned)
     end
 
 end
