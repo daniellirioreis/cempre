@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_company
 
   def current_calendar
-    Calendar.open.first
+    current_company.calendars.open.first
   end
 
   helper_method :current_calendar

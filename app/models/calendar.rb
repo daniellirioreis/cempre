@@ -17,6 +17,11 @@ class Calendar < ActiveRecord::Base
     Event.calendar_id(id)
   end
 
+
+  def groups
+    Group.calendar_id(id).active.second_change_exam
+  end
+
   def months
      ms = []
      (date_start.month.to_i..date_end.month).each do  |m|

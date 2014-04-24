@@ -5,11 +5,31 @@
   <% if m.secretary?%>post_green<%end%>
   <% if m.administrator?%>post_green<%end%>
   ">
-    <%= link_to m, role: 'button' do %>
-      <%= truncate(m.to_s, length: 100)%>
-    <% end %>
+  <a href="#<%=m.id%>myModal" role="link" class="link" data-toggle="modal"><%= truncate(m.to_s, length: 100)%></a>
+  </div>
+  <!-- Button to trigger modal -->
+
+  <!-- Modal -->
+  <div id="<%=m.id%>myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Mensagem</h3>
+    </div>
+    <div class="modal-body">
+      <p>
+         <%= m %><br><br>
+         <b>Ass:</b> <%= m.user %>
+      </p>
+    </div>
+    <div class="modal-footer">
+      <% unless current_user.profile == 'student'%>
+          <%= link_to 'Editar', edit_note_path(m), class: 'btn btn-primary' %>
+          <%= link_to 'Deletar', m, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+      <% end %>
+    </div>
   </div>
 <% end %>
+
 
 <% @events.each do |e| %>
   <div class="post_purple">

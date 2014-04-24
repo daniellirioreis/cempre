@@ -1,8 +1,20 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :second_change_exam]
   before_action :set_classroom, only:[:new, :create]
+
   def index
     @classrooms = current_company.classrooms.open
+  end
+
+  def second_change_exam
+    if @group.second_change_exam
+      @group.update_attribute(:second_change_exam, false)
+      flash[:notice] = '2ª chamada desmarcada com sucesso'
+    else
+      flash[:info] = '2ª chamada marcada com sucesso'
+      @group.update_attribute(:second_change_exam, true)
+    end
+    redirect_to  @group.classroom
   end
 
   def show
@@ -33,6 +45,16 @@ class GroupsController < ApplicationController
 
     respond_with @group, :location => new_group_path(:classroom_id => @group.classroom_id)
   end
+
+  def destroy
+    @group = Group.find(params[:id])
+
+    @group.destroy
+
+    respond_with @group, :location => new_group_path(:classroom_id => @group.classroom_id)
+
+  end
+
 
   private
     def set_group

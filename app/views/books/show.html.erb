@@ -1,0 +1,20 @@
+<h3><%= @book.title %></h3>
+
+<% unless @book.returned %>
+  <h4 class='text-error'>Livro emprestado</h4>
+<% end %>
+
+<p><%= @book.code %> - <%= @book.level_humanize %></p>
+<hr>
+<b>Descrição</b><br>
+<%= @book.description %>
+<div class="form-actions">
+  <% if @book.returned %>
+    <%= link_to 'Emprestar', new_rent_path(book_id: @book.id), class: 'btn btn-success' %>
+  <%end %>
+
+  <%= link_to 'Editar', edit_book_path(@book), class: 'btn btn-primary' %>
+  <%= link_to 'Listagem de Emprestimos', rents_path(book_id: @book.id), class: 'btn' %>
+  <%= link_to 'Voltar', :back, class: 'btn' %>
+
+</div>

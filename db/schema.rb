@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423210818) do
+ActiveRecord::Schema.define(version: 20140424200329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: true do |t|
+    t.integer  "company_id"
+    t.string   "title"
+    t.string   "code"
+    t.text     "description"
+    t.integer  "level"
+    t.integer  "language"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "books", ["company_id"], name: "index_books_on_company_id", using: :btree
 
   create_table "calendar_days", force: true do |t|
     t.integer  "calendar_id"
@@ -129,6 +142,7 @@ ActiveRecord::Schema.define(version: 20140423210818) do
     t.datetime "updated_at"
     t.integer  "new_classroom_id"
     t.text     "justification"
+    t.boolean  "second_change_exam", default: false
   end
 
   add_index "groups", ["classroom_id"], name: "index_groups_on_classroom_id", using: :btree
@@ -155,6 +169,17 @@ ActiveRecord::Schema.define(version: 20140423210818) do
 
   add_index "notes", ["company_id"], name: "index_notes_on_company_id", using: :btree
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
+
+  create_table "rents", force: true do |t|
+    t.integer  "book_id"
+    t.boolean  "returned",   default: false
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rents", ["book_id"], name: "index_rents_on_book_id", using: :btree
+  add_index "rents", ["student_id"], name: "index_rents_on_student_id", using: :btree
 
   create_table "students", force: true do |t|
     t.integer  "company_id"
@@ -228,6 +253,8 @@ ActiveRecord::Schema.define(version: 20140423210818) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "books", "companies", name: "books_company_id_fk"
+
   add_foreign_key "calendar_days", "calendars", name: "calendar_days_calendar_id_fk"
 
   add_foreign_key "calendars", "companies", name: "calendars_company_id_fk"
@@ -257,6 +284,9 @@ ActiveRecord::Schema.define(version: 20140423210818) do
 
   add_foreign_key "notes", "companies", name: "notes_company_id_fk"
   add_foreign_key "notes", "users", name: "notes_user_id_fk"
+
+  add_foreign_key "rents", "books", name: "rents_book_id_fk"
+  add_foreign_key "rents", "students", name: "rents_student_id_fk"
 
   add_foreign_key "students", "companies", name: "students_company_id_fk"
 

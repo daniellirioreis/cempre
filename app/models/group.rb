@@ -1,14 +1,16 @@
 class Group < ActiveRecord::Base
   belongs_to :student
   belongs_to :classroom
-  has_many :faults
-  has_many :exams
+  has_many :faults, :dependent => :restrict_with_error
+  has_many :exams, :dependent => :restrict_with_error
   has_enumeration_for :status, :with => StatusGroup, :create_helpers => true, :create_scopes => true
 
   validates :student_id, :status, presence: true
   validate :validate_group
 
   scope :active, -> {where("status = ?", StatusGroup::ACTIVE)}
+  scope :second_change_exam, -> {where("second_change_exam = ?", true)}
+
   scope :approved, -> {where("status = ?", StatusGroup::APPROVED)}
   scope :failed, -> {where("status = ?", StatusGroup::FAILED)}
   scope :no_transfer, -> {where("status != ?", StatusGroup::TRANSFER)}

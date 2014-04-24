@@ -28,12 +28,17 @@
         </li>
       </td>
       <td>
-        <%= link_to @student, method: :delete, confirm: "Confirma exclusão", role: 'button' do %>
+        <%= link_to @student, method: :delete, data: { confirm: 'Confirma exclusão?' }, role: 'button' do %>
           <h2 class="text-error" title='Apagar'><i class=" icon-remove"></i></h2>
         <% end %>
       </td>
     </tr>
   </table>
+</blockquote>
+<blockquote>
+  <p>
+    <%=@student%>
+  </p>
 </blockquote>
 <div class="tabbable">
   <ul class="nav nav-tabs">
@@ -42,6 +47,7 @@
     <li> <%= link_to "Turmas", "#classrooms", :"data-toggle" => :tab %></li>
     <li> <%= link_to "Faltas", "#faults", :"data-toggle" => :tab %></li>
     <li> <%= link_to "Avaliações", "#exams", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Livros emprestados", "#borrowed_books", :"data-toggle" => :tab %></li>
 
   </ul>
 </div>
@@ -77,4 +83,9 @@
   <div class="tab-pane" id="exams">
     <%= render 'exams'%>
   </div>
+
+  <div class="tab-pane" id="borrowed_books">
+    <%= render 'borrowed_books'%>
+  </div>
+
 </div>

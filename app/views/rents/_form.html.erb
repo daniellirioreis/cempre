@@ -1,0 +1,22 @@
+<%= simple_form_for(@rent) do |f| %>
+  <%= hidden_field_tag :book_id, params[:book_id] %>
+  <%= f.input :book_id, :as => "hidden"%>
+  <%= f.input :returned, :as => "hidden"%>
+
+  <blockquote>
+    <h3><%= @rent.title %></h3>
+    <p><%= @rent.code %> - <%= @rent.level_humanize %></p>
+    <hr>
+    <b>Descrição</b><br>
+    <%= @rent.description %>
+  </blockquote>
+  <div class="row-fluid">
+    <div class="span8">
+      <%= f.input :student_id, collection: Student.sorted, input_html: { class: 'span10' } %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-success" %>
+    <%= link_to 'Voltar', :back, :class => "btn"  %>
+  </div>
+<% end %>

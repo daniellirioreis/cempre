@@ -12,6 +12,7 @@
 //= require cocoon
 //= require tributario
 //= require classrooms
+//= requere bootstrap-admin
 //= require_self
 
 $(function(){

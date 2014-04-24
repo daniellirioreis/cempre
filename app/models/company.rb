@@ -5,6 +5,7 @@ class Company < ActiveRecord::Base
   has_many :classrooms
   has_many :calendars
   has_many :notes
+  has_many :books
   # validates :name, :street, :neighborhood, :city, :federal_unit, :house_number, presence: true
   # validates :name, :email, uniqueness: true
   #

@@ -1,5 +1,11 @@
 Donald::Application.routes.draw do
 
+  resources :rents do
+    get :returned, on: :member
+  end
+
+  resources :books
+
   resources :events do
     get :finalize, on: :member
   end
@@ -20,7 +26,9 @@ Donald::Application.routes.draw do
 
   end
 
-  resources :groups
+  resources :groups do
+      get :second_change_exam, on: :member
+  end
 
   resources :classrooms do
     get :daily, on: :member

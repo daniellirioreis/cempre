@@ -5,6 +5,14 @@ class ClassroomsController < ApplicationController
     @classrooms = current_company.classrooms.open
   end
 
+  def show
+    respond_to do |format|
+         format.html # index.html.erb
+         format.json { render json: @classroom }
+         format.js #index.js.erb
+       end
+  end
+
   def for_month_print_daily
     @lessons = @classroom.lessons
   end

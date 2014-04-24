@@ -3,6 +3,10 @@ class StudentsController < ApplicationController
 
   def index
     @students = current_company.students.sorted
+
+    if current_calendar.present?
+      @groups_second_change_exam = current_calendar.groups
+    end
   end
 
   def declaration_of_studying
