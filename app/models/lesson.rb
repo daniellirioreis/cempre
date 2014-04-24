@@ -10,6 +10,6 @@ class Lesson < ActiveRecord::Base
 
   scope :classroom_id, lambda { |id| where("classroom_id = ?", id) }
 
-  scope :by_month, lambda { |month| where(" EXTRACT(MONTH FROM calendar_days.day) = #{month}").joins(:calendar_day) }
+  scope :by_month, lambda { |month| where("EXTRACT(MONTH FROM calendar_days.day) = #{month}").joins(:calendar_day) }
 
 end
