@@ -28,7 +28,7 @@
         </li>
       </td>
       <td>
-        <%= link_to @student, method: :delete, role: 'button' do %>
+        <%= link_to @student, method: :delete, confirm: "Confirma exclusão", role: 'button' do %>
           <h2 class="text-error" title='Apagar'><i class=" icon-remove"></i></h2>
         <% end %>
       </td>

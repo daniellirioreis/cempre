@@ -15,7 +15,7 @@
   </div>
 <% end %>
   <hr/>
-    <h4 align='center'>Turma: <%= @classroom%></h4>
+    <h4 align='center'>Turma: <%= link_to "#{@classroom}", @classroom%></h4>
   <hr/>
 <%= render 'groups' %>
 <div class="form-actions">

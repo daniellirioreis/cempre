@@ -11,8 +11,8 @@
 //= require theme
 //= require cocoon
 //= require tributario
+//= require classrooms
 //= require_self
-
 
 $(function(){
   $("#txtBusca").keyup(function(){

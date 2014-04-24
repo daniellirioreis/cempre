@@ -1,49 +1,93 @@
-<p>
-  <strong>Nome:</strong>
-  <%= @classroom.name %>
-</p>
+<blockquote>
+  <table class='table'>
+    <tr>
+      <td>
+        <%= link_to edit_classroom_path(@classroom), role: 'button' do %>
+          <h2 class="text-info" title='Editar Turma'><i class="icon-home"></i></h2>
+        <% end %>
+      </td>
+       <td>
+         <%= link_to generate_lessons_classroom_path(@classroom), role: 'button' do %>
+           <h2 class="text-info" title='Gerar Aulas'><i class="icon-file"></i></h2>
+         <% end %>
+       </td>
+       <td>
+         <%= link_to daily_classroom_path(@classroom), role: 'button' do %>
+           <h2 class="text-info" title='Imprimir Diário'><i class="icon-print"></i></h2>
+         <% end %>
+       </td>
+       <td>
+          <%= link_to new_group_path(:classroom_id => @classroom.id), role: 'button' do %>
+            <h2 class="text-success" title='Agrupar Alunos'><i class="icon-random"></i></h2>
+          <% end %>
+       </td>
+       <td>
+         <%= link_to @classroom, method: :delete, confirm: "Confirma exclusão", role: 'button' do %>
+           <h2 class="text-error" title='Apagar'><i class="icon-remove"></i></h2>
+         <% end %>
+       </td>
+    </tr>
+  </table>
+  <a id='open' href="#">Detalhes</a>
+  <div id='information'>
+    <a id='close' href="#">Fechar</a>
+    <blockquote>
+    <table class='table'>
+      <tr>
+        <td>
+          <p>
+            <strong>Nome:</strong>
+            <%= @classroom.name %>
+          </p>
+        <td>
+          <p>
+            <strong>Curso:</strong>
+            <%= @classroom.course %>
+          </p>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            <strong>Escola:</strong>
+            <%= @classroom.company %>
+          </p>
+        </td>
+        <td>
+          <p>
+            <strong>Dia da Semana:</strong>
+            <%= @classroom.day_week_humanize %>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            <strong>Hora Inicial:</strong>
+            <%= @classroom.time_start.try(:strftime, '%H:%M') %>
+          </p>
+        </td>
+        <td>
+          <p>
+            <strong>Hora final:</strong>
+            <%= @classroom.time_end.try(:strftime, '%H:%M') %>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            <strong>Professor:</strong>
+            <%= @classroom.teacher %>
+          </p>
+        </td>
+      <tr>
+    </table>
+    </blockquote>
+  </div>
 
-<p>
-  <strong>Curso:</strong>
-  <%= @classroom.course %>
-</p>
-
-<p>
-  <strong>Escola:</strong>
-  <%= @classroom.company %>
-</p>
-
-<p>
-  <strong>Dia da Semana:</strong>
-  <%= @classroom.day_week_humanize %>
-</p>
-
-<p>
-  <strong>Hora Inicial:</strong>
-  <%= @classroom.time_start.try(:strftime, '%H:%M') %>
-
-</p>
-
-<p>
-  <strong>Hora final:</strong>
-  <%= @classroom.time_end.try(:strftime, '%H:%M') %>
-</p>
-
-<p>
-  <strong>Professor:</strong>
-  <%= @classroom.teacher %>
-</p>
 <hr/>
   <h3 align='center'>Alunos</h3>
 <hr/>
 <%= render '/groups/groups'%>
-
-
-<div class="form-actions">
-  <%= link_to 'Editar', edit_classroom_path(@classroom), class: 'btn btn-primary' %>
-  <%= link_to 'Gerar Aulas', generate_lessons_classroom_path(@classroom), class: 'btn btn-primary' %>
-  <%= link_to 'Imprimir chamada', for_month_print_daily_classroom_path(@classroom), class: 'btn btn-primary' %>
-  <%= link_to 'Deletar', @classroom, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
-  <%= link_to 'Voltar', :back, class: 'btn' %>
-</div>
-
