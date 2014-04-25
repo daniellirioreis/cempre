@@ -41,7 +41,7 @@
     </div>
   </div>
   <div class="tab-pane" id="groups_second_change_exam">
-    <table id="ulItens" class="table table-striped table-hover table-bordered" id='tabela_enturmacao'>
+    <table class="table table-striped table-hover table-bordered">
       <colgroup>
         <col>
         <col width="160">
@@ -51,6 +51,9 @@
           <th>
             Nome
           </th>
+          <th>
+            Turma
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -58,7 +61,10 @@
           <% @groups_second_change_exam.each do |group_second_change_exam| %>
             <tr>
               <td>
-                  <%= group_second_change_exam %>
+                  <%= link_to "#{group_second_change_exam.to_s}", group_second_change_exam %>
+              </td>
+              <td>
+                <%= link_to "#{group_second_change_exam.classroom}", group_second_change_exam.classroom %>
               </td>
             </tr>
           <% end %>
