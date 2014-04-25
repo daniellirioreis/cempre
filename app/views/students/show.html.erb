@@ -48,6 +48,7 @@
     <li> <%= link_to "Faltas", "#faults", :"data-toggle" => :tab %></li>
     <li> <%= link_to "Avaliações", "#exams", :"data-toggle" => :tab %></li>
     <li> <%= link_to "Livros emprestados", "#borrowed_books", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Monitorias", "#monitoring", :"data-toggle" => :tab %></li>
 
   </ul>
 </div>
@@ -86,6 +87,10 @@
 
   <div class="tab-pane" id="borrowed_books">
     <%= render 'borrowed_books'%>
+  </div>
+
+  <div class="tab-pane" id="monitoring">
+    <%= render 'monitoring'%>
   </div>
 
 </div>
