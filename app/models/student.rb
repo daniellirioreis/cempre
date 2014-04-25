@@ -2,6 +2,7 @@ class Student < ActiveRecord::Base
   belongs_to :company
   has_one :user, :dependent => :destroy
   has_many :groups, :dependent => :restrict_with_error
+  has_many :events
   has_many :rents
 
   # validates :company_id, :name, :street, :neighborhood, :city, :federal_unit, :house_number, presence: true

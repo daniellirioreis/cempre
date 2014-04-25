@@ -22,6 +22,16 @@ class Calendar < ActiveRecord::Base
     Group.calendar_id(id).active.second_change_exam
   end
 
+  def groups_active
+    Group.calendar_id(id).active
+  end
+
+  def groups_locked_or_folded
+    Group.calendar_id(id).no_transfer.locked_or_folded
+  end
+
+
+
   def months
      ms = []
      (date_start.month.to_i..date_end.month).each do  |m|

@@ -12,8 +12,14 @@ class Group < ActiveRecord::Base
   scope :second_change_exam, -> {where("second_change_exam = ?", true)}
 
   scope :approved, -> {where("status = ?", StatusGroup::APPROVED)}
+
+  scope :locked_or_folded, -> {where("status = ? OR status = ?", StatusGroup::LOCKED, StatusGroup::FOLDED)}
+
   scope :failed, -> {where("status = ?", StatusGroup::FAILED)}
+
   scope :no_transfer, -> {where("status != ?", StatusGroup::TRANSFER)}
+
+
 
   scope :classroom_id, lambda { |id| where("classroom_id = ?", id) }
   scope :type_course, lambda { |type| where("courses.type_course = ?", type).joins(:classroom => :course) }
