@@ -5,6 +5,9 @@
       <th>Nº</th>
       <th>Nome</th>
       <th>Faltas</th>
+      <% TypeExam.to_a.sort.each do |tp| %>
+        <th><%= tp.first%></th>
+      <% end %>
       <th>Situação</th>
     </tr>
   </thead>
@@ -74,6 +77,11 @@
           <td>
             <a title="<%group.faults.each do |f|%><%= "#{f}(#{f.justification_humanize}), "%><%end%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title=""><%= group.faults.count %></a>
           </td>
+          <% TypeExam.to_a.sort.each do |te| %>
+            <td>
+              <%= group.exams.find_by_type_exam(te.last).try(:value) %>
+            </td>
+          <% end %>
           <td>
             <a title="<%=group.justification%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title=""><%=group.status_humanize %></a>
           </td>
