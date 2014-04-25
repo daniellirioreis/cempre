@@ -25,7 +25,7 @@ class EventsController < ApplicationController
       @event.update_attribute(:closed, true)
     end
 
-    redirect_to @event
+    redirect_to root_path
   end
 
   def update
