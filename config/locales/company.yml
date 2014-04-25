@@ -6,6 +6,7 @@ pt-BR:
       edit: 'Editar Escola'
       create: 'Editar Escola'
       update: 'Editar Escola'
+      show: 'Informações da escola'
 
   activerecord:
     models:
