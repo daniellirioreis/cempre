@@ -12,9 +12,23 @@
   <tbody>
     <% if @student.groups.any? %>
       <% @student.groups.each do |g| %>
-        <tr>
+        <tr class="
+        <% if g.active? %>info<%end%>
+        <% if g.approved? %>success<%end%>
+        <% if g.failed? %>error<%end%>
+        <% if g.transfer? %>warning<%end%>
+        <% if g.folded? %>warning<%end%>
+        <% if g.locked? %>warning<%end%>
+
+        ">
           <td>
-            <%= g.classroom %><br/>
+            <%if g.active? %>
+            <%= link_to "#{g.classroom}", g.classroom %>
+            <% else %>
+              <%= g.classroom %>
+            <% end %>
+
+            <br/>
             <b>Professor:</b> <%= g.classroom.teacher%><br/>
             <b>Horário:</b> <%= g.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= g.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
             <b>Dia da Semana:</b>
