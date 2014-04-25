@@ -1,4 +1,4 @@
-<%= Menu.create self, 1, :class => "nav nav-list bs-docs-sidenav nav-collapse collapse" do |menu| %>
+<%= Menu.create self, 1, :class => "nav nav-list  nav-tabs nav-stacked nav-pills" do |menu| %>
   <%= menu.item :id => :dashboard, :icon => :dashboard, :path => root_path%>
   <% unless current_user.profile == 'student'%>
     <%= menu.item :id => 'Escolas', :icon => :home, :path => companies_path %>
