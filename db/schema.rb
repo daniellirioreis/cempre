@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424200329) do
+ActiveRecord::Schema.define(version: 20140430214951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: true do |t|
+    t.string   "name"
+    t.integer  "type_question"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["company_id"], name: "index_answers_on_company_id", using: :btree
 
   create_table "books", force: true do |t|
     t.integer  "company_id"
@@ -46,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140424200329) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "closed",     default: false
+    t.float    "average",    default: 0.0
   end
 
   add_index "calendars", ["company_id"], name: "index_calendars_on_company_id", using: :btree
@@ -170,9 +181,50 @@ ActiveRecord::Schema.define(version: 20140424200329) do
   add_index "notes", ["company_id"], name: "index_notes_on_company_id", using: :btree
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
+  create_table "profiles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles_roles", id: false, force: true do |t|
+    t.integer "profile_id"
+    t.integer "role_id"
+  end
+
+  create_table "questionnaire_questions", force: true do |t|
+    t.integer  "questionnaire_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questionnaire_questions", ["answer_id"], name: "index_questionnaire_questions_on_answer_id", using: :btree
+  add_index "questionnaire_questions", ["question_id"], name: "index_questionnaire_questions_on_question_id", using: :btree
+  add_index "questionnaire_questions", ["questionnaire_id"], name: "index_questionnaire_questions_on_questionnaire_id", using: :btree
+
+  create_table "questionnaires", force: true do |t|
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questionnaires", ["group_id"], name: "index_questionnaires_on_group_id", using: :btree
+
+  create_table "questions", force: true do |t|
+    t.string   "name"
+    t.integer  "type_question"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["company_id"], name: "index_questions_on_company_id", using: :btree
+
   create_table "rents", force: true do |t|
     t.integer  "book_id"
-    t.boolean  "returned",   default: false
+    t.boolean  "returned",   default: true
     t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -180,6 +232,13 @@ ActiveRecord::Schema.define(version: 20140424200329) do
 
   add_index "rents", ["book_id"], name: "index_rents_on_book_id", using: :btree
   add_index "rents", ["student_id"], name: "index_rents_on_student_id", using: :btree
+
+  create_table "roles", force: true do |t|
+    t.string   "controller", null: false
+    t.string   "action",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "students", force: true do |t|
     t.integer  "company_id"
@@ -245,6 +304,7 @@ ActiveRecord::Schema.define(version: 20140424200329) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "student_id"
+    t.integer  "profile_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -252,6 +312,8 @@ ActiveRecord::Schema.define(version: 20140424200329) do
   add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+
+  add_foreign_key "answers", "companies", name: "answers_company_id_fk"
 
   add_foreign_key "books", "companies", name: "books_company_id_fk"
 
@@ -285,6 +347,17 @@ ActiveRecord::Schema.define(version: 20140424200329) do
   add_foreign_key "notes", "companies", name: "notes_company_id_fk"
   add_foreign_key "notes", "users", name: "notes_user_id_fk"
 
+  add_foreign_key "profiles_roles", "profiles", name: "profiles_roles_profile_id_fk"
+  add_foreign_key "profiles_roles", "roles", name: "profiles_roles_role_id_fk"
+
+  add_foreign_key "questionnaire_questions", "answers", name: "questionnaire_questions_answer_id_fk"
+  add_foreign_key "questionnaire_questions", "questionnaires", name: "questionnaire_questions_questionnaire_id_fk"
+  add_foreign_key "questionnaire_questions", "questions", name: "questionnaire_questions_question_id_fk"
+
+  add_foreign_key "questionnaires", "groups", name: "questionnaires_group_id_fk"
+
+  add_foreign_key "questions", "companies", name: "questions_company_id_fk"
+
   add_foreign_key "rents", "books", name: "rents_book_id_fk"
   add_foreign_key "rents", "students", name: "rents_student_id_fk"
 
@@ -292,6 +365,7 @@ ActiveRecord::Schema.define(version: 20140424200329) do
 
   add_foreign_key "teachers", "companies", name: "teachers_company_id_fk"
 
+  add_foreign_key "users", "profiles", name: "users_profile_id_fk"
   add_foreign_key "users", "students", name: "users_student_id_fk"
 
 end

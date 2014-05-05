@@ -1,16 +1,57 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :my_data, :my_exams, :declaration_of_studying]
+  before_filter :authorize_controller!
+
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :my_data, :my_exams, :declaration_of_studying, :bulletin]
+
+  def bulletin
+    @groups_approved = @student.groups.approved
+  end
 
   def index
     @students = current_company.students.sorted
 
-    if current_calendar.present?
-      @groups_second_change_exam = current_calendar.groups
+    unless current_calendar.nil?
+      @groups_second_change_exam = current_calendar.groups_second_change_exam
+      @groups_active = current_calendar.groups_active
+      @groups_down_average = @groups_active.down_average(current_calendar.average)
+
+      unless params[:type_exam].nil?
+        case params[:type_exam].to_i
+          when TypeExam::FINAL
+            @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
+          when TypeExam::MIDTERM
+            @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
+          when TypeExam::ORAL
+            @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
+        end
+      end
+    else
+      @groups_second_change_exam = []
+      @groups_down_average = []
+    end
+  end
+
+  def down_average
+    @groups_down_average = current_calendar.groups_active.down_average(current_calendar.average)
+    unless params[:type_exam].nil?
+      case params[:type_exam].to_i
+        when TypeExam::FINAL
+          @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
+        when TypeExam::MIDTERM
+          @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
+        when TypeExam::ORAL
+          @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
+      end
     end
   end
 
   def declaration_of_studying
-    @group = @student.groups.active.first
+    @groups = @student.groups.active
+    @quant_groups = @groups.count
+    if @groups.nil?
+      flash[:info] = 'Aluno não possui matricula ativa'
+      redirect_to @student
+    end
   end
 
   def show
@@ -45,11 +86,7 @@ class StudentsController < ApplicationController
 
     @student.update_attributes(student_params)
 
-    if current_user.profile == "student"
-      respond_with @student, :location => my_data_student_path(@student)
-    else
-      respond_with @student, :location => students_path
-    end
+    respond_with @student, :location => students_path
 
   end
 

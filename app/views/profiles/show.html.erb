@@ -1,0 +1,36 @@
+<h2><%= @profile%></h2>
+
+<table class="table table-striped table-hover table-bordered">
+  <colgroup>
+    <col>
+    <col width="160">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Permissões</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @profile.roles.any? %>
+      <% @profile.roles.group_by(&:controller).each do | controller, roles| %>
+        <tr>
+          <td>
+            <b><%= controller %></b><br>
+            <%roles.each do |r| %>
+            <%= r.action %> |
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='2'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="form-actions">
+  <%= link_to 'Editar', edit_profile_path(@profile), :class => "btn btn-primary" %>
+  <%= link_to 'Novo Perfil', new_profile_path, :class => "btn" %>
+  <%= link_to 'Voltar', profiles_path, :class => "btn" %>
+</div>

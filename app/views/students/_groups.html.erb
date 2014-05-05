@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <% if @student.groups.any? %>
-      <% @student.groups.each do |g| %>
+      <% @student.groups.sort_by(&:name).each do |g| %>
         <tr class="
         <% if g.active? %>info<%end%>
         <% if g.approved? %>success<%end%>

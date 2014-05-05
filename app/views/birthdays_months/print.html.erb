@@ -1,0 +1,27 @@
+<h1 align='center'>Aniversariantes do mês</h1>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+      <th>
+        Nome
+      </th>
+      <th>
+        Dia
+      </th>
+      <th>
+        Turma
+      </th>
+  </tr>
+  <% @groups.sort_by(&:day_of_birth).each do |g| %>
+    <tr>
+      <td>
+        <%= g %>
+      </td>
+      <td>
+        <%= g.day_of_birth %>
+      </td>
+      <td>
+        <%= g.classroom%>(<%= g.classroom.day_week_humanize %>)
+      </td>
+    </tr>
+  <% end %>
+</table>

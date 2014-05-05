@@ -15,13 +15,18 @@ gem "active_model_serializers"
 gem 'postgres-copy'
 gem 'pundit'
 gem 'jquery-inputmask-rails'
-
 gem 'puma'
+
 gem 'devise'
+gem "cancan"
+
+gem 'cocoon'
+
 gem 'responders', :git => 'https://github.com/plataformatec/responders.git'
 gem 'has_scope'
 gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
+
 
 gem 'will_paginate', '~> 3.0'
 

@@ -6,6 +6,8 @@ class Company < ActiveRecord::Base
   has_many :calendars
   has_many :notes
   has_many :books
+  has_many :questions
+  has_many :answers
   # validates :name, :street, :neighborhood, :city, :federal_unit, :house_number, presence: true
   # validates :name, :email, uniqueness: true
   #

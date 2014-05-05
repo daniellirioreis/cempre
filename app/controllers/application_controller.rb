@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to :html
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, :alert => default_message = "Você não tem autorização para acessar, favor entrar em contato com o administrador do sistema."
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -14,6 +18,15 @@ class ApplicationController < ActionController::Base
   # before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :define_environment_message
   #
+
+  def authorize_controller!
+    authorize! action_name.to_sym, full_controller_name
+  end
+
+  def full_controller_name
+    self.controller_name
+  end
+
   private
 
   def current_company
@@ -62,7 +75,15 @@ class ApplicationController < ActionController::Base
         if params['action'] == 'daily'
           'print'
         else
-          nil
+          if params['action'] == 'down_average'
+            'print'
+          else
+            if params['action'] ==  'print'
+              'print'
+            else
+              nil
+            end
+          end
         end
       end
     else

@@ -2,7 +2,7 @@ class Calendar < ActiveRecord::Base
   belongs_to :company
   has_many :days, :class_name => "CalendarDay", :foreign_key => "calendar_id"
   has_many :classrooms, :class_name => "Classroom", :foreign_key => "calendar_id"
-  validates :name, presence: true
+  validates :name, :average, presence: true
 
   after_save :build_days
 
@@ -18,7 +18,7 @@ class Calendar < ActiveRecord::Base
   end
 
 
-  def groups
+  def groups_second_change_exam
     Group.calendar_id(id).active.second_change_exam
   end
 
@@ -29,8 +29,6 @@ class Calendar < ActiveRecord::Base
   def groups_locked_or_folded
     Group.calendar_id(id).no_transfer.locked_or_folded
   end
-
-
 
   def months
      ms = []

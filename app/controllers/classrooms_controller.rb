@@ -1,4 +1,6 @@
 class ClassroomsController < ApplicationController
+  before_filter :authorize_controller!
+
   before_action :set_classroom, only: [:show, :edit, :update, :destroy, :daily, :generate_lessons, :for_month_print_daily]
 
   def index
@@ -19,8 +21,8 @@ class ClassroomsController < ApplicationController
 
   def schedules
     @head = Date.today
-    @time_now = Time.now - 3.hours
-    # @time_now = Time.now
+    # @time_now = Time.now - 3.hours
+    @time_now = Time.now
 
     case Date.today.wday
       when 0

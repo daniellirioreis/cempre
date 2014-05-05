@@ -1,4 +1,6 @@
 class RentsController < ApplicationController
+  before_filter :authorize_controller!
+
   before_action :set_rent, only: [:show, :edit, :update, :destroy, :returned]
 
   def new

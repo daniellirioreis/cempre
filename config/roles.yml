@@ -1,0 +1,39 @@
+roles:
+  - books
+  - calendar_days
+  - calendars
+  - classrooms
+  - courses
+  - events
+  - exams
+  - faults
+  - groups
+  - notes
+  - rents
+  - students
+  - teachers
+  - users
+  - profiles
+  - companies
+  - questions
+  - answers
+  - questionnaires
+actions:
+  - create
+  - read
+  - update
+  - destroy
+actions_more_students:
+  - my_data
+  - my_exams
+  - bulletin
+actions_more_classrooms:
+  - schedules
+  - generate_lessons
+  - daily
+  - for_month_print_daily
+actions_more_calendars:
+  - events
+  - finalize
+actions_more_questionnaires:
+  - generate

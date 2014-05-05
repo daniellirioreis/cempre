@@ -6,6 +6,7 @@ pt-BR:
       edit: 'Editar Enturmação'
       create: 'Novo Enturmação'
       update: 'Editar Enturmação'
+      questionnaire: 'Questionário'
   activerecord:
     models:
       group:

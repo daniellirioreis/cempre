@@ -1,4 +1,6 @@
 class CalendarsController < ApplicationController
+  before_filter :authorize_controller!
+
   before_action :set_calendar, only: [:show, :edit, :update, :destroy, :finalize, :results, :classrooms, :events]
 
   def classrooms
@@ -102,6 +104,6 @@ class CalendarsController < ApplicationController
     end
 
     def calendar_params
-      params.require(:calendar).permit(:date_start, :date_end, :name)
+      params.require(:calendar).permit(:date_start, :date_end, :name, :average)
     end
 end

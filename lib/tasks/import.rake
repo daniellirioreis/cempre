@@ -1,7 +1,7 @@
 require 'csv'
 task :import  => :environment do
 
-    a = User.new(:name => ' ADM Cempre', :email => "adm@cempre.com", :password => "inglesespanhol", :password_confirmation => 'inglesespanhol', :profile => "")
+    a = User.new(:name => ' ADM Cempre', :email => "adm@cempre.com", :password => "inglesespanhol", :password_confirmation => 'inglesespanhol', :profile_id => Profile.first.id)
      if a.save!
        puts "Usuario criado"
      else
@@ -14,6 +14,15 @@ task :import  => :environment do
     else
       puts "Erro ao criar calendario"
     end
+
+    # create profile student
+    @profile = Profile.new(name: "alunos", roles: Role.all)
+    if  @profile.save!
+      puts "Perfil Criado com sucesso"
+    else
+      puts 'erro ao criar perfil'
+    end
+
 
 
    CSV.foreach('lib/files_import/levels.csv', headers: true) do |row|

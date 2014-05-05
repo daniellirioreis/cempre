@@ -1,4 +1,6 @@
 class TeachersController < ApplicationController
+  before_filter :authorize_controller!
+
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
 
   def index

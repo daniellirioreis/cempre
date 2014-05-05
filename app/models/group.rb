@@ -3,12 +3,20 @@ class Group < ActiveRecord::Base
   belongs_to :classroom
   has_many :faults, :dependent => :restrict_with_error
   has_many :exams, :dependent => :restrict_with_error
+
+  delegate :course, :company, to: :classroom
+
+  delegate :day_of_birth, :name, :birth_date, to: :student
+
+  has_one :questionnaire
+
   has_enumeration_for :status, :with => StatusGroup, :create_helpers => true, :create_scopes => true
 
   validates :student_id, :status, presence: true
   validate :validate_group
 
   scope :active, -> {where("status = ?", StatusGroup::ACTIVE)}
+
   scope :second_change_exam, -> {where("second_change_exam = ?", true)}
 
   scope :approved, -> {where("status = ?", StatusGroup::APPROVED)}
@@ -19,14 +27,25 @@ class Group < ActiveRecord::Base
 
   scope :no_transfer, -> {where("status != ?", StatusGroup::TRANSFER)}
 
+  scope :sorted, -> { order("groups.status, students.name").joins(:student) }
+
+
+  scope :bithday, lambda { |month| where(" EXTRACT(MONTH FROM birth_date) = #{month}").joins(:student) }
+
 
 
   scope :classroom_id, lambda { |id| where("classroom_id = ?", id) }
+
   scope :type_course, lambda { |type| where("courses.type_course = ?", type).joins(:classroom => :course) }
 
   scope :student_id, lambda { |id| where("student_id = ?", id) }
 
   scope :calendar_id, lambda { |id| where("classrooms.calendar_id = ?", id).joins(:classroom) }
+
+  scope :down_average, lambda { |down_average| where("exams.value <=?", down_average).joins(:exams) }
+
+  scope :type_exam, lambda { |type_exam| where("exams.type_exam = ?", type_exam) }
+
 
   after_save :create_transfer
 
@@ -35,7 +54,7 @@ class Group < ActiveRecord::Base
   end
 
   def value_tatal
-    exams.sum(:value)
+    (exams.sum(:value) / exams.count).round(2)
   end
 
   private

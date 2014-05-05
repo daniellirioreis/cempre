@@ -13,7 +13,7 @@
   <div id="<%=m.id%>myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Mensagem</h3>
+      <h3>Mensagem</h3>
     </div>
     <div class="modal-body">
       <p>
@@ -22,7 +22,7 @@
       </p>
     </div>
     <div class="modal-footer">
-      <% unless current_user.profile == 'student'%>
+      <% unless current_user.student?%>
           <%= link_to 'Editar', edit_note_path(m), class: 'btn btn-primary' %>
           <%= link_to 'Deletar', m, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
       <% end %>
@@ -31,15 +31,15 @@
 <% end %>
 <% @events.each do |e| %>
   <div class="post_purple">
-  <a href="#<%=e.id%>myModal" role="link" class="link" data-toggle="modal"><%= truncate( e.calendar_day.to_s + "-" + e.to_s, length: 100)%></a>
+  <a href="#<%=e.id%>myModalEvent" role="link" class="link" data-toggle="modal"><%= truncate( e.calendar_day.to_s + "-" + e.to_s, length: 100)%></a>
   </div>
   <!-- Button to trigger modal -->
 
   <!-- Modal -->
-  <div id="<%=e.id%>myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div id="<%=e.id%>myModalEvent" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Evento - <%= e.type_event_humanize %></h3>
+      <h3>Evento - <%= e.type_event_humanize %></h3>
     </div>
       <%@event = e%>
       <% if e.monitoring? %>

@@ -1,4 +1,6 @@
 class ExamsController < ApplicationController
+  before_filter :authorize_controller!
+
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -64,6 +64,7 @@ var maskSetup = function (html) {
     html.find('input.date').inputmask("99/99/9999");
     html.find('input.phone').inputmask("(99)9999-9999");
     html.find('input.zipcode').inputmask("99.999-999");
+    html.find('input.average').inputmask("99.99");
 
     html.find('input.time').inputmask("99:99");
     html.find("input.integer").singlemask(/\d/);

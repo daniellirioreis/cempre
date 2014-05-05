@@ -1,0 +1,17 @@
+pt-BR:
+  title:
+    profiles:
+      index: 'Listagem de perfis'
+      new: 'Novo Perfil'
+      edit: 'Editar Perfil'
+      create: 'Novo Perfil'
+      update: 'Editar Perfil'
+      show: 'Informações do Perfil'
+  activerecord:
+    models:
+      profile:
+        one: "Perfil"
+        many: "Perfils"
+    attributes:
+      profile:
+        name: "Nome"

@@ -1,4 +1,6 @@
 class CalendarDaysController < ApplicationController
+  before_filter :authorize_controller!
+
   before_action :set_calendar_day, only: [:show, :edit, :update, :destroy]
 
   def index

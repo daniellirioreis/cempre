@@ -2,6 +2,10 @@
   <ul class="nav nav-tabs">
     <li class="active"> <%= link_to "Alunos", "#main", :"data-toggle" => :tab %></li>
     <li> <%= link_to "Alunos 2ª chamada", "#groups_second_change_exam", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Alunos abaixo da média", "#groups_down_average", :"data-toggle" => :tab %></li>
+
+    <li> <%= link_to "Quantidades alunos por curso", "#groups_for_course", :"data-toggle" => :tab %></li>
+
   </ul>
 </div>
 
@@ -76,5 +80,94 @@
       </tbody>
     </table>
   </div>
-</div>
+  <div class="tab-pane" id="groups_down_average">
+    <b>Filtros</b>
+    <table class="table table-striped table-hover table-bordered">
+      <tr>
+        <% TypeExam.to_a.each do |te| %>
+          <td>
+            <%= link_to "#{te.first}", students_path(type_exam: te.last) %><br>
+            <%= link_to down_average_students_path(type_exam: te.last), :tabindex => "-1" do %>
+              <i class="icon-print"></i>
+            <% end %>
 
+          </td>
+        <%end%>
+        <td>
+          <%= link_to "Todos", students_path %><br>
+          <%= link_to down_average_students_path, :tabindex => "-1" do %>
+            <i class="icon-print"></i>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+    <table class="table table-striped table-hover table-bordered">
+      <colgroup>
+        <col>
+        <col width="160">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>
+            Nome
+          </th>
+          <th>
+            Avaliações
+          </th>
+          <th>
+            Turma
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @groups_down_average.any? %>
+          <% @groups_down_average.each do |group_down_average| %>
+            <tr>
+              <td>
+                  <%= link_to "#{group_down_average.to_s}", group_down_average %>
+              </td>
+              <td>
+                <% group_down_average.exams.each do |e| %>
+                  <%= e.type_exam_humanize %>(<%= e.value %>)
+                <% end %>
+              </td>
+              <td>
+                <%= link_to "#{group_down_average.classroom}", group_down_average.classroom %>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+        <tr>
+          <td colspan='3'>Nenhum registro foi encontrado.</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane" id="groups_for_course">
+    <table class="table table-striped table-hover table-bordered">
+    <tr>
+      <th>
+        Curso
+      </th>
+      <th>
+        Quantidade
+      </th>
+    </tr>
+      <% @groups_active.sort_by(&:course).group_by(&:course).each do |course, groups| %>
+        <tr>
+          <td>
+            <%= course %>
+          </td>
+          <td>
+            <%= groups.count %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+  </div>
+</div>
+<br>
+<div class="form-actions">
+  <%= link_to 'Novo Aluno', new_student_path, class: 'btn' %>
+</div>

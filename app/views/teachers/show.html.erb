@@ -41,28 +41,52 @@
   </div>
 
   <div class="tab-pane" id="quant_students_for_level">
-    <hr/>
-      <%total = 0 %>
-      <% @courses.each do |c| %>
-        <blockquote>
-          <% classrooms = @teacher.classrooms.find_all_by_teacher_id_and_course_id_and_closed(@teacher.id, c.id, false) %>
-          <% if classrooms.any? %>
-            <h4><%= c %></h4>
+    <%total = 0 %>
+    <% @courses.each do |c| %>
+    <% classrooms = @teacher.classrooms.find_all_by_teacher_id_and_course_id_and_closed(@teacher.id, c.id, false) %>
+      <% if classrooms.any? %>
+        <div class="alert alert-info">
+          <h5 align='center'><%= c %><h5>
             <% sub_total = 0%>
             <% classrooms.each do |cc |%>
-              <b>Turma:</b> <%= cc %>
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                  <td>
+                    <b>Turma:</b> <%= cc %>
+                  </td>
+                  <td>
+                    <b>Quantidade de alunos: </b><%= cc.groups.active.count %>
+                  </td>
+                </tr>
+              </table>
               <% sub_total =  sub_total + cc.groups.active.count %>
-              <b>Quantidade de alunos: </b><%= cc.groups.active.count %>
-              <hr/>
-            <% end %>
               <% total =  total + sub_total %>
-              <b>SubTotal de Alunos: <%= sub_total %> <b>
-              <hr/>
-          <% end %>
-        </blockquote>
+            <% end %>
+            <table class="table table-striped table-hover table-bordered">
+              <tr>
+                <td>
+                  <b>SubTotal de Alunos:</b>
+                </td>
+                <td>
+                  <b> <%= sub_total %> <b>
+                </td>
+              </tr>
+            </table>
+        </div>
       <% end %>
-      <b>Total de Alunos: <%= total %></b>
-    <hr/>
+    <% end %>
+    <div class="alert alert-info">
+      <table class="table table-striped table-hover table-bordered">
+          <tr>
+            <td>
+              <b>Total de Alunos:</b>
+            </td>
+            <td>
+              <b>Total de Alunos:</b> <%= total %>
+            </td>
+          </tr>
+      </table>
+    </div>
   </div>
 </div>
 <div class="form-actions">

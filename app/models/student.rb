@@ -21,6 +21,12 @@ class Student < ActiveRecord::Base
     name
   end
 
+  def day_of_birth
+    if birth_date.present?
+      birth_date.day
+    end
+  end
+
   def borrowed_books
     rents.not_returned
   end
@@ -48,9 +54,9 @@ class Student < ActiveRecord::Base
 
   def create_user
     if user = User.find_by_student_id(id)
-      user.update_attributes(name: name, email: email, password: 12345678, password_confirmation: 12345678, student_id: id, profile: 'student' )
+      user.update_attributes(name: name, email: email, password: 12345678, password_confirmation: 12345678, student_id: id, profile_id: Profile.find_by_name("alunos").id )
     else
-      user = User.new(name: name, email: email, password: 12345678, password_confirmation: 12345678, student_id: id, profile: 'student' )
+      user = User.new(name: name, email: email, password: 12345678, password_confirmation: 12345678, student_id: id, profile_id: Profile.find_by_name("alunos").id )
       user.save!
     end
   end

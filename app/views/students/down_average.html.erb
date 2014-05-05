@@ -1,0 +1,44 @@
+<h3 align='center'>Alunos abaixo da média</h3>
+<p>
+  <b>Período:</b> <%= current_calendar %><br>
+  <b>Média:</b> <%= current_calendar.average %>
+</p>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>
+        Nome
+      </th>
+      <th>
+        Avaliações
+      </th>
+      <th>
+        Turma
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @groups_down_average.any? %>
+      <% @groups_down_average.each do |group_down_average| %>
+        <tr>
+          <td>
+              <%= group_down_average %>
+          </td>
+          <td>
+            <% group_down_average.exams.each do |e| %>
+              <%= e.type_exam_humanize %>(<%= e.value %>)
+            <% end %>
+          </td>
+          <td>
+            <%= group_down_average.classroom %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='3'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

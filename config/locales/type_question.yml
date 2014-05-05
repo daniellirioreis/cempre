@@ -1,0 +1,6 @@
+pt-BR:
+  enumerations:
+    type_question:
+      oral_performance: "Avaliação Oral"
+      written_performace: "Avaliação Escrita"
+      general_aspects: "Aspectos Gerais"

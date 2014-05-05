@@ -1,4 +1,6 @@
 class FaultsController < ApplicationController
+  before_filter :authorize_controller!
+
   before_action :set_fault, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -46,5 +48,4 @@ class FaultsController < ApplicationController
     def fault_params
       params.require(:fault).permit(:group_id, :lesson_id, :justification)
     end
-
 end

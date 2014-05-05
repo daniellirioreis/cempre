@@ -1,6 +1,14 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :second_change_exam]
+
+  before_filter :authorize_controller!
+
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :second_change_exam, :questionnaire ]
   before_action :set_classroom, only:[:new, :create]
+
+
+  def questionnaire
+    @questionnaire = @group.questionnaire
+  end
 
   def index
     @classrooms = current_company.classrooms.open

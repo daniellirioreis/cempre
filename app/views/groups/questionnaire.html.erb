@@ -1,0 +1,88 @@
+<a id='open' href="#"><h4><%=@group%></h4></a>
+<div id='information'>
+  <a id='close' href="#">x</a>
+  <blockquote>
+  <table class='table'>
+    <tr>
+      <td>
+        <p>
+          <strong>Nome:</strong> <%= @group%>
+        </p>
+      <td>
+        <p>
+          <strong>Curso:</strong>
+          <%= @group.classroom.course %>
+        </p>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <strong>Escola:</strong>
+          <%= @group.classroom.company %>
+        </p>
+      </td>
+      <td>
+        <p>
+          <strong>Dia da Semana:</strong>
+          <%= @group.classroom.day_week_humanize %>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <strong>Hora Inicial:</strong>
+          <%= @group.classroom.time_start.try(:strftime, '%H:%M') %>
+        </p>
+      </td>
+      <td>
+        <p>
+          <strong>Hora final:</strong>
+          <%= @group.classroom.time_end.try(:strftime, '%H:%M') %>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <strong>Professor:</strong>
+          <%= @group.classroom.teacher %>
+        </p>
+      </td>
+    <tr>
+  </table>
+  </blockquote>
+</div>
+
+
+<table class='table'>
+  <% @questionnaire.questions.group_by(&:type_question_humanize).each do |type_question_humanize, questions| %>
+    <tr>
+      <th>
+        <%= type_question_humanize %>
+      </th>
+    </tr>
+    <% questions.sort_by(&:question).each do |q|%>
+      <tr>
+        <td>
+          <%= q%>
+        </td>
+        <td>
+          <%= link_to 'Responder', edit_questionnaire_question_path(q), :class => "btn btn-primary" %>
+          <%= link_to 'Deletar', q, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+        </td>
+      </tr>
+      <tr>
+          <td>
+            <b>R:</b> <%= q.answer %>
+          </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+<div class="form-actions">
+  <%= link_to 'Adicionar pergunta', new_questionnaire_question_path(questionnaire_id: @questionnaire.id), :class => "btn btn-success" %>
+  <%= link_to 'Voltar', exams_path(group_id: @questionnaire.group_id), :class => "btn" %>
+</div>
