@@ -72,6 +72,8 @@ class TranslateController
         'escolha do mês'
       when 'generate'
         'Gerar questionário'
+      when 'down_average'
+        'Alunos abaixo da média'
     end
   end
 end

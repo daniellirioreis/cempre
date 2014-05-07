@@ -27,6 +27,7 @@ actions_more_students:
   - my_data
   - my_exams
   - bulletin
+  - down_average
 actions_more_classrooms:
   - schedules
   - generate_lessons
