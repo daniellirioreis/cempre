@@ -12,6 +12,11 @@
          <% end %>
        </td>
        <td>
+          <%= link_to lessons_path(:classroom_id => @classroom.id), role: 'button' do %>
+            <h2 class="text-info" title='Lições'><i class="icon-pencil"></i></h2>
+          <% end %>
+       </td>
+       <td>
          <%= link_to for_month_print_daily_classroom_path(@classroom), role: 'button' do %>
            <h2 class="text-info" title='Imprimir Diário'><i class="icon-print"></i></h2>
          <% end %>

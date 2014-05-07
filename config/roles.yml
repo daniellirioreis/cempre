@@ -18,6 +18,7 @@ roles:
   - questions
   - answers
   - questionnaires
+  - lessons
 actions:
   - create
   - read

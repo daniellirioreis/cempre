@@ -16,7 +16,7 @@
   <hr>
   <div class="row-fluid">
     <% if @fault.new_record? %>
-      <div class="span3"><%= f.input :lesson_id, collection: Lesson.classroom_id(@fault.group.classroom_id) %></div>
+      <div class="span3"><%= f.input :lesson_id, collection: Lesson.classroom_id(@fault.group.classroom_id).map{|cd|[cd.to_string, cd.id]} %></div>
     <% end %>
 
     <div class="span3"><%= f.input :justification, collection: JustificationsFault %></div>

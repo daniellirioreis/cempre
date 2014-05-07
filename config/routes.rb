@@ -1,5 +1,7 @@
 Donald::Application.routes.draw do
 
+  resources :lessons
+
   resources :questionnaire_questions
 
   resources :questionnaires do

@@ -39,6 +39,8 @@ class TranslateController
           'Respostas'
       when 'questionnaires'
           'Questionários'
+      when 'lessons'
+        'Lições'
     end
   end
 
