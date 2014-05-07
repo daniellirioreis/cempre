@@ -18,5 +18,5 @@
   <%= menu.item :id => "Avaliações", :icon => :tasks, :path => my_exams_student_path(current_user.student) if can?(:my_exams, 'students')%>
   <%= menu.item :id => "Boletins", :icon => :heart, :path => bulletin_student_path(current_user.student) if  can?(:bulletin, 'students') %>
   <%= menu.item :id => "Calendário", :icon => :calendar, :path => events_calendar_path(current_calendar) %>
-  <%= menu.item :id => "Aniversariantes", :icon => :gift, :path => birthdays_months_path %>
+  <%= menu.item :id => "Aniversariantes", :icon => :gift, :path => birthdays_months_path if  can?(:read, 'birthdays_months')%>
 <% end -%>

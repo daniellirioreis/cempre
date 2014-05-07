@@ -40,7 +40,9 @@ class TranslateController
       when 'questionnaires'
           'Questionários'
       when 'lessons'
-        'Lições'
+        'Aulas'
+      when 'birthdays_months'
+        'Aniversariantes'
     end
   end
 

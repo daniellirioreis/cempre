@@ -19,6 +19,7 @@ roles:
   - answers
   - questionnaires
   - lessons
+  - birthdays_months
 actions:
   - create
   - read

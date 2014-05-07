@@ -68,4 +68,41 @@
       <% end %>
   </div>
 <% end %>
+<% if  can?(:read, 'birthdays_months')%>
+  <% if @birthdates.count > 0 %>
+    <div class="post_green">
+    <a href="#birthdatemyModal" role="link" class="link" data-toggle="modal">Olá hoje tem aniversário</a>
+    </div>
+    <div id="birthdatemyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Aniversariantes de hoje</h3>
+      </div>
+      <div class="modal-body">
+        <table class='table'>
+        <th>
+          Aluno
+        </th>
+        <th>
+          Turma
+        </th>
+          <% @birthdates.each do |b| %>
+            <tr>
+              <td>
+                <%= b %>
+              </td>
+              <td>
+                <b><%= b.classroom%></b><br>
+                <b>Professor:</b> <%= b.classroom.teacher %><br/>
+                <b>Dia da Semana:</b> <%= b.classroom.day_week_humanize %><br>
+                <b>Horário:</b> <%= b.classroom.time_start.try(:strftime, '%H:%M') %> às <%= b.classroom.time_end.try(:strftime, '%H:%M') %>
+
+              </td>
+            <tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 

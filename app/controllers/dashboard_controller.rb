@@ -11,5 +11,10 @@ class DashboardController < ApplicationController
     else
       @events = []
     end
+
+    if  can?(:read, 'birthdays_months')
+      @birthdates = current_calendar.groups_active.bithday_day_and_month(Date.today.day, Date.today.month)
+    end
+
   end
 end

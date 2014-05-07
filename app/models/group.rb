@@ -32,6 +32,7 @@ class Group < ActiveRecord::Base
 
   scope :bithday, lambda { |month| where(" EXTRACT(MONTH FROM birth_date) = #{month}").joins(:student) }
 
+  scope :bithday_day_and_month, lambda { |day, month| where(" EXTRACT(DAY FROM birth_date) = #{day} AND EXTRACT(MONTH FROM birth_date) = #{month}").joins(:student)}
 
 
   scope :classroom_id, lambda { |id| where("classroom_id = ?", id) }

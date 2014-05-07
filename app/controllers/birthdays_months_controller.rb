@@ -1,5 +1,7 @@
 class BirthdaysMonthsController< ApplicationController
 
+  before_filter :authorize_controller!
+
   def index
   end
 
