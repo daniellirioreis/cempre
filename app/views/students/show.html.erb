@@ -62,8 +62,9 @@
         <strong>email: </strong> <%= @student.email%><br>
         <strong>Telefones: </strong> <%= @student.phone%><br>
         <strong>Observações: </strong> <%= @student.obs%>
-
-        <h2 class='text-error'><i class="icon-gift"> Meu Aniversário</i></h2>
+        <% if @student.birth_date.day == Date.today.day  and @student.birth_date.month == Date.today.month%>
+          <h2 class='text-error'><i class="icon-gift"> Meu Aniversário</i></h2>
+        <% end %>
       </p>
     </blockquote>
   </div>
