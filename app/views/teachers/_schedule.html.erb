@@ -1,0 +1,23 @@
+<% @lessons.group_by(&:to_string).each do |to_string, lessons| %>
+  <div class="alert alert-info">
+    <h5 align='center'><%= to_string %><h5>
+      <% lessons.each do |l |%>
+        <table class="table">
+            <tr>
+              <td>
+                <%= l.classroom.time_start.try(:strftime, '%H:%M') %> às <%= l.classroom.time_end.try(:strftime, '%H:%M') %>
+              </td>
+              <td>
+                Atividade não foi planejada
+              </td>
+              <td>
+                <%= link_to edit_lesson_path(l), role: 'button' do %>
+                <h5><i class="icon-pencil"></i></h5>
+               <% end %>
+
+              </td>
+            </tr>
+        </table>
+      <% end %>
+  </div>
+<% end %>
