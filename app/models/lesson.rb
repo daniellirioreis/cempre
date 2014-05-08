@@ -14,6 +14,8 @@ class Lesson < ActiveRecord::Base
 
   scope :classroom_id, lambda { |id| where("classroom_id = ?", id) }
 
+  scope :teacher_id, lambda { |id| where("classrooms.teacher_id = ?", id).joins(:classroom) }
+
   scope :by_month, lambda { |month| where("EXTRACT(MONTH FROM calendar_days.day) = #{month}").joins(:calendar_day) }
 
 

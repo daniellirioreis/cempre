@@ -9,6 +9,10 @@ class Teacher < ActiveRecord::Base
     name
   end
 
+  def lessons
+     Lesson.teacher_id(id)
+  end
+
   def age
     if birth_date.present?
       Date.today.year - birth_date.year

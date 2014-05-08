@@ -18,6 +18,7 @@ class TeachersController < ApplicationController
   def show
     @courses =  current_company.courses
     @classrooms =  @teacher.classrooms.open
+    @lessons = @teacher.lessons
   end
 
   def create

@@ -10,6 +10,7 @@
     <li> <%= link_to "Endereço", "#address", :"data-toggle" => :tab %></li>
     <li> <%= link_to "Turmas", "#classrooms", :"data-toggle" => :tab %></li>
     <li> <%= link_to "Quantidade de alunos por nível", "#quant_students_for_level", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Cronograma", "#schedule", :"data-toggle" => :tab %></li>
   </ul>
 </div>
 <div class="tab-content">
@@ -87,7 +88,11 @@
           </tr>
       </table>
     </div>
+
   </div>
+  <div class="tab-pane" id="schedule">
+    <%= render 'schedule'%>
+  </div >
 </div>
 <div class="form-actions">
   <%= link_to 'Editar', edit_teacher_path(@teacher), class: 'btn btn-primary' %>
