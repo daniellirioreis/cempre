@@ -8,6 +8,9 @@
                 <%= l.classroom.time_start.try(:strftime, '%H:%M') %> às <%= l.classroom.time_end.try(:strftime, '%H:%M') %>
               </td>
               <td>
+                <%= l.classroom %>
+              </td>
+              <td>
                 Atividade não foi planejada
               </td>
               <td>
