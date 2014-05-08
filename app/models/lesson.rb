@@ -5,6 +5,7 @@ class Lesson < ActiveRecord::Base
   has_many :exams, :dependent => :restrict_with_error
 
   delegate :to_string, to: :calendar_day
+  delegate :time_start, to: :classroom
   validates :calendar_day_id, presence: true
   validates_uniqueness_of :calendar_day_id, :scope => :classroom_id
 

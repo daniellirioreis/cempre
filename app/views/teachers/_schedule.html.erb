@@ -1,7 +1,7 @@
-<% @lessons.group_by(&:to_string).each do |to_string, lessons| %>
+<% @lessons.sort_by(&:calendar_day_id).group_by(&:to_string).each do |to_string, lessons| %>
   <div class="alert alert-info">
     <h5 align='center'><%= to_string %><h5>
-      <% lessons.each do |l |%>
+      <% lessons.sort_by(&:time_start).each do |l |%>
         <table class="table">
             <tr>
               <td>
