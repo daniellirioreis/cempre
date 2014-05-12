@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430214951) do
+ActiveRecord::Schema.define(version: 20140508232343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,6 +181,17 @@ ActiveRecord::Schema.define(version: 20140430214951) do
   add_index "notes", ["company_id"], name: "index_notes_on_company_id", using: :btree
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
+  create_table "plans", force: true do |t|
+    t.integer  "calendar_id"
+    t.integer  "course_id"
+    t.integer  "day_week"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "plans", ["calendar_id"], name: "index_plans_on_calendar_id", using: :btree
+  add_index "plans", ["course_id"], name: "index_plans_on_course_id", using: :btree
+
   create_table "profiles", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -239,6 +250,17 @@ ActiveRecord::Schema.define(version: 20140430214951) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "schedules", force: true do |t|
+    t.integer  "plan_id"
+    t.integer  "calendar_day_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+  end
+
+  add_index "schedules", ["calendar_day_id"], name: "index_schedules_on_calendar_day_id", using: :btree
+  add_index "schedules", ["plan_id"], name: "index_schedules_on_plan_id", using: :btree
 
   create_table "students", force: true do |t|
     t.integer  "company_id"
@@ -347,6 +369,9 @@ ActiveRecord::Schema.define(version: 20140430214951) do
   add_foreign_key "notes", "companies", name: "notes_company_id_fk"
   add_foreign_key "notes", "users", name: "notes_user_id_fk"
 
+  add_foreign_key "plans", "calendars", name: "plans_calendar_id_fk"
+  add_foreign_key "plans", "courses", name: "plans_course_id_fk"
+
   add_foreign_key "profiles_roles", "profiles", name: "profiles_roles_profile_id_fk"
   add_foreign_key "profiles_roles", "roles", name: "profiles_roles_role_id_fk"
 
@@ -360,6 +385,9 @@ ActiveRecord::Schema.define(version: 20140430214951) do
 
   add_foreign_key "rents", "books", name: "rents_book_id_fk"
   add_foreign_key "rents", "students", name: "rents_student_id_fk"
+
+  add_foreign_key "schedules", "calendar_days", name: "schedules_calendar_day_id_fk"
+  add_foreign_key "schedules", "plans", name: "schedules_plan_id_fk"
 
   add_foreign_key "students", "companies", name: "students_company_id_fk"
 

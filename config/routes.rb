@@ -1,6 +1,10 @@
 Donald::Application.routes.draw do
 
+  resources :schedules
+
   resources :lessons
+
+  resources :plans
 
   resources :questionnaire_questions
 

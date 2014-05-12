@@ -43,6 +43,9 @@ class TranslateController
         'Aulas'
       when 'birthdays_months'
         'Aniversariantes'
+
+      when 'plans'
+        'Cronograma'
     end
   end
 

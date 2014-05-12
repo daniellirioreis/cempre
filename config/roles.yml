@@ -20,6 +20,7 @@ roles:
   - questionnaires
   - lessons
   - birthdays_months
+  - plans
 actions:
   - create
   - read

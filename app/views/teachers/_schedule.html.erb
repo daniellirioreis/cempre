@@ -1,26 +1,37 @@
-<% @lessons.sort_by(&:calendar_day_id).group_by(&:to_string).each do |to_string, lessons| %>
-  <div class="alert alert-info">
-    <h5 align='center'><%= to_string %><h5>
-      <% lessons.sort_by(&:time_start).each do |l |%>
-        <table class="table">
-            <tr>
-              <td>
-                <%= l.classroom.time_start.try(:strftime, '%H:%M') %> às <%= l.classroom.time_end.try(:strftime, '%H:%M') %>
-              </td>
-              <td>
-                <%= l.classroom %>
-              </td>
-              <td>
-                Atividade não foi planejada
-              </td>
-              <td>
-                <%= link_to edit_lesson_path(l), role: 'button' do %>
-                <h5><i class="icon-pencil"></i></h5>
-               <% end %>
-
-              </td>
-            </tr>
-        </table>
+<h4 align='center'>Cronograma</h4>
+<div id='div_color'>
+  <% @lessons.sort_by(&:calendar_day_id).group_by(&:calendar_day).each do |calendar_day, lessons| %>
+    <div class="alert alert-info">
+      <b><%= calendar_day.try(:to_string) %></b>
+      <br>
+      <table class='table'>
+        <tr>
+          <th>
+            Horário
+          </th>
+          <th>
+            Turma
+          </th>
+          <th>
+            Atividade
+          </th>
+        </tr>
+      <%lessons.sort_by(&:time_start).each do |l| %>
+          <tr>
+            <td>
+              <%= l.classroom.time_start.try(:strftime, '%H:%M') %> às <%= l.classroom.time_end.try(:strftime, '%H:%M')%>
+            </td>
+            <td>
+              <%= l.classroom %>
+            </td>
+            <td>
+              <% l.schedules.each do |s|%>
+                <%= s.description %>
+              <% end %>
+            </td>
+          <tr/>
       <% end %>
-  </div>
-<% end %>
+    </table>
+    </div>
+  <% end %>
+</div>

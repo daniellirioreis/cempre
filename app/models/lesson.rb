@@ -5,7 +5,7 @@ class Lesson < ActiveRecord::Base
   has_many :exams, :dependent => :restrict_with_error
 
   delegate :to_string, to: :calendar_day
-  delegate :time_start, to: :classroom
+  delegate :time_start, :day_week, :course_id, to: :classroom
   validates :calendar_day_id, presence: true
   validates_uniqueness_of :calendar_day_id, :scope => :classroom_id
 
@@ -20,4 +20,7 @@ class Lesson < ActiveRecord::Base
   scope :by_month, lambda { |month| where("EXTRACT(MONTH FROM calendar_days.day) = #{month}").joins(:calendar_day) }
 
 
+  def schedules
+      calendar_day.schedules.find_shedule(day_week, course_id, calendar_day_id)
+  end
 end

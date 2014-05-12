@@ -1,7 +1,9 @@
 class Calendar < ActiveRecord::Base
   belongs_to :company
   has_many :days, :class_name => "CalendarDay", :foreign_key => "calendar_id"
-  has_many :classrooms, :class_name => "Classroom", :foreign_key => "calendar_id"
+  has_many :classrooms
+  has_many :plans
+
   validates :name, :average, presence: true
 
   after_save :build_days

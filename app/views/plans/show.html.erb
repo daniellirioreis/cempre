@@ -1,0 +1,39 @@
+<blockquote>
+  <b>Curso:</b> <%= @plan%><br>
+  <b>Dia da Semana:</b> <%= @plan.day_week_humanize %><br><br>
+</blockquote>
+
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Dia</th>
+      <th>Descrição</th>
+      <th>Dia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @plan.schedules.any? %>
+      <% @plan.schedules.sort_by(&:calendar_day_id).each do |schedule| %>
+        <tr>
+          <td align='center'>
+              <%= schedule %>
+          </td>
+          <td>
+            <%= schedule.description %>
+          </td>
+          <td align='center'>
+            <div class="btn-group">
+              <%= link_to "Editar", edit_schedule_path(schedule), :class => "btn btn-primary", :title => "Editar #{schedule}" %>
+              <%= link_to 'Deletar', schedule, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='2'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

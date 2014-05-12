@@ -1,6 +1,7 @@
 class CalendarDay < ActiveRecord::Base
   belongs_to :calendar, :class_name => "Calendar", :foreign_key => "calendar_id"
   has_many :events
+  has_many :schedules
 
   validates_presence_of :calendar_id, :day, :calendar_day_id
   validates_uniqueness_of :day, :scope => :calendar_id
@@ -16,7 +17,7 @@ class CalendarDay < ActiveRecord::Base
   end
 
   def to_string
-    "#{day.day} de #{month_string} #{weekday}"
+    "#{day.day} de #{month_string}, #{weekday}"
   end
 
   def weekday

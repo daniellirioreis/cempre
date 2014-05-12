@@ -1,0 +1,17 @@
+<%= simple_form_for(@schedule) do |f| %>
+  <blockquote>
+    <b>Cronograma:</b> <%= @schedule.plan %><br>
+    <b>Dia:</b> <%= @schedule %>
+  </blockquote>
+  <div class="row-fluid">
+    <div class="span6">
+        <%= f.input :description, input_html: { rows: 10 } %>
+      </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-success' %>
+    <%= link_to 'Voltar', :back, class: 'btn' %>
+  </div>
+
+<% end %>

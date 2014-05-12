@@ -1,0 +1,17 @@
+pt-BR:
+  title:
+    schedules:
+      index: 'Listagem de Horários'
+      new: 'Novo Horário'
+      edit: 'Editar Horário'
+      create: 'Novo Horário'
+      update: 'Editar Horário'
+      show: 'Horário'
+  activerecord:
+    models:
+      schedule:
+        one: "Horário"
+        many: "Horários"
+    attributes:
+      schedule:
+        description: "Descrição"
