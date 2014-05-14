@@ -1,0 +1,23 @@
+<% if @group.questionnaire.present? %>
+  <table class='table'>
+    <% @group.questionnaire.questions.group_by(&:type_question_humanize).each do |type_question_humanize, questions| %>
+      <tr>
+        <th>
+          <%= type_question_humanize %>
+        </th>
+      </tr>
+      <% questions.sort_by(&:question).each do |q|%>
+        <tr>
+          <td>
+            <%= q%>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <b>R:</b> <%= q.answer %>
+            </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<%end%>

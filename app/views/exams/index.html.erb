@@ -84,6 +84,14 @@
             <tr>
               <td>
                 <%= q%>
+                <%= link_to edit_questionnaire_question_path(q), role: 'button' do %>
+                <i title='Responder' class="icon-pencil"></i>
+                <% end %>
+
+                <%= link_to q, method: :delete, data: { confirm: 'Confirma exclusão?' }, role: 'button' do %>
+                <i title= 'Excluir' class="icon-trash"></i>
+                <% end %>
+
               </td>
             </tr>
             <tr>
@@ -95,7 +103,7 @@
         <% end %>
       </table>
       <div class="form-actions">
-        <%= link_to 'Responder Questionário', questionnaire_group_path(@group), class: 'btn btn-info' %>
+        <%= link_to 'Adicionar pergunta no questionário', new_questionnaire_question_path(questionnaire_id: @group.questionnaire.id), class: 'btn btn-success' %>
       </div>
     <% else %>
       <div class="alert alert-block">

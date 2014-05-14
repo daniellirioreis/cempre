@@ -10,6 +10,6 @@
 
   <div class="form-actions">
     <%= f.button :submit, :class => "btn btn-success" %>
-    <%= link_to 'Voltar', questionnaire_group_path(@questionnaire_question.questionnaire.group), :class => "btn"  %>
+    <%= link_to 'Voltar', exams_path(group_id: @questionnaire_question.questionnaire.group), :class => "btn"  %>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   before_filter :authorize_controller!
 
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_answer, only: [:show, :update, :edit, :update, :destroy]
 
   def index
     @answers = current_company.answers
@@ -35,7 +35,7 @@ class AnswersController < ApplicationController
 
   private
     def set_answer
-      @answer = answer.find(params[:id])
+      @answer = Answer.find(params[:id])
     end
 
     def answer_params

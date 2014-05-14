@@ -26,6 +26,13 @@ class Classroom < ActiveRecord::Base
     capacity - count_students
   end
 
+  def minutes_of_class
+    hours = time_end.hour - time_start.hour
+    minutes = (time_end.min - time_start.min) * -1
+    minutes_for_hours =  hours * 60
+    minutes
+  end
+
 
   def build_lessons
     unless calendar_id == nil

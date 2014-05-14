@@ -21,6 +21,7 @@ roles:
   - lessons
   - birthdays_months
   - plans
+  - questionnaire_questions
 actions:
   - create
   - read

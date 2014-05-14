@@ -43,9 +43,11 @@ class TranslateController
         'Aulas'
       when 'birthdays_months'
         'Aniversariantes'
-
       when 'plans'
         'Cronograma'
+
+      when 'questionnaire_questions'
+        'Perguntas do Questionário'
     end
   end
 

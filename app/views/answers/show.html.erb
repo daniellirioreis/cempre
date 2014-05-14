@@ -1,8 +1,6 @@
-<%= @question %><br/>
-<%= @question.type_question %>
-
+<%= @answer%>
 <div class="form-actions">
-  <%= link_to 'Editar', edit_question_path(@question), class: 'btn btn-primary' %>
-  <%= link_to 'Deletar', @question, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+  <%= link_to 'Editar', edit_answer_path(@answer), class: 'btn btn-primary' %>
+  <%= link_to 'Deletar', @answer, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
   <%= link_to 'Voltar', :back, class: 'btn' %>
 </div>

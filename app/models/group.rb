@@ -3,12 +3,10 @@ class Group < ActiveRecord::Base
   belongs_to :classroom
   has_many :faults, :dependent => :restrict_with_error
   has_many :exams, :dependent => :restrict_with_error
-
+  has_one :questionnaire
   delegate :course, :company, to: :classroom
 
   delegate :day_of_birth, :name, :birth_date, to: :student
-
-  has_one :questionnaire
 
   has_enumeration_for :status, :with => StatusGroup, :create_helpers => true, :create_scopes => true
 

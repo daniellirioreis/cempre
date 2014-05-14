@@ -71,7 +71,9 @@
 <% if  can?(:read, 'birthdays_months')%>
   <% if @birthdates.count > 0 %>
     <div class="post_green">
-    <a href="#birthdatemyModal" role="link" class="link" data-toggle="modal">Olá hoje tem aniversário</a>
+    <a href="#birthdatemyModal" role="link" class="link" data-toggle="modal">
+      <h1><i class="icon-gift"></i></h1>
+    </a>
     </div>
     <div id="birthdatemyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">

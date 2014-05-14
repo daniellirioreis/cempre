@@ -1,4 +1,5 @@
 class QuestionnaireQuestionsController < ApplicationController
+
   before_action :set_questionnaire_question, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -14,7 +15,7 @@ class QuestionnaireQuestionsController < ApplicationController
 
     @questionnaire_question.destroy
 
-    respond_with @questionnaire_question, :location => questionnaire_group_path(@questionnaire_question.questionnaire.group)
+    respond_with @questionnaire_question, :location => exams_path(group_id: @questionnaire_question.questionnaire.group_id)
 
   end
 
@@ -32,7 +33,7 @@ class QuestionnaireQuestionsController < ApplicationController
 
     @question.update_attributes(questionnaire_question_params)
 
-    respond_with @questionnaire_question, :location => questionnaire_group_path(@questionnaire_question.questionnaire.group)
+    respond_with @questionnaire_question, :location => exams_path(group_id: @questionnaire_question.questionnaire.group_id)
   end
 
 
