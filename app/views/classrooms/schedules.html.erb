@@ -39,7 +39,11 @@
             <%if time < time_now %>
               <% if minutes > 0 %>
               <p class="text-error">Tempo restante: <%= minutes %> minutos</p>
-              <%= @calendar_day.schedules_of_day(c.day_week, c.course_id, @calendar_day.id) %>
+              <%@calendar_day.schedules_of_day(c.day_week, c.course_id, @calendar_day.id).each do |l| %>
+              <hr>
+                <%= l.description %>
+              <hr>
+             <% end %>
               <% end %>
             <% end %>
         </td>
