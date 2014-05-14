@@ -16,6 +16,11 @@ class CalendarDay < ActiveRecord::Base
     "#{day.day}/#{day.month}"
   end
 
+
+  def schedules_of_day(day_week, course_id, calendar_day_id)
+    schedules.find_shedule(day_week, course_id, calendar_day_id)
+  end
+
   def to_string
     "#{day.day} de #{month_string}, #{weekday}"
   end

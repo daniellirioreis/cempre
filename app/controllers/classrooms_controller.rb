@@ -28,6 +28,8 @@ class ClassroomsController < ApplicationController
 
   def schedules
     @head = Date.today
+    @calendar_day = CalendarDay.find_by_day(@head)
+
     @time_now = Time.now - 3.hours
 
     case Date.today.wday
