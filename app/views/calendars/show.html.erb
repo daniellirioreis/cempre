@@ -47,6 +47,13 @@
             <td colspan='3'>Nenhum foi encontrado.</td>
           </tr>
         <% end %>
+        <% cd.schedules.each do |s| %>
+          <tr>
+            <td colspan='3'>
+              <%= s %>
+            </td>
+          </tr>
+        <% end %>
       <table>
     <% end %>
   <%else%>
