@@ -1,0 +1,14 @@
+<%= simple_form_for(@questionnaire) do |f| %>
+  <%= hidden_field_tag :group_id, params[:group_id] %>
+  <%= f.input :group_id, :as => "hidden"%>
+
+  <blockquote>
+    <p>
+      Deseja realmente criar um questionário para o aluno <%= @group%> ?
+    </p>
+  </blockquote>
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-success" %>
+    <%= link_to 'Cancelar', exams_path(group_id: params[:group_id]), :class => "btn"  %>
+  </div>
+<% end %>

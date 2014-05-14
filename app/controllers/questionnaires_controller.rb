@@ -1,5 +1,5 @@
 class QuestionnairesController < ApplicationController
-  before_action :set_group, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_group, only: [:index, :new, :show, :edit, :update, :destroy]
 
   before_filter :authorize_controller!
 
@@ -7,19 +7,31 @@ class QuestionnairesController < ApplicationController
     @group
   end
 
-  def generate
-    questionnaire = Questionnaire.new(group_id: params[:group_id])
-
-    if questionnaire.save
-      flash[:info] = 'Questionario gerado com sucesso'
-      redirect_to questionnaire_group_path(params[:group_id])
-    else
-      flash[:alert] = 'Questionário não pode ser gerado'
-    end
+  def new
+    @questionnaire = Questionnaire.new(group_id: @group.id)
   end
+
+  def create
+    @questionnaire = Questionnaire.new(questionnaire_params)
+
+    @questionnaire.save
+
+    respond_with @questionnaire, :location => exams_path(group_id: @questionnaire.group_id)
+
+  end
+
 
   private
   def set_group
     @group = Group.find(params[:group_id])
   end
+
+  def set_questionnaire
+    @questionnaire = Questionnaire.find(params[:id])
+  end
+
+  def questionnaire_params
+    params.require(:questionnaire).permit(:group_id)
+  end
+
 end

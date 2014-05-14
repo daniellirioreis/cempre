@@ -8,9 +8,7 @@ Donald::Application.routes.draw do
 
   resources :questionnaire_questions
 
-  resources :questionnaires do
-    get :generate, on: :collection
-  end
+  resources :questionnaires
 
   resources :questions
 

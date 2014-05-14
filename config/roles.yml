@@ -40,5 +40,3 @@ actions_more_classrooms:
 actions_more_calendars:
   - events
   - finalize
-actions_more_questionnaires:
-  - generate
