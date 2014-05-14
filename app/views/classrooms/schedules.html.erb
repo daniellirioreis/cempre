@@ -1,4 +1,15 @@
 <meta http-equiv="refresh" content="3;url=schedules.html" />
+<b>Filtros</b>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <% Day.to_a.each do |d| %>
+      <td>
+        <%= link_to "#{d.first}", schedules_for_week_day_classrooms_path(week_day: d.last, week_day_string: d.first) %>
+      </td>
+    <%end%>
+  </tr>
+</table>
+
 <table class="table table-striped table-hover table-bordered">
   <tr>
     <td>
@@ -43,3 +54,4 @@
     </tr>
   <% end %>
 </table>
+<%%>

@@ -52,7 +52,7 @@ Donald::Application.routes.draw do
     get :generate_lessons, on: :member
     get :schedules, on: :collection
     get :for_month_print_daily, on: :member
-
+    get :schedules_for_week_day, on: :collection
   end
 
   resources :teachers

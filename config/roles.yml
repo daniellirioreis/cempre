@@ -37,6 +37,7 @@ actions_more_classrooms:
   - generate_lessons
   - daily
   - for_month_print_daily
+  - schedules_for_week_day
 actions_more_calendars:
   - events
   - finalize

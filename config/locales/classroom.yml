@@ -10,6 +10,7 @@ pt-BR:
       schedules: 'Quadro Horários'
       daily: "Diário"
       for_month_print_daily: 'Imprimir Diário'
+      schedules_for_week_day: 'Horários por dia da semana'
   activerecord:
     models:
       classroom:

@@ -83,6 +83,8 @@ class TranslateController
         'Gerar questionário'
       when 'down_average'
         'Alunos abaixo da média'
+      when 'schedules_for_week_day'
+        'Horários por dia da semana'
     end
   end
 end

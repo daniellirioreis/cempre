@@ -8,6 +8,12 @@ class ClassroomsController < ApplicationController
     @classrooms = current_company.classrooms.open
   end
 
+  def schedules_for_week_day
+    wday = params[:week_day]
+    wday1 = params[:week_day]
+    @classrooms = current_company.classrooms.day_week(wday, wday1).open
+  end
+
   def show
     respond_to do |format|
          format.html # index.html.erb
