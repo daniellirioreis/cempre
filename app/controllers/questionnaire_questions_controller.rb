@@ -25,7 +25,7 @@ class QuestionnaireQuestionsController < ApplicationController
 
     @questionnaire_question.save
 
-    respond_with @questionnaire_question, :location => questionnaire_group_path(@questionnaire_question.questionnaire.group)
+    respond_with @questionnaire_question, :location => exams_path(group_id: @questionnaire_question.questionnaire.group_id)
   end
 
   def update
