@@ -3,7 +3,7 @@ class CalendarDay < ActiveRecord::Base
   has_many :events
   has_many :schedules
 
-  validates_presence_of :calendar_id, :day, :calendar_day_id
+  validates_presence_of :calendar_id, :day
   validates_uniqueness_of :day, :scope => :calendar_id
 
   scope :search, lambda { |search| where(:day => "#{search}") }

@@ -30,7 +30,14 @@ class Classroom < ActiveRecord::Base
     hours = time_end.hour - time_start.hour
     minutes = (time_end.min - time_start.min) * -1
     minutes_for_hours =  hours * 60
-    minutes
+    minutes_for_hours
+  end
+
+  def minutos_restantes(time_now)
+    hours = time_end.hour - time_now.hour
+    minutes = (time_end.min - time_now.min)
+    minutes_for_hours =  hours * 60
+    minutes_for_hours = minutes_for_hours + minutes
   end
 
 

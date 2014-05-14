@@ -35,18 +35,10 @@
       <% classrooms.each do |c| %>
         <td>
           <%= link_to "#{c} - #{c.teacher}" , c %><br/>
+            <% minutes = c.minutos_restantes(@time_now) %>
             <%if time < time_now %>
-            <% time_end = c.time_end.try(:strftime, '%H:%M').to_s.gsub(":","").to_i %>
-            <%minutes = time_end - time_now %>
               <% if minutes > 0 %>
-              <p class="text-error">Tempo restante:
-                <% hours, minutes = minutes.divmod(60)%>
-                <%= "#{hours}:#{minutes}"%>
-              </p>
-                <%= c.minutes_of_class %>
-              <div class="progress progress-striped">
-                <div class="bar" style="width: <%=%>%;"></div>
-              </div>
+              <p class="text-error">Tempo restante: <%= minutes %> minutos</p>
               <% end %>
             <% end %>
         </td>
