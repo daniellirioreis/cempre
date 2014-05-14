@@ -32,6 +32,7 @@ actions_more_students:
   - my_exams
   - bulletin
   - down_average
+  - declaration_of_studying
 actions_more_classrooms:
   - schedules
   - generate_lessons

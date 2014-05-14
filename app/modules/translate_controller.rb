@@ -85,6 +85,8 @@ class TranslateController
         'Alunos abaixo da média'
       when 'schedules_for_week_day'
         'Horários por dia da semana'
+      when 'declaration_of_studying'
+        'Declaração de Cursando'
     end
   end
 end
