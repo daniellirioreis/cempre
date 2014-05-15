@@ -15,7 +15,8 @@
   <tbody>
     <% if @plan.schedules.any? %>
       <% @plan.schedules.sort_by(&:calendar_day_id).each do |schedule| %>
-        <tr>
+        <tr
+          class="<%if schedule.calendar_day.day == Date.today %>success<% end %>">
           <td align='center'>
               <%= schedule %>
           </td>
