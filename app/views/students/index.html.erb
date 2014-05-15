@@ -65,7 +65,7 @@
           <% @groups_second_change_exam.each do |group_second_change_exam| %>
             <tr>
               <td>
-                  <%= link_to "#{group_second_change_exam.to_s}", group_second_change_exam %>
+                  <%= link_to "#{group_second_change_exam.to_s}", group_second_change_exam.student %>
               </td>
               <td>
                 <%= link_to "#{group_second_change_exam.classroom}", group_second_change_exam.classroom %>
