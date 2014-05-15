@@ -87,6 +87,8 @@ class TranslateController
         'Horários por dia da semana'
       when 'declaration_of_studying'
         'Declaração de Cursando'
+      when 'second_change_exam'
+        '2ª chamada prova'
     end
   end
 end
