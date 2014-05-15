@@ -56,9 +56,6 @@
             Nome
           </th>
           <th>
-            Avaliações
-          </th>
-          <th>
             Turma
           </th>
         </tr>
@@ -69,11 +66,6 @@
             <tr>
               <td>
                   <%= link_to "#{group_second_change_exam.to_s}", group_second_change_exam.student %>
-              </td>
-              <td>
-                <% group_second_change_exam.exams.each do |e| %>
-                  <%= e %>
-                <% end %>
               </td>
               <td>
                 <%= link_to "#{group_second_change_exam.classroom}", group_second_change_exam.classroom %>
