@@ -6,6 +6,18 @@ class SchedulesController < ApplicationController
 
   end
 
+  def new
+    @schedule = Schedule.new(plan_id: params[:plan_id])
+  end
+
+  def create
+    @schedule = Schedule.new(schedule_params)
+
+    @schedule.save
+
+    respond_with @schedule, :location => @schedule.plan
+  end
+
   def update
     @schedule = Schedule.find(params[:id])
 

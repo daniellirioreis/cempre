@@ -38,3 +38,6 @@
     <% end %>
   </tbody>
 </table>
+<div class="form-actions">
+  <%= link_to 'Adicionar Horário', new_schedule_path(plan_id: @plan.id), :class => "btn btn-success" %>
+</div>

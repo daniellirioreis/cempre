@@ -2,7 +2,7 @@ class Schedule < ActiveRecord::Base
   belongs_to :plan
   belongs_to :calendar_day
 
-  validates :plan_id, :calendar_day, presence: true
+  validates :plan_id, :calendar_day_id, presence: true
   validates_presence_of :description, :on => :update
 
   delegate :to_string, to: :calendar_day
