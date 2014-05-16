@@ -52,6 +52,7 @@ class CalendarsController < ApplicationController
   def show
     # @calendar_days = @calendar.days
       @calendar_days = []
+      @all_days = @calendar.days
      if @calendar.present?
        if params[:day].present?
          data = params[:day]

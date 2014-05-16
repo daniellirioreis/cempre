@@ -1,0 +1,30 @@
+<div class="pagination">
+  <ul>
+    <% @all_days.each do |d|%>
+    <li class="">
+      <a href="#<%=d.id%>myModalEvent" role="link" class="link" data-toggle="modal"><%= d %></a>
+      <div id="<%=d.id%>myModalEvent" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3><%=d.to_string %></h3>
+        </div>
+        <div class="modal-body">
+          <p>
+            <b>Eventos</b><br>
+            <% d.events.each do |e| %>
+              <%= e %>
+            <% end %>
+            <hr/>
+            <b>Aulas Cronograma</b><br>
+            <% d.schedules.each do |e| %>
+              <%= e.description %>
+            <% end %>
+
+          </p>
+        </div>
+      </div>
+
+    </li>
+    <% end %>
+  </ul>
+</div>
