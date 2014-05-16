@@ -31,7 +31,7 @@ class LessonsController < ApplicationController
 
     @lesson.destroy
 
-    respond_with @lesson, :location => new_group_path(:classroom_id => @lesson.classroom_id)
+    respond_with @lesson, :location => lessons_path(:classroom_id => @lesson.classroom_id)
 
   end
 

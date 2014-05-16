@@ -70,7 +70,7 @@
     </thead>
     <tbody>
       <% if @lessons.any? %>
-        <% @lessons.each do |l| %>
+        <% @lessons.sort_by(&:day).each do |l| %>
           <tr>
             <td>
               <%= l l.calendar_day.day, format: :long  %>
@@ -92,7 +92,7 @@
 </div>
 
 <div class="form-actions">
-  <%= link_to 'Nova Lição', new_lesson_path(classroom_id: params[:classroom_id]), :class => "btn" %>
+  <%= link_to 'Nova Aula', new_lesson_path(classroom_id: params[:classroom_id]), :class => "btn" %>
   <%= link_to 'voltar', @classroom, :class => "btn" %>
 
 </div>

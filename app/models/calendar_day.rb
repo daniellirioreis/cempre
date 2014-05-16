@@ -2,6 +2,7 @@ class CalendarDay < ActiveRecord::Base
   belongs_to :calendar, :class_name => "Calendar", :foreign_key => "calendar_id"
   has_many :events
   has_many :schedules
+  has_many :lessons
 
   validates_presence_of :calendar_id, :day
   validates_uniqueness_of :day, :scope => :calendar_id
