@@ -6,10 +6,8 @@
      <td>
        <%= month_string %><br>
        <% days.each do |d|%>
-         <a  title="<%= d.weekday_less%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title="" href="#<%=d.id%>myModalEvent" role="link" class="link" data-toggle="modal"><b><%= d.day.day %></b></a>
-
-
-
+         <a href="#<%=d.id%>myModalEvent" role="link" class="link" data-toggle="modal" title="<%= d.weekday_less%>">
+            <b><%= d.day.day %></b></a>
          <div id="<%=d.id%>myModalEvent" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
            <div class="modal-header">
              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
