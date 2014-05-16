@@ -6,7 +6,7 @@
      <td>
        <%= month_string %><br>
        <% days.each do |d|%>
-         <a href="#<%=d.id%>myModalEvent" role="link" class="link" data-toggle="modal"><%= d.day.day %></a>
+         <a href="#<%=d.id%>myModalEvent" role="link" class="link" data-toggle="modal"><b><%= d.day.day %></b></a>
          <div id="<%=d.id%>myModalEvent" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
            <div class="modal-header">
              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -24,8 +24,8 @@
                  <%= e.description %><br>
                <% end %>
                <b>Aulas do Dia</b><br>
-               <% d.lesson.each do |l| %>
-                 <%= "#{lesson.time_start} - #{l.classroom}"%><br>
+               <% d.lessons.each do |l| %>
+                 <%= "#{l.time_start} - #{l.classroom}"%><br>
                <% end %>
              </p>
            </div>

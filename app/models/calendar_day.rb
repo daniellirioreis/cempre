@@ -26,6 +26,10 @@ class CalendarDay < ActiveRecord::Base
     "#{day.day} de #{month_string}, #{weekday}"
   end
 
+  def wday
+    day.wday
+  end
+
   def weekday
     w = nil
     if day.wday == 1
@@ -57,6 +61,39 @@ class CalendarDay < ActiveRecord::Base
     end
       w
   end
+
+  def weekday_less
+    w = nil
+    if day.wday == 1
+      w = "Seg"
+    end
+
+    if day.wday == 2
+       w = "Ter"
+    end
+
+    if day.wday == 3
+      w = "Qua"
+    end
+
+    if day.wday == 4
+       w = "Qui"
+    end
+
+    if day.wday == 5
+      w = "Sex"
+    end
+
+    if day.wday == 6
+      w = "Sáb"
+    end
+
+    if day.wday == 0
+      w = "Dom"
+    end
+      w
+  end
+
 
   def month_string
     m = nil
