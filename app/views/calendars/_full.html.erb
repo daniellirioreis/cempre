@@ -25,7 +25,7 @@
                <% end %>
                <b>Aulas do Dia</b><br>
                <% d.lessons.each do |l| %>
-                 <%= "#{l.time_start} - #{l.classroom}"%><br>
+                 <%= "#{l.time_start.try(:strftime, '%H:%M')} às #{l.time_end.try(:strftime, '%H:%M')}- #{l.classroom}"%><br>
                <% end %>
              </p>
            </div>

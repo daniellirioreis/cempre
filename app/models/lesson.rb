@@ -5,7 +5,7 @@ class Lesson < ActiveRecord::Base
   has_many :exams, :dependent => :restrict_with_error
 
   delegate :to_string, :day,  to: :calendar_day
-  delegate :time_start, :day_week, :course_id, to: :classroom
+  delegate :time_start, :time_end, :day_week, :course_id, to: :classroom
   validates :calendar_day_id, presence: true
   validates_uniqueness_of :calendar_day_id, :scope => :classroom_id
 
