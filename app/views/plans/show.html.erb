@@ -40,4 +40,7 @@
 </table>
 <div class="form-actions">
   <%= link_to 'Adicionar Horário', new_schedule_path(plan_id: @plan.id), :class => "btn btn-success" %>
+
+  <%= link_to 'Voltar', plans_path(calendar_id: @plan.calendar_id), :class => "btn" %>
+
 </div>
