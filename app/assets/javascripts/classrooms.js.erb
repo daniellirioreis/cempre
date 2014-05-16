@@ -2,14 +2,18 @@
 // All this logic will automatically be available in application.js.
 $(document).ready(function(){
   $('#information').hide();
+  $('#close').hide();
 
   $('a#open').click(function(){
     $('#information').show();
     $('#open').hide();
+    $('#close').show();
+
   });
 
   $('a#close').click(function(){
     $('#information').hide();
+    $('#close').hide();
     $('#open').show();
   });
 });
