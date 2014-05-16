@@ -1,0 +1,27 @@
+<%= simple_form_for(@schedule) do |f| %>
+<%= hidden_field_tag :plan_id, params[:plan_id] %>
+<%= f.input :plan_id, :as => "hidden"%>
+
+  <blockquote>
+    <b>Cronograma:</b> <%= @schedule.plan %><br>
+  </blockquote>
+
+  <div class="row-fluid">
+    <div class="span6">
+    <%= f.input :calendar_day_id, collection: @schedule.plan.calendar.days.map{|cd|[cd.to_string, cd.id]}, input_html: { class: 'span8' } %>
+     </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+        <%= f.input :description, input_html: { rows: 10 } %>
+      </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-success' %>
+    <%= link_to 'Voltar', :back, class: 'btn' %>
+  </div>
+
+<% end %>
+
