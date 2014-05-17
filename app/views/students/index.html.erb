@@ -68,7 +68,12 @@
                   <%= link_to "#{group_second_change_exam.to_s}", group_second_change_exam.student %>
               </td>
               <td>
-                <%= link_to "#{group_second_change_exam.classroom}", group_second_change_exam.classroom %>
+                <p>
+                  <%= link_to "#{group_second_change_exam.classroom}", group_second_change_exam.classroom %><br>
+                  <strong>Dia da Semana:</strong> <%= group_second_change_exam.classroom.day_week_humanize %><br>
+                  <strong>Hora Inicial:</strong> <%= group_second_change_exam.classroom.time_start.try(:strftime, '%H:%M') %><br>
+                  <strong>Hora final:</strong> <%= group_second_change_exam.classroom.time_end.try(:strftime, '%H:%M') %>
+                </p>
               </td>
             </tr>
           <% end %>
