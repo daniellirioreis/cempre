@@ -14,7 +14,7 @@
     <% if @student.events.any? %>
       <% @student.events.each do |e| %>
         <tr>
-          <td><%= e.calendar_day %></td>
+          <td><%= e.calendar_day.to_string %></td>
           <td><%= e.time_start.try(:strftime, '%H:%M')%> às <%= e.time_end.try(:strftime, '%H:%M')%></td>
           <td><%= e.description %></td>
         </tr>
