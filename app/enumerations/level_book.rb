@@ -4,5 +4,6 @@ class LevelBook< EnumerateIt::Base
                    :elementary           => 3,
                    :pre_intermediate     => 4,
                    :intermediate         => 5,
-                   :advanced             => 6
+                   :advanced             => 6,
+                   :basic                => 7
 end
