@@ -36,6 +36,15 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def destroy
+    @book = current_company.books.find(params[:id])
+
+    @book.destroy
+
+    respond_with @book, :location => books_path
+
+  end
+
   private
     def set_book
       @book = current_company.books.find(params[:id])
