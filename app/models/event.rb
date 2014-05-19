@@ -12,6 +12,9 @@ class Event < ActiveRecord::Base
   scope :day_end, lambda { |date| where("calendar_days.day <= ?", date).joins(:calendar_day) }
   scope :sorted, -> { order("calendar_days.day") }
 
+  scope :no_finalized, -> {where("closed = ?", false)}
+
+
   scope :sorted_time_start, -> { order(:time_start) }
 
 
