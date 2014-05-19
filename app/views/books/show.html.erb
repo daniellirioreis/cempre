@@ -14,7 +14,7 @@
   <%end %>
 
   <%= link_to 'Editar', edit_book_path(@book), class: 'btn btn-primary' %>
+  <%= link_to 'Excluir', @book, method: :delete, data: { confirm: 'Confirma exclusão?' }, class: 'btn btn-danger' %>
   <%= link_to 'Listagem de Emprestimos', rents_path(book_id: @book.id), class: 'btn' %>
   <%= link_to 'Voltar', :back, class: 'btn' %>
-  <%= link_to 'Deletar', @book, method: :delete, data: { confirm: 'Confirma exclusão?' }, class: 'btn btn-danger' %>
 </div>
