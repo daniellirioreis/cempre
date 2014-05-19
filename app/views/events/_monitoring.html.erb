@@ -8,7 +8,7 @@
     <% end %>
     <hr>
     <p>
-      <strong>Horário: </strong><%=@event.time_start..time_start.try(:strftime, '%H:%M') %> às <%= @event.time_end.try(:strftime, '%H:%M') %><br>
+      <strong>Horário: </strong><%=@event.time_start.time_start.try(:strftime, '%H:%M') %> às <%= @event.time_end.try(:strftime, '%H:%M') %><br>
       <strong>Nome: </strong><%=@event.student%><br>
       <strong>Data Nascimento: </strong><%= l @event.student.birth_date unless @event.student.birth_date.nil?  %><br>
       <strong>Idade: </strong><%= @event.student.age %><br>
