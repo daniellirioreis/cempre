@@ -58,6 +58,12 @@ namespace :cancan do
           Role.create(:controller => 'groups', :action => action)
         end
       end
+      yaml['actions_more_events'].each do |action|
+        r = Role.find_by_action_and_controller(action, 'events')
+        unless r.present?
+          Role.create(:controller => 'events', :action => action)
+        end
+      end
     end
   end
 end

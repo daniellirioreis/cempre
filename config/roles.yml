@@ -44,3 +44,5 @@ actions_more_calendars:
   - finalize
 actions_more_groups:
   - second_change_exam
+actions_more_events:
+  - finalize
