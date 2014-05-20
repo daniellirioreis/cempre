@@ -4,6 +4,7 @@
     <tr>
       <th>Nº</th>
       <th>Nome</th>
+      <th>Idade</th>
       <th>Faltas</th>
       <% TypeExam.to_a.sort.each do |tp| %>
         <th><%= tp.first%></th>
@@ -83,6 +84,9 @@
             </li>
           </td>
           <td>
+            <%= group.student.age %>
+          </td>
+          <td>
             <a title="<%group.faults.each do |f|%><%= "#{f}(#{f.justification_humanize}), "%><%end%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title=""><%= group.faults.count %></a>
           </td>
           <% TypeExam.to_a.sort.each do |te| %>
@@ -97,7 +101,7 @@
       <% end %>
     <% else %>
     <tr>
-      <td colspan='2'>Nenhum registro foi encontrado.</td>
+      <td colspan='8'>Nenhum registro foi encontrado.</td>
     </tr>
     <% end %>
   </tbody>
