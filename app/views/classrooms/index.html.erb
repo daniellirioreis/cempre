@@ -34,7 +34,11 @@
     </tbody>
   </table>
 </div>
+<div class="form-actions">
+  <b>Quantidade de turmas:</b> <%= @classrooms.count %>
+</div>
 <br/>
+
 <div class="form-actions">
   <%= link_to 'Nova Turma', new_classroom_path, :class => "btn" %>
 <div>
