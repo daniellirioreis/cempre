@@ -8,6 +8,9 @@ class Event < ActiveRecord::Base
 
   scope :calendar_id, lambda { |id| where("calendar_days.calendar_id = ?", id).joins(:calendar_day) }
 
+  scope :student_id, lambda { |id| where("events.student_id = ?", id)}
+
+
   scope :day_start, lambda { |date| where("calendar_days.day >= ?", date).joins(:calendar_day) }
   scope :day_end, lambda { |date| where("calendar_days.day <= ?", date).joins(:calendar_day) }
   scope :sorted, -> { order("calendar_days.day") }

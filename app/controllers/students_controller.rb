@@ -78,7 +78,7 @@ class StudentsController < ApplicationController
 
     @student.save
 
-    respond_with @student, :location => students_path
+    respond_with @student, :location => @student
   end
 
   def update
@@ -86,7 +86,7 @@ class StudentsController < ApplicationController
 
     @student.update_attributes(student_params)
 
-    respond_with @student, :location => students_path
+    respond_with @student, :location => @student
 
   end
 

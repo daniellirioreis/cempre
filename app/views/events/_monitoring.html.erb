@@ -8,7 +8,7 @@
     <% end %>
     <hr>
     <p>
-      <strong>Dia:</strong><%= l @event.calendar_day.day%>
+      <strong>Dia: </strong><%= l @event.calendar_day.day%><br>
       <strong>Horário: </strong><%=@event.time_start.try(:strftime, '%H:%M') %> às <%= @event.time_end.try(:strftime, '%H:%M') %><br>
       <strong>Nome: </strong><%=@event.student%><br>
       <strong>Data Nascimento: </strong><%= l @event.student.birth_date unless @event.student.birth_date.nil?  %><br>

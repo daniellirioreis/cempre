@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Dia</th>
-      <th>Tipo</th>
       <th>Descrição</th>
     </tr>
   </thead>
@@ -15,7 +14,6 @@
       <% @events.each do |e| %>
         <tr>
           <td><%= e.calendar_day %></td>
-          <td><%= e.type_event %></td>
           <td><%= e.description %></td>
         </tr>
       <% end %>

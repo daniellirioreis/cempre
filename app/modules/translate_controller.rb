@@ -45,9 +45,11 @@ class TranslateController
         'Aniversariantes'
       when 'plans'
         'Cronograma'
-
       when 'questionnaire_questions'
         'Perguntas do Questionário'
+      when 'enrollments'
+        'Inscrição'
+
     end
   end
 
@@ -89,6 +91,8 @@ class TranslateController
         'Declaração de Cursando'
       when 'second_change_exam'
         '2ª chamada prova'
+      when 'print'
+        'Imprimir'
     end
   end
 end

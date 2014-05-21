@@ -22,6 +22,7 @@ roles:
   - birthdays_months
   - plans
   - questionnaire_questions
+  - enrollments
 actions:
   - create
   - read
@@ -46,3 +47,5 @@ actions_more_groups:
   - second_change_exam
 actions_more_events:
   - finalize
+actions_more_birthdays_months:
+  - print

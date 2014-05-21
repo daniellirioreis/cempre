@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508232343) do
+ActiveRecord::Schema.define(version: 20140521184441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140508232343) do
     t.datetime "updated_at"
     t.boolean  "closed",     default: false
     t.float    "average",    default: 0.0
+    t.integer  "vacancy",    default: 0
   end
 
   add_index "calendars", ["company_id"], name: "index_calendars_on_company_id", using: :btree
@@ -71,9 +72,10 @@ ActiveRecord::Schema.define(version: 20140508232343) do
     t.integer  "teacher_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "capacity",    default: 0
+    t.integer  "capacity",             default: 0
     t.integer  "calendar_id"
-    t.boolean  "closed",      default: false
+    t.boolean  "closed",               default: false
+    t.boolean  "open_for_enrollments", default: true
   end
 
   add_index "classrooms", ["company_id"], name: "index_classrooms_on_company_id", using: :btree

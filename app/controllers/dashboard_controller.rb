@@ -7,7 +7,11 @@ class DashboardController < ApplicationController
     end
 
     if current_calendar.present?
-      @events = current_calendar.events.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
+      if current_user.student.present?
+        @events = current_calendar.events.student_id(current_user.student_id).no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
+      else
+        @events = current_calendar.events.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
+      end
     else
       @events = []
     end

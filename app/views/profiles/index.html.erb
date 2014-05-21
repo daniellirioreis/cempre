@@ -16,7 +16,7 @@
         <% @profiles.each do |profile| %>
           <tr>
             <td align='center'>
-                <%= link_to "#{profile}", profile, :class => "", :title => "Editar #{profile}"  %>
+                <%= link_to "#{profile}", edit_profile_path(profile), :class => "", :title => "Editar #{profile}"  %>
             </td>
           </tr>
         <% end %>

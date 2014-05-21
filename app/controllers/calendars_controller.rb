@@ -8,7 +8,11 @@ class CalendarsController < ApplicationController
   end
 
   def events
-    @events = @calendar.events
+    if current_user.student.present?
+      @events = @calendar.events.student_id(current_user.student_id)
+    else
+      @events = @calendar.events
+    end
   end
 
   def finalize
@@ -105,6 +109,6 @@ class CalendarsController < ApplicationController
     end
 
     def calendar_params
-      params.require(:calendar).permit(:date_start, :date_end, :name, :average)
+      params.require(:calendar).permit(:date_start, :date_end, :name, :average, :vacancy)
     end
 end

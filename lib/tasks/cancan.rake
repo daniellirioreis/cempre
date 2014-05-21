@@ -64,6 +64,14 @@ namespace :cancan do
           Role.create(:controller => 'events', :action => action)
         end
       end
+
+      yaml['actions_more_birthdays_months'].each do |action|
+        r = Role.find_by_action_and_controller(action, 'birthdays_months')
+        unless r.present?
+          Role.create(:controller => 'birthdays_months', :action => action)
+        end
+      end
+
     end
   end
 end
