@@ -4,7 +4,7 @@ class Calendar < ActiveRecord::Base
   has_many :classrooms
   has_many :plans
 
-  validates :name, :average, presence: true
+  validates :name, :vacancy, :average, presence: true
 
   after_save :build_days
 
@@ -30,6 +30,14 @@ class Calendar < ActiveRecord::Base
 
   def groups_locked_or_folded
     Group.calendar_id(id).no_transfer.locked_or_folded
+  end
+
+  def vacancy
+    classrooms.open_for_enrollments.sum(:capacity)
+  end
+
+  def remaining_vacancies
+    vacancy - groups_active.open_for_enrollments.count
   end
 
   def months

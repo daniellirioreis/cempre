@@ -1,7 +1,7 @@
 require 'csv'
 task :import  => :environment do
 
-    a = User.new(:name => ' ADM Cempre', :email => "adm@cempre.com", :password => "inglesespanhol", :password_confirmation => 'inglesespanhol', :profile_id => Profile.first.id)
+    a = User.new(:name => ' ADM Cempre', :email => "adm@cempre.com", :password => "inglesespanhol", :password_confirmation => 'inglesespanhol', :profile_id => Profile.first.id, :companies => Company.all)
      if a.save!
        puts "Usuario criado"
      else
@@ -16,7 +16,7 @@ task :import  => :environment do
     end
 
     # create profile student
-    @profile = Profile.new(name: "alunos", roles: Role.all)
+    @profile = Profile.new(name: "ALUNOS", roles: Role.all)
     if  @profile.save!
       puts "Perfil Criado com sucesso"
     else
@@ -77,17 +77,17 @@ task :import  => :environment do
       if new_student.present?
         puts "Aluno já existe na base: #{row["NOME"].upcase}"
         new_student.update_attributes(phone: row['TELEFONE'], obs: row["OBS"], document: row["DOCUMENTO"], birth_date: birth_date)
-        unless row['TURMA'].nil?
-          classroom = Classroom.find_by_name(row['TURMA'].upcase)
-          if classroom.present?
-            group = Group.new(student_id: new_student.id, classroom_id: classroom.id, status: StatusGroup::ACTIVE)
-            if group.save
-              puts group.inspect
-            else
-              puts 'error in group'
-            end
-          end
-        end
+        # unless row['TURMA'].nil?
+        #   classroom = Classroom.find_by_name(row['TURMA'].upcase)
+        #   if classroom.present?
+        #     group = Group.new(student_id: new_student.id, classroom_id: classroom.id, status: StatusGroup::ACTIVE)
+        #     if group.save
+        #       puts group.inspect
+        #     else
+        #       puts 'error in group'
+        #     end
+        #   end
+        # end
       else
         puts "Novo Aluno: #{row["NOME"].upcase}"
         new_student = Student.new( name: row["NOME"].upcase, company_id: Company.first.id, phone: row['TELEFONE'], obs: row["OBS"], document: row["DOCUMENTO"], birth_date: birth_date)
@@ -95,17 +95,17 @@ task :import  => :environment do
         puts "#{new_student.default_email}"
         if new_student.save!
           puts 'aluno salvo'
-          unless row['TURMA'].nil?
-            classroom = Classroom.find_by_name(row['TURMA'].upcase)
-            if classroom.present?
-              group = Group.new(student_id: new_student.id, classroom_id: classroom.id, status: StatusGroup::ACTIVE)
-              if group.save
-                puts group.inspect
-              else
-                puts 'error in group'
-              end
-            end
-          end
+          # unless row['TURMA'].nil?
+          #   classroom = Classroom.find_by_name(row['TURMA'].upcase)
+          #   if classroom.present?
+          #     group = Group.new(student_id: new_student.id, classroom_id: classroom.id, status: StatusGroup::ACTIVE)
+          #     if group.save
+          #       puts group.inspect
+          #     else
+          #       puts 'error in group'
+          #     end
+          #   end
+          # end
         else
           puts "error"
         end

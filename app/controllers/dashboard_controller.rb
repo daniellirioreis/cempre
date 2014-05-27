@@ -1,4 +1,8 @@
 class DashboardController < ApplicationController
+  before_action :change_companies, only: [:index]
+
+  before_action :verify_current_calendar
+
   def index
     if current_user.student?
       @notes = current_company.notes.find_all_by_for_note(ForMessage::STUDENT)
@@ -19,6 +23,16 @@ class DashboardController < ApplicationController
     if  can?(:read, 'birthdays_months')
       @birthdates = current_calendar.groups_active.bithday_day_and_month(Date.today.day, Date.today.month)
     end
-
   end
+
+  private
+
+  def change_companies
+     redirect_to change_companies_manager_path(current_user) if current_calendar == nil && current_company == nil
+  end
+
+  def verify_current_calendar
+    redirect_to change_companies_manager_path(current_user) if current_calendar == nil
+  end
+
 end

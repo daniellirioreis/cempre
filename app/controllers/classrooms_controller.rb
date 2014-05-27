@@ -2,10 +2,17 @@ class ClassroomsController < ApplicationController
 
   before_filter :authorize_controller!
 
-  before_action :set_classroom, only: [:show, :edit, :update, :destroy, :daily, :generate_lessons, :for_month_print_daily]
+
+  before_action :set_classroom, only: [:show, :edit, :update, :destroy, :daily, :generate_lessons, :for_month_print_daily, :throw_faults]
+
+  before_action :verify_current_calendar
 
   def index
-    @classrooms = current_company.classrooms.open
+    @classrooms = current_calendar.classrooms.open
+  end
+
+  def throw_faults
+    @lessons = @classroom.lessons
   end
 
   def schedules_for_week_day
@@ -73,11 +80,16 @@ class ClassroomsController < ApplicationController
   end
 
   private
+
+    def verify_current_calendar
+      redirect_to change_companies_manager_path(current_user) if current_calendar == nil
+    end
+
     def set_classroom
       @classroom = Classroom.find(params[:id])
     end
 
     def classroom_params
-      params.require(:classroom).permit(:name, :course_id, :company_id, :day_week, :time_start, :time_end, :teacher_id, :capacity, :calendar_id)
+      params.require(:classroom).permit(:name, :course_id, :company_id, :day_week, :time_start, :time_end, :teacher_id, :capacity, :calendar_id, :open_for_enrollments)
     end
 end

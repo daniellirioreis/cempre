@@ -5,13 +5,10 @@ class Student < ActiveRecord::Base
   has_many :events
   has_many :rents
 
-  # validates :company_id, :name, :street, :neighborhood, :city, :federal_unit, :house_number, presence: true
-  # validates :name, :email, uniqueness: true
-  #
-  # validates :email, uniqueness: { scope: :company_id }
-
-  # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-
+  validates :company_id, :name, :street, :neighborhood, :city, :federal_unit, :house_number, presence: true
+  validates :name, :email, uniqueness: true
+  validates :email, uniqueness: { scope: :company_id }
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   after_save :create_user
 
   scope :sorted, -> { order(:name) }
@@ -54,9 +51,9 @@ class Student < ActiveRecord::Base
 
   def create_user
     if user = User.find_by_student_id(id)
-      user.update_attributes(name: name, email: email, password: 12345678, password_confirmation: 12345678, student_id: id, profile_id: Profile.find_by_name("alunos").id )
+      user.update_attributes(name: name, email: email, password: 12345678, password_confirmation: 12345678, student_id: id, profile_id: Profile.find_by_name("ALUNOS").id )
     else
-      user = User.new(name: name, email: email, password: 12345678, password_confirmation: 12345678, student_id: id, profile_id: Profile.find_by_name("alunos").id )
+      user = User.new(name: name, email: email, password: 12345678, password_confirmation: 12345678, student_id: id, profile_id: Profile.find_by_name("ALUNOS").id )
       user.save!
     end
   end

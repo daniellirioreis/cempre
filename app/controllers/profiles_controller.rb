@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
-      params.require(:profile).permit(:name, :role_ids => [])
+      params.require(:profile).permit(:adm, :name, :role_ids => [])
     end
 
     def roles

@@ -11,6 +11,7 @@ pt-BR:
       daily: "Diário"
       for_month_print_daily: 'Imprimir Diário'
       schedules_for_week_day: 'Horários por dia da semana'
+      throw_faults: 'Lançar faltas'
   activerecord:
     models:
       classroom:
@@ -28,3 +29,4 @@ pt-BR:
         course_id: 'Curso'
         capacity: "Capacidade"
         calendar_id: 'Calendário'
+        open_for_enrollments: 'Turma aberta para matrícula'

@@ -59,7 +59,7 @@
 <table class="table table-striped table-hover table-bordered">
   <tr>
   <td>
-    <p class="text-success"><i class="icon-user"></i><b><%= @quant_approved %> <%= link_to "alunos aprovados" ,   results_calendar_path(status: 'approved') %><b></p>
+    <p class="text-success"><i class="icon-user"></i><b> <%= @quant_approved %> <%= link_to "alunos aprovados" ,   results_calendar_path(status: 'approved') %><b></p>
   </td>
   <td>
     <p class="text-error"><i class="icon-user"></i> <b><%= @quant_failed %> <%= link_to "alunos reprovados" ,   results_calendar_path(status: 'failed') %><b></p>

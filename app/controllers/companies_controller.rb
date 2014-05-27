@@ -5,7 +5,12 @@ class CompaniesController < ApplicationController
 
 
   def index
-    @companies = Company.all
+    if current_user.adm
+      @companies = Company.all
+    else
+      @companies = current_user.companies
+    end
+
     respond_with(@companies)
   end
 

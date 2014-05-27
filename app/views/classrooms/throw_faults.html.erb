@@ -1,0 +1,79 @@
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <td>
+      <small>
+        <b>NOME: </b><%= @classroom.name %><br/>
+        <b>CURSO: </b><%= @classroom.course %><br/>
+        <b>HORÁRIO: </b><%= @classroom.time_start.try(:strftime, '%H:%M') %> às <%= @classroom.time_end.try(:strftime, '%H:%M') %>
+     </small>
+    </td>
+    <td>
+      <small>
+        <b>PROFESSOR: </b><%= @classroom.teacher %><br/>
+        <b>DIA DA SEMANA: </b><%= @classroom.day_week_humanize %><br/>
+      </small>
+    </td>
+  </tr>
+</table>
+<div id='div_color'>
+<table width="940" class="table table-striped table-hover table-bordered">
+    <tbody>
+      <tr>
+        <th rowspan="2"><b>Nº</b></th>
+        <th rowspan="2"><b>Aluno</b></th>
+        <th rowspan="2"><b>Total Faltas</b></th>
+        <th colspan="<%=@lessons.count%>"><b>Frequência</b></th>
+      </tr>
+      <tr>
+        <% @lessons.each do |lesson| %>
+          <th ><b><%= lesson.calendar_day%></b></th>
+        <% end %>
+      </tr>
+      <% count = 0 %>
+      <% @classroom.groups.each do |g| %>
+      <tr>
+        <td>
+          <p class='text-center'>
+            <%= count = count + 1 %>
+          </p>
+        </td>
+        <td>
+          <small>
+            <%= g%>
+            <% unless  g.active? %>(<%= g.status_humanize %>)<%end%>
+          </small>
+        </td>
+        <td>
+          <p class='text-center'>
+            <%= g.faults.count %>
+          </p>
+        </td>
+        <% @lessons.each do |lesson| %>
+          <td>
+            <p class='text-center'>
+                <% if g.transfer? %>
+                   <% date_transfer = g.updated_at.strftime("%Y%m%d").to_i %>
+                   <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
+                   <% if date_transfer >= date_lesson %>
+                     <%= link_to "#{g.faults.find_by_group_id_and_lesson_id(g.id, lesson.id ).present? ? 'F' : 'P'}", create_with_click_faults_path(lesson_id: lesson.id, group_id: g.id) %>
+                  <% else %>
+                    -
+                  <% end %>
+                <% else %>
+                  <% date_active = g.created_at.strftime("%Y%m%d").to_i %>
+                  <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
+                   <% if date_active <= date_lesson %>
+                   <%= link_to "#{g.faults.find_by_group_id_and_lesson_id(g.id, lesson.id ).present? ? 'F' : 'P'}", create_with_click_faults_path(lesson_id: lesson.id, group_id: g.id) %>
+                  <% else %>
+                      -
+                  <% end %>
+                <% end %>
+            </p>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

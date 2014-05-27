@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521184441) do
+ActiveRecord::Schema.define(version: 20140526164919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20140521184441) do
     t.integer  "capacity",             default: 0
     t.integer  "calendar_id"
     t.boolean  "closed",               default: false
-    t.boolean  "open_for_enrollments", default: true
+    t.boolean  "open_for_enrollments", default: false
   end
 
   add_index "classrooms", ["company_id"], name: "index_classrooms_on_company_id", using: :btree
@@ -96,6 +96,11 @@ ActiveRecord::Schema.define(version: 20140521184441) do
     t.integer  "federal_unit"
     t.string   "email"
     t.string   "phone"
+  end
+
+  create_table "companies_users", id: false, force: true do |t|
+    t.integer "company_id"
+    t.integer "user_id"
   end
 
   create_table "courses", force: true do |t|
@@ -198,6 +203,7 @@ ActiveRecord::Schema.define(version: 20140521184441) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "adm",        default: false
   end
 
   create_table "profiles_roles", id: false, force: true do |t|
@@ -281,6 +287,7 @@ ActiveRecord::Schema.define(version: 20140521184441) do
     t.string   "phone"
     t.text     "obs"
     t.string   "document"
+    t.string   "cell_phone"
   end
 
   add_index "students", ["company_id"], name: "index_students_on_company_id", using: :btree
@@ -300,6 +307,7 @@ ActiveRecord::Schema.define(version: 20140521184441) do
     t.string   "phone"
     t.string   "email"
     t.date     "birth_date"
+    t.string   "cell_phone"
   end
 
   add_index "teachers", ["company_id"], name: "index_teachers_on_company_id", using: :btree
@@ -329,6 +337,8 @@ ActiveRecord::Schema.define(version: 20140521184441) do
     t.datetime "updated_at"
     t.integer  "student_id"
     t.integer  "profile_id"
+    t.integer  "current_company_id"
+    t.integer  "current_calendar_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -349,6 +359,9 @@ ActiveRecord::Schema.define(version: 20140521184441) do
   add_foreign_key "classrooms", "companies", name: "classrooms_company_id_fk"
   add_foreign_key "classrooms", "courses", name: "classrooms_course_id_fk"
   add_foreign_key "classrooms", "teachers", name: "classrooms_teacher_id_fk"
+
+  add_foreign_key "companies_users", "companies", name: "companies_users_company_id_fk"
+  add_foreign_key "companies_users", "users", name: "companies_users_user_id_fk"
 
   add_foreign_key "courses", "companies", name: "courses_company_id_fk"
 

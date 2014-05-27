@@ -49,7 +49,6 @@ class TranslateController
         'Perguntas do Questionário'
       when 'enrollments'
         'Inscrição'
-
     end
   end
 
@@ -93,6 +92,16 @@ class TranslateController
         '2ª chamada prova'
       when 'print'
         'Imprimir'
+      when 'returned'
+        'Devolver'
+      when 'classrooms'
+        'Turmas'
+      when 'results'
+        'Resultados'
+      when 'throw_faults'
+        'Lançar faltas'
+      when 'create_with_click'
+        'Criar Faltas'
     end
   end
 end

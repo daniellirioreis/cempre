@@ -1,0 +1,31 @@
+<% @companies.each do |c|%>
+  <% if c.calendars.empty? %>
+    <div class="alert alert-block">
+      <h4><%= c %></h4>
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4>Não existem periodo definido!</h4>
+        <%= link_to "clique aqui para definir" , create_calendar_manager_path(current_user, company_id: c.id) %>
+    </div>
+  <% else %>
+    <div class="alert alert-info">
+      <h4><i class="icon-home"></i><%= c %></h4>
+      <% c.calendars.each do |cc|  %>
+        <table class='table'>
+          <tr>
+            <td>
+              </i><i class="icon-calendar"></i><%= cc%>
+            </td>
+            <td>
+
+              <%= link_to change_calendars_manager_path(current_user, company_id: c.id , calendar_id: cc.id), :tabindex => "-1" do %>
+                <i class="icon-retweet"></i>
+              <% end %>
+
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  <% end %>
+</hr>
+<% end %>

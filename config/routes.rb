@@ -1,5 +1,13 @@
 Donald::Application.routes.draw do
 
+  resources :managers do
+    get :change_companies, on: :member
+    get :create_calendar,  on: :member
+    get :change_calendars,  on: :member
+  end
+
+  resources :enrollments
+
   resources :schedules
 
   resources :lessons
@@ -31,7 +39,9 @@ Donald::Application.routes.draw do
 
   resources :exams
 
-  resources :faults
+  resources :faults do
+    get :create_with_click, on: :collection
+  end
 
   resources :calendar_days
 
@@ -53,6 +63,7 @@ Donald::Application.routes.draw do
     get :schedules, on: :collection
     get :for_month_print_daily, on: :member
     get :schedules_for_week_day, on: :collection
+    get :throw_faults, on: :member
   end
 
   resources :teachers

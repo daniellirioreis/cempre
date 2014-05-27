@@ -72,6 +72,20 @@ namespace :cancan do
         end
       end
 
+      yaml['actions_more_rents'].each do |action|
+        r = Role.find_by_action_and_controller(action, 'rents')
+        unless r.present?
+          Role.create(:controller => 'rents', :action => action)
+        end
+      end
+
+      yaml['actions_more_faults'].each do |action|
+        r = Role.find_by_action_and_controller(action, 'faults')
+        unless r.present?
+          Role.create(:controller => 'faults', :action => action)
+        end
+      end
+
     end
   end
 end

@@ -11,7 +11,9 @@ class Group < ActiveRecord::Base
   has_enumeration_for :status, :with => StatusGroup, :create_helpers => true, :create_scopes => true
 
   validates :student_id, :status, presence: true
+
   validate :validate_group
+
 
   scope :active, -> {where("status = ?", StatusGroup::ACTIVE)}
 
@@ -45,6 +47,9 @@ class Group < ActiveRecord::Base
 
   scope :type_exam, lambda { |type_exam| where("exams.type_exam = ?", type_exam) }
 
+  scope :open_for_enrollments, -> {where("classrooms.open_for_enrollments = true ").joins(:classroom)}
+
+
 
   after_save :create_transfer
 
@@ -59,20 +64,25 @@ class Group < ActiveRecord::Base
   private
 
   def validate_group
-    if self.new_record?
-      group = Group.student_id(student_id).active.type_course(classroom.course.type_course)
-       if group.any?
-         errors.add(:student_id, "já possui outra enturmação ativa na turma #{group.last.classroom}")
-       end
-    end
-    unless self.new_record?
-      if status == StatusGroup::LOCKED || status == StatusGroup::FOLDED
-        if justification.blank?
-          errors.add(:justification, :blank )
+
+    if (classroom.groups.active.count + 1) > classroom.capacity
+      errors.add(:classroom_id, "não possui mais vaga")
+    else
+      if self.new_record?
+        group = Group.student_id(student_id).active.type_course(classroom.course.type_course)
+         if group.any?
+           errors.add(:student_id, "já possui outra enturmação ativa na turma #{group.last.classroom}")
+         end
+      end
+
+      unless self.new_record?
+        if status == StatusGroup::LOCKED || status == StatusGroup::FOLDED
+          if justification.blank?
+            errors.add(:justification, :blank )
+          end
         end
       end
     end
-
   end
   def create_transfer
       if transfer?

@@ -11,6 +11,9 @@ class Classroom < ActiveRecord::Base
   validates :course_id, :teacher_id, :calendar_id, :capacity, presence: true
 
   scope :open, -> {where(closed: false )}
+
+  scope :open_for_enrollments, -> {where(open_for_enrollments: true )}
+
   scope :day_week, lambda { |day_week, day_week1| where("day_week = ? OR day_week = ?", day_week, day_week1) }
   scope :sorted, -> { order(:time_start) }
 
@@ -24,6 +27,10 @@ class Classroom < ActiveRecord::Base
 
   def vacancy
     capacity - count_students
+  end
+
+  def remaining_vacancies
+   capacity - count_students
   end
 
   def minutes_of_class

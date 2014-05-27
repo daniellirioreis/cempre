@@ -1,0 +1,13 @@
+pt-BR:
+  title:
+    enrollments:
+      index: 'Inscrição'
+      new: 'Nova Inscrição'
+      create: 'Nova Inscrição'
+  activerecord:
+    models:
+      enrollment:
+        one: "Inscrição"
+        many: "Inscrições"
+    attributes:
+      enrollment:

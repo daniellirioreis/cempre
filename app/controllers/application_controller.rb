@@ -30,13 +30,13 @@ class ApplicationController < ActionController::Base
   private
 
   def current_company
-    Company.first
+    current_user.current_company
   end
 
   helper_method :current_company
 
   def current_calendar
-    current_company.calendars.open.first
+    current_user.current_calendar
   end
 
   helper_method :current_calendar

@@ -29,4 +29,6 @@ pt-BR:
         city: 'Cidade'
         federal_unit: 'UF'
         phone: 'Fone'
+        cell_phone: 'Celular'
         birth_date: 'Data Nascimento'
+        document: "CERTIDÃO/CPF/RG"

@@ -40,12 +40,19 @@ actions_more_classrooms:
   - daily
   - for_month_print_daily
   - schedules_for_week_day
+  - throw_faults
 actions_more_calendars:
   - events
   - finalize
+  - results
+  - classrooms
 actions_more_groups:
   - second_change_exam
 actions_more_events:
   - finalize
 actions_more_birthdays_months:
   - print
+actions_more_rents:
+  - returned
+actions_more_faults:
+  - create_with_click
