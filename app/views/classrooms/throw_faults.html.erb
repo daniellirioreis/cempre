@@ -49,7 +49,7 @@
           </p>
         </td>
         <% @lessons.each do |lesson| %>
-          <td>
+          <td title="<%= g %>, <%= lesson.to_string%>" data-placement="right" data-toggle="tooltip" href="#" data-original-title="" >
             <p class='text-center'>
                 <% if g.transfer? %>
                    <% date_transfer = g.updated_at.strftime("%Y%m%d").to_i %>
