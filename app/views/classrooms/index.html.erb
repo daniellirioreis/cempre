@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <% if @classrooms.any? %>
-        <% @classrooms.each do |classroom| %>
+        <% @classrooms.sort_by(&:name).each do |classroom| %>
           <tr>
             <td>
                 <%=  link_to "#{classroom}", classroom, title: 'Ver detalhes' %><br/>
