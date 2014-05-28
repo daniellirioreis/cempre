@@ -4,6 +4,8 @@ class ManagersController < ApplicationController
 
   before_action :companies, only: [:new, :edit, :update, :create]
 
+  before_filter :authorize_controller!
+
 
   def index
     @managers = Manager.all

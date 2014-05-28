@@ -4,7 +4,11 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = current_company.books
+    if current_user.student?
+      @books = current_user.student.company_active.books
+    else
+      @books = current_company.books
+    end
   end
 
   def show
@@ -47,7 +51,11 @@ class BooksController < ApplicationController
 
   private
     def set_book
-      @book = current_company.books.find(params[:id])
+      if current_user.student?
+        @book = current_user.student.company_active.books.find(params[:id])
+      else
+        @book = current_company.books.find(params[:id])
+      end
     end
 
     def book_params

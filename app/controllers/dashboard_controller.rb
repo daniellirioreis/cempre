@@ -5,34 +5,50 @@ class DashboardController < ApplicationController
 
   def index
     if current_user.student?
-      @notes = current_company.notes.find_all_by_for_note(ForMessage::STUDENT)
+      @notes = current_user.student.company_active.notes.find_all_by_for_note(ForMessage::STUDENT)
     else
       @notes = current_company.notes
     end
 
-    if current_calendar.present?
       if current_user.student.present?
-        @events = current_calendar.events.student_id(current_user.student_id).no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
+        @events = Event.student_id(current_user.student_id).no_finalized
       else
-        @events = current_calendar.events.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
+        if current_calendar.present?
+          @monitorings = current_calendar.events.monitoring.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
+          @days_trial = current_calendar.events.day_trial.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
+          @importants = current_calendar.events.important.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
+        else
+          @monitorings = []
+          @days_trial = []
+          @importants = []
+        end
       end
-    else
-      @events = []
-    end
 
     if  can?(:read, 'birthdays_months')
-      @birthdates = current_calendar.groups_active.bithday_day_and_month(Date.today.day, Date.today.month)
+      unless current_user.student?
+        @birthdates = current_calendar.groups_active.bithday_day_and_month(Date.today.day, Date.today.month)
+       else
+         @birthdates = []
+       end
     end
   end
 
   private
 
   def change_companies
-     redirect_to change_companies_manager_path(current_user) if current_calendar == nil && current_company == nil
+    if current_calendar == nil && current_company == nil
+      unless current_user.student?
+        redirect_to change_companies_manager_path(current_user)
+      end
+    end
   end
 
   def verify_current_calendar
-    redirect_to change_companies_manager_path(current_user) if current_calendar == nil
+    if current_calendar == nil
+      unless current_user.student?
+        redirect_to change_companies_manager_path(current_user)
+      end
+    end
   end
 
 end

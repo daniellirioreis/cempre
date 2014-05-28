@@ -4,7 +4,7 @@
       <h4><%= c %></h4>
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h4>Não existem periodo definido!</h4>
-        <%= link_to "clique aqui para definir" , create_calendar_manager_path(current_user, company_id: c.id) %>
+        <%= link_to "clique aqui para definir" , create_calendar_manager_path(current_user, company_id: c.company_id) %>
     </div>
   <% else %>
     <div class="alert alert-info">

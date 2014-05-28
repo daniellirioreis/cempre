@@ -1,113 +1,58 @@
-<% @notes.each do |m| %>
-  <div class="
-  <% if m.student?%>post_yellow<%end%>
-  <% if m.company?%>post_purple<%end%>
-  <% if m.secretary?%>post_green<%end%>
-  <% if m.administrator?%>post_green<%end%>
-  ">
-  <a href="#<%=m.id%>myModal" role="link" class="link" data-toggle="modal"><%= truncate(m.to_s, length: 100)%></a>
-  </div>
-  <!-- Button to trigger modal -->
+<% if @monitorings.count > 0 %>
+  <div class="alert alert-alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <i class="icon-calendar"></i><strong>Monitoria</strong><br>
+  <% @monitorings.each do |m| %>
+    <a href="#<%=m.id%>myModalEvent" role="link" class="link" data-toggle="modal"><%= m %></a><br>
 
-  <!-- Modal -->
-  <div id="<%=m.id%>myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3>Mensagem</h3>
-    </div>
-    <div class="modal-body">
-      <p>
-        <pre>
-          <%= raw m %>
-        </pre>
-<br><br>
-         <b>Ass:</b> <%= m.user %>
-      </p>
-    </div>
-    <div class="modal-footer">
-      <% unless current_user.student?%>
-          <%= link_to 'Editar', edit_note_path(m), class: 'btn btn-primary' %>
-          <%= link_to 'Deletar', m, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-<% @events.each do |e| %>
-  <div class="post_purple">
-  <a href="#<%=e.id%>myModalEvent" role="link" class="link" data-toggle="modal"><%= truncate( e.calendar_day.to_s + "-" + e.to_s, length: 100)%></a>
-  </div>
-  <!-- Button to trigger modal -->
-
-  <!-- Modal -->
-  <div id="<%=e.id%>myModalEvent" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3>Evento - <%= e.type_event_humanize %></h3>
-    </div>
-      <%@event = e%>
-      <% if e.monitoring? %>
-        <%= render 'events/monitoring', :event => @event %>
-      <% end %>
-
-      <% if e.party? %>
-        <%= render 'events/party', :event => @event  %>
-      <% end %>
-
-      <% if e.recess? %>
-      <%= render 'events/recess', :event => @event  %>
-
-      <% end %>
-
-      <% if e.holiday? %>
-        <%= render 'events/holiday', :event => @event  %>
-      <% end %>
-
-      <% if e.day_trial? %>
-        <%= render 'events/day_trial', :event => @event  %>
-      <% end %>
-
-      <% if e.important? %>
-        <%= render 'events/important', :event => @event  %>
-      <% end %>
-  </div>
-<% end %>
-<% if  can?(:read, 'birthdays_months')%>
-  <% if @birthdates.count > 0 %>
-    <div class="post_green">
-    <a href="#birthdatemyModal" role="link" class="link" data-toggle="modal">
-      <h1><i class="icon-gift"></i></h1>
-    </a>
-    </div>
-    <div id="birthdatemyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="<%=m.id%>myModalEvent" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3>Aniversariantes de hoje</h3>
+        <h3><%= m.type_event_humanize %></h3>
       </div>
-      <div class="modal-body">
-        <table class='table'>
-        <th>
-          Aluno
-        </th>
-        <th>
-          Turma
-        </th>
-          <% @birthdates.each do |b| %>
-            <tr>
-              <td>
-                <%= b %>
-              </td>
-              <td>
-                <b><%= b.classroom%></b><br>
-                <b>Professor:</b> <%= b.classroom.teacher %><br/>
-                <b>Dia da Semana:</b> <%= b.classroom.day_week_humanize %><br>
-                <b>Horário:</b> <%= b.classroom.time_start.try(:strftime, '%H:%M') %> às <%= b.classroom.time_end.try(:strftime, '%H:%M') %>
-
-              </td>
-            <tr>
-          <% end %>
-        </table>
-      </div>
+      <%@event = m%>
+      <% if m.monitoring? %>
+        <%= render 'events/monitoring', :event => @event %>
+      <% end %>
     </div>
   <% end %>
+  </div>
 <% end %>
 
+<% if @days_trial.count > 0 %>
+  <div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <i class="icon-calendar"></i><strong>Dia de Prova</strong><br>
+  <% @days_trial.each do |d| %>
+    <%= d.calendar_day.to_string %> | <%=d.description%><br>
+  <% end %>
+  </div>
+<% end %>
+
+<% if @importants.count > 0 %>
+  <div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <i class="icon-calendar"></i><strong>Importante</strong><br>
+  <% @importants.each do |i| %>
+    <%= i.calendar_day.to_string %> | <%=i.description%><br>
+  <% end %>
+  </div>
+<% end %>
+<% @notes.each do |n|%>
+  <div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <i class="icon-comment"></i><strong>Mensagem</strong><br>
+    <%= n.subject %><br>
+    <strong>Ass: </strong><%= n.user.name %>
+  </div>
+<% end %>
+
+<% if @birthdates.count > 0  %>
+  <div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <i class="icon-gift"></i><strong>Aniversários</strong><br>
+  <% @birthdates.each do |b|%>
+    <string><%= b.student %></strong> (<%=b.classroom%>|<%= b.classroom.day_week_humanize %>|<%= b.classroom.time_start.try(:strftime, '%H:%M')%> às <%= b.classroom.time_end.try(:strftime, '%H:%M')%>)
+  <%end%>
+  </div>
+<% end %>

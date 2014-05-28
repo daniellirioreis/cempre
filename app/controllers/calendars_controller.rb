@@ -1,7 +1,7 @@
 class CalendarsController < ApplicationController
   before_filter :authorize_controller!
 
-  before_action :set_calendar, only: [:show, :edit, :update, :destroy, :finalize, :results, :classrooms, :events]
+  before_action :set_calendar, only: [:show, :edit, :update, :destroy, :finalize, :results, :classrooms]
 
   def classrooms
     @classrooms = @calendar.classrooms
@@ -9,9 +9,7 @@ class CalendarsController < ApplicationController
 
   def events
     if current_user.student.present?
-      @events = @calendar.events.student_id(current_user.student_id)
-    else
-      @events = @calendar.events
+      @calendars =  current_user.student.company_active.calendars
     end
   end
 

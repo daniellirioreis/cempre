@@ -3,8 +3,6 @@
   <blockquote>
     <% if @event.closed %>
       <h3 class='text-success'>Monitoria Realizada</h3>
-    <% else  %>
-      <h3>Monitoria</h3>
     <% end %>
     <hr>
     <p>
@@ -35,6 +33,6 @@
       <%= link_to "Fechar Monitoria", finalize_event_path(@event), class: 'btn btn-success' %>
     <% end %>
     <%= link_to 'Deletar', @event, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger"  unless @event.closed%>
-    <%= link_to 'Voltar', :back, class: 'btn' %>
+    <%= link_to 'Voltar', root_path, class: 'btn' %>
 </div>
 <% end %>

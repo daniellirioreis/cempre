@@ -12,7 +12,6 @@ roles:
   - rents
   - students
   - teachers
-  - users
   - profiles
   - companies
   - questions
@@ -23,6 +22,7 @@ roles:
   - plans
   - questionnaire_questions
   - enrollments
+  - managers
 actions:
   - create
   - read
@@ -56,3 +56,7 @@ actions_more_rents:
   - returned
 actions_more_faults:
   - create_with_click
+actions_more_managers:
+  - change_companies
+  - create_calendar
+  - change_calendars

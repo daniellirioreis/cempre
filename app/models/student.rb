@@ -42,6 +42,14 @@ class Student < ActiveRecord::Base
     Fault.student_id(id)
   end
 
+  def group_active
+    groups.active.first
+  end
+
+  def company_active
+     group_active.company if group_active.present?
+  end
+
   def exams
     Exam.student_id(id)
   end

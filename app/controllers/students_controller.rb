@@ -63,7 +63,12 @@ class StudentsController < ApplicationController
   end
 
   def my_data
-    @student = current_company.students.find(params[:id])
+    if current_user.student.nil?
+      flash[:info] = 'Opção válida somente para usuário aluno'
+      redirect_to @student
+    else
+      @student = current_user.student
+    end
   end
 
   def my_exams

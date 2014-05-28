@@ -17,6 +17,12 @@ class Event < ActiveRecord::Base
 
   scope :no_finalized, -> {where("closed = ?", false)}
 
+  scope :monitoring, -> {where("type_event = ?", TypeEvent::MONITORING )}
+
+  scope :day_trial, -> {where("type_event = ?", TypeEvent::DAY_TRIAL )}
+  scope :important, -> {where("type_event = ?", TypeEvent::IMPORTANT )}
+
+
 
   scope :sorted_time_start, -> { order(:time_start) }
 

@@ -49,7 +49,7 @@ Donald::Application.routes.draw do
     get :finalize, on: :member
     get :results, on: :member
     get :classrooms, on: :member
-    get :events, on: :member
+    get :events, on: :collection
   end
 
   resources :groups do

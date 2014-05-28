@@ -49,6 +49,8 @@ class TranslateController
         'Perguntas do Questionário'
       when 'enrollments'
         'Inscrição'
+      when 'managers'
+        'Acesso'
     end
   end
 
@@ -102,6 +104,12 @@ class TranslateController
         'Lançar faltas'
       when 'create_with_click'
         'Criar Faltas'
+      when 'change_companies'
+        'Trocar de escola'
+      when 'create_calendar'
+        'Criar período'
+      when 'change_calendars'
+        'Trocar período'
     end
   end
 end

@@ -1,6 +1,6 @@
 <%= Menu.create self, 1, :class => "nav nav-list  nav-tabs nav-stacked nav-pills" do |menu| %>
   <%= menu.item :id => :dashboard, :icon => :inbox, :path => root_path%>
-  <%= menu.item :id => 'Usuários', :icon => :user, :path => managers_path %>
+  <%= menu.item :id => 'Acesso', :icon => :user, :path => managers_path if can?(:read, 'managers') %>
   <%= menu.item :id => 'Perfil', :icon => :user, :path => profiles_path if can?(:read, 'profiles')  %>
   <%= menu.item :id => 'Escolas', :icon => :home, :path => companies_path  if can?(:read, 'companies') %>
   <%= menu.item :id => 'Cursos', :icon => 'folder-open', :path => courses_path if can?(:read, 'courses') %>
@@ -12,13 +12,13 @@
   <%= menu.item :id => 'Respostas', :icon => 'ok', :path => answers_path if can?(:read, 'answers')  %>
 
   <%= menu.item :id => 'Quadro_de_horários', :icon => :time, :path => schedules_classrooms_path if can?(:schedules, 'classrooms') %>
-  <%= menu.item :id => 'Inscrição', :icon => :tasks, :path => enrollments_path %>
+  <%= menu.item :id => 'Inscrição', :icon => :tasks, :path => enrollments_path if can?(:read, 'enrollments') %>
   <%= menu.item :id => 'Alunos', :icon => :user, :path => students_path if can?(:read, 'students')  %>
   <%= menu.item :id => 'Agrupar_Alunos', :icon => :random, :path => groups_path if can?(:read, 'groups') %>
   <%= menu.item :id => 'Mensagens', :icon => :comment, :path => new_note_path if can?(:read, 'notes')  %>
   <%= menu.item :id => "Minhas_Informações", :icon => :star, :path => my_data_student_path(current_user.student) if can?(:my_data, 'students') %>
   <%= menu.item :id => "Avaliações", :icon => :tasks, :path => my_exams_student_path(current_user.student) if can?(:my_exams, 'students')%>
   <%= menu.item :id => "Boletins", :icon => :heart, :path => bulletin_student_path(current_user.student) if  can?(:bulletin, 'students') %>
-  <%= menu.item :id => "Calendário", :icon => :calendar, :path => events_calendar_path(current_calendar) %>
+  <%= menu.item :id => "Calendário", :icon => :calendar, :path => events_calendars_path %>
   <%= menu.item :id => "Aniversariantes", :icon => :gift, :path => birthdays_months_path if  can?(:read, 'birthdays_months')%>
 <% end -%>
