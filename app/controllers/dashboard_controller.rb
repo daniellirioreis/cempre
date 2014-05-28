@@ -4,6 +4,10 @@ class DashboardController < ApplicationController
   before_action :verify_current_calendar
 
   def index
+    @monitorings = []
+    @days_trial = []
+    @importants = []
+    @birthdates = []
     if current_user.student?
       @notes = current_user.student.company_active.notes.find_all_by_for_note(ForMessage::STUDENT)
     else
@@ -17,18 +21,12 @@ class DashboardController < ApplicationController
           @monitorings = current_calendar.events.monitoring.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
           @days_trial = current_calendar.events.day_trial.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
           @importants = current_calendar.events.important.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
-        else
-          @monitorings = []
-          @days_trial = []
-          @importants = []
         end
       end
 
     if  can?(:read, 'birthdays_months')
       unless current_user.student?
         @birthdates = current_calendar.groups_active.bithday_day_and_month(Date.today.day, Date.today.month)
-       else
-         @birthdates = []
        end
     end
   end
