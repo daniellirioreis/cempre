@@ -9,7 +9,7 @@ class CalendarsController < ApplicationController
 
   def events
     if current_user.student.present?
-      @calendars =  current_user.student.company_active.calendars
+      @group_active =  current_user.student.group_active
     end
   end
 

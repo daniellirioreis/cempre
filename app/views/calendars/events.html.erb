@@ -1,29 +1,23 @@
-<% @calendars.sort_by(&:id).each do |c|  %>
-    <i class="icon-calendar"></i> <%= c%><br><br>
-    <% contador = 0 %>
-    <table class="table table-striped table-hover table-bordered">
-        <% c.days.each do |d| %>
-          <% if contador == 0 %>
-            <tr>
-            <%end%>
-            <%  contador = contador + 1 %>
-            <td>
-              <p title="<%= d.to_string%>" data-placement="right" data-toggle="tooltip" href="#" data-original-title="" class="<%if d.events.count > 0 %>text-error<%end%>">
-                <b>
-                <%= d %>
-                </b>
-              </p>
-              <p>
-                <% d.events.each do |e| %>
-                  <%= e %><hr>
-                <% end %>
-              </p>
-            </td>
-
-            <% if contador == 9 %>
-              <%contador = 0%>
-            </tr>
+<% @group_active.each do |g| %>
+  <i class="icon-calendar"></i> <%= g.classroom%> - <%= g.classroom.calendar%><br><br>
+  <% contador = 0 %>
+  <table class="table table-striped table-hover table-bordered">
+      <% g.classroom.lessons.each do |l| %>
+        <% if contador == 0 %>
+          <tr>
           <%end%>
-        <% end %>
-      </table>
+          <%  contador = contador + 1 %>
+          <td>
+            <%= l %><br>
+            <% l.schedules.each do |s| %>
+              <%= s.description %>
+            <%end%>
+          </td>
+
+          <% if contador == 4 %>
+            <%contador = 0%>
+          </tr>
+        <%end%>
+      <% end %>
+    </table>
 <% end %>

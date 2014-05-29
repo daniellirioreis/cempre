@@ -43,11 +43,11 @@ class Student < ActiveRecord::Base
   end
 
   def group_active
-    groups.active.first
+    groups.active
   end
 
   def company_active
-     group_active.company if group_active.present?
+     group_active.first.company if group_active.any?
   end
 
   def exams
