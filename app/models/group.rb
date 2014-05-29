@@ -61,6 +61,14 @@ class Group < ActiveRecord::Base
     (exams.sum(:value) / exams.count).round(2)
   end
 
+  def frequency
+    total_lessons = classroom.lessons.count
+    total_faults =  faults.count
+    m = total_faults * 100
+    mm = m / total_lessons
+    100 - mm
+  end
+
   private
 
   def validate_group

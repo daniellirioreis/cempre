@@ -18,6 +18,9 @@
   <%= menu.item :id => 'Mensagens', :icon => :comment, :path => new_note_path if can?(:read, 'notes')  %>
   <%= menu.item :id => "Minhas_Informações", :icon => :star, :path => my_data_student_path(current_user.student) if can?(:my_data, 'students') %>
   <%= menu.item :id => "Avaliações", :icon => :tasks, :path => my_exams_student_path(current_user.student) if can?(:my_exams, 'students')%>
+
+  <%= menu.item :id => "Frequência", :icon => :tasks, :path => frequency_student_path(current_user.student) if can?(:frequency, 'students')%>
+
   <%= menu.item :id => "Boletins", :icon => :heart, :path => bulletin_student_path(current_user.student) if  can?(:bulletin, 'students') %>
   <%= menu.item :id => "Calendário", :icon => :calendar, :path => events_calendars_path %>
   <%= menu.item :id => "Aniversariantes", :icon => :gift, :path => birthdays_months_path if  can?(:read, 'birthdays_months')%>

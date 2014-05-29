@@ -110,6 +110,8 @@ class TranslateController
         'Criar período'
       when 'change_calendars'
         'Trocar período'
+      when 'frequency'
+        'Frequência'
     end
   end
 end

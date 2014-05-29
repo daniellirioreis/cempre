@@ -107,6 +107,6 @@ class CalendarsController < ApplicationController
     end
 
     def calendar_params
-      params.require(:calendar).permit(:date_start, :date_end, :name, :average)
+      params.require(:calendar).permit(:date_start, :date_end, :name, :average, :limit_of_faults)
     end
 end

@@ -1,10 +1,14 @@
 class StudentsController < ApplicationController
   before_filter :authorize_controller!
 
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :my_data, :my_exams, :declaration_of_studying, :bulletin]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :my_data, :my_exams, :declaration_of_studying, :bulletin, :frequency]
 
   def bulletin
     @groups_approved = @student.groups.approved
+  end
+
+  def frequency
+
   end
 
   def index

@@ -76,6 +76,7 @@ Donald::Application.routes.draw do
     get :declaration_of_studying, on: :member
     get :down_average, on: :collection
     get :bulletin, on: :member
+    get :frequency, on: :member
   end
 
 

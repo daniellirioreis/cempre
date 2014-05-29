@@ -12,6 +12,7 @@ pt-BR:
       declaration_of_studying: 'Declaração de Cursando'
       down_average: 'Alunos abaixo da média'
       bulletin: 'Boletins'
+      frequency: "Frequência"
   activerecord:
     models:
       student:

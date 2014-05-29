@@ -12,6 +12,7 @@ class Fault < ActiveRecord::Base
 
   scope :student_id, lambda { |id| where("groups.student_id = ?", id).joins(:group) }
 
+  delegate :to_string, to: :lesson
 
   def to_s
     "#{lesson.calendar_day}"

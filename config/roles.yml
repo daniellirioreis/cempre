@@ -34,6 +34,7 @@ actions_more_students:
   - bulletin
   - down_average
   - declaration_of_studying
+  - frequency
 actions_more_classrooms:
   - schedules
   - generate_lessons

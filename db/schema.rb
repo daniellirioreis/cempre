@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526164919) do
+ActiveRecord::Schema.define(version: 20140529185727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 20140526164919) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "closed",     default: false
-    t.float    "average",    default: 0.0
-    t.integer  "vacancy",    default: 0
+    t.boolean  "closed",          default: false
+    t.float    "average",         default: 0.0
+    t.integer  "limit_of_faults", default: 0
   end
 
   add_index "calendars", ["company_id"], name: "index_calendars_on_company_id", using: :btree

@@ -27,13 +27,16 @@ class FaultsController < ApplicationController
   def create_with_click
     group = Group.find(params[:group_id])
     @fault = group.faults.find_by_group_id_and_lesson_id(params[:group_id], params[:lesson_id])
-    if @fault.present?
+    unless @fault.nil?
       @fault.destroy
       flash[:info] = 'Falta apagada com sucesso'
     else
       @fault = Fault.new(group_id: params[:group_id], lesson_id: params[:lesson_id], justification: JustificationsFault::NONE)
-      @fault.save
-      flash[:info] = 'Falta criada com sucesso'
+      if @fault.save
+        flash[:info] = 'Falta criada com sucesso'
+      else
+        flash[:alert] = 'ocorreu um erro no lançamento de falta'
+      end
     end
 
     redirect_to throw_faults_classroom_path(@fault.group.classroom)
