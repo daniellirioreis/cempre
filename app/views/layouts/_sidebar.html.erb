@@ -4,7 +4,7 @@
   <%= menu.item :id => 'Perfil', :icon => :user, :path => profiles_path if can?(:read, 'profiles')  %>
   <%= menu.item :id => 'Escolas', :icon => :home, :path => companies_path  if can?(:read, 'companies') %>
   <%= menu.item :id => 'Cursos', :icon => 'folder-open', :path => courses_path if can?(:read, 'courses') %>
-  <%= menu.item :id => 'Profesores', :icon => :user, :path => teachers_path if can?(:read, 'teachers')  %>
+  <%= menu.item :id => 'Professores', :icon => :user, :path => teachers_path if can?(:read, 'teachers')  %>
   <%= menu.item :id => 'Períodos', :icon => :calendar, :path => calendars_path if can?(:read, 'calendars')  %>
   <%= menu.item :id => 'Turmas', :icon => :home, :path => classrooms_path if can?(:read, 'classrooms')  %>
   <%= menu.item :id => 'Livros', :icon => :book, :path => books_path if can?(:read, 'books')  %>
@@ -19,7 +19,7 @@
   <%= menu.item :id => "Minhas_Informações", :icon => :star, :path => my_data_student_path(current_user.student) if can?(:my_data, 'students') %>
   <%= menu.item :id => "Avaliações", :icon => :tasks, :path => my_exams_student_path(current_user.student) if can?(:my_exams, 'students')%>
 
-  <%= menu.item :id => "Frequência", :icon => :tasks, :path => frequency_student_path(current_user.student) if can?(:frequency, 'students')%>
+  <%= menu.item :id => "Frequência", :icon => :signal, :path => frequency_student_path(current_user.student) if can?(:frequency, 'students')%>
 
   <%= menu.item :id => "Boletins", :icon => :heart, :path => bulletin_student_path(current_user.student) if  can?(:bulletin, 'students') %>
   <%= menu.item :id => "Calendário", :icon => :calendar, :path => events_calendars_path %>
