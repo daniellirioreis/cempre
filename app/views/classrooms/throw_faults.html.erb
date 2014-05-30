@@ -15,7 +15,19 @@
     </td>
   </tr>
 </table>
-<div id='div_color'>
+
+
+<b>Meses</b>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <% @classroom.calendar.months.each do |m| %>
+      <td>
+        <%= link_to "#{m}", throw_faults_classroom_path(@classroom, month: m) %><br>
+      </td>
+    <%end%>
+  </tr>
+</table>
+
 <table width="940" class="table table-striped table-hover table-bordered">
     <tbody>
       <tr>
@@ -49,7 +61,7 @@
           </p>
         </td>
         <% @lessons.each do |lesson| %>
-          <td title="<%= g %>, <%= lesson.to_string%>" data-placement="right" data-toggle="tooltip" href="#" data-original-title="" >
+          <td>
             <p class='text-center'>
                 <% if g.transfer? %>
                    <% date_transfer = g.updated_at.strftime("%Y%m%d").to_i %>
@@ -75,7 +87,6 @@
       <% end %>
     </tbody>
   </table>
-</div>
 <div class="form-actions">
   <%= link_to 'Voltar', @classroom, :class => "btn" %>
 </div>

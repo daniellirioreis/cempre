@@ -12,7 +12,10 @@ class ClassroomsController < ApplicationController
   end
 
   def throw_faults
-    @lessons = @classroom.lessons
+    if params[:month].blank?
+      params[:month] = Date.today.month
+    end
+    @lessons = @classroom.lessons.by_month(params[:month])
   end
 
   def schedules_for_week_day
