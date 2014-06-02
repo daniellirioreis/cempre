@@ -52,7 +52,7 @@
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <i class="icon-gift"></i><strong>Aniversários</strong><br>
   <% @birthdates.each do |b|%>
-    <string><%= b.student %></strong> (<%=b.classroom%>|<%= b.classroom.day_week_humanize %>|<%= b.classroom.time_start.try(:strftime, '%H:%M')%> às <%= b.classroom.time_end.try(:strftime, '%H:%M')%>)
+    <string><%= b.student %></strong> (<%=b.classroom%>|<%= b.classroom.day_week_humanize %>|<%= b.classroom.time_start.try(:strftime, '%H:%M')%> às <%= b.classroom.time_end.try(:strftime, '%H:%M')%> <%= b.classroom.teacher%>)
   <%end%>
   </div>
 <% end %>
