@@ -49,11 +49,8 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
 
-    raise @group.update_attributes(group_params).inspect
 
-
-
-    respond_with @group, :location => @group.classroom
+    respond_with @group, :location => new_group_path(:classroom_id => @group.classroom_id)
   end
 
   def destroy
