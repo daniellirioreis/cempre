@@ -49,6 +49,7 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
 
+    @group.update_attributes(group_params)
 
     respond_with @group, :location => new_group_path(:classroom_id => @group.classroom_id)
   end
