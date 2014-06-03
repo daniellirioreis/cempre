@@ -1,7 +1,13 @@
 <%= f.input :classroom_id, :as => "hidden"%>
+<%= hidden_field_tag :classroom_id, params[:classroom_id] %>
 <%= f.input :status, as: :hidden %>
+<%= hidden_field_tag :status, params[:status] %>
+
 <%= f.input :student_id, as: :hidden %>
+
+
 <%= f.input :justification, as: :hidden, input_html: { value: ""} %>
+
 <p class="lead active">
   Você deseja realmente aprovar <%= @group%>  com a nota <%= @group.value_tatal %>?
 </p>

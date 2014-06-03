@@ -1,6 +1,9 @@
   <%= f.input :status, as: :hidden %>
   <%= f.input :student_id, as: :hidden %>
   <%= f.input :classroom_id, as: :hidden %>
+  <%= f.input :classroom_id, :as => "hidden"%>
+  <%= hidden_field_tag :classroom_id, params[:classroom_id] %>
+
   <p class="lead active">
     Você deseja realmente Transferir  <%= @group%> da turma <%= @group.classroom%> para
   </p>
