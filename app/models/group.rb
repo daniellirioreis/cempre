@@ -92,6 +92,7 @@ class Group < ActiveRecord::Base
       end
     end
   end
+
   def create_transfer
       if transfer?
         group = Group.new(:student_id => student_id, :classroom_id => new_classroom_id, :status => 0)
