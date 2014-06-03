@@ -81,7 +81,11 @@ class ApplicationController < ActionController::Base
             if params['action'] ==  'print'
               'print'
             else
-              nil
+              if params['action'] == 'report_calendar'
+                'print'
+              else
+                nil
+              end
             end
           end
         end

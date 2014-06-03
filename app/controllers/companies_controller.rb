@@ -3,6 +3,9 @@ class CompaniesController < ApplicationController
 
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
+  def report_calendar
+
+  end
 
   def index
     if current_user.adm
