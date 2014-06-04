@@ -48,6 +48,9 @@
                       <li>
                           <%= link_to 'Trancar', edit_group_path(group, status: StatusGroup::LOCKED) %>
                       </li>
+                      <li>
+                          <%= link_to 'Ativar', edit_group_path(group, status: StatusGroup::ACTIVE) %>
+                      </li>
                     <% end %>
                     <% unless group.folded? %>
                       <li>
