@@ -74,7 +74,7 @@ class Group < ActiveRecord::Base
   def validate_group
 
     if (classroom.groups.active.count + 1) > classroom.capacity
-      errors.add(:classroom_id, "não possui mais vaga")
+      errors.add(:student_id, "não pode ser enturmamado, turma não possui mais vaga")
     else
       if self.new_record?
         group = Group.student_id(student_id).active.type_course(classroom.course.type_course)
