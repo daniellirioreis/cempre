@@ -41,7 +41,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
 
-    raise @group.save!.inspect
+    @group.save
 
     respond_with @group, :location => new_group_path(:classroom_id => @group.classroom_id)
   end
