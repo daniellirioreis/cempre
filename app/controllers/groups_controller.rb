@@ -43,7 +43,7 @@ class GroupsController < ApplicationController
 
     @group.save
 
-    respond_with @group, :location => new_group_path(:classroom_id => @group.classroom_id)
+    respond_with @group, :location => @group.classroom
   end
 
   def update
@@ -51,7 +51,7 @@ class GroupsController < ApplicationController
 
     @group.update_attributes(group_params)
 
-    respond_with @group, :location => new_group_path(:classroom_id => @group.classroom_id)
+    respond_with @group, :location => @group.classroom
   end
 
   def destroy
@@ -59,7 +59,7 @@ class GroupsController < ApplicationController
 
     @group.destroy
 
-    respond_with @group, :location => new_group_path(:classroom_id => @group.classroom_id)
+    respond_with @group, :location => @group.classroom
 
   end
 
