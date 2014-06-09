@@ -25,7 +25,7 @@ class ExamsController < ApplicationController
 
     @exam.save
 
-    respond_with @exam, :location => @exam.group.classroom
+    respond_with @exam, :location => exams_path(:group_id => @exam.group_id)
   end
 
 

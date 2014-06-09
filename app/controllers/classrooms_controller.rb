@@ -93,6 +93,6 @@ class ClassroomsController < ApplicationController
     end
 
     def classroom_params
-      params.require(:classroom).permit(:name, :course_id, :company_id, :day_week, :time_start, :time_end, :teacher_id, :capacity, :calendar_id, :open_for_enrollments)
+      params.require(:classroom).permit(:name, :course_id, :company_id, :day_week, :time_start, :time_end, :teacher_id, :capacity, :calendar_id, :open_for_enrollments, :closed)
     end
 end

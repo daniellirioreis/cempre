@@ -30,3 +30,4 @@ pt-BR:
         capacity: "Capacidade"
         calendar_id: 'Calendário'
         open_for_enrollments: 'Turma aberta para matrícula'
+        closed: 'Fechar'
