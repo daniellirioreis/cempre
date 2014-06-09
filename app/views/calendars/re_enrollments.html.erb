@@ -1,25 +1,32 @@
 <strong>Quantidades rematricula: </strong><%= @groups_re_enrollments.count %><br><br>
-<table class="table table-striped table-hover table-bordered">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Status</th>
-      <th>Turma</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%@groups_re_enrollments.each do |g| %>
-     <tr>
-        <td>
-          <%= g %>
-        </td>
-        <td>
-          <%= g.status_humanize %>
-        </td>
-        <td>
-          <%= g.classroom %>
-        </td>
-     </tr>
-     <% end %>
-  </tbody>
-</table>
+  <% @groups_re_enrollments.group_by(&:course).each do |course, groups| %>
+  <div class="alert alert-info">
+    <h4 align='center'><%= course %></h4>
+    <hr>
+    <% groups.group_by(&:status_humanize).each do |status_humanize, groups|%>
+      <h4 align='center'><%= status_humanize %></h4><br>
+      <div id='div_color'>
+        <table id="ulItens" class="table table-striped table-hover table-bordered">
+          <tr>
+            <th>
+              Aluno
+            </th>
+            <th>
+              Turma
+            </th>
+          </tr>
+            <% groups.each do |g| %>
+            <tr>
+              <td>
+                <%= g %>
+              </td>
+              <td>
+                <%= g.classroom %>
+              </td>
+            </tr>
+            <% end %>
+        </table>
+      </div>
+      <% end %>
+  </div>
+  <% end %>
