@@ -80,16 +80,14 @@
                   <li>
                     <%= link_to "#{group.second_change_exam ? 'Desmarcar 2ª chamada' : 'Marcar 2ª chamada '}", second_change_exam_group_path(group) if group.active? %>
                   </li>
-
-                  <li>
-                    <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %>
-                  </li>
-
                   <li>
                     <%= link_to 'Informações sobre faltas', faults_path(group_id: group.id)%>
                   </li>
                   <li>
                     <%= link_to 'Informações sobre avaliações', exams_path(group_id: group.id) %>
+                  </li>
+                  <li>
+                    <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %>
                   </li>
                 <% end %>
               </ul>
