@@ -10,6 +10,7 @@ pt-BR:
       results: 'Resultado Final'
       classrooms: 'Turmas'
       events: 'Eventos'
+      re_enrollments: 'Rematriculas'
 
   activerecord:
     models:

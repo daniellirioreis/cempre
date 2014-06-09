@@ -47,8 +47,10 @@ actions_more_calendars:
   - finalize
   - results
   - classrooms
+  - re_enrollments
 actions_more_groups:
   - second_change_exam
+  - re_enrollment
 actions_more_events:
   - finalize
 actions_more_birthdays_months:

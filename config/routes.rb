@@ -50,11 +50,14 @@ Donald::Application.routes.draw do
     get :results, on: :member
     get :classrooms, on: :member
     get :events, on: :collection
+    get :re_enrollments, on: :collection
+
   end
 
   resources :groups do
       get :second_change_exam, on: :member
       get :questionnaire, on: :member
+      get :re_enrollment, on: :member
   end
 
   resources :classrooms do

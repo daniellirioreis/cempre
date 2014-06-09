@@ -112,6 +112,10 @@ class TranslateController
         'Trocar período'
       when 'frequency'
         'Frequência'
+      when 're_enrollment'
+        'Rematricula'
+      when 're_enrollments'
+        'Rematriculas'
     end
   end
 end

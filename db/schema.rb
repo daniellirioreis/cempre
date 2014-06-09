@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529185727) do
+ActiveRecord::Schema.define(version: 20140609031240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 20140529185727) do
     t.integer  "new_classroom_id"
     t.text     "justification"
     t.boolean  "second_change_exam", default: false
+    t.boolean  "re_enrollment",      default: false
   end
 
   add_index "groups", ["classroom_id"], name: "index_groups_on_classroom_id", using: :btree

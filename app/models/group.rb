@@ -17,11 +17,17 @@ class Group < ActiveRecord::Base
 
   scope :active, -> {where("status = ?", StatusGroup::ACTIVE)}
 
+  scope :re_enrollment, -> {where("re_enrollment = ?", true)}
+
   scope :second_change_exam, -> {where("second_change_exam = ?", true)}
 
   scope :approved, -> {where("status = ?", StatusGroup::APPROVED)}
 
   scope :locked_or_folded, -> {where("status = ? OR status = ?", StatusGroup::LOCKED, StatusGroup::FOLDED)}
+
+
+  scope :active_or_approved_or_failed, -> {where("status = ? OR status = ? OR status = ?", StatusGroup::ACTIVE, StatusGroup::APPROVED, StatusGroup::FAILED )}
+
 
   scope :failed, -> {where("status = ?", StatusGroup::FAILED)}
 

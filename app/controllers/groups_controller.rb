@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
 
   before_filter :authorize_controller!
 
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :second_change_exam, :questionnaire ]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :second_change_exam, :questionnaire, :re_enrollment ]
   before_action :set_classroom, only:[:new, :create]
 
 
@@ -24,6 +24,18 @@ class GroupsController < ApplicationController
     end
     redirect_to  @group.classroom
   end
+
+  def re_enrollment
+    if @group.re_enrollment
+      @group.update_attribute(:re_enrollment, false)
+      flash[:alert] = 'Rematricula cancelada'
+    else
+      flash[:info] = 'Rematricula feita com sucesso'
+      @group.update_attribute(:re_enrollment, true)
+    end
+    redirect_to  @group.classroom
+  end
+
 
   def show
     respond_with(@group)

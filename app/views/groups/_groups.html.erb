@@ -30,7 +30,12 @@
               <a title="Aluno foi marcado para 2ª chamada" data-placement="right" data-toggle="tooltip" href="#" data-original-title=""><h5 class='text-alert'><i class="icon-warning-sign"></i></h5>
               </a>
             <% else %>
-              <%= count %>
+              <% if group.re_enrollment %>
+                <a title="Aluno Rematriculado" data-placement="right" data-toggle="tooltip" href="#" data-original-title=""><h5 class='text-alert'><i class="icon-ok"></i></h5>
+                </a>
+              <% else %>
+                <%= count %>
+              <% end %>
             <% end %>
           </td>
           <td>
@@ -74,6 +79,10 @@
                   </li>
                   <li>
                     <%= link_to "#{group.second_change_exam ? 'Desmarcar 2ª chamada' : 'Marcar 2ª chamada '}", second_change_exam_group_path(group) if group.active? %>
+                  </li>
+
+                  <li>
+                    <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %>
                   </li>
 
                   <li>
