@@ -30,14 +30,17 @@
               <a title="Aluno foi marcado para 2ª chamada" data-placement="right" data-toggle="tooltip" href="#" data-original-title=""><h5 class='text-alert'><i class="icon-warning-sign"></i></h5>
               </a>
             <% else %>
-              <% if group.re_enrollment %>
-                <a title="Aluno Rematriculado" data-placement="right" data-toggle="tooltip" href="#" data-original-title=""><h5 class='text-alert'><i class="icon-ok"></i></h5>
-                </a>
-              <% else %>
                 <%= count %>
-              <% end %>
+            <% end %>
+
+            <% if group.re_enrollment %>
+              <a title="Aluno Rematriculado" data-placement="right" data-toggle="tooltip" href="#" data-original-title=""><h5 class='text-alert'><i class="icon-ok"></i></h5>
+              </a>
+            <% else %>
+                <%= count %>
             <% end %>
           </td>
+
           <td>
             <li class="dropdown">
               <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
@@ -47,15 +50,12 @@
                 <li>
                     <%= link_to 'Informações sobre aluno', group.student %>
                 </li>
-                <li>
-                  <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %>
-                </li>
                 <% if params[:controller] == 'classrooms' %>
                   <% unless group.transfer? %>
                     <% unless group.locked? %>
-                    <li>
-                      <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %>
-                    </li>
+                      <li>
+                        <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %>
+                      </li>
                       <li>
                           <%= link_to 'Trancar', edit_group_path(group, status: StatusGroup::LOCKED) %>
                       </li>
@@ -64,13 +64,14 @@
                       </li>
                     <% end %>
                     <% unless group.folded? %>
-                    <li>
-                      <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %></li>
                       <li>
                         <%= link_to 'Desistir', edit_group_path(group, status: StatusGroup::FOLDED)%>
                       </li>
                     <% end %>
                     <% if group.active? %>
+                    <li>
+                      <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %>
+                    </li>
                       <li>
                         <%= link_to 'Transferir', edit_group_path(group, status: StatusGroup::TRANSFER) %>
                       </li>
