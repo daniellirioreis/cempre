@@ -68,7 +68,7 @@
                         <%= link_to 'Desistir', edit_group_path(group, status: StatusGroup::FOLDED)%>
                       </li>
                       <li>
-                        <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %>
+                        <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) %>
                       </li>
                     <% end %>
                     <% if group.active? %>
