@@ -68,7 +68,7 @@
         <%= link_to 'APROVAR ALUNO', edit_group_path(@group, status: StatusGroup::APPROVED), class: 'btn btn-success' if @exams.any? %>
         <%= link_to 'REPROVAR ALUNO', edit_group_path(@group, status: StatusGroup::FAILED), class: 'btn btn-danger' if @exams.any? %>
       <% end %>
-      <%= link_to 'Voltar', :back, class: 'btn' %>
+      <%= link_to 'Voltar', @group.classroom , class: 'btn' %>
     </div>
   </div>
   <div class="tab-pane" id="questionnaire">
