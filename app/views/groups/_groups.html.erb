@@ -53,6 +53,9 @@
                 <% if params[:controller] == 'classrooms' %>
                   <% unless group.transfer? %>
                     <% unless group.locked? %>
+                    <li>
+                      <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %>
+                    </li>
                       <li>
                           <%= link_to 'Trancar', edit_group_path(group, status: StatusGroup::LOCKED) %>
                       </li>
@@ -61,6 +64,8 @@
                       </li>
                     <% end %>
                     <% unless group.folded? %>
+                    <li>
+                      <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) if group.active? %></li>
                       <li>
                         <%= link_to 'Desistir', edit_group_path(group, status: StatusGroup::FOLDED)%>
                       </li>
