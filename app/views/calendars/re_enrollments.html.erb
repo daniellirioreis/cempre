@@ -18,8 +18,10 @@
               Turma
             </th>
           </tr>
+          <% count_subtotal= 0 %>
             <% groups.each do |g| %>
             <% count_total= count_total + 1 %>
+            <% count_subtotal = count_subtotal + 1  %>
             <tr class="
             <%if status_humanize == 'Aprovado'%>success<% end %>
             <%if status_humanize == 'Reprovado'%>error<% end %>
@@ -35,6 +37,7 @@
             <% end %>
         </table>
       </div>
+       <strong>Quantidade(s) aluno(s) <%= status_humanize.downcase%>(s): </strong><%= count_subtotal %>
       <br>
       <% end %>
       <p>
