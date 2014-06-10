@@ -48,12 +48,30 @@
         </table>
       </div>
       <br>
-       <strong>Quantidade(s) aluno(s) <%= status_humanize.downcase%>(s): </strong><%= count_subtotal %>
+      <table class="table table-striped table-hover table-bordered">
+        <tr>
+          <td>
+            <strong>Quantidade(s) aluno(s) <%= status_humanize.downcase%>(s): </strong>
+          </td>
+          <td>
+           <%= count_subtotal %>
+          </td>
+        </tr>
+      </table>
       <hr>
       <br>
       <% end %>
       <p>
-        <strong>Quantidade alunos: </strong><%= count_total %>
+        <table class="table table-striped table-hover table-bordered">
+          <tr>
+            <td>
+              <strong>Quantidade alunos: </strong>
+            </td>
+            <td>
+              <%= count_total %>
+            </td>
+          </tr>
+
       </p>
   </div>
   <% end %>
