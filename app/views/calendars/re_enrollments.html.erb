@@ -1,7 +1,9 @@
 <strong>Quantidades rematricula: </strong><%= @groups_re_enrollments.count %><br><br>
+
   <% @groups_re_enrollments.sort_by(&:course).group_by(&:course).each do |course, groups| %>
   <div class="alert alert-info">
     <h4 align='center'><%= course %></h4>
+    <% count_total = 0 %>
     <hr>
     <% groups.sort_by(&:status_humanize).group_by(&:status_humanize).each do |status_humanize, groups|%>
       <h4 align='center'><%= status_humanize %></h4>
@@ -17,6 +19,7 @@
             </th>
           </tr>
             <% groups.each do |g| %>
+            <% count_total= count_total + 1 %>
             <tr class="
             <%if status_humanize == 'Aprovado'%>success<% end %>
             <%if status_humanize == 'Reprovado'%>error<% end %>
@@ -32,6 +35,9 @@
             <% end %>
         </table>
       </div>
+      <p>
+        <strong>Quantidade alunos: </strong><%= count_total %>
+      </p>
       <br>
       <% end %>
   </div>
