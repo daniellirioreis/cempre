@@ -22,12 +22,7 @@
 
         ">
           <td>
-            <%if g.active? %>
             <%= link_to "#{g.classroom}", g.classroom %>
-            <% else %>
-              <%= g.classroom %>
-            <% end %>
-
             <br/>
             <b>Professor:</b> <%= g.classroom.teacher%><br/>
             <b>Horário:</b> <%= g.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= g.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
