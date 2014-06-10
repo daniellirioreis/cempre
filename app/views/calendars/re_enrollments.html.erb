@@ -17,7 +17,11 @@
             </th>
           </tr>
             <% groups.each do |g| %>
-            <tr>
+            <tr class="
+            <%if status_humanize == 'Aprovado'%>success<% end %>
+            <%if status_humanize == 'Reprovado'%>error<% end %>
+            <%if status_humanize == 'Ativo'%>warning<% end %>
+            ">
               <td>
                 <%= g %>
               </td>
