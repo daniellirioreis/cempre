@@ -4,7 +4,7 @@
     <h4 align='center'><%= course %></h4>
     <hr>
     <% groups.group_by(&:status_humanize).each do |status_humanize, groups|%>
-       <br><br><h4 align='center'><%= status_humanize %></h4><br><br>
+      <h4 align='center'><%= status_humanize %></h4>
       <div id='div_color'>
         <table id="ulItens" class="table table-striped table-hover table-bordered">
           <tr>
