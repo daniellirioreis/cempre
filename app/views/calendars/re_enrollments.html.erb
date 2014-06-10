@@ -32,25 +32,31 @@
             </th>
           </tr>
           <% count_subtotal= 0 %>
+          <% if groups.any? %>
             <% groups.sort_by(&:name).each do |g| %>
-            <% count_total= count_total + 1 %>
-            <% count_subtotal = count_subtotal + 1  %>
-            <tr class="
-            <%if status_humanize == 'Aprovado'%>success<% end %>
-            <%if status_humanize == 'Reprovado'%>error<% end %>
-            <%if status_humanize == 'Ativo'%>warning<% end %>
-            ">
-              <td>
-                <%= g %>
-              </td>
-              <td>
-                <%= link_to "#{g.classroom}", g.classroom %>
-              </td>
-              <td>
-                <%= g.classroom.teacher %>
-              </td>
+                <% count_total= count_total + 1 %>
+                <% count_subtotal = count_subtotal + 1  %>
+                <tr class="
+                <%if status_humanize == 'Aprovado'%>success<% end %>
+                <%if status_humanize == 'Reprovado'%>error<% end %>
+                <%if status_humanize == 'Ativo'%>warning<% end %>
+                ">
+                  <td>
+                    <%= g %>
+                  </td>
+                  <td>
+                    <%= link_to "#{g.classroom}", g.classroom %>
+                  </td>
+                  <td>
+                    <%= g.classroom.teacher %>
+                  </td>
+                </tr>
+              <% end %>
+          <% else %>
+            <tr>
+              <td colspan='3'>Nenhum registro foi encontrado.</td>
             </tr>
-            <% end %>
+          <% end %>
         </table>
       </div>
       <br>
