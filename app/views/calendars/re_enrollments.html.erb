@@ -32,7 +32,7 @@
             </th>
           </tr>
           <% count_subtotal= 0 %>
-            <% groups.each do |g| %>
+            <% groups.sort_by(&:name).each do |g| %>
             <% count_total= count_total + 1 %>
             <% count_subtotal = count_subtotal + 1  %>
             <tr class="
