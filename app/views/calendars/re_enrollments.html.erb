@@ -1,9 +1,9 @@
 <strong>Quantidades rematricula: </strong><%= @groups_re_enrollments.count %><br><br>
-  <% @groups_re_enrollments.group_by(&:course).each do |course, groups| %>
+  <% @groups_re_enrollments.sort_by(&:course).group_by(&:course).each do |course, groups| %>
   <div class="alert alert-info">
     <h4 align='center'><%= course %></h4>
     <hr>
-    <% groups.group_by(&:status_humanize).each do |status_humanize, groups|%>
+    <% groups.sort_by(&:status_humanize).group_by(&:status_humanize).each do |status_humanize, groups|%>
       <h4 align='center'><%= status_humanize %></h4>
       <br>
       <div id='div_color'>
