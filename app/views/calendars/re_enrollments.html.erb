@@ -27,6 +27,9 @@
             <th>
               Turma
             </th>
+            <th>
+              Professor
+            </th>
           </tr>
           <% count_subtotal= 0 %>
             <% groups.each do |g| %>
@@ -41,7 +44,10 @@
                 <%= g %>
               </td>
               <td>
-                <%= g.classroom %>
+                <%= link_to "g.classroom", g.classroom %>
+              </td>
+              <td>
+                <%= g.classroom.teacher %>
               </td>
             </tr>
             <% end %>
