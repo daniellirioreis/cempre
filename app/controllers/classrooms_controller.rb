@@ -9,6 +9,9 @@ class ClassroomsController < ApplicationController
 
   def index
     @classrooms = current_calendar.classrooms.open
+
+    @classrooms_closed = current_calendar.classrooms.closed
+
   end
 
   def throw_faults
