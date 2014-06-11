@@ -11,7 +11,7 @@ pt-BR:
       classrooms: 'Turmas'
       events: 'Eventos'
       re_enrollments: 'Rematriculas'
-      report_re_enrollments: 'Relátorio Rematriculas'
+      report_re_enrollments: 'Relatório Rematriculas'
 
   activerecord:
     models:
