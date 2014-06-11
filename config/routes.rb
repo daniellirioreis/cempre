@@ -51,7 +51,7 @@ Donald::Application.routes.draw do
     get :classrooms, on: :member
     get :events, on: :collection
     get :re_enrollments, on: :collection
-
+    get :report_re_enrollments, on: :collection
   end
 
   resources :groups do

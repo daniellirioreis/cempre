@@ -17,6 +17,11 @@ class CalendarsController < ApplicationController
     @groups_re_enrollments = current_calendar.groups_re_enrollments
   end
 
+  def report_re_enrollments
+    @groups_re_enrollments = current_calendar.groups_re_enrollments
+  end
+
+
   def finalize
       if params[:yes_or_no] == 'true'
         @calendar.update_attribute(:closed, true)
