@@ -79,8 +79,8 @@
                     <b>Vaga:</b> <%= classroom.vacancy %><br/>
                     <b>Dia da Semana:</b> <%= classroom.day_week_humanize %>
                     <hr>
-                    <b>Aprovados: </b><%= classroom.group.approved.count %><br>
-                    <b>Reprovados: </b> <%= classroom.group.failed.count %>
+                    <b>Aprovados: </b><%= classroom.group.re_enrollment.approved.count %><br>
+                    <b>Reprovados: </b> <%= classroom.group.re_enrollment.failed.count %>
                 </td>
               </tr>
             <% end %>
