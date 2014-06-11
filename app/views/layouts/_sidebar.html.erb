@@ -7,7 +7,7 @@
   <%= menu.item :id => 'Professores', :icon => :user, :path => teachers_path if can?(:read, 'teachers')  %>
   <%= menu.item :id => 'Períodos', :icon => :calendar, :path => calendars_path if can?(:read, 'calendars')  %>
   <%= menu.item :id => 'Turmas', :icon => :home, :path => classrooms_path if can?(:read, 'classrooms')  %>
-  <%= menu.item :id => 'Rematriculas', :icon => :new, :path => re_enrollments_calendars_path if can?(:re_enrollments, 'calendars')  %>
+  <%= menu.item :id => 'Rematriculas', :icon => :refresh, :path => re_enrollments_calendars_path if can?(:re_enrollments, 'calendars')  %>
   <%= menu.item :id => 'Livros', :icon => :book, :path => books_path if can?(:read, 'books')  %>
   <%= menu.item :id => 'Perguntas', :icon => 'list-alt', :path => questions_path if can?(:read, 'questions')  %>
   <%= menu.item :id => 'Respostas', :icon => 'ok', :path => answers_path if can?(:read, 'answers')  %>
