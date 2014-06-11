@@ -78,6 +78,8 @@
                     <b>Quantidades alunos:</b> <%= classroom.count_students %><br/>
                     <b>Vaga:</b> <%= classroom.vacancy %><br/>
                     <b>Dia da Semana:</b> <%= classroom.day_week_humanize %>
+                    <b>Horário</b><%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M') %>
+
                     <hr>
                     <b>Aprovados: </b><%= classroom.groups.re_enrollment.approved.count %><br>
                     <b>Reprovados: </b> <%= classroom.groups.re_enrollment.failed.count %>
