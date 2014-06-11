@@ -30,7 +30,8 @@
                     <b>Capacidade: </b> <%= classroom.capacity %><br/>
                     <b>Quantidades alunos:</b> <%= classroom.count_students %><br/>
                     <b>Vaga:</b> <%= classroom.vacancy %><br/>
-                    <b>Dia da Semana:</b> <%= classroom.day_week_humanize %>
+                    <b>Dia da Semana:</b> <%= classroom.day_week_humanize %><br>
+                    <b>Horário</b><%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M') %><br>
                 </td>
               </tr>
             <% end %>
@@ -78,7 +79,7 @@
                     <b>Quantidades alunos:</b> <%= classroom.count_students %><br/>
                     <b>Vaga:</b> <%= classroom.vacancy %><br/>
                     <b>Dia da Semana:</b> <%= classroom.day_week_humanize %>
-                    <b>Horário</b><%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M') %>
+                    <b>Horário</b><%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M') %><br>
 
                     <hr>
                     <b>Aprovados: </b><%= classroom.groups.re_enrollment.approved.count %><br>
