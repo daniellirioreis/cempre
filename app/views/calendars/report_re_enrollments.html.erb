@@ -17,7 +17,7 @@
     <% groups.sort_by(&:status_humanize).group_by(&:status_humanize).each do |status_humanize, groups|%>
       <h4 align='center'><%= status_humanize %></h4>
       <br>
-        <table id="ulItens" class="table table-striped table-hover table-bordered">
+        <table class="table table-striped table-hover table-bordered">
           <tr>
             <th>
               Aluno
@@ -39,7 +39,7 @@
                     <%= g %>
                   </td>
                   <td>
-                    <%= link_to "#{g.classroom}", g.classroom %>
+                    <%= g.classroom %>
                   </td>
                   <td>
                     <%= g.classroom.teacher %>
@@ -76,4 +76,5 @@
             </td>
           </tr>
         </table>
+        <div style="page-break-before:always"></div>
   <% end %>
