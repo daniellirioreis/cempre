@@ -85,6 +85,7 @@ class ApplicationController < ActionController::Base
                 'print'
               else
                 if params['action'] == 'report_re_enrollments'
+                  'print'
                 else
                   nil
                 end

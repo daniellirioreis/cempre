@@ -1,0 +1,87 @@
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <td>
+      <strong>Quantidades rematricula: </strong>
+    </td>
+    <td>
+      <%= @groups_re_enrollments.count %>
+    </td>
+  </tr>
+</table>
+<br>
+
+  <% @groups_re_enrollments.sort_by(&:course).group_by(&:course).each do |course, groups| %>
+  <div class="alert alert-info">
+    <h4 align='center'><%= course %></h4>
+    <% count_total = 0 %>
+    <hr>
+    <% groups.sort_by(&:status_humanize).group_by(&:status_humanize).each do |status_humanize, groups|%>
+      <h4 align='center'><%= status_humanize %></h4>
+      <br>
+      <div id='div_color'>
+        <table id="ulItens" class="table table-striped table-hover table-bordered">
+          <tr>
+            <th>
+              Aluno
+            </th>
+            <th>
+              Turma
+            </th>
+            <th>
+              Professor
+            </th>
+          </tr>
+          <% count_subtotal= 0 %>
+          <% if groups.any? %>
+            <% groups.sort_by(&:name).each do |g| %>
+                <% count_total= count_total + 1 %>
+                <% count_subtotal = count_subtotal + 1  %>
+                <tr class="
+                <%if status_humanize == 'Aprovado'%>success<% end %>
+                <%if status_humanize == 'Reprovado'%>error<% end %>
+                <%if status_humanize == 'Ativo'%>warning<% end %>
+                ">
+                  <td>
+                    <%= g %>
+                  </td>
+                  <td>
+                    <%= link_to "#{g.classroom}", g.classroom %>
+                  </td>
+                  <td>
+                    <%= g.classroom.teacher %>
+                  </td>
+                </tr>
+              <% end %>
+          <% else %>
+            <tr>
+              <td colspan='3'>Nenhum registro foi encontrado.</td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <br>
+      <table class="table table-striped table-hover table-bordered">
+        <tr>
+          <td>
+            <strong>Quantidade aluno(s) <%= status_humanize.downcase%>(s): </strong>
+          </td>
+          <td>
+           <%= count_subtotal %>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <br>
+      <% end %>
+        <table class="table table-striped table-hover table-bordered">
+          <tr>
+            <td>
+              <strong>Quantidade alunos: </strong>
+            </td>
+            <td>
+              <%= count_total %>
+            </td>
+          </tr>
+        </table>
+  </div>
+  <% end %>
