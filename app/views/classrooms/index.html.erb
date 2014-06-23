@@ -25,13 +25,44 @@
             <% @classrooms.sort_by(&:name).each do |classroom| %>
               <tr>
                 <td>
-                    <%=  link_to "#{classroom}", classroom, title: 'Ver detalhes' %><br/>
-                    <b>Professor:</b> <%= classroom.teacher %><br/>
-                    <b>Capacidade: </b> <%= classroom.capacity %><br/>
-                    <b>Quantidades alunos:</b> <%= classroom.count_students %><br/>
-                    <b>Vaga:</b> <%= classroom.vacancy %><br/>
-                    <b>Dia da Semana:</b> <%= classroom.day_week_humanize %><br/>
-                    <b>Horário</b><%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M') %><br>
+                  <div class="alert alert-info">
+                   <h4> <%=  link_to "#{classroom}", classroom, title: 'Ver detalhes' %></h4><br>
+                    <table class="table table-striped table-hover table-bordered">
+                      <tr>
+                        <td colspan='3'>
+                          <b>Professor: </b> <%= classroom.teacher %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <b>Capacidade: </b> <%= classroom.capacity %>
+                        </td>
+                        <td>
+                          <b>Quantidades alunos:</b> <%= classroom.count_students %>
+                        </td>
+                        <td>
+                          <b>Vaga:</b> <%= classroom.vacancy %><br/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan='2'>
+                          <b>Dia da Semana:</b> <%= classroom.day_week_humanize %><br>
+                        </td>
+                        <td>
+                          <b>Horário</b><%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M') %><br>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan='2'>
+                          <b>Aprovados: </b><%= classroom.groups.re_enrollment.approved.count %>
+                        </td>
+                        <td>
+                          <b>Reprovados: </b> <%= classroom.groups.re_enrollment.failed.count %>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
                 </td>
               </tr>
             <% end %>
@@ -73,17 +104,43 @@
             <% @classrooms_closed.sort_by(&:name).each do |classroom| %>
               <tr>
                 <td>
-                    <%=  link_to "#{classroom}", classroom, title: 'Ver detalhes' %><br/>
-                    <b>Professor:</b> <%= classroom.teacher %><br/>
-                    <b>Capacidade: </b> <%= classroom.capacity %><br/>
-                    <b>Quantidades alunos:</b> <%= classroom.count_students %><br/>
-                    <b>Vaga:</b> <%= classroom.vacancy %><br/>
-                    <b>Dia da Semana:</b> <%= classroom.day_week_humanize %><br>
-                    <b>Horário</b><%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M') %><br>
-
-                    <hr>
-                    <b>Aprovados: </b><%= classroom.groups.re_enrollment.approved.count %><br>
-                    <b>Reprovados: </b> <%= classroom.groups.re_enrollment.failed.count %>
+                  <div class="alert alert-success">
+                   <h4> <%=  link_to "#{classroom}", classroom, title: 'Ver detalhes' %></h4><br>
+                    <table class="table table-striped table-hover table-bordered">
+                      <tr>
+                        <td colspan='3'>
+                          <b>Professor: </b> <%= classroom.teacher %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <b>Capacidade: </b> <%= classroom.capacity %>
+                        </td>
+                        <td>
+                          <b>Quantidades alunos:</b> <%= classroom.count_students %>
+                        </td>
+                        <td>
+                          <b>Vaga:</b> <%= classroom.vacancy %><br/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan='2'>
+                          <b>Dia da Semana:</b> <%= classroom.day_week_humanize %><br>
+                        </td>
+                        <td>
+                          <b>Horário</b><%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M') %><br>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan='2'>
+                          <b>Aprovados: </b><%= classroom.groups.re_enrollment.approved.count %>
+                        </td>
+                        <td>
+                          <b>Reprovados: </b> <%= classroom.groups.re_enrollment.failed.count %>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
                 </td>
               </tr>
             <% end %>
