@@ -16,9 +16,29 @@
 //= require_self
 
 $(function(){
+    $(".input-search").keyup(function(){
+        //pega o css da tabela
+        var tabela = $(this).attr('alt');
+        if( $(this).val() != ""){
+            $("."+tabela+" tbody>tr").hide();
+            $("."+tabela+" td:contains-ci('" + $(this).val() + "')").parent("tr").show();
+        } else{
+            $("."+tabela+" tbody>tr").show();
+        }
+    });
+});
+$.extend($.expr[":"], {
+    "contains-ci": function(elem, i, match, array) {
+        return (elem.textContent || elem.innerText || $(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+    }
+});
+
+$(function(){
   $("#txtBusca").keyup(function(){
     var texto = $(this).val(); $("#ulItens td").css("display", "block");
-    $("#ulItens td").each(function(){ if($(this).text().indexOf(texto) < 0) $(this).css("display", "none");
+    $("#ulItens td").each(function()
+    {
+      if($(this).text().indexOf(texto) < 0) $(this).css("display", "none");
     });
   });
 });

@@ -18,7 +18,7 @@ class Classroom < ActiveRecord::Base
   scope :open_for_enrollments, -> {where(open_for_enrollments: true )}
 
   scope :day_week, lambda { |day_week, day_week1| where("day_week = ? OR day_week = ?", day_week, day_week1) }
-  scope :sorted, -> { order(:time_start) }
+  scope :sorted, -> { order(:day_week, :time_start) }
 
   def to_s
     name
@@ -35,6 +35,15 @@ class Classroom < ActiveRecord::Base
   def remaining_vacancies
    capacity - count_students
   end
+
+  def groups_re_enrollment_failed
+    groups.re_enrollment.failed.count
+  end
+
+  def groups_re_enrollment_approved
+    groups.re_enrollment.approved.count
+  end
+
 
   def minutes_of_class
     hours = time_end.hour - time_start.hour
