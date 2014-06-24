@@ -8,10 +8,7 @@ class ClassroomsController < ApplicationController
   before_action :verify_current_calendar
 
   def index
-    @classrooms = current_calendar.classrooms.open
-
-    @classrooms_closed = current_calendar.classrooms.closed
-
+    @classrooms = current_calendar.classrooms
   end
 
   def throw_faults
