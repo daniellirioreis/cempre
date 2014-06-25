@@ -4,6 +4,7 @@ pt-BR:
       index: 'Inscrição'
       new: 'Nova Inscrição'
       create: 'Nova Inscrição'
+      list_classrooms_to_re_enrollments: 'Rematricula'
   activerecord:
     models:
       enrollment:

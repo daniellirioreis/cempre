@@ -34,6 +34,10 @@
       <% groups.group_by(&:classroom).each do |classroom, groups| %>
       <br>
       <h4 align='center'><%= classroom %></h4>
+        <%= link_to list_classrooms_to_re_enrollments_enrollments_path(:classroom_id => classroom.id ), :tabindex => "-1" do %>
+        <h2 class="text-info" title="Escolher turma para rematricula para alunos aprovados da turma <%= classroom %>"><i class="icon-refresh"></i></h2>
+        <% end %>
+
       <br>
         <div id='div_color'>
           <table id="ulItens" class="table table-striped table-hover table-bordered">

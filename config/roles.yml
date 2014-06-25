@@ -64,3 +64,5 @@ actions_more_managers:
   - change_companies
   - create_calendar
   - change_calendars
+actions_more_enrollments:
+  - list_classrooms_to_re_enrollments

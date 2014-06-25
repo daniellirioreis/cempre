@@ -6,7 +6,9 @@ Donald::Application.routes.draw do
     get :change_calendars,  on: :member
   end
 
-  resources :enrollments
+  resources :enrollments do
+    get :list_classrooms_to_re_enrollments, on: :collection
+  end
 
   resources :schedules
 

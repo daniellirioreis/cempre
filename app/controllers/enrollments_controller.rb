@@ -14,6 +14,11 @@ class EnrollmentsController < ApplicationController
     @remaining_vacancies = current_calendar.remaining_vacancies
   end
 
+  def list_classrooms_to_re_enrollments
+    @classroom_old = Classroom.find(params[:classroom_id])
+    @groups_approved = @classroom_old.groups.sorted.approved
+  end
+
   def new
     @enrollment = Enrollment.new(classroom_id: params[:classroom_id])
   end
