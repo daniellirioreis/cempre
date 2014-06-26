@@ -15,6 +15,14 @@ class CalendarsController < ApplicationController
 
   def re_enrollments
     @groups_re_enrollments = current_calendar.groups_re_enrollments
+    wday = params[:week_day]
+    wday1 = params[:week_day]
+    if wday == nil && wday1 == nil
+      wday = "0"
+      wday = "0"
+      params[:week_day_string] = "Segunda-Feira e Quarta-Feira"
+    end
+    @classrooms = current_company.classrooms.day_week(wday, wday1).closed
   end
 
   def report_re_enrollments
@@ -116,6 +124,6 @@ class CalendarsController < ApplicationController
     end
 
     def calendar_params
-      params.require(:calendar).permit(:date_start, :date_end, :name, :average, :limit_of_faults)
+      params.require(:calendar).permit(:date_start, :date_end, :name, :average, :limit_of_faults, :next_calendar_id)
     end
 end

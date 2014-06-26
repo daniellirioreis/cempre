@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609031240) do
+ActiveRecord::Schema.define(version: 20140625232206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,9 +55,10 @@ ActiveRecord::Schema.define(version: 20140609031240) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "closed",          default: false
-    t.float    "average",         default: 0.0
-    t.integer  "limit_of_faults", default: 0
+    t.boolean  "closed",           default: false
+    t.float    "average",          default: 0.0
+    t.integer  "limit_of_faults",  default: 0
+    t.integer  "next_calendar_id"
   end
 
   add_index "calendars", ["company_id"], name: "index_calendars_on_company_id", using: :btree
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 20140609031240) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "type_course", default: 0
+    t.integer  "sequence",    default: 0
   end
 
   add_index "courses", ["company_id"], name: "index_courses_on_company_id", using: :btree
@@ -354,6 +356,7 @@ ActiveRecord::Schema.define(version: 20140609031240) do
 
   add_foreign_key "calendar_days", "calendars", name: "calendar_days_calendar_id_fk"
 
+  add_foreign_key "calendars", "calendars", name: "index_next_calendar", column: "next_calendar_id"
   add_foreign_key "calendars", "companies", name: "calendars_company_id_fk"
 
   add_foreign_key "classrooms", "calendars", name: "classrooms_calendar_id_fk"

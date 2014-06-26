@@ -1,12 +1,67 @@
-<div class="alert alert-info">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
-<i class="icon-info"></i><strong><%= @classroom_old%></strong><br>
-<% @groups_approved.each do  |g| %>
-  <%= g %><br>
+<% if @block %>
+  <div class="alert alert-danger  ">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <i class="icon-info"></i><strong>Próximo período não foi definido</strong>
+  </div>
+
+<% else %>
+  <div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <i class="icon-info"></i><strong><%= @classroom_old%> - <%= @classroom_old.teacher%> - <%= @classroom_old.time_start.try(:strftime, '%H:%M')%> às <%= @classroom_old.time_end.try(:strftime, '%H:%M') %>  - <%= @classroom_old.day_week_humanize %></strong><br>
+  <hr>
+  <% @groups.each do  |g| %>
+    <%= g %><br>
+  <% end %>
+  <hr>
+  <%= @groups.count%> aluno(s)
+  </div>
+
+  <%= label_tag 'txtBusca', 'Pesquisar' %>
+  <%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_classrooms" %>
+
+  <table class="list_classrooms table table-striped table-hover table-bordered">
+      <thead>
+          <tr>
+              <th>Nome</th>
+              <th>Professor</th>
+              <th>Dia da Semana</th>
+              <th>Horário</th>
+              <th>Capacidade</th>
+              <th>Quantidade de Alunos</th>
+              <th>Vagas</th>
+              <th> Ação </th>
+          </tr>
+      </thead>
+      <tbody>
+        <% if @classrooms_new.any? %>
+          <% @classrooms_new.sorted.each do |c| %>
+            <tr class="<% if  c.closed%>success<% end %>">
+                <td><%= c %></td>
+                <td><%= c.teacher%></td>
+                <td><%= c.day_week_humanize %></td>
+                <td><%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>
+                <td><%= c.capacity %> </td>
+                <td><%= c.count_students%></td>
+                <td><%= c.vacancy%></td>
+                <td>
+                  <div class="btn-group">
+                    <%= link_to "Rematricular", c, :class => "btn btn-success" %>
+                  </div>
+                </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan='9'>Nenhum registro foi encontrado.</td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+
+
 <% end %>
-<%= @groups_approved.count%> aprovado(s)
-</div>
+
 
 <div class="form-actions">
-  <%= link_to 'Voltar', re_enrollments_calendars_path, :class => "btn btn-success" %>
+  <%= link_to 'Voltar', re_enrollments_calendars_path, :class => "btn" %>
 </div>

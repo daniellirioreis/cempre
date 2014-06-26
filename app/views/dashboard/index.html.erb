@@ -44,6 +44,16 @@
   <i class="icon-comment"></i><strong>Mensagem</strong><br>
     <%= n.subject %><br>
     <strong>Ass: </strong><%= n.user.name %>
+    <% if current_user.adm %>
+      <br>
+      <br>
+      <%= link_to edit_note_path(n), :tabindex => "-1" do %>
+      <i class="icon-pencil"></i>
+      <% end %>
+      <%= link_to n , method: :delete, data: { confirm: 'Confirma exclusão?' }, :tabindex => "-1" do %>
+      <i class="icon-trash"></i>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
 

@@ -103,7 +103,7 @@
             </li>
           </td>
           <td>
-            <%= group.student.age %>
+            <%= "#{group.student.age[:ano]} ano(s) #{group.student.age[:mes]} mês(es) #{group.student.age[:dia]} dia(s)" %>
           </td>
           <td>
             <a title="<%group.faults.each do |f|%><%= "#{f}(#{f.justification_humanize}), "%><%end%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title=""><%= group.faults.count %></a>

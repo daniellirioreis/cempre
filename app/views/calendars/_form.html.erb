@@ -3,11 +3,17 @@
     <div class="span6"><%= f.input :name, input_html: { class: 'span6' } %></div>
     <div class="span3"><%= f.input :average, input_html: { class: 'span3' } %></div>
     <div class="span3"><%= f.input :limit_of_faults, input_html: { class: 'span3' } %></div>
+
   </div>
   <div class="row-fluid">
     <div class="span4"><%= f.input :date_start, input_html: { class: 'span4' } %></div>
     <div class="span4"><%= f.input :date_end, input_html: { class: 'span4' } %></div>
   </div>
+
+  <div class="row-fluid">
+    <div class="span6"><%= f.input :next_calendar_id, collection: current_company.calendars.not_equal_id(@calendar.id) %></div>
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-success' %>
     <%= link_to 'Voltar', :back, class: 'btn' %>

@@ -16,3 +16,4 @@ pt-BR:
       course:
         name: "Nome"
         type_course: "Tipo Curso"
+        sequence: "Sequência"

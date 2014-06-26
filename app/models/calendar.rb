@@ -1,5 +1,6 @@
 class Calendar < ActiveRecord::Base
   belongs_to :company
+  belongs_to :next_calendar, :class_name => "Calendar", :foreign_key => "next_calendar_id"
   has_many :days, :class_name => "CalendarDay", :foreign_key => "calendar_id"
   has_many :classrooms
   has_many :plans
@@ -9,6 +10,8 @@ class Calendar < ActiveRecord::Base
   after_save :build_days
 
   scope :open, -> {where(closed: false )}
+
+  scope :not_equal_id, lambda { |id| where("id <> ?", id) }
 
 
   def to_s

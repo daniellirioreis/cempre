@@ -24,4 +24,5 @@ pt-BR:
         date_start: "Data Início"
         date_end: 'Data Final'
         average: 'Média'
-        limit_of_faults: 'Limite de faltas'
+        limit_of_faults: 'Porcentagem de faltas'
+        next_calendar_id: "Próximo Período"

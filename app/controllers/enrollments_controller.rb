@@ -16,7 +16,32 @@ class EnrollmentsController < ApplicationController
 
   def list_classrooms_to_re_enrollments
     @classroom_old = Classroom.find(params[:classroom_id])
-    @groups_approved = @classroom_old.groups.sorted.approved
+    if @classroom_old.calendar.next_calendar.present?
+      if params[:status] == 'aprovado'
+        sequence = @classroom_old.sequence + 1
+        @classrooms_new = @classroom_old.calendar.next_calendar.
+                                                classrooms.
+                                                sequence_and_type_course(sequence, @classroom_old.type_course)
+
+        @groups = @classroom_old.groups.sorted.approved.re_enrollment
+
+        @title = 'Rematricula Aprovados'
+      end
+
+      if params[:status] == 'reprovado'
+        @title = 'Rematricula Reprovados'
+        sequence = @classroom_old.sequence
+        @classrooms_new = @classroom_old.calendar.next_calendar.
+                                                  classrooms.
+                                                  sequence_and_type_course(sequence, @classroom_old.type_course)
+
+        @groups = @classroom_old.groups.sorted.failed.re_enrollment
+      end
+      @block = false
+    else
+      @block = true
+    end
+
   end
 
   def new

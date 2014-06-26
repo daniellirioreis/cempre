@@ -14,10 +14,14 @@ class Classroom < ActiveRecord::Base
 
   scope :closed, -> {where(closed: true )}
 
+  delegate :sequence, :type_course, to: :course
 
   scope :open_for_enrollments, -> {where(open_for_enrollments: true )}
 
   scope :day_week, lambda { |day_week, day_week1| where("day_week = ? OR day_week = ?", day_week, day_week1) }
+
+  scope :sequence_and_type_course, lambda { |sequence, type_course| where("courses.sequence = ? and courses.type_course = ? ", sequence, type_course).joins(:course) }
+
   scope :sorted, -> { order(:day_week, :time_start) }
 
   def to_s
