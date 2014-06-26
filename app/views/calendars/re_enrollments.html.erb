@@ -44,7 +44,6 @@
           <td>
               <h4><%= c %> - <%= c.teacher %> </h4>
               <br>
-                    <h3><i class="icon-user"></i> <%= count_students %></h3>
                     <%= link_to list_classrooms_to_re_enrollments_enrollments_path(classroom_id: c.id, status: "aprovado" ), :tabindex => "-1" do %>
                     <h3 class="text-success" title="Escolher turma para rematricula para alunos aprovados da turma <%= c %>"><i class="icon-thumbs-up"></i> <%= c.groups_re_enrollment_approved %></h3>
                     <% end %>
