@@ -13,6 +13,50 @@ class EnrollmentsController < ApplicationController
     @groups_active = current_calendar.groups_active.open_for_enrollments.count
     @remaining_vacancies = current_calendar.remaining_vacancies
   end
+  def create_re
+    @old_classroom = Classroom.find(params[:old_classroom_id])
+    message = []
+
+    if params[:status] == 'aprovado'
+      @groups = @old_classroom.groups.sorted.approved.re_enrollment.all(:readonly => false)
+      @groups.each do |g|
+        new_group = Group.new(classroom_id: params[:new_classroom_id], status: StatusGroup::ACTIVE, student_id: g.student_id, re_enrollment: false)
+         if new_group.save
+           g.update_attribute(:re_enrollment, false)
+         else
+          message  <<  new_group.errors.full_messages
+         end
+      end
+      if message.empty?
+        flash[:notice] = 'Rematriculas realizada com sucesso.'
+        redirect_to re_enrollments_calendars_path
+      else
+        flash[:alert] = message.uniq
+        redirect_to list_classrooms_to_re_enrollments_enrollments_path(classroom_id: @old_classroom.id, status: "aprovado" )
+      end
+    end
+
+    if params[:status] == 'reprovado'
+      @groups = @old_classroom.groups.sorted.failed.re_enrollment.all(:readonly => false)
+      @groups.each do |g|
+        new_group = Group.new(classroom_id: params[:new_classroom_id], status: StatusGroup::ACTIVE, student_id: g.student_id, re_enrollment: false)
+         if new_group.save
+           g.update_attribute(:re_enrollment, false)
+         else
+          message  <<  new_group.errors.full_messages
+         end
+      end
+      if message.empty?
+        flash[:notice] = 'Rematriculas realizada com sucesso.'
+        redirect_to re_enrollments_calendars_path
+      else
+        flash[:alert] = message.uniq
+        redirect_to list_classrooms_to_re_enrollments_enrollments_path(classroom_id: @old_classroom.id, status: "reprovado" )
+      end
+
+    end
+
+  end
 
   def list_classrooms_to_re_enrollments
     @classroom_old = Classroom.find(params[:classroom_id])
@@ -41,6 +85,7 @@ class EnrollmentsController < ApplicationController
     else
       @block = true
     end
+
 
   end
 

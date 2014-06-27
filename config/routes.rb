@@ -8,6 +8,7 @@ Donald::Application.routes.draw do
 
   resources :enrollments do
     get :list_classrooms_to_re_enrollments, on: :collection
+    get :create_re, on: :collection
   end
 
   resources :schedules

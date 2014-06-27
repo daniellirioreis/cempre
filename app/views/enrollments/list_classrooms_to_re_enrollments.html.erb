@@ -1,5 +1,5 @@
 <% if @block %>
-  <div class="alert alert-danger  ">
+  <div class="alert alert-danger">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <i class="icon-info"></i><strong>Próximo período não foi definido</strong>
   </div>
@@ -35,17 +35,22 @@
       <tbody>
         <% if @classrooms_new.any? %>
           <% @classrooms_new.sorted.each do |c| %>
-            <tr class="<% if  c.closed%>success<% end %>">
+            <tr>
                 <td><%= c %></td>
                 <td><%= c.teacher%></td>
                 <td><%= c.day_week_humanize %></td>
-                <td><%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>
+                <td>
+									
+								
+								<%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>
+								
+								
                 <td><%= c.capacity %> </td>
                 <td><%= c.count_students%></td>
                 <td><%= c.vacancy%></td>
                 <td>
                   <div class="btn-group">
-                    <%= link_to "Rematricular", c, :class => "btn btn-success" %>
+                    <%= link_to "Rematricular", create_re_enrollments_path(old_classroom_id: @classroom_old.id, new_classroom_id: c.id, status: params[:status]), :class => "btn btn-success" %>
                   </div>
                 </td>
             </tr>

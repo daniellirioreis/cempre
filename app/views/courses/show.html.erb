@@ -2,17 +2,6 @@
   <strong>Nome:</strong>
   <%= @course.name %>
 </p>
-
-<p>
-  <strong>Quantidade de turmas com curso:</strong>
-  <%= @course.classrooms.count %>
-</p>
-
-<hr>
-<h4>Turmas com o curso</h4>
-
-<%= render 'classrooms'%>
-
 <div class="form-actions">
   <%= link_to 'Editar', edit_course_path(@course), class: 'btn btn-primary' %>
   <%= link_to 'Deletar', @course, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>

@@ -66,3 +66,4 @@ actions_more_managers:
   - change_calendars
 actions_more_enrollments:
   - list_classrooms_to_re_enrollments
+  - create_re

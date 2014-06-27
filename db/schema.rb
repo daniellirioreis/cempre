@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 20140625232206) do
     t.integer  "new_classroom_id"
     t.text     "justification"
     t.boolean  "second_change_exam", default: false
-    t.boolean  "re_enrollment",      default: false
+    t.boolean  "re_enrollment",      default: true
   end
 
   add_index "groups", ["classroom_id"], name: "index_groups_on_classroom_id", using: :btree

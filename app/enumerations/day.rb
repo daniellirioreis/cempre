@@ -3,7 +3,8 @@ class Day < EnumerateIt::Base
                    :tuesday_and_thursday                => 1,
                    :saturday                            => 2,
                    :wednesday                           => 3,
-                   :monday                              => 4
+                   :monday                              => 4,
+                   :thursday                            => 5
 
 
 end

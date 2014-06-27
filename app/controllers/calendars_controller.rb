@@ -22,7 +22,15 @@ class CalendarsController < ApplicationController
       wday = "0"
       params[:week_day_string] = "Segunda-Feira e Quarta-Feira"
     end
-    @classrooms = current_company.classrooms.day_week(wday, wday1).closed
+
+    @classrooms = current_calendar.classrooms.day_week(wday, wday1).closed
+
+    @next_calendar = current_calendar.next_calendar
+
+    if @next_calendar.present?
+      @new_classrooms = @next_calendar.classrooms.day_week(wday, wday1).open
+    end
+
   end
 
   def report_re_enrollments

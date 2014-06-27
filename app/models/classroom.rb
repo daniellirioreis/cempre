@@ -105,8 +105,17 @@ class Classroom < ActiveRecord::Base
             end
           end
         end
+
         if monday?
           if day.day.wday == 1
+            lesson = Lesson.new(:calendar_day_id => day.id, :classroom_id => self.id)
+            if lesson.save
+            end
+          end
+        end
+
+        if thursday?
+          if day.day.wday == 4
             lesson = Lesson.new(:calendar_day_id => day.id, :classroom_id => self.id)
             if lesson.save
             end
