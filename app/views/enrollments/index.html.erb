@@ -27,7 +27,7 @@
               <% count_students = c.count_students%>
               <td>
                 <div class= "alert alert-<%if c.remaining_vacancies == 0%>success<%else%>info<%end%>">
-                  <%= c %> - <%= c.teacher %><br>
+                  <%= link_to "#{c}", c %> - <%= c.teacher %><br>
                   <i title='Capacidade'class="icon-lock"></i> <%= c.capacity %><br>
                   <i title='Quantidades de alunos'class="icon-chevron-down"></i> <%= count_students %><br>
                   <i title='Vagas restantes'class="icon-plus"></i> <%= c.remaining_vacancies %><br>
