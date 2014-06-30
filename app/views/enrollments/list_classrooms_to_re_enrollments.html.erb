@@ -38,13 +38,24 @@
             <tr>
                 <td><%= c %></td>
                 <td><%= c.teacher%></td>
-                <td><%= c.day_week_humanize %></td>
                 <td>
-									
-								
-								<%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>
-								
-								
+                  <% if c.day_week_humanize.to_s == @classroom_old.day_week_humanize.to_s %>
+                     <div class= "alert alert-warning">
+                  <% end %>
+
+                  <%= c.day_week_humanize %>
+                </td>
+                <td>
+                  <% if c.time_start.try(:strftime, '%H:%M').to_s == @classroom_old.time_start.try(:strftime, '%H:%M').to_s %>
+                     <div class= "alert alert-warning">
+                  <% end %>
+                  <%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>
+
+                  <% if c.time_start.try(:strftime, '%H:%M').to_s == @classroom_old.time_start.try(:strftime, '%H:%M').to_s %>
+                     </div>
+                  <% end %>
+                  </td>
+
                 <td><%= c.capacity %> </td>
                 <td><%= c.count_students%></td>
                 <td><%= c.vacancy%></td>
