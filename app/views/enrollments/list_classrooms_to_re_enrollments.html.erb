@@ -36,7 +36,7 @@
         <% if @classrooms_new.any? %>
           <% @classrooms_new.sorted.each do |c| %>
             <tr>
-                <td><%= c %></td>
+                <td><%= link_to "#{c}", c %></td>
                 <td><%= c.teacher%></td>
                 <td>
                   <% if c.day_week_humanize.to_s == @classroom_old.day_week_humanize.to_s %>
