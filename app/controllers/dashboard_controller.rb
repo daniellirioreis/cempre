@@ -8,8 +8,12 @@ class DashboardController < ApplicationController
     @days_trial = []
     @importants = []
     @birthdates = []
+    @notes = []
     if current_user.student?
-      @notes = current_user.student.company_active.notes.find_all_by_for_note(ForMessage::STUDENT)
+      @company_active = current_user.student.company_active
+      if @company_active.present?
+        @notes = current_user.student.company_active.notes.find_all_by_for_note(ForMessage::STUDENT)
+      end
     else
       @notes = current_company.notes
     end
