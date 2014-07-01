@@ -5,7 +5,8 @@ class Student < ActiveRecord::Base
   has_many :events
   has_many :rents
 
-  validates :company_id, :name, :street, :neighborhood, :city, :federal_unit, :house_number, presence: true
+  validates :company_id, :name, presence: true
+  # :street, :neighborhood, :city, :federal_unit, :house_number
   validates :name, :email, uniqueness: true
   validates :email, uniqueness: { scope: :company_id }
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
