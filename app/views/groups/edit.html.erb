@@ -1,26 +1,29 @@
-<%= simple_form_for(@group) do |f| %>
 <% if params[:status].to_i == StatusGroup::TRANSFER %>
-  <%= render 'form' , f: f %>
+  <%= render 'form'  %>
+<% else %>
+  <%= simple_form_for(@group) do |f| %>
+
+  <% if params[:status].to_i == StatusGroup::LOCKED %>
+    <%= render 'locked', f: f %>
+  <% end %>
+
+  <% if params[:status].to_i == StatusGroup::FOLDED %>
+    <%= render 'folded', f: f %>
+  <% end %>
+
+  <% if params[:status].to_i == StatusGroup::ACTIVE %>
+    <%= render 'active', f: f  %>
+  <% end %>
+
+  <% if params[:status].to_i == StatusGroup::APPROVED %>
+    <%= render 'approved', f: f  %>
+  <% end %>
+
+  <% if params[:status].to_i == StatusGroup::FAILED %>
+    <%= render 'failed', f: f  %>
+  <% end %>
+
 <% end %>
 
-<% if params[:status].to_i == StatusGroup::LOCKED %>
-  <%= render 'locked', f: f %>
-<% end %>
-
-<% if params[:status].to_i == StatusGroup::FOLDED %>
-  <%= render 'folded', f: f %>
-<% end %>
-
-<% if params[:status].to_i == StatusGroup::ACTIVE %>
-  <%= render 'active', f: f  %>
-<% end %>
-
-<% if params[:status].to_i == StatusGroup::APPROVED %>
-  <%= render 'approved', f: f  %>
-<% end %>
-
-<% if params[:status].to_i == StatusGroup::FAILED %>
-  <%= render 'failed', f: f  %>
-<% end %>
 
 <% end %>
