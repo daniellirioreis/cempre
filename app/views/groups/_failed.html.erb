@@ -10,3 +10,9 @@
 <p class="lead active">
   Você deseja realmente reprovar <%= @group%>  com a nota <%= @group.value_tatal %>?
 </p>
+
+<div class="form-actions">
+   <%= f.button :submit, class: 'btn btn-success' %>
+   <%= link_to 'Voltar', :back, class: 'btn' %>
+
+</div>

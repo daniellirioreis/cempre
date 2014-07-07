@@ -48,6 +48,10 @@ class GroupsController < ApplicationController
 
   def edit
     @group.status = params[:status]
+    @classrooms_new = calendar_current.
+                      classrooms.
+                      sequence_and_type_course(sequence, @classroom_old.type_course)
+
   end
 
   def create
