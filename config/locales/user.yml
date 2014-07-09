@@ -1,0 +1,25 @@
+pt-BR:
+  title:
+    users:
+      index: 'Listagem de usuários'
+      new: 'Novo Usuário'
+      edit: 'Editar Usuário'
+      create: 'Novo Usuário'
+      update: 'Editar Usuário'
+      show: 'Usuário'
+  activerecord:
+    models:
+      user:
+        one: "Usuário"
+        many: "Usuários"
+    attributes:
+      user:
+        name: "Nome"
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirmação da senha"
+        current_password: "Senha atual"
+        new_password: "Nova senha"
+        new_password_confirmation: "Confirmação da nova senha"
+        timeout_in: "Tempo de expiração"
+        remember_me: "Manter conectado"

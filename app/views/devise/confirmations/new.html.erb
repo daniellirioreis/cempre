@@ -1,0 +1,17 @@
+<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.full_error :confirmation_token %>
+
+  <div class="form-inputs">
+    <div class="row-fluid">
+      <div class="span12">
+        <%= f.input :email, :required => true, :autofocus => true, :input_html => { :class => "span12", :maxlength => 256 } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, I18n.t("helpers.submit.devise.confirmations.create"), :class => "btn btn-primary" %>
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>

@@ -1,0 +1,103 @@
+<blockquote>
+  <p>
+    <b>Professor: </b><%= @teacher %><br><br>
+  </p>
+</blockquote>
+
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"> <%= link_to "Dados", "#general", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Endereço", "#address", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Turmas", "#classrooms", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Quantidade de alunos por nível", "#quant_students_for_level", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Cronograma", "#schedule", :"data-toggle" => :tab %></li>
+  </ul>
+</div>
+<div class="tab-content">
+  <div class="tab-pane fade active in" id="general">
+    <blockquote>
+      <p>
+        <strong>Nome: </strong><%=@teacher%><br>
+        <strong>Data Nascimento: </strong><%= l @teacher.birth_date unless @teacher.birth_date.nil?  %><br>
+        <strong>Idade: </strong><%= @teacher.age %><br>
+        <strong>email: </strong> <%= @teacher.email%><br>
+        <strong>Telefones: </strong> <%= @teacher.phone%><br>
+      </p>
+    </blockquote>
+  </div>
+
+  <div class="tab-pane" id="address">
+    <blockquote>
+      <address>
+        <p>
+          <%= @teacher.street %>, <%= @teacher.house_number %> <%= @teacher.neighborhood %><br/>
+          <%= @teacher.zip_code%> - <%= @teacher.city %><br/>
+        </p>
+      </address>
+    </blockquote>
+  </div>
+
+  <div class="tab-pane" id="classrooms">
+    <%= render "classrooms", :classrooms => @classrooms %>
+  </div>
+
+  <div class="tab-pane" id="quant_students_for_level">
+    <%total = 0 %>
+    <% @courses.each do |c| %>
+    <% classrooms = @teacher.classrooms.find_all_by_teacher_id_and_course_id_and_closed(@teacher.id, c.id, false) %>
+      <% if classrooms.any? %>
+        <div class="alert alert-info">
+          <h5 align='center'><%= c %><h5>
+            <% sub_total = 0%>
+            <% classrooms.each do |cc |%>
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                  <td>
+                    <b>Turma:</b> <%= cc %>
+                  </td>
+                  <td>
+                    <b>Quantidade de alunos: </b><%= cc.groups.active.count %>
+                  </td>
+                </tr>
+              </table>
+              <% sub_total =  sub_total + cc.groups.active.count %>
+              <% total =  total + sub_total %>
+            <% end %>
+            <table class="table table-striped table-hover table-bordered">
+              <tr>
+                <td>
+                  <b>SubTotal de Alunos:</b>
+                </td>
+                <td>
+                  <b> <%= sub_total %> <b>
+                </td>
+              </tr>
+            </table>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="alert alert-info">
+      <table class="table table-striped table-hover table-bordered">
+          <tr>
+            <td>
+              <b>Total de Alunos:</b>
+            </td>
+            <td>
+              <b>Total de Alunos:</b> <%= total %>
+            </td>
+          </tr>
+      </table>
+    </div>
+
+  </div>
+  <div class="tab-pane" id="schedule">
+    <%= render 'schedule'%>
+  </div >
+</div>
+<div class="form-actions">
+  <%= link_to 'Editar', edit_teacher_path(@teacher), class: 'btn btn-primary' %>
+  <%= link_to 'Deletar', @teacher, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+  <%= link_to 'Voltar', teachers_path, class: 'btn' %>
+</div>
+
+

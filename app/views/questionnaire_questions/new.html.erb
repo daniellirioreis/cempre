@@ -1,0 +1,15 @@
+<%= simple_form_for(@questionnaire_question) do |f| %>
+  <%= hidden_field_tag :questionnaire_id, params[:questionnaire_id] %>
+  <%= f.input :questionnaire_id, :as => "hidden"%>
+  <div class="row-fluid">
+    <div class="span3"><%= f.input :question_id, collection: current_company.questions %></div>
+  </div>
+  <div class="row-fluid">
+    <div class="span3"><%= f.input :answer_id, collection: current_company.answers %></div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-success" %>
+    <%= link_to 'Voltar', exams_path(group_id: @questionnaire_question.questionnaire.group), :class => "btn"  %>
+  </div>
+<% end %>

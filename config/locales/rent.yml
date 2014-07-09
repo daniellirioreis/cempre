@@ -1,0 +1,17 @@
+pt-BR:
+  title:
+    rents:
+      index: 'Listagem Empréstimo'
+      new: 'Novo Empréstimo'
+      edit: 'Editar Empréstimo'
+      create: 'Novo Empréstimo'
+      update: 'Editar Empréstimo'
+      show: 'Informação'
+  activerecord:
+    models:
+      rent:
+        one: "empréstimo"
+        many: "empréstimos"
+    attributes:
+      rent:
+        student_id: "Aluno"

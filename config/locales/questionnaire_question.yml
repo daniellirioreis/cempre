@@ -1,0 +1,16 @@
+pt-BR:
+  title:
+    questionnaire_questions:
+      new: 'Nova pergunta do questionário'
+      edit: 'Responda a pergunta'
+      create: 'Nova pergunta do questionário'
+      update: 'Editar pergunta do questionário'
+  activerecord:
+    models:
+      questionnaire_question:
+        one: "pergunta do questionário"
+        many: "perguntas do questionário"
+    attributes:
+      questionnaire_question:
+        answer_id: "Resposta"
+        question_id: "Pergunta"

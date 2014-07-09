@@ -1,0 +1,38 @@
+<% @company.calendars.each do |c| %>
+  <h3><%=c%></h3><br>
+  <blockquote>
+    <p>
+      <b>Quantidades de matriculas:</b> <%= c.groups_active.count%><br>
+    </p>
+  </blockquote>
+  <blockquote>
+    <p align='center'>
+      <b> Alunos que não conseguiram concluir o curso</b><br/>
+    </p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Aluno</th>
+          <th>Curso</th>
+          <th>Motivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if c.groups_locked_or_folded.any? %>
+        <%c.groups_locked_or_folded.each do |g| %>
+            <tr>
+              <td><%= g %></td>
+              <td><%= g.classroom.course %></td>
+              <td> <%=g.status_humanize%></td>
+            </tr>
+          <% end %>
+        <% else %>
+        <tr>
+          <td colspan='3'>Nenhum registro foi encontrado.</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </blockquote>
+    <hr>
+<%end%>

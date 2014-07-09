@@ -1,0 +1,41 @@
+<%= simple_form_for(@manager) do |f| %>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.input :name, :required => true, :autofocus => true, :input_html => { :class => "span12", :maxlength => 256 } %>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.input :email, :required => true, :input_html => { :class => "span12", :maxlength => 256 } %>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span3"><%= f.input :profile_id, collection: Profile.all %></div>
+  </div>
+    <fieldset>
+      <legend> Escolas</legend>
+      <% @companies.each do |c| %>
+        <%= check_box_tag 'manager[company_ids][]', c.id, @manager.company_ids.include?(c.id) %>
+            <%= c%><br><hr>
+      <% end %>
+    </fieldset>
+    <br>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.input :password, :autocomplete => "off" ,:required => false, :input_html => { :class => "span12", :maxlength => 256 } %>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.input :password_confirmation, :required => false, :input_html => { :class => "span12", :maxlength => 256 } %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-success' %>
+    <%= link_to 'Voltar', managers_path, class: 'btn' %>
+  </div>
+
+<% end %>

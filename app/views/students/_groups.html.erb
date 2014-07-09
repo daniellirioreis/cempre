@@ -1,0 +1,43 @@
+<table class="table table-striped table-hover table-bordered">
+  <colgroup>
+    <col>
+    <col width="160">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Turma</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @student.groups.any? %>
+      <% @student.groups.sort_by(&:name).each do |g| %>
+        <tr class="
+        <% if g.active? %>info<%end%>
+        <% if g.approved? %>success<%end%>
+        <% if g.failed? %>error<%end%>
+        <% if g.transfer? %>warning<%end%>
+        <% if g.folded? %>warning<%end%>
+        <% if g.locked? %>warning<%end%>
+
+        ">
+          <td>
+            <%= link_to "#{g.classroom}", g.classroom %>
+            <br/>
+            <b>Professor:</b> <%= g.classroom.teacher%><br/>
+            <b>Horário:</b> <%= g.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= g.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
+            <b>Dia da Semana:</b>
+            <%= g.classroom.day_week_humanize %><br/>
+            <b>Período:</b>
+            <%= g.classroom.calendar %>
+          </td>
+          <td> <%= g.status_humanize %></td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='2'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

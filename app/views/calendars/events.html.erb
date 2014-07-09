@@ -1,0 +1,25 @@
+<% @group_active.each do |g| %>
+  <p class='text-info'><i class="icon-calendar"></i> <%= g.classroom%> - <%= g.classroom.calendar%></p>
+  <% contador = 0 %>
+  <table class="table table-striped table-hover table-bordered">
+      <% g.classroom.lessons.sort_by(&:day).each do |l| %>
+        <% if contador == 0 %>
+          <tr>
+          <%end%>
+          <%  contador = contador + 1 %>
+          <td>
+            <div class="alert <% if l.calendar_day.day < Date.today %>alert-success<%else%> alert-info <%end%>">
+              <p class='text-info'><strong><%= l.to_string %></strong></p><br>
+              <% l.schedules.each do |s| %>
+                <%= s.description %>
+              <%end%>
+            </div>
+          </td>
+
+          <% if contador == 4 %>
+            <%contador = 0%>
+          </tr>
+        <%end%>
+      <% end %>
+    </table>
+<% end %>

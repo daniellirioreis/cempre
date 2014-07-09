@@ -1,0 +1,22 @@
+<%= f.input :classroom_id, :as => "hidden"%>
+<%= hidden_field_tag :classroom_id, params[:classroom_id] %>
+<%= f.input :status, as: :hidden %>
+<%= hidden_field_tag :status, params[:status] %>
+
+<%= f.input :student_id, as: :hidden %>
+
+
+
+
+
+
+<p class="lead active">Você deseja realmente trancar a enturmação de <%= @group%> na turma <%= @group.classroom%> ?
+</p>
+<div class="row-fluid">
+    <%= f.input :justification, input_html: { rows: '10', cols: '100' } %>
+</div>
+<div class="form-actions">
+   <%= f.button :submit, class: 'btn btn-success' %>
+   <%= link_to 'Voltar', :back, class: 'btn' %>
+
+</div>

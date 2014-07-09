@@ -1,0 +1,34 @@
+<%= simple_form_for(@exam) do |f| %>
+  <%= hidden_field_tag :group_id, params[:group_id] %>
+  <%= f.input :group_id, :as => "hidden"%>
+  <p>
+    <b>Turma:</b> <%= @exam.group.classroom %>
+  </p>
+  <p>
+    <b>Aluno:</b> <%= @exam.group %>
+  </p>
+  <% unless @exam.new_record? %>
+    <p>
+      <b>Aula:</b> <%= @exam.lesson %>
+      <%= f.input :lesson_id, :as => "hidden"%>
+    </p>
+  <% end %>
+  <hr>
+  <div class="row-fluid">
+    <div class="span3"><%= f.input :type_exam, collection: TypeExam %></div>
+  </div>
+  <% if @exam.new_record? %>
+    <div class="row-fluid">
+      <div class="span3"><%= f.input :lesson_id, collection: Lesson.classroom_id(@exam.group.classroom_id) %></div>
+    </div>
+  <% end %>
+  <div class="row-fluid">
+    <div class="span3"><%= f.input :value, input_html: { class: 'span3' } %></div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-success" %>
+    <%= link_to 'Informações sobre avaliações', exams_path(group_id: @exam.group_id), :class => "btn btn-info"  %>
+    <%= link_to 'Voltar', @exam.group.classroom, :class => "btn"  %>
+  </div>
+<% end %>

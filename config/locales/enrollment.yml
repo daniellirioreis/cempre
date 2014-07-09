@@ -1,0 +1,14 @@
+pt-BR:
+  title:
+    enrollments:
+      index: 'Inscrição'
+      new: 'Nova Inscrição'
+      create: 'Nova Inscrição'
+      list_classrooms_to_re_enrollments: 'Rematricula'
+  activerecord:
+    models:
+      enrollment:
+        one: "Inscrição"
+        many: "Inscrições"
+    attributes:
+      enrollment:

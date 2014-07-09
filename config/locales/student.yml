@@ -1,0 +1,36 @@
+pt-BR:
+  title:
+    students:
+      index: 'Listagem de alunos'
+      new: 'Novo Aluno'
+      edit: 'Editar Aluno'
+      create: 'Novo Aluno'
+      update: 'Editar Aluno'
+      show: 'Ficha do aluno'
+      my_data: 'Minhas Informações'
+      my_exams: 'Minhas Avaliações'
+      declaration_of_studying: 'Declaração de Cursando'
+      down_average: 'Alunos abaixo da média'
+      bulletin: 'Boletins'
+      frequency: "Frequência"
+  activerecord:
+    models:
+      student:
+        one: "Aluno"
+        many: "Alunos"
+    attributes:
+      student:
+        name: "Nome"
+        street: 'Logradouro'
+        house_number: 'Número'
+        complement: 'Complemento'
+        zip_code: 'CEP'
+        neighborhood: 'Bairro'
+        district: 'Distrito'
+        city: 'Cidade'
+        federal_unit: 'UF'
+        phone: 'Fone'
+        cell_phone: 'Celular'
+        birth_date: 'Data Nascimento'
+        document: "CERTIDÃO/CPF/RG"
+        block_schedule_different: 'aluno foi avisado sobre troca de horário'

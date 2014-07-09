@@ -1,0 +1,571 @@
+NOME,TELEFONE,DOCUMENTO,NASCIMENTO,FALTAS,STATUS,OBS,TURMA
+Anna Caroline de Souza Silva,3542-3398,MG-16.605.425,09/05/1992,3,OK,,AD5.01
+Danielle Ferreira Tavares,3542-8016/8824-0408,MG-13.042.392,04/09/1985,5,Pendente,Comprovante de escolaridade,AD5.01
+Eslaine Silva Paula,3542-3855/9306-2063,MG-16.274.222,29/06/1991,4,Pendente,Comprovante de escolaridade,AD5.01
+Carlos Eduardo dos Reis Pinto,3542-6544/8570-1755,MG 20.526.000,08/03/2001,4,OK,,TN1.01
+Ingrid Rafaela Nascimento Fernandes,3542-6533,Nº de Ordem: 28008,24/08/2000,5,OK,,TN1.01
+Julia Gabrielle Dias Rocha,8231-4125(Maria – avó),Termo:29440,23/05/2002,0,OK,,TN1.01
+Lucas de Souza Fernandes,9221-9613,Termo: 8067,03/08/1998,5,OK,,TN1.01
+Mateus Filipe Martins Pires,3542-6248/9950-6706,MG 18.146.713,12/05/1999,1,OK,,TN1.01
+Matheus H. Souza Nascimento,3541-2284,Ordem 28372,29/04/2001,6,Repetente,,TN1.01
+Milene dos Santos Corrêa,85378313 – 86582526,M 6008496(mae),14/06/2001,0,OK,,TN1.01
+Paulo Vitor Nonato Adao,3542-9113,,,5,"Pendente, Repetente",Nao foi encontrada a Ficha de Matricula,TN1.01
+Tiago Rafael Nascimento Fernandes,3542-6533,28991- folha 300 livro 142-A,13/12/2001,8,OK,Foto,TN1.01
+Vinicius Ferreira Guedes,3542-7022/9266-6897,Termo: 28.103,03/01/2001,0,OK,,TN1.01
+Glaucia Candida Luz da Conceicao,85124085,MG-15.214.140,04/01/1985,12,OK,Faltas Justificadas anteriormente.,TN1.01
+Perciliana Kelly Oliveira Reis,,,,,, Perdeu a vaga por 4 faltas seguidasTN1.01,
+Thiago Lois Silva Rodrigues,,,,,, Perdeu a vaga por 4 faltas seguidasTN1.01,
+Aline Kelly Silva,3541-4211,MG-15787952,10/03/1997,0,Pendente,quer ser Transferida para turma AD3.01 falta documentacao,TN3.01
+Ana Beatriz Borgues Rocha,3542-0671,MG-19.617.043,31/07/2001,0,OK,,TN3.01
+Barbara Luisa Kolasnky da Rocha Sobreira Lopes,3541-6461,Termo: 26623,11/09/1999,1,OK,,TN3.01
+Barbara Luisa Souza,3541-7249,Termo:25370,04/06/1998,2,Pendente,Falta de documentacao,TN3.01
+Davila Agda Luiza Martins,9403-0914,Termo: 8044,06/07/1998,1,OK,,TN3.01
+Emanuely Karolina Moyle,9267-3410,,,1,Pendente,Nao foi encontrada a ficha de matricula,TN3.01
+Kessy Rebeka Alves Costa,9279-2055,MG-18.922.119,10/12/1999,1,OK,,TN3.01
+Lucas Rafael Reis Sena,3542-3945/8525-4634,Termo 25784,29/10/1998,3,OK,,TN3.01
+Luisa Fernanda Gomes Correira,3542-2475,Termo:231995,21/09/2000,1,OK,,TN3.01
+Thaynara Carolina Silva Martiniano,9922-3114,Termo 27292,07/04/2000,1,OK,,TN3.01
+Victor Santiago Drumond Silva,,MG-15.228.330,19/05/2001,0,OK,,TN3.01
+Ana Claúdia de Souza,3542-2384/8827-3884,MG-18.710.844,03/07/2002,1,OK,,TN1.03
+Barbara Nytielle Gomes Cardeal,,,,1,Pendente,Nao foi encontrada a ficha de matricula,TN1.03
+Emanuelly Cristine Andrade Cunha,,,,3,Pendente,Nao foi encontrada a ficha de matricula,TN1.03
+Luiza de Souza,3542-2384/8824-7892,MG-18.710.848,03/07/2002,1,OK,,TN1.03
+Maria Luiza Passos Diniz,,MG-20.140.790,14/06/2001,1,OK,,TN1.03
+Thamires Damasceno Gomes,3542-3709/9632-2048,MG-14.042.021,27/02/2000,1,OK,,TN1.03
+Vitoria Assis de Almeida,3542-3630/9910-2794,MG-19.240.802,20/10/2001,0,OK,,TN1.03
+Eduarda Ernesto Ferreira,9244-8457/ 3542-6312,Livro:A-140 Folhas: 080 Termo: 27961,28/11/2000,1,OK,,TN1.03
+Ingrid Ladislau da Silva,,,,,,Perdeu a vaga. 4 faltas consecutivas TN1.03,
+Sainara Cibele da Silva,,,,,,Perdeu a vaga. 4 faltas consecutivas TN1.03,
+Ana Carla Claudina de Almeida,,,,,,Trancou matricula TN1.03,
+Gustavo Lourenco de Paula Reis,,,,,,Trancou matricula TN1.03,
+Alice Lavinia Carvalho Santos,3547-4670/9981-3561/3589-5700(Trabalho),Termo 26.692 folha 21 livro 137A,26/09/1999,0,OK,,TN1.02
+Carlos Alberto Pereira Júnior,3541-7155/9999-2317,Certidao: 035410 01 55 2002 1 00145 121 0029592 -99,10/07/2002,0,OK,,TN1.02
+Eduarda Marques Correa,3541-7801/8516-8384,MG-16.629.023,22/03/2002,1,OK,,TN1.02
+Emilly Gabrielly Martins Lopes,3541-0465/8928-4743/3543-1143,MG-19.788.102,30/01/2003,0,OK,,TN1.02
+Gabriel Vitor dos Santos Utsch,3542-2435/7525-9567,MG-19.731.151,15/06/2001,2,OK,,TN1.02
+Isabela Caroline Ferreira,8518-8380/3541-7276,MG-20.434.938,04/02/2000,0,Pendente,,TN1.02
+Joao Pedro Ribeiro Guedes,3542-1460/8742-5579/9457-6159,MG-18.408.879,02/08/2002,0,OK,,TN1.02
+Larryssa Michaelle de Jesus Coelho,3542-8986/9896-1934,MG-17.073.831,01/11/2002,0,Pendente,,TN1.02
+Maria Fernanda Braga,3542-7126/ 8844-2802(Mae Sirlene),MG-19.599.754,21/08/2000,0,OK,,TN1.02
+Marlon Ferreira Assis Pinto,3542-4255/8404-6281,Certidao: 28057,11/01/2001,0,OK,,TN1.02
+Paulo Eduardo Silveira Ramos Silva,,,,0,OK,,TN1.02
+Renan Lopes Conceicao,3541-2006/9861-9654,Certidao: 118026 01 55 1999 1 00355 243 0266 306 - 99,14/10/1999,0,OK,,TN1.02
+Thales Christian de Paula Carlindo,35417801/8516-8394,MG-19.592.087,10/10/2002,0,OK,,TN1.02
+vinicius,3541-1006/9271-5584(mae Ana Paula),MG-19.511.735,19/05/2001,0,OK,,TN1.02
+Wallace Oliveira Silva,8520-0586/3542-3904,MG-20.638.275,07/03/2002,2,Pendente,,TN1.02
+Giovana da Silva Gomes,,,,,,Desistiu TN1,
+Alice Emanuele Messias Braz,3542-7195,Termo:27273,28/03/2000,5,OK,,AD4.02
+Ana Carolina de Marilac da Silva,3541-0814,Ordem 26438,10/07/1999,2,OK,,AD4.02
+Ana Claudia Santos Pereira,3542-1911/8525-0779,MG-19.001.135,29/02/2000,1,OK,,AD4.02
+Icaro Claudio Ribeiro Ferreira,3541-5250/9684-9219,MG-17.879.593,02/06/2001,2,OK,,AD4.02
+Leticia de Jesus Ferreira,3542-6006/8676-4884,MG-18.437.890,17/06/2000,1,OK,,AD4.02
+Maria Isabel Tavares Pereira,3542-6388/9149-1873,MG-19.767.224,16/07/2001,3,OK,,AD4.02
+Matheus Henrique Magalhaes Bento,3541-4569/8560-0433,MG-12.470.714,15/10/1998,3,OK,,AD4.02
+Miguel Gustavo do Santos Saviotti,3542-2329/9353-7294,MG-17.245.493,29/02/2000,0,OK,,AD4.02
+Camila Elisama Martins,3541-6575/8303-5252,MG-17.849.882,21/01/1997,2,OK,,AD4.02
+Leandra Mazok,,,,,,Apareceu na chamada,AD4.02
+Evelyn Rodrigues de Souza,,,,,,Perdeu a vaga. 4 faltas consecutivas AD4.02,
+Fernanda de Paula Dourado,,,,,,Perdeu a vaga. 4 faltas consecutivas AD4.02,
+Marina Santana Costa,,,,,,Perdeu a vaga. 4 faltas consecutivas AD4.02,
+Eduardo Souza Maia,,,,,,"Trancou para proximo semestre, por falta de tempo",
+Alice da Silveira Aleixo,3694-0453/8703-6235,MG.13.685.710,18/01/1983,0,OK,,AD1.01
+Ana Caroline Lima Assumpcao,3542-5578/8725-1353/3542-1625,Termo 25461 folha 370 livro A-133,12/07/1998,2,OK,,AD1.01
+Camila Emanuelle Santos Pereira,3542-6077/7553-7147/9890-1324,Livro: 148-A folha 81 termo 30152,10/02/2003,2,OK,,AD1.01
+Christian Felipe Santos Pereira,3542-6077/7553-7147/9890-1324,Livro: 148-A folha 80 termo 30151,10/02/2003,1,OK,,AD1.01
+Eduarda Gabriela Atanazio Mariano Cunha,7115-7512,MG-20.358.945,19/02/2000,0,OK,,AD1.01
+Laryssa Amaral Pereira,8495-7545,MG-18412683,25/04/2000,0,Pendente,,AD1.01
+Patrick Cesar Goncalves Geraldo,3542-6122/9303-3357,MG-20.275.298,03/03/1997,4,Pendente,,AD1.01
+Patrick Lohan Silva,9843-5132/7542-6791,MG-18.371.967,03/10/1998,3,OK,,AD1.01
+Rafael Felipe Ferreira,3542-6366/9503-7249,MG-20.276.934,04/04/1997,0,OK,,AD1.01
+Stefania Caroline Barbosa,3542-6301/8938-8640,MG-19.930.959,14/02/1997,0,OK,,AD1.01
+Ana Clara Flaviana Silva    ,,,,,,matricula trancada AD1,
+Larrisa Louise Pacheco,,,,,,Perdeu a vaga 4 faltas AD1,
+Maira Rodrigues Almeida de Aquino,,,,,,Perdeu a vaga 4 faltas AD1,
+Daniel Vitor,,,,5,,,AD5.02
+Ian Victor Almeida,3542-5680,MG-18.071.982,19/06/1996,3,OK,,AD5.02
+Jennifer Katlin Vieira,3542-4293,Termo:24847,12/12/1997,2,OK,,AD5.02
+Joao Victor Ferreira de Araujo,3542-0604/8899-2556,MG-16.495.881,24/03/1999,6,OK,,AD5.02
+Joao Victor Rodrigues Fontes,3541-0116/ 9150-8170,MG-18.946.997,25/01/1998,1,OK,,AD5.02
+Jouber Eduardo dos Santos Romao,8392-3822,MG-16.136.436,08/09/1990,3,OK,,AD5.02
+Karine Ferreira Tavares,3542-8016,Termo: 24252,21/04/1997,3,OK,,AD5.02
+Karolaine Souza Schimite,3542-7848,Termo: 25432,04/06/1993,1,OK,,AD5.02
+Lorena Caroline Santos Araujo,3059-5200/ 9839-1155,MG-17.995.179,06/03/1999,2,OK,,AD5.02
+Marcela Magnani Morais,3542-5650/ 9533-2968,MG-12.878.442,25/03/1983,2,OK,,AD5.02
+Marina Martins Santos,3541-5238,MG-17.344.057,06/08/1996,2,OK,,AD5.02
+Rafaela de Souza F. Silva,3541-4170/9266-0095,Termo: 24613,09/09/1997,2,OK,,AD5.02
+Pamela Silva Sabino,,,,,,matricula trancada AD5.02,
+Gustavo Henrique Bastista,,,,,,perdeu a vaga 4 faltas AD5.02,
+Aline Luiza Oliveira de Jesus ,3541-4500,MG-18.239.674,02/07/2002,0,OK,,TN2.01
+Caio Rodrigues Goes,3543-3483/8526-7032,MG-20.252.789,15/09/1999,1,OK,,TN2.01
+Dayane Caroline Borgues de Jesus,7300-7505,,,1,OK,,TN2.01
+Marcelo Alves Pereira Junior,3542-1684/9671-4943,MG-14.689.491,12/07/1999,1,OK,,TN2.01
+Matheus Caldeira de Souza Neto,3542-6297/8893-5820,MG-19.413.091,06/11/1998,1,OK,,TN2.01
+Ryhann Junio Campos Silva ,3541-3860,Termo:29706,22/08/2002,0,OK,,TN2.01
+Tifany Julia Silva Borgues,7300-7505,,,1,OK,,TN2.01
+Stefany Luize Romao,,,,,,Perdeu a vaga. 4 faltas consecutivas TN2.01,
+Adriana Cristina de Souza Wenceslau,3541-0648/ 8806-1058,MG-1.143.119,07/09/1976,5,Pendente,Falta foto e comprovante de escolaridade,EI9.01
+Daniele Aparecida Silva Baia Sudario,3542-2348,MG-11.264-042,16/10/1982,1,Pendente,Comprovante de escolaridade,EI9.01
+Natalia Rosana Barbosa,3542-8863/ 92017-2738,MG-13.993.203,29/04/1987,0,OK,,EI9.01
+Patricia Vasconcelos de Azevedo,3541-3827,MG-5.196.742,26/06/1965,5,Pendente,"Falta foto, comprovante de escolaridade, comprovante de renda e comprovante de endereco",EI9.01
+Raiany Rosa Teixeira,3541-1157,Termo: 22743,26/09/1995,0,Pendente,Comprovante de renda,EI9.01
+Cesar Alexandre Barroso,3542-3403/8533-9387,Termo:25512,03/08/1998,1,Pendente,Comprovante de renda,AD2.01
+Douglas Bertoudo Simiao,3541-6879/8439-5563,MG-20.250.874,05/11/1996,0,OK,,AD2.01
+Douglas Silva Maceira,3542-7482/9981-5272,MG-19.408.987,01/02/1997,1,OK,,AD2.01
+Eduardo Alves Soares,3542-9331/9298-5358,MG-19.334.174,23/01/1997,1,OK,,AD2.01
+Gustavo Henrique Estevao Viera,3542-6429,MG-19.296.052,21/08/1999,0,OK,,AD2.01
+Jessica Julia Soares Silva,3543-3189/9901-1399,MG-19.386.897,21/02/1997,2,OK,Comprovante de renda,AD2.01
+Makerlly Alves Augosto dos Santos,8507-2207,MG-19.792.612,04/10/1994,2,OK,Comprovante de renda,AD2.01
+Paulo Sergio Costa,3581-7319/9702-7376,MG-7.377.710,28/03/19974,1,OK,,AD2.01
+Stefany Carolina Ferreira,3542-3479/7115-7528,Termo:24974,21/01/1998,1,OK,,AD2.01
+Amanda Nathatia Vicente da Silva,3541-5642,MG-17.756.528,06/02/1997,5,OK,,AD3.01
+Bianca Caroline Nunes da Silva,3541-3978/8652-9433,MG-17.601.234,17/02/1993,3,OK,,AD3.01
+Bianca Moniky de Souza Vasconcelos,8855-3278/3581-2241,Orderm: 17545,30/08/1997,2,OK,,AD3.01
+Humberto Luis Oliveira,3542-6429/8651-6195,M-8.643.227,26/03/1977,0,OK,,AD3.01
+Jussamara Cristiane Estevao Vieira,3542-6421/8653-6705,MG-11.537.802,24/03/1980,0,OK,Declaracao de curso,AD3.01
+Larissa Cristina Reis de Oliveira,3542-0015/8747-6307,Ordem: 24683,28/09/1997,3,OK,,AD3.01
+Luciana de Souza Pontes,3581-2241,MG-10.638.303,24/01/1977,3,Pendente,Comprovante de Escolaridade,AD3.01
+Maria Aparecida Nogueira de Paula,3541-5183/9718-5183,MG-4.858.504,07/09/1952,1,Pendente,Falta documentacao,AD3.01
+Maria Eduarda Soares Silva,3543-3189/9750-6898,Ordem: 2060,24/07/1998,6,OK,,AD3.01
+Mariane Cristina Viera,3541-9108/9150-1230,A132T3431,26/11/1997,2,Pendente,Falta documentacao,AD3.01
+Matheus Henrique Santos de Oliveira,3542-3549,MG-17.773.504,18/07/1997,2,OK,,AD3.01
+Paulo de Tarso Soares,3541-4400,,,1,Pendente,Ficha de matricula nao foi encontrada,AD3.01
+Simara Pereira Costa,3542-3791/3542-5022,MG-18.271.315,05/09/1994,9,Pendente,Foto,AD3.01
+Valdir Bonifacio de Oliviera,3541-6875,MG-8.055.964,09/12/1974,0,OK,,AD3.01
+Adriana Luiza de Souza Rocha ,8382-8251,MG-12.707.461,14/02/1981,5,,,AD4.03
+Ana Caroliny Ferreira Froes,9777-1686,MG-17.101.228,21/01/1997,0,OK,,AD4.03
+Andreia Teixeira,3541-7276/ 8864-8235,M-857428,08/05/1977,1,Pendente,Toda documentacao,AD4.03
+Claudia Roberta Rabelo,3541.6533/8913-5406,MG-5.978.422,02/12/1969,3,Pendente,"foto, comprovante de escolaridade",AD4.03
+Fabiana Cristina da Silva,9523-0186,MG-11.041.559,13/03/1980,3,Pendente,"Comprovante de Escolaridade, 2 presenca",AD4.03
+Felipe Sales Saraiva,3541-8405,MG-154.596-275,19/07/1997,1,OK,,AD4.03
+Iago Henrique Martins Santos ,3542-6273,MG-18.148.213,23/10/1998,2,OK,,AD4.03
+Itamar Lucio de Freitas Junior,3541-6526,Termo: 25623,17/09/1998,6,OK,,AD4.03
+Juliana de Fatima Trindade,8828-6860,"MG-12.496,037",15/15/1983,4,Pendente,,AD4.03
+Leandra Isabel Biage Santos,,MG-15.018.172,04/08/1998,3,Pendente,Comprovante de renda,AD4.03
+Marislei da Silva Abalem,3542-5621,MG-4.025.798,15/06/1964,3,Pendente,"Comprovante de endereco, comprovante de escolaridade, comprovante de renda",AD4.03
+Matheus Iago Morais Ribeiro,9678-7828,MG-18.442.475,18/02/1998,2,OK,,AD4.03
+Ketellen Deyniffer da Silva Ferreira,3541-6527/9941-5080,Ordem 25759,04/11/1998,3,OK,,AD4.03
+Gislaine Aparecida Reis Oliveira,,,,,,Perdeu a vaga. 04 faltas consecutivas - AD4.03,
+Alice da Silva Silveira Aleixo,8703-6235,MG-13.685.710,18/01/1983,1,Pendente,Comprovante de escolaridade,EI2.01
+Andre Clayton de Lima,8838-1887,MG-11.622.287,21/06/1983,2,Pendente,Comprovante de escolaridade,EI2.01
+Catia Ferreira de Almeida,,,,3,OK,,EI2.01
+Helvya Samara Soares Gomes,9393-2324,M-5.005.007,31/10/1968,2,OK,,EI2.01
+Leticia Bonformagio Drumond Silva,3541-7212/9606-7114,MG-18.414.545,10/08/1988,1,OK,,EI2.01
+Thaina Pontel Ferreira,3542-4909,Termo: 261994,01/01/2000,1,OK,,EI2.01
+Flora Eduarda Fialho da Silva,,,,,,Perdeu a vaga. 4 faltas consecutivas - EI2.01,
+Gabriela Soares de Moura,,,,,,Perdeu a vaga. 4 faltas consecutivas - EI2.01,
+Gisele Rodrigues Lima,,,,,,Perdeu a vaga. 4 faltas consecutivas - EI2.01,
+Rachel Freitas Otero,,,,,,Perdeu a vaga. 4 faltas consecutivas - EI2.01,
+Tais Cristina Fernandes Bonifacio,,,,,,Perdeu a vaga. 4 faltas consecutivas - EI2.01,
+Adriana Nunes de Oliveira Mendes,8844-3093/3541-3093,MG-6.063.921,23/02/1973,4,OK,,EI3.01
+Cinara Tatiane A. Moura,3542-1869/99691275,,,4,,,EI3.01
+Karolaine de Souza Schimite,,,,2,,,EI3.01
+Kesley Couto Sodre,4137-0090/ 8799-6822,MG-13.179.602,26/10/1984,4,Pendente,Comprovante de renda,EI3.01
+Maria Eduarda Jacinto Soares,,,,0,,,EI3.01
+Sabrina Estefani das Dores Nogueira,3542-6377/ 9135-1347,MG-16.181-028,11/05/1995,4,OK,,EI3.01
+Taiane Souza Santos,9685-4541,MG-19.424.130,10/03/1997,0,OK,,EI3.01
+"Yasmim Tereza C, Queiroz Silva",3542-2029,MG-16.621.596,15/08/1994,2,OK,,EI3.01
+Rosely Rejane da Silva,,,,5,,,EI3.01
+Barbara Silva Melo,,,,,,Perdeu a vaga. 4 faltas consecutivas - EI3.01,
+Debora Vieira Tiago,,,,,,Perdeu a vaga. 4 faltas consecutivas - EI3.01,
+Kelly Cristina Santos,,,,,,Perdeu a vaga. 4 faltas consecutivas - EI3.01,
+Josiane Fernanda da Silva,,,,,,Matricula Trancada - EI3.01,
+Gisele Moreira da Silva,3542-2351,MG13.743.845,07/04/1987,2,Pendente,Comprovante de escolaridade,EI8.01
+Jane Alexandrino Peixoto,3542-6823/8605-6914,MG-8.927.679,11/03/1976,0,Pendente,Comprovante de escolaridade,EI8.01
+Jucilaine Aparecida Honorio,3542-3745,MG-14.589.678,24/01/1985,3,Pendente,Comprovante de escolaridade,EI8.01
+Paula Luiza Pereira,3541-3756/ 9236-3213,MG-11.466.010,13/12/1990,5,Pendente,Toda documentacao,EI8.01
+Rafaela Cristina Alves Ferreira,3541-3981,MG-15.169.959,27/01/1990,0,Pendente,Comprovante de escolaridade,EI8.01
+Valquiria Gomes Meireles,65763546,MG-32.165741,12/06/1989,1,Pndente,Toda documentacao,EI8.01
+Dayane Rodrigues Honorio,,,,,,Perdeu a vaga. 04 faltas consecutivas EI8.01,
+Alessandro Santos Silva,8263-2139/3541-6341/3589-4400,MG-10.637679,18/03/1978,0,OK,,AD1.02
+Alexandra Sabino Alves Pereira,3694-0658/8580-7146,MG-11.783.935,10/03/1981,0,OK,,AD1.02
+Elaine Bonze Ferreira,3542-2431/8727-9225,MG-11.590.445,28/04/1982,0,OK,,AD1.02
+Felipe Marques Rodrigues,3541-4893/9497-1434,MG-17.584.075,27/12/1997,1,OK,,AD1.02
+Gabriel da Silva Batista,3542-7527/ 8384-5747,MG-18.833.355,11/02/1999,0,OK,,AD1.02
+Jenniffer Stefany Almeida,3541-5677/3694-6106/9454-8792,MG-16.741.602,06/11/1990,0,OK,,AD1.02
+Juliana Souza de Araújo Rocha,3542-9803/9276-6788,MG-11.998.498,28/12/1983,1,OK,,AD1.02
+Otavio Teixeira de Abreu,9574-4965/3368-1634/3368-1634,M-8.078.886,12/04/1975,2,OK,,AD1.02
+Patricia Correa Guedes Dias,8632-0299,M-2.844.693,24/05/1963,2,OK,,AD1.02
+Silvana Reis,35421-0604/8817-1719,MG-11.575.580,31/01/1978,2,OK,,AD1.02
+Stefane Cristina Barbosa,3542-6301/9493-2436,MG-19.899.981,08/11/1995,0,OK,,AD1.02
+Vitor Hugo Rodrigues Lopes,3542-1695/3541-6497/3541-0458(mae -Rosileia),Livro:A-136 folhas: 160 Termo:26031,18/02/1999,0,OK,,AD1.02
+Marcela Soares de Souza,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD1.02,
+Barbara Cristina Prado,9737-6337,MG-12.077.533,16/08/1989,0,Pendente,Comprovante de escolaridade,AD5.03
+Brenda S. Rodrigues,,,,2,OK,,AD5.03
+Caroline Pietra Silva,3541-2898,Termo: 25151,01/04/1998,3,OK,,AD5.03
+Giovana Ferreira Rodrigues,3541-6546,MG-16217968,10/01/1998,3,OK,,AD5.03
+Gisele de Assis Vaz Pereira,8863-3415,MG-4.683-087,17/07/1979,2,OK,,AD5.03
+Isabela Gontijo Lopes,3542-1097,MG-16.319.933,05/02/1998,5,OK,,AD5.03
+Jeter Wilkerson Nero,8708-4587,MG-14.503.337,17/03/1986,5,Pendente,Comprovante de escolaridade,AD5.03
+Jordan Filipe Jacinto dos Reis,3542-2719,MG-16.846.918,04/02/1997,6,OK,,AD5.03
+Kelson Felipe Moura,3541-0054,Termo: 80715,06/09/1977,2,OK,,AD5.03
+Keylison Rouglas de Moura,3542-4773/ 8418-8917,MG-17.946.924,09/08/1997,2,OK,,AD5.03
+Leonardo Praca Souza,3542-0852,Termo: 24643,12/09/1997,7,OK,,AD5.03
+Leticia Bonformagio Drumond Silva,3541-7212,Termo: 25534,10/08/1998,0,OK,,AD5.03
+Leticia de Souza Praca,3542-1763,Termo: 85462,21/08/1997,3,OK,,AD5.03
+Marcio Jose de Araujo,3542-2479/8859-4634,MG-11.857.286,30/06/1980,2,Pendente,Comprovante de escolaridade,AD5.03
+Rosiane Karoline de Oliveira,,Termo: 25241,26/04/1998,1,OK,,AD5.03
+Duane Juliana Sandra Silva,,,,,,matricula trancada AD5.03,
+Jussilene Maria Coelho,,,,,,matricula trancada AD5.03,
+Jennifer Katlin Vieira,,,,,,matricula trancada AD5.03,
+Ana Carolina Rocha,3542-6235/9886-6665,Termo: 24374,30/05/1997,3,Pendente,Comprovante de renda,TT2.01
+Giulia Alves Carvalho,3542-1032,MG-18.105.322,03/06/1995,0,OK,,TT2.01
+Hugo Alves dos Santos,,MG-15.885.526,26/11/1996,3,Pendente,Comprovante de renda,TT2.01
+Jaqueline Vanessa B. Jeronimo,3542-2479,MG-12.711.749,18/02/1981,1,Pendente,Comprovante de escolaridade,TT2.01
+Gracinda Maria Silva Duarte,3541-3076,MG-12.507.625,20/07/1979,1,Pendente,Comprovante de escolaridade,TT2.01
+Giulia Dornelles,,,,1,,,TT2.01
+Kelly Tatiane Rocha,,,,,,Perdeu a vaga. 04 faltas consecutivas - TT2.01,
+Ana Paula Ramos Maia,3694-2395/ 9951-3905,MG-14.127.367,23/03/1991,4,OK,,EI1.01
+Barbara Ohana de Souza Santos,35421-3630/ 9767-9365,MG-15.688.730,20/10/1989,0,OK,,EI1.01
+Bruno Cesar de Oliveira Borges,3541-2260/8449-6808,MG-13.597.000,15/07/1983,4,OK,,EI1.01
+Bruno Herinque Almeida Rodrigues,3542-4717/ 9246-7180,MG-19.549.673,05/07/1997,4,OK,,EI1.01
+Fabiana Carmo Barros,9369-6809,MG-18.902.865,22/08/1997,2,OK,,EI1.01
+Isabela Leticia de Souza Kimeiro,,MG-14.838.143,13/09/1989,0,OK,,EI1.01
+Lorena Cristina Cruz,3542-0505/9689-1342,MG-20.141.386,15/06/1999,4,OK,,EI1.01
+Maria Eduarda Silva Oliveira,3542-7149/8536-0009,Termo 28.288 folha 017 Livro A141,27/03/2001,2,OK,,EI1.01
+Matheus Felipe Silva Ferreira,3542-9306/9842-8235,Termo: 26702,04/10/1999,0,OK,,EI1.01
+Viviane Marcia da Silva,8580-8068,MG-18.083.915,03/09/1991,4,OK,,
+Alef Oliveira Moureira ,3541-9984/9213-3809,Termo: 14.5571,20/03/2000,2,OK,,TN2.02
+Ana Luiza Nonato Adao ,3542-9113,MG-19.338.527,20/09/2001,3,OK,,TN2.02
+Bianca Gontijo Lopes,3542-1040/9603-7648,MG-16.322.763,27/08/2001,2,OK,,TN2.02
+Douglas Alexander Saturmino,3541-4319/ 8639-4248,MG-19.631.987,25/07/2000,3,OK,,TN2.02
+Euler Lemos dos Santos,3541-5419,Termo: 27734,,3,OK,,TN2.02
+Joao Vitor Franscisco Cunha,3547-4767,Termo 28.380,02/05/2001,1,OK,,TN2.02
+Lara Marcela de Souza,3541-7249,Termo: 27417-72,26/05/2001,4,OK,,TN2.02
+Leticia Maria de Oliveira Mateus,3542-9195/8550-1773,Termo: 27393,15/05/2000,5,OK,,TN2.02
+Linda Laura Souza Reis Farias,3547-4010,MG-19.809.760,24/11/2000,2,OK,,TN2.02
+Vitoria Cecilia de Souza,3541-7249,Termo:29207,04/03/2000,4,OK,,TN2.02
+Bernardo Ribeiro Soares,3541-4407/8835-1610/3581-7864,MG-18.435.172,05/09/2001,2,Pendente,Foto,AD3.02
+Claudia dos Santos Silva,3542-3557,BA-0754504883,05/08/1978,3,OK,,AD3.02
+Fabio do Santos Silva,9398-2577,MG-14.842.705,03/10/1988,7,OK,,AD3.02
+Gabriela Siqueira de Moraes,3541-2582/9135-7192,MG-18.101.300,23/06/2001,3,OK,,AD3.02
+Gislaine de Souza Siqueira,3542-4750/9124-0682,MG.15.064.580,08/09/1988,6,OK,,AD3.02
+Isadora Mariana Viera da Silva,3542-2190,Ordem: 27523,02/07/0200,3,OK,,AD3.02
+Lorena Rafaela Martins do Santos,3542-6196,Orderm: 28290,27/03/2001,0,OK,,AD3.02
+Luana Karoline Pereira Lopes,7542-4503,MG-19.827.927,04/10/2000,0,OK,,AD3.02
+Marilene Gregoria Fernandes,3542-3865/9337-6661,MG-4.117.196,17/06/1966,0,Pendente,Comprovante escolar,AD3.02
+Mirian Neves Vital Oliveira,3541-3020,MG-18.602693,19/03/1993,7,OK,,
+Victoria Luiza Goncalves Gomes do Carmo,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD3.02,
+Wanessa Priscila Machado,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD3.02,
+Ana Luisa Mota Silva,3542-4976/ 8523-6848,Termo: 29351 livro:144-A Folha 80,28/03/2002,0,OK,,TN1.04
+Ana Luiza Fernandes Lage,3541-0581/7563-0226,Termo:27692 Livro: A-139 Folha:211,07/08/2000,1,OK,,TN1.04
+Gabriela Araujo Alvarenga,3694-0267/9764-4151,Termo:28194 folha 323 Livro A140,21/02/2001,0,OK,,TN1.04
+Gustavo Araujo Alvarenga,3694-0267/9764-4151,Termo:29307 Livro: 144A Folha:36,01/04/2002,0,OK,,TN1.04
+italo Felipe Silva Goncalves,8881-1098,Folha 292 Livro A140 Ordem 28163,08/02/2001,1,OK,,TN1.04
+Luiz Henrique Lopes,9363-8642/3694-2398,MG-18.838.810,06/0/1996,1,OK,,TN1.04
+Taina Yakira de Souza Santos,3541-7261/ 9426-5595,MG-19.865.373,25/11/2000,0,OK,,TN1.04
+Tamires Alessandra Pereira Eduwirges,3542-6220/ 9252-3326,MG-20.024.158,20/01/2001,2,OK,,TN1.04
+Luis Gustavo Ribeiro Oliveira,,,,,Perdeu a vaga. 4 faltas consecutivas - TN1.04,,TN1.04
+Paula Fransuelen Rodrigues de Souza Ramos,,,,,Perdeu a vaga. 4 faltas consecutivas - TN1.04,,TN1.04
+Aram Wenceslau Silva Souza,3542-5895/8552-1224,Termo:15.5024,23/02/2001,9,OK,Faltou 5 aulas e apareceu dia 11/03,TN1.05
+Andy Henrique Lemos dos Santos,3541-5419,Termo:29034,22/12/2001,1,OK,,TN1.05
+Gabriel Henrique Azevedo,3547-8222/8244-2049,MG-19.674.259,05/04/1999,6,OK,,TN1.05
+Inacio Henrique Viana dos Santos,3059-5404/8743-1310,Termo 27915,12/11/2000,0,OK,,TN1.05
+Isadora Caroline Silva Oliveira,3542-6382/9175-3632,Termo:378878,07/04/2001,2,OK,,TN1.05
+Joao Vitor Silva do Santos,3542-7124/9104-8369,Termo:28315,11/03/2001,1,OK,,TN1.05
+Magno Procopio Xavier,3542-3686/8578-6781,MG-18.440.703,07/07/2001,2,OK,,TN1.05
+Pablo Ian Basilio Lima,3542-3901/8693-4042,MG-20.256.436,05/12/2001,3,OK,,TN1.05
+Pablo Miguel Gomes Vieira,3541-7221,MG-17.780.904,31/10/2000,3,OK,,TN1.05
+Pedro Henrique Oliveira Lellis,3541-7291/8445-6215,Termo:28436,25/05/2001,4,OK,,TN1.05
+Izabella Cristina Cure,,,,,,Desistiu TN1.05,
+Flora Eduarda Fialho da Silva,9189-4670,Ordem:26359,27/05/1999,6,Ok,,TN3.02
+Gabriel Conrado Sant' Ana Silva,8580-4095/3542-0335,MG-18.287.007,22/03/2000,5,OK,,TN3.02
+Gabriel Victor Santos Marques,3541-1642/9721-1894,MG-18.684.970,11/04/1999,1,OK,,TN3.02
+Giovani Henrique Batista Ribeiro,3542-2625,,08/08/1999,1,Pendente,Nao foi encontrada a ficha de matricula ,TN3.02
+Isabela Francis Jacinto Marcelino,3542-6924/ ,MG-16.384.023,09/07/2002,0,OK,,TN3.02
+Leticia Thais Silva Amorim,3542-1710/8408-0408,MG-18.382.223,15/01/2000,6,OK,,TN3.02
+Maria Eduarda Moraes Leoncio,3542-1945,MG-19.426.197,30/09/1999,3,Pendente,"Comprovante de renda, Foto",TN3.02
+Pedro Henrique Soares Almeida ,3542-3738/8596-2098,Termo 26243,04/05/1999,2,OK,,TN3.02
+Ramon Junio de Jesus Oliveira,3541-3660,MG18.253.981,28/12/1999,5,Pendente,Foto,TN3.02
+Tainara Pereira Costa ,3542-5022,MG-18.271.304,20/03/2000,5,Pendente,"Foto, Comprovante de renda",TN3.02
+Tamara Luiza Miranda de Oliveira,3541-3009,MG-18.652.761,29/01/2000,0,OK,,TN3.02
+Thaina Pontel Ferreira,3542-4909,Termo: 261994,01/01/2000,2,OK,,TN3.02
+Thallis Fernando Carvalho Santos,3542-5442/8663-4730,Ordem: 26361,28/05/1999,1,OK,,TN3.02
+Vitor Henrique Ribeiro,3542-3555/8384-7977,MG-18.331.414,06/11/1999,2,OK,,TN3.02
+Wenner Cruz Severino,8683-6953,MG-16.287.090,11/01/2000,2,OK,,TN3.02
+Ana Carolina Silva Costa,3542-2678/8772-0595,Matricula: 035410 01 55 2002 1 00147 034 0029905 - 87 ,14/11/2002,0,OK,,TN1.06
+Anne Rafaelle Correa Ramos,3541-3362/9608-5874,Termo:68502,29/12/1998,5,Pendente,"Foto, Comprovante de renda",TN1.06
+Gabriely Gomes Fernandes,3541-7221,Termo:29082,27/01/2002,0,Pendente,Foto,TN1.06
+Bruna Maria de Moura ,,,,,,Perdeu a vaga. 4 faltas consecutivas - TN1.06,
+Thiago Henrique Ferreira Alves,,,,,,Perdeu a vaga. 4 faltas consecutivas - TN1.06,
+Walleska Mayara Souza Estevao,,,,,,Perdeu a vaga. 4 faltas consecutivas - TN1.06,
+Ana Leticia Araujo Fernandes,,,,,,Perdeu a vaga. 4 faltas consecutivas - TN1.06,
+Clayton Rafael Lopes de Souza,3541-7584,MG-17.731.832,11/02/2000,0,OK,,TN2.03
+Drielli Santos Barbosa,3581-2955/8351-7821,MG-18.670017,05/02/2002,0,OK,,TN2.03
+Julio Cesar Amancio Carneiro,3541-0041/8580-0980,Termo: 28053,12/01/2001,1,OK,,TN2.03
+Lucas Assumpcao Santos Silva,3542-8096/9440-5396,MG-19.855.811,01/05/2002,2,OK,,TN2.03
+Maisa Leal Silva Sant' Ana,3541-7205/9819-8981,MG-19.595.847,01/03/2002,0,OK,,TN2.03
+Matheus Henrique Silva Amorim,3541-0640,MG-18.719.802,21/01/2002,0,OK,,TN2.03
+Rafael Silva de Freitas,3541-9655/9755-5506,MG-17.757.737,10/07/2000,0,OK,,TN2.03
+Ana Beatriz Silva de Paula,9346-8394/3541-7141/8856-9899,MG-20.042.266,08/05/2002,0,OK,,TN1.07
+Cristian Eduardo dos Reis Pinto,8743-1310/ 3542-6944,MG-20.525.985,07/08/2002,0,OK,,TN1.07
+Denis Herinque Reis,8532-4056,MG-19.574.004,22/03/2001,0,OK,Pediu para ser transferido para um hórario mais cedo,TN1.07
+Gabriela da Conceicao Tomaz,3542-3539,Livro: 146-A Folha: 29 Termo: 29700,23/08/2001,4,OK,,TN1.07
+Gabrielle Ribeiro Almeida,3542-3725,Termo:24.254,12/04/1997,0,OK,,TN1.07
+Ingrid Loren Diniz Soares Reis,3541-1743/8946-6250,MG-17.586.118,16/09/2001,0,OK,,TN1.07
+Joao Henrique Barbosa de Oliveira Garcia,3542-0590/ 9202-8185,MG-16.170.320,26/04/2001,2,OK,,TN1.07
+Lucas Bomformagio Drumond Silva,3541-7212,MG-18.414.511,17/02/2003,2,OK,,TN1.07
+Monique Emily Diniz Soares Reis,3541-1743/8946-6250,MG-17.586.126,24/09/2002,0,OK,,TN1.07
+Rafaela Vitória Viana,3542-2419,Folha: 289 Livro: A134 Ordem: 25770,06/11/1998,1,OK,,TN1.07
+Saymon Brandao de Araujo,3542-2479/8859-4634,Termo: 29331 Livro: 144-A Folhas: 60,12/04/2002,0,OK,,TN1.07
+Maria Eduarda Souza Rocha,,,,,,Perdeu a vaga. 4 faltas consecutivas - TN1.07,
+Angelica Regina de Souza,3542-9561/9469-6392,MG-19.521.907,15/04/2000,3,OK,,AD4.01
+Marcela Luiza de Paula,85984109,MG19018626,03/08/1998,3,OK,,AD4.01
+Pablo Hugo Silva Reis,3541-2995/9785-0418,MG-18.264.786,28/08/1996,2,OK,,AD4.01
+Tais Mara Almeida Pereira,3542-3847/9747-9506,MG-18.640.393,18/11/1999,3,OK,,AD4.01
+Thiago Martins de Oliveira Silva,3581-2139/8618-3617,MG-17.686.112,04/12/1996,0,OK,,AD4.01
+Valeria Jennifer Mazok Duarte,8708-7796,Ordem:26658,17/09/1999,1,OK,,AD4.01
+Vinicius Carlos Silva,3542-0818/8709-3533,Termo:26494,27/07/1999,3,OK,,AD4.01
+Ana Flavia Alves Araujo,,,,,,Perdeu a vaga. 4 faltas consecutivas,
+Bruna Barbosa Martins,3541-7221,Termo: 32677,03/03/1997,0,OK,,AD7.01
+Claudio Rodrigues Blom de Paula,3541-4511,Termo: 23197,21/03/1996,0,OK,,AD7.01
+Gabriel Augusto Felix Silva,3541-8342,MG-11.732.711,30/09/1996,1,Pendente,Toda documentacao,AD7.01
+Guilherme Alves Dutra de Miranda,3542-4277/ 8933-2423,MG-17.977.036,05/09/1994,2,OK,,AD7.01
+Itala Laura Souza Pereira,,Termo: 22999,19/12/1995,2,OK,,AD7.01
+Leoni Santiago Diana,3542-5449/ 8804-7529,Termo: 25402,20/06/1998,1,Pendente,Toda documentacao,AD7.01
+Mariane de Carvalho Sabarense,3542-2660/ 8571-1779,MG-15.385.748,28/12/1989,1,Pendente,Comprovante de escolaridade,AD7.01
+Rafaela Maria Santos,3541-1241/ 8731-0245,Ordem: 24916,03/01/1998,0,OK,,AD7.01
+Richard Francklin de Morais Ribeiro,9821-4049,MG-16.004.369,06/06/1990,2,OK,,AD7.01
+Soraya Doroteia Otero,3541-0976,M-1.271.590,06/02/1959,2,Pendente,Comprovante de renda e escolaridade,AD7.01
+Tamiris Elisa Bernardes Vaz,3542-5805,Termo: 35964,25/02/1997,1,OK,,AD7.01
+Wesley Nunes Silva Utsch,3581-2816/ 9210-8755,MG-18.845.166,04/05/1996,0,Pendente,Toda documentacao,AD7.01
+Ananda Vitoria Nunes Barbosa,3542-0441,,,1,OK,,AD7.01
+Christopher dos Santos Jorge,3542-0378,Termo:72271,28/11/1995,,Pendente,Toda documentacao,AD7.01
+Ana Maria dos Reis Ferreira,3542-2261,,,1,Pendente,Ficha de matricula nao Encontrada,AD1.03
+Bruna Helena Silva,9301-5316,MG-18.719.810,04/07/1995,1,OK,,AD1.03
+Emanuel Pinto Coelho Alves Rocha,8416-1414,MG-15.655.861,20/05/1997,1,OK,,AD1.03
+Gabriela Octaciano Vieira Alves,9256-6068,MG-17.780.950,04/03/1999,5,OK,,AD1.03
+Larissa Utsch Meirelles,9759-9395,MG-17.919.749,18/02/1998,2,OK,,AD1.03
+Lorena Cristiana Cruz,3542-0505/9689-1342,MG-20.141.386,15/061999,4,Pendente,,AD1.03
+Luiz Felipe Silva Braga,3542-5027/9230-5907,MG-17.046.943,13/01/1997,1,OK,,AD1.03
+Maria Eduarda Silva Oliveira,3542-7149/8536-0009,Folha: 17 Livro: A141 Ordem: 28288,27/03/2001,3,OK,,AD1.03
+Natasha Pessoa de Oliveira,3694-5418/8832-5199,Livro:146 Folha 68 Termo 29739,05/09/2002,6,OK,,AD1.03
+Renata Leticia Alves,8681-5274/3541-6565,MG-12.810.821,02/03/1988,2,OK,,AD1.03
+Sabrina Estefani das Dores Nogueira,3542-6377/ 9135-1347,MG-16.181.028,11/05/1995,1,OK,,AD1.03
+Samuel Sousa Silva,3542-1929/9469-8965,MG-20.176.555,27/06/1998,2,OK,,AD1.03
+Susane Martins Rocha,3694-0364/9888-7619/3079-8325,MG-12.641.855,23/10/1982,4,OK,,AD1.03
+Viviane Aparecida Florentino,3542-4982/9790-1819/3541-5176,MG-14.429.464,22/09/1988,1,OK,,AD1.03
+Geovana Tofanelli Pessoa Santos,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD1.03,
+Aloisio Lucio Goncalves,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD1.03,
+Alexia Gabrielle Brito,,MG-18.440.724,09/12/1998,4,OK,,AD4.04
+Camila Elisama Martins,3541-6575/8303-5252,MG-17.849.882,21/01/1997,3,OK,,AD4.04
+Felipe Augusto Martins Lopes,3541-0465/8647-6578,Termo: 25738,26/10/1998,5,OK,,AD4.04
+Gleik Junio Borgues de Jesus,3542-4808,MG-16.711.998,27/01/1998,5,OK,,AD4.04
+Karen Alves de Oliveira ,3541-0672,Termo 25048,27/02/1998,2,OK,,AD4.04
+Lavinia Tereza de Paula,3541-3324/8899-1404,MG-18.877.413,09/06/1998,2,OK,,AD4.04
+Luiz Gustavo Marques,3541-6476,Termo: 25688,06/10/1988,2,Pendente,Foto,AD4.04
+Marlene de Fatima Moreira,3542-2034/ 9386-9071,MG-3.511.952,04/02/2010,1,Pendente,Comprovante de escolaridade,AD4.04
+Patricia Monteiro Souza Santos,3542-1950/ 9888-8213,MG-19.615.520,18/04/1999,0,OK,,AD4.04
+Patricia Vasconcelos de Azevedo,3541-3827/ 8718-3398,MG-15.196.742,29/06/1965,2,Pendente,Toda documentacao,AD4.04
+Vanessa Massarente Lima,3541-7259/ 963-28600,MG-11.715.350,22/04/1982,2,Pendente,Comprovante de escolaridde,AD4.04
+Victoria Luiza Goncalves Gomes do Carmo,3541-5575/8744-8812/8649-1219,,01/07/2000,1,Pendente,Localizar Ficha,AD4.04
+Shirlei Maria Almeida Reis,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD4.04,
+Leandra Mazok,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD4.04,
+Luiz Gustavo Marques,,,,,,Matricula trancada AD4.04,
+Daniel Silva Julio,,,,,,Matricula trancada AD4.04,
+Ana Carolina de Morais da Silveira,3542-6441/9277-7198,MG-18.193.419,16/01/1999,2,OK,,AD2.02
+Gustavo de Freitas Vilela,8744-2133/3541-7429,M-7.503.317,30/06/1974,4,OK,,AD2.02
+Tatiane Monteiro Araujo,9634-9407,MG-16.599.563,27/06/1991,0,OK,,AD2.02
+Maria Eduarda Jacinto Soares,3542-3790,Termo:29125,05/02/2002,0,Pendente,Comprovante de renda,AD2.02
+Clara Luiza Silva Lopes,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD2.02,
+Jessica Leticia Oliveira Viera,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD2.02,
+Renato Felipe Marcelino,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD2.02,
+Igor Pilati Freire,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD2.02,
+Antonio Barbosa,3542-2356,MG-1.212.566,12/06/1958,0,Pendente,Comprovante de escolaridade,AD8.01
+Fatima Silva Santos,3541-2382,MG.11-201-949,03/02/1984,0,Pendente,Comprovante de escolaridade,AD8.01
+Gisele Renata Soares Guimaraes,3541-2948,MG-14.911.989,13/03/1987,0,OK,,AD8.01
+Leticia Scarlett Frade Lima,3542-3775,Termo: 24099,31/01/1997,2,Pendente,Toda documentacao,AD8.01
+Mariane Isabela Soares Silva,3543-1074,MG-17.228.311,09/09/1993,1,Pendente,Comprovante de escolaridade,AD8.01
+Sabrina Oliveira Passos,3541-7003,Termo: 25897,13/01/1997,1,OK,,AD8.01
+Alejandra Rosa Silva Prado,3542-8035/9922-8263,Termo:26401,05/06/1999,5,OK,,AD1.04
+Aloisio Junio Santos,3542-7614/9860-9829,MG-16.657.141,23/05/1989,1,OK,,AD1.04
+Claudio da Silva Prado,3542-8035/9629-8138,M-4 470.875,10/09/1970,7,OK,,AD1.04
+Emerson Antonio Romas,98706137,MG-18.453.923,13/06/2001,2,OK,,AD1.04
+Estefany Gabriela Lima,3542-8326,MG-19.628.088,27/02/1996,0,OK,,AD1.04
+Gabriel Junio Ferreira,9244-8457/3542-6312,MG-19.006.347,11/11/1996,3,OK,,AD1.04
+Isaias Valentino de Oliveira,9141-3044,MG-13.416.658,17/10/19885,0,OK,,AD1.04
+Kathelen Rosa Silva Prado,3542-8035,Termo: 25226,13/04/1998,5,OK,,AD1.04
+Natalia de Jesus Goncalves,3542-7614/9856-1524/3543-1176,MG-17.055.511,28/11/1991,1,OK,,AD1.04
+Raquel Cristina Pereira,3542-3976/ 9255-7190,MG-6.545.867,15/11/1971,0,OK,,AD1.04
+Silvia Santos de Oliveira Silva,8520-0586/3542-3904,M-8.536.588,09/12/1976,1,OK,Quer trocar para o sabado ,AD1.04
+Sirlene Maria de Souza Braga,3542-7126/8844-2802,MG-5.294.051,23/09/1970,5,OK,,AD1.04
+Tainara Gleice Alvarenga Miranda,9125-3175/3545-1279(Avó),MG-18.902.892,07/01/1995,0,OK,,AD1.04
+Talita Leticia Bernado,3541-5460,MG-16.210.671,27/12/1990,4,OK,,AD1.04
+Isabelle de Oliveira Cruz,,,,,,Perdeu a vaga. 4 faltas consecutivas AD1.04,
+Emerson Antonio Romas,,,,,,Perdeu a vaga. 4 faltas consecutivas AD1.04,
+Sandra Esposito,,,,,,Desistiu AD1.04,
+Edson Junio Rodrigues Nunes,3541-1334/9580-5390,MG-11.776.258,06/08/1981,3,Pendente,Declaracao de escolaridade,AD2.03
+Joao Carlos Santos Lima,3541-7224/9357-1405,MA-031578012006-9,24/06/1992,7,Pendente,Comprovante de renda,AD2.03
+Leandro de Oliveira Lelis,3542-4821/7529-9177,MG-15.277.479,05/07/1983,4,Pendente,"Comprovante de renda, declaracao de escolaridade",AD2.03
+Maria Geicilene Santos Lima,3541-7224/7534-5485,MA-24200982003-3,21/12/1986,1,Pendente,Comprovante de renda,AD2.03
+Rafael Felipe Machado dos Santos,3541-7149/9499-3272,MG-19.584.898,09/06/1996,1,OK,,AD2.03
+Rodrigo Felix Rodrigues,3541-5460/8802-0956,MG-15.127.609,24/01/1987,1,Pendente,Declaracao de escolaridade,AD2.03
+Simone Maria de Souza,3542-8672,MG-10.659.460,29/01/1978,5,Pendente,Declaracao de escolaridade,AD2.03
+Washington Luiz de Araujo,8605-4059/9424-9619,MG-8.325.906,27/11/1977,7,OK,,AD2.03
+Sedreguy Candido Paixao,,,,,,Perdeu a vaga. 4 faltas consecutivas AD2.03,
+Andre Filipe Solano Firmino,,,,,,Perdeu a vaga. 4 faltas consecutivas AD2.03,
+Elaine Cristina Ribeiro,,,,,,matricula trancada AD2.03,
+Edson Nascimento,3541-1666,M-5.888.863,20/02/1972,2,OK,,AD3.03
+Emmanuel Silva Pereira,3542-3695,MG-17.645.275,15/05/1999,3,OK,,AD3.03
+Giovanna Pacifico Costa,3541-7185/ 9574-6080,Termo: 14766,02/12/1987,3,OK,,AD3.03
+Isabel Cristina Biaggi Vieira,,MG-16.985.618,03/02/2001,4,OK,,AD3.03
+Josiane Cristina Fernandes dos Santos,3541-6920/8894-2948,MG-15.398.303,20/09/1998,4,OK,,AD3.03
+Karina Rafaelle de Oliveira,8819-6271,MG-12.432.981,20/10/1987,3,OK,,AD3.03
+Leilane Mara Freitas Rodrigues,9263-9591,MG-18.443.748,19/05/1995,2,OK,,AD3.03
+Matheus Guilherme Mota Silva,3542-4976/ 8523-6848,MG-20.509.561,03/04/1999,1,OK,,AD3.03
+Naiara Vimieiro,3541-3186,MG-13.821.360,26/03/1987,0,OK,,AD3.03
+Rodrigo dos Santos Monteiro,9142-1479,MG-13.128.801,21/01/1984,0,OK,,AD3.03
+Rosiane Maria do Rosario,3542-6534/ 8535-3129,MG-10.822.554,24/02/1979,2,OK,,AD3.03
+Simone Fernandes Silva,,MG-10.525.712,20/08/1980,3,OK,,AD3.03
+Matheus Gomes Fernandes,,,,,,Perdeu a vaga. 4 faltas consecutivas AD3.03,
+Rosimere Moraes da Silva,,,,,,Perdeu a vaga. 4 faltas consecutivas AD3.03,
+Ana Luiza Simplicio,3541-5622/ 9106-7628,Ordem: 26269,07/05/1999,0,OK,,AD6.01
+Antunes de Jesus Pereira,3541-5490/ 9105-5471,M-4.102-018,06/12/1966,2,Pendente,"Foto, declaracao de renda e escolaridade",AD6.01
+Caio Felix de Castro Dutra,3541-3128,Termo: 24570,26/08/1997,0,OK,,AD6.01
+Felipe Mayer Gomes,3541-0403/ 9817- 5509,MG-18.442.593,09/02/1998,1,OK,,AD6.01
+Geovana Stephany Pires Almeida,3542-3439/ 9897-2188,MG-18254.053,13/05/1995,0,OK,,AD6.01
+Luciana Rezende Leao,3583-1125/ 9605-2042,MG-18.129.756,03/07/1993,2,OK,,AD6.01
+Sabrina Isabelle da Luz,3541-1697/ 8852-2285,MG-11.591.862,03/08/1982,1,Pendente,Toda documentacao,AD6.01
+Silvana Antonia Goncalves Tomas,3541-7151/9815-8482,MG-3.547.876,21/09/1965,0,Pendente,Comprovante de escolaridade,AD6.01
+Victor Rossmann Ferreira,3542-8171/ 9841-0752,MG-16.375.930,07/05/1966,0,OK,,AD6.01
+Karoline Dornelles Silva,,MG-17.773.491,06/09/1993,1,Pentende,Documentacao,AD6.01
+Claudinei da Conceicao Ribeiro,8577-2947,Termo: 22301,25/04/1995,0,OK,Foi incluido na lista perguntar leandro,AD7.02
+Daniele Aparecida Silva Baia Sudario,3542-2348,MG-11.264.042,16/10/1982,1,OK,,AD7.02
+Henrique Nunes Santos,3541-3978,Termo: 331472,20/06/1997,2,OK,,AD7.02
+Jussara Costa Martins,3541-6575,MG-13.347140,03/01/1985,0,Pendente,Falta Documentacao,AD7.02
+Kaio da Silva Santos Rocha,3541-8469,,07/05/1989,2,Pendente,Falta Documentacao,AD7.02
+Leonardo de Oliveira Lopes,3541-5058,MG-17.813.033,08/06/1992,0,OK,,AD7.02
+Luciana Maria Teodoro,3541-2472/9195-5714,MG-13.381.625,23/12/1992,4,Pendente,Falta Documentacao,AD7.02
+Thales D'erico Rosa,3541-3343,MG-15.189.328,23/11/1993,6,OK,,AD7.02
+Aurea Maria de Oliveira,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD7.02,
+Josiane Souza,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD7.02,
+Flavia Cristina Soares Silva,,,,,,matricula trancada AD7.02,
+Maria Luza Soares Silva,,,,,,matricula trancada AD7.02,
+Claudia Maria da Silva Pereira,3542-3800/8840-7024,MG-12.797.445,16/06/1979,4,Pendente,Comprovante de Escolaridade,EI4.01
+Isabella do Carmo Assis,9222-4356,MG-14.206.130,10/12/1985,4,Pendente,Comprovante de Escolaridade,EI4.01
+Isis Tamara Alves da Silva,8896-6120,MG-17.760.937,18/06/1994,0,Pendente,Comprovante de Escolaridade,EI4.01
+Nayara Cristina de Souza Santos,8861-8966,Termo:22646,26/08/1995,2,Pendente,Comprovante de Escolaridade,EI4.01
+Rogerio Ramos,3541-3092/8891-7442,M-1.713.700,21/01/1958,2,Pendente,Falta Documentacao,EI4.01
+Stefania Marcia Otoni,8879-1698,MG-14.731.723,21/06/1985,5,Pendente,Comprovante de Escolaridade,EI4.01
+Gracinda Maria Silva Duarte,,,,,,Desistiu EI4.01,
+Vanessa Cristina Souza,,,,,,Perdeu a vaga. 4 faltas consecutivas - EI4.01,
+Ana Paula Moura da Silva,3542-0999/8629-7968,MG-15.669.359,22/09/1998,2,OK,,AD7.03
+Emanuel Esdras Gualberto de Brito,9275-5488,Termo: 25631,09/05/1994,3,Pendente,"RG, Comprovante de renda",AD7.03
+Geraldo Antonio Peixoto Junior,,,,2,,,AD7.03
+Jean Carlos Galdino Santos,,,,0,,,AD7.03
+Joseane Sousa Arcanjo,3541-2438/9329-0793,MG-17.189.965,17/10/1992,2,OK,,AD7.03
+Luiza Helena dos Santos Marques,9758-6993,MG-15.822.138,07/05/1993,2,OK,,AD7.03
+Mariana Apolonia Rocha Santos,3541-8066,MG-14.537.885,01/03/1995,0,OK,,AD7.03
+Maycon Siqueira de Moraes,3541-2582,MG-18.101.296,05/11/1995,0,OK,,AD7.03
+Naiara C. de Almeida,,,,0,,,AD7.03
+Richardson Horta,8862-6139,MG-7.730.271,17/10/1979,4,Pendente,Comprovante de escolaridade,AD7.03
+Rityeli Lage Souza,3542-6806,Termo:32312,08/08/1995,0,OK,,AD7.03
+Silvio Leandro Pinto,3542-7987/88930834,MG-7.031.205,23/10/1975,0,OK,Falta Documentacao (Transferência),AD7.03
+Tharcila Estela Fontana Rocha,8728-6766,MG-17.410.952,08/02/1994,2,OK,,AD7.03
+Thatiany Kamila Ribeiro,3541-5220,,,2,Pendente,Nao foi encontrada a ficha de matricula,AD7.03
+Bruno Henrique Monteiro de Paula,7111-4415,MG-14.725004,12/02/1988,2,OK,,AD1.05
+Caio Guilherme Silva,3542-5369/9358-8162,MG-16.776.720,20/04/1994,0,OK,,AD1.05
+Cibele Costa Dutra,8457-4724,MG-14.598.616,05/10/1987,2,OK,,AD1.05
+Cintia Aparecida da Silva,3541-17127/9315-0155,MG-12.866.768,12/10/1983,4,OK,,AD1.05
+Elton Bruno Reis,3541-1725/9491-8856,MG-19.574.018,02/08/1996,2,OK,,AD1.05
+Fernanda Duarte da Cruz,3543-3855/9721-5525,MG-20.587.420,06/01/1997,2,OK,,AD1.05
+Igor Junio dos Santos,3541-8323/8819-9271(pai),MG-13.682.965,27/01/1993,4,OK,,AD1.05
+Jessica Cristina Santos,3542-1015/92560518,MG-15.991.704,21/021993,0,OK,,AD1.05
+Jordanda Alves,9692-7054,MG-13.422.815,15/12/1984,2,OK,,AD1.05
+Jose Henrique de Oliveira Cardeal,3542-7865/8417-7160,MG-17.266.281,12/04/1994,0,OK,,AD1.05
+Lorena Tuane Fonseca,3542-1967/8695-5217/3542-3770,MG-14.174.968,08/12/1989,4,OK,,AD1.05
+Luana de Paula Santos,3542-7186/9830-2604,MG-20.240.950,22/07/1996,0,OK,,AD1.05
+Patricia Flavia Soares,8614-8377/3541-1870,MG-12.072.113,16/09/1988,2,OK,,AD1.05
+Riane Belarmino Leandro,3542-0274/8646-8584/9299-4347,MG-20.487.459,19/05/1998,0,OK,,AD1.05
+Shirley Lopes Almeida,3542-0460/8522-0845,MG-10.694.966,02/11/1977,4,OK,,AD1.05
+Welington Nofito Sabino da Silva,3542-2527/8884-5563,MG-18.442.489,08/11/1996,0,OK,,AD1.05
+Alan de Souza Machado,8698-9030/3589-3300,MG-11.696.204,02/02/1980,2,OK,Veio justificar faltas. Processo seletivo na empresa.,AD1.06
+Ana Thereza Magnani Ferreira,3541-4841/8931-4841,MG-17.183.171,28/08/1994,2,OK,,AD1.06
+Bruna Lima da Cruz Amparo,3541-0692/8408-7004,MG-19314.042,23/04/1998,3,Transferido,,AD1.06
+Bruno Cesar Paiva,352-3928/9278-3144,MG-11.420.741,05/11/1982,1,OK,,AD1.06
+Fabiano Oliveira Belarmino,3541-5541/9190-7392,MG-16.183.305,08/03/1988,3,OK,,AD1.06
+Fatima Regina Magnani,3541-4841/8931-4842/3542-6395,MG-1.043.306,09/04/1958,2,OK,,AD1.06
+Flavia Lucia Silva,3541-6591/9697-0324/3277-5162,MG-13.014.105,26/07/1983,0,OK,,AD1.06
+Kelvia Tatiane Vilela de Oliveira,3542-6294,MG-16.319.794,29/12/1989,2,OK,,AD1.06
+Livia do Espirito Santo Silva,3541-2631,MG-15.581.819,08/03/1990,2,OK,,AD1.06
+Luciana Oliveira Silva,3542-5646/9247-0895,MG-16.629.012,19/11/1995,2,OK,,AD1.06
+Marcelle Cordeiro Pimentel,3541-4964/8440-3084,MG-17.185.493,11/12/1991,2,OK,,AD1.06
+Marcos Antonio Magalhaes Junior,3542-6238/9497-9740,MG-17.987.216,07/07/1995,7,OK,,AD1.06
+Maria Aparecida Silva,3542-7142/8858-8857,11777746,30/03/1981,0,OK,,AD1.06
+Priscila Mara de Oliveira Reis,9159-5514,MG-15.425.720,04/09/1992,0,OK,,AD1.06
+Rafael Freitas de Abreu,,MG-15.852.253,15/06/1990,2,OK,,AD1.06
+Naira Cristina de Almeida,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD1.06 ,
+Marcos Antonio Magalhaes Junior,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD1.06 ,
+Cristiane Santos Nascimento,3059-5200/9839-1155,MG-10.692.092,08/09/1979,2,OK,,AD1.07
+Dalila Cristina Alves Martins,9354-1737,MG-16.965.821,02/01/1995,2,OK,,AD1.07
+Daniel Rodrigo de Lima Vieira,35421790/7541-9950,MG-18.059.449,16/05/1993,2,OK,,AD1.07
+Davy Karisten Machado Santos,8783-2442,MG-18.484.018,25/09/1999,0,OK,,AD1.07
+Gabrielle Atila Vieira Silva,9678-2247,MG-15.037.928,17/11/1996,2,OK,,AD1.07
+Matheus Rodrigues Goes,3541-0744/8526-7032,MG-17.943.381,29/07/1993,0,OK,,AD1.07
+Neurivane de Alvarenga,8649-4732/3542-5868,MG-16.186.339,20/07/1989,2,OK,,AD1.07
+Patricia Pereira da Silva,9267-0607/3542-7582,SP-28.319.354.2,18/09/1982,2,OK,,AD1.07
+Sheila Cristina Pereira,8787-8028,MG-13.623.928,15/12/1981,2,OK,,AD1.07
+Talita Cristina de Oliveira,9446-3057,MG-19.936.394,19/10/1996,0,OK,,AD1.07
+Talita Gabrielle Marques da Costa,3543-3861/9825-7220,MG-20.602.650,13/01/2000,0,OK,,AD1.07
+Vinicius Lenner de Assis,9833-1591/3541-6658,MG-14.364.413,10/12/1991,2,OK,,AD1.07
+Diemerson Raimundo Dias,,,,,,Perdeu a vaga. 4 faltas consecutivas AD1.07,
+Gabriela Dutra Rocha,,,,,,Perdeu a vaga. 4 faltas consecutivas AD1.07,
+Maira de Oliveira Tiago,,,,,,Perdeu a vaga. 4 faltas consecutivas AD1.07,
+Amanda Galdino Oliveira ,3541-6505/8897-4484,MG-15.261.884,12/11/1991,3,OK,,AD6.02
+Ana Luiza da Silva Lopes,3541-0740/9155-8272,MG-18.719-806,06/09/2000,1,OK,,AD6.02
+Ewerton Lucio Amaral,3542-1234/9613-4347,MG-16.813.024,19/08/1992,4,OK,,AD6.02
+Gabriel de Freitas Silva,3541-9655/ 9755-5506,MG-15.807.302,15/09/1994,2,OK,,AD6.02
+Giovanni Giorgio Carvalho Rocha,3541-9610/86541393,MG-16.208.450,15/03/1994,2,OK,,AD6.02
+Leonardo Rodrigues Sobrinho,3542-7058,Termo: 12652,20/08/1995,5,OK,,AD6.02
+Lisa Maria Oliveira Mateus,3542-9195/8586-4837,Ordem 23583,20/07/1996,4,OK,,AD6.02
+Lucas Henrique dos Santos Marques,,,,8,,,AD6.02
+Matheus Henrique Reis Mendes,3541-2987/8557-8370,MG-15.993.343,20/10/1993,4,OK,,AD6.02
+Natyeli Leticia de Fatima Abreu,8752-6255,MG-15.822.757,11/01/1997,6,OK,,AD6.02
+Thaina Cristina Lopes Alves,3542-0378/ 8783-5339,MG-18.449.153,04/07/1996,0,Pendente,Comprovante de endereco,AD6.02
+Thamires Aparecida de Melo Silva,3542-7842/8829-6344,MG-14.718.565,15/07/1996,4,OK,,AD6.02
+Weslley Vinicius Silva Gomes,9257-3820,MG-15.005.649,27/11/1987,6,OK,,AD6.02
+Lauriane Silva Amorim,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD6.02,
+Thais Silva Abalem,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD6.02,
+Amanda Galdino Oliveira ,,,,,,Matricula Trancada - AD6.02,
+Alexandra Ferreira Rocha,3541-7250,MG-5.260.082,16/03/1972,,2,,
+Beatriz Silva Machado ,8611-5463,MG-17.231.372,03/02/1991,0,OK,,AD8.02
+Bernardo de Brito Pereira,3541-8458,MG-16.090.018,20/02/1993,2,Pendente,Falta Documentacao,AD8.02
+Elisangela Mateus Ferreira,3541-3790,MG-13.406.996,17/06/1983,2,Pendente,Foto,AD8.02
+Luana Cristina Peixoto Assis,3541-0700,MG-12.252.116,16/02/1987,0,OK,,AD8.02
+Mariana Ferreira Lima de Deus,3541-7191,MG-13.347.766,30/11/1982,2,Pendente,"Comprovante de escolaridade, foto",AD8.02
+Rafaela Crisitina Alves Ferreira,3541-3981,MG-15.169.959,27/01/1990,2,OK,,AD8.02
+Renilson Guilherme de Paula,9354-1747,MG-13.559.992,21/08/1984,2,Pendente,"Comprovante de Escolaridade, Comprovante de endereco, renda",AD8.02
+Simone Geralda Ferreira,3541-8292,MG-11.776.407,11/09/1977,0,Pendente,Comprovante de escolaridade/historico do cempre,AD8.02
+Stephanne Cristina de Moraes,9777-0176,MG-18.442.465,12/10/1994,0,OK,,AD8.02
+Yasmim Tereza C. Queiroz Silva,3542-2029,MG-16.621.596,15/08/1994,2,OK,,AD8.02
+Maria Cecilia de Jesus,3541-6462,Termo: 23943,04/01/1997,0,OK,,AD8.02
+Tainan Soares Fernandes,,,,,,apareceu na chamada do Leandro - AD8.02,AD8.02
+Ana Clara Siqueira ,,,,,,Perdeu a vaga. 4 faltas consecutivas - AD8.02,
+Vanessa Cristina Souza,,,,,,Perdeu a vaga. 4 faltas consecutivas AD8.02,
+Lucas Batista Silveira,,,,,,Perdeu a vaga. 4 faltas consecutivas AD8.02,
+Alessandra Pessoa Protzner Oliveira,,MG-15.133.546,18/02/1995,2,Pendente,Comprovante de renda,EI6.01
+Ana Amelia Luiz,3541-1891/ 7314964,MG-13.423.038,09/09/1984,0,OK,,EI6.01
+Antunes de Jesus Pereira,3541-5490/9105-5471,M-4.102.018,06/12/1966,4,Pendente,"Comprovante de renda, escolaridade e foto",EI6.01
+Ester Gualberto de Brito,3541-6403/9917-1153,MG-13.984.781,18/02/1985,0,Pendente,Falta Documentacao,EI6.01
+Geraldo Alexandre Borges de Oliveira,8858-8128,MG-1.382.262,16/10/1959,2,Pendente,Comprovante de escolaridade,EI6.01
+Gisele de Assis Vaz Pereira,8863-3415,MG-4.683.087,17/07/1979,0,OK,,EI6.01
+Gleison Fabiano Lucio Assuncao Ferreira,,MG-11.170.040,15/12/1978,3,OK,,EI6.01
+Gustavo de Freitas Vilela,8744-2133/3541-7429,M-7.503.317,30/06/1974,5,OK,,EI6.01
+Jessica Cristina Santos,,MG-15.991.704,21/02/1993,3,Pendente,Falta Documentacao,EI6.01
+Joana de Pascoa Ribeiro,3541-5547/ 9219-2833,MG-12.065.017,20/12/1982,2,OK,,EI6.01
+Jose Arlindo Ribeiro ,9678-7828,MG-5.378.628,18/08/1970,0,Pendente,Comprovante de escolaridade,EI6.01
+Luciana Maria Teodoro,3541-2472/9195-5714,MG-13.381.625,23/12/1992,3,Pendente,Comprovante de escolaridade,EI6.01
+Mariana Apolonia Rocha Santos,3541-8066,MG-14.537.885,01/03/1995,0,Pendente,Falta Documentacao,EI6.01
+Sarah Lopes Pessoa Costa,3541-5832/9715-5919,MG-16.348.233,08/05/1994,4,Pendente,Comprovante de escolaridade,EI6.01
+Tharcila Estela Fontana Rocha,8728-6766,MG-17.410.952,08/02/1994,0,Pendente,"Foto,Comprovante de escolaridade",EI6.01
+Clayton Ferreira Silvestre,3542-7007,MG-17.289.939,11/10/1995,2,OK,,TT2.02
+Guilherme Borges Henrique do Amparo,3541-4763,MG-16.081.103,08/03/1989,2,Pendente,Comprovante de escolaridade,TT2.02
+Guilherme Protzner Alvarenga Amorim,3541-7115/9355-8494,MG-13.399.644,14/11/1982,0,OK,,TT2.02
+Isis Tamara Alves da Silva,8896-6120,MG-17.760.937,18/06/1994,0,OK,,TT2.02
+Juliana Marcal Reis Lima,3541-6825/ 8812-6825,MG-12.700-504,07/08/1983,2,OK,,TT2.02
+Matheus Otavio da Silva Dias,3542-1104,MG-14.386.566,04/06/1994,0,OK,,TT2.02
+Nayara Cristina de Souza Santos,8861-8966,Termo: 22646,26/08/1995,0,Pendente,Falta Documentacao,TT2.02
+Raiany Rosa Teixeira,,,,2,,,TT2.02
+Raquel Souza Alves ,3541-3386,MG-14.391.350,15/06/1987,0,OK,,TT2.02
+Uyara Machado Goncalves,3541-8309,MG-16.909.537,23/05/1995,0,OK,,TT2.02
+Vanessa Cristina M. Teixeira ,3541-5770,MG-16.752.656,31/08/1996,2,Pendente,Comprovante de renda e foto,TT2.02
+Wallace Corrade Silva,,MG-17.506.895,25/02/1994,1,OK,,TT2.02

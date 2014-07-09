@@ -1,0 +1,21 @@
+pt-BR:
+  title:
+    books:
+      index: 'Listagem de livros'
+      new: 'Novo Livro'
+      edit: 'Editar livro'
+      create: 'Novo livro'
+      update: 'Editar livro'
+      show: 'Informação sobre o livro'
+  activerecord:
+    models:
+      book:
+        one: "Livro"
+        many: "Livros"
+    attributes:
+      book:
+        description: "Descrição"
+        title: 'Título'
+        code: 'Código'
+        level: 'Nível'
+        language: "Idioma"

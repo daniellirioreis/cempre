@@ -1,0 +1,9 @@
+<%= simple_form_for(@answer) do |f| %>
+<div class="row-fluid">
+  <div class="span10"><%= f.input :name, input_html: { class: 'span12' } %></div>
+</div>
+<div class="form-actions">
+  <%= f.button :submit, class: 'btn btn-success' %>
+  <%= link_to 'Voltar', questions_path, class: 'btn' %>
+</div>
+<% end %>

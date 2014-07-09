@@ -1,0 +1,31 @@
+<table class="table table-striped table-hover table-bordered">
+  <colgroup>
+    <col>
+    <col width="160">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Aula</th>
+      <th>Justificativa</th>
+      <th>Turma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @student.faults.any? %>
+      <% @student.faults.each do |f| %>
+        <tr>
+          <td><%= f %></td>
+          <td><%= f.justification_humanize %></td>
+          <td><%= f.group.classroom %></td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='3'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>
+  <b>Quantidades faltas:</b> <%= @student.faults.count %>
+</p>

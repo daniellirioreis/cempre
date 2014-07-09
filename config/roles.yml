@@ -1,0 +1,69 @@
+roles:
+  - books
+  - calendar_days
+  - calendars
+  - classrooms
+  - courses
+  - events
+  - exams
+  - faults
+  - groups
+  - notes
+  - rents
+  - students
+  - teachers
+  - profiles
+  - companies
+  - questions
+  - answers
+  - questionnaires
+  - lessons
+  - birthdays_months
+  - plans
+  - questionnaire_questions
+  - enrollments
+  - managers
+actions:
+  - create
+  - read
+  - update
+  - destroy
+actions_more_students:
+  - my_data
+  - my_exams
+  - bulletin
+  - down_average
+  - declaration_of_studying
+  - frequency
+actions_more_classrooms:
+  - schedules
+  - generate_lessons
+  - daily
+  - for_month_print_daily
+  - schedules_for_week_day
+  - throw_faults
+actions_more_calendars:
+  - events
+  - finalize
+  - results
+  - classrooms
+  - re_enrollments
+  - report_re_enrollments
+actions_more_groups:
+  - second_change_exam
+  - re_enrollment
+actions_more_events:
+  - finalize
+actions_more_birthdays_months:
+  - print
+actions_more_rents:
+  - returned
+actions_more_faults:
+  - create_with_click
+actions_more_managers:
+  - change_companies
+  - create_calendar
+  - change_calendars
+actions_more_enrollments:
+  - list_classrooms_to_re_enrollments
+  - create_re

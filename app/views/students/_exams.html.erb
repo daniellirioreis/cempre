@@ -1,0 +1,28 @@
+<table class="table table-striped table-hover table-bordered">
+  <colgroup>
+    <col>
+    <col width="160">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Tipo Exame</th>
+      <th>Nota</th>
+      <th>Curso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @student.exams.any? %>
+      <% @student.exams.each do |e| %>
+        <tr>
+          <td><%= e.type_exam_humanize %></td>
+          <td><%= e.value %></td>
+          <td><%= e.group.classroom.course %></td>
+        </tr>
+      <% end %>
+    <% else %>
+    <tr>
+      <td colspan='3'>Nenhum registro foi encontrado.</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

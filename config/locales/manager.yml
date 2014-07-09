@@ -1,0 +1,14 @@
+pt-BR:
+  title:
+    managers:
+      index: 'Listagem de usuarios'
+      new: 'Novo Usuario'
+      edit: 'Editar Usuario'
+      create: 'Novo Usuario'
+      update: 'Editar Usuario'
+      change_companies: 'Escolha escola e período'
+  activerecord:
+    models:
+      manager:
+        one: "Usuario"
+        many: "Usuarios"

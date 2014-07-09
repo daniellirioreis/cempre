@@ -1,0 +1,119 @@
+<blockquote>
+  <p>
+    <b>Turma:</b> <%= link_to "#{@group.classroom}", @group.classroom %>
+  </p>
+  <p>
+    <b>Aluno:</b> <%= @group %>
+  </p>
+  <p>
+    <b>Nivel:</b> <%= @group.classroom.course %>
+  </p>
+  <p>
+    <b>Status: </b><%= @group.status_humanize.upcase %>
+  <p/>
+</blockquote>
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"> <%= link_to "Avaliações", "#exams", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Questionário", "#questionnaire", :"data-toggle" => :tab %></li>
+  </ul>
+</div>
+<div class="tab-content">
+  <div class="tab-pane fade active in" id="exams">
+    <table class="table table-striped table-hover table-bordered">
+      <colgroup>
+        <col>
+        <col width="160">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Dia</th>
+          <th>Tipo</th>
+          <th>Nota</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @exams.any? %>
+          <% @exams.each do |e| %>
+            <tr>
+              <td><%= e.lesson %></td>
+              <td><%= e.type_exam_humanize %></td>
+              <td><%= e.value %></td>
+              <td align='center'>
+                <div class="btn-group">
+                  <% unless @group.classroom.closed %>
+                    <%= link_to 'Deletar', e, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+          <tr>
+            <td colspan='2'><b>Total:</b></td>
+            <td colspan='2'><b><%=@group.value_tatal%></b></td>
+          </tr>
+        <% else %>
+        <tr>
+          <td colspan='4'>Nenhum registro foi encontrado.</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="form-actions">
+      <% unless @group.classroom.closed? %>
+
+        <%= link_to 'Nova Avaliação', new_exam_path(group_id: @group.id), class: 'btn' %>
+
+        <%= link_to 'APROVAR ALUNO', edit_group_path(@group, status: StatusGroup::APPROVED), class: 'btn btn-success' if @exams.any? %>
+        <%= link_to 'REPROVAR ALUNO', edit_group_path(@group, status: StatusGroup::FAILED), class: 'btn btn-danger' if @exams.any? %>
+      <% end %>
+      <%= link_to 'Voltar', @group.classroom , class: 'btn' %>
+    </div>
+  </div>
+  <div class="tab-pane" id="questionnaire">
+    <% if @group.questionnaire.present? %>
+      <table class='table'>
+        <% @group.questionnaire.questions.group_by(&:type_question_humanize).each do |type_question_humanize, questions| %>
+          <tr>
+            <th>
+              <%= type_question_humanize %>
+            </th>
+          </tr>
+          <% questions.sort_by(&:question).each do |q|%>
+            <tr>
+              <td>
+                <%= q%>
+                <%= link_to edit_questionnaire_question_path(q), role: 'button' do %>
+                <i title='Responder' class="icon-pencil"></i>
+                <% end %>
+
+                <%= link_to q, method: :delete, data: { confirm: 'Confirma exclusão?' }, role: 'button' do %>
+                <i title= 'Excluir' class="icon-trash"></i>
+                <% end %>
+
+              </td>
+            </tr>
+            <tr>
+                <td>
+                  <b>R:</b> <%= q.answer %>
+                </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+      <div class="form-actions">
+        <%= link_to 'Adicionar pergunta no questionário', new_questionnaire_question_path(questionnaire_id: @group.questionnaire.id), class: 'btn btn-success' %>
+      </div>
+    <% else %>
+      <div class="alert alert-block">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4>Não foi encontrado nenhum questionário para aluno.</h4>
+      </div>
+      <div class="form-actions">
+        <%= link_to 'Gerar Questionário', new_questionnaire_path(group_id: @group.id), class: 'btn btn-success' %>
+      </div>
+    <%end %>
+
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<%= f.input :classroom_id, :as => "hidden"%>
+<%= hidden_field_tag :classroom_id, params[:classroom_id] %>
+<%= f.input :status, as: :hidden %>
+<%= hidden_field_tag :status, params[:status] %>
+
+
+  <%= f.input :student_id, as: :hidden %>
+  <%= f.input :justification, as: :hidden, input_html: { value: ""} %>
+  <p class="lead active">Você deseja realmente ativar a enturmação de <%= @group%> na turma <%= @group.classroom%> ?</p>
+
+  <div class="form-actions">
+     <%= f.button :submit, class: 'btn btn-success' %>
+     <%= link_to 'Voltar', :back, class: 'btn' %>
+
+  </div>

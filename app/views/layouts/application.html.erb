@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cempre<%= "- #{title}" unless title.blank? %></title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/navegation_bar' %>
+
+    <%= render 'layouts/messages' %>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3" id="sidebar">
+          <%= render 'layouts/sidebar' %>
+        </div>
+
+        <div class="span9" id="content">
+
+          <%= render "layouts/content_block" %>
+        </div>
+      </div>
+      <hr>
+      <%= render 'layouts/footer' %>
+    </div>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+pt-BR:
+  helpers:
+    submit:
+      back: "Voltar"
+      create: "Criar %{model}"
+      submit: "Salvar %{model}"
+      update: "Alterar %{model}"
+
+      devise:
+        confirmations:
+          create: "Reenviar"
+          new: "Confirmar registro"
+        mailer:
+          confirmation_instructions: "Confirmo minha conta"
+          reset_password_instructions: "Alterar minha senha"
+          unlock_instructions: "Desbloquear minha conta"
+        omniauths:
+          new: "Registrar-se como %{provider}"
+        passwords:
+          create: "Enviar instrução"
+          new: "Recuperar senha"
+          update: "Alterar"
+        registrations:
+          create: "Registrar"
+          new: "Registrar-se"
+          update: "Alterar"
+          destroy: "Cancelar sua conta"
+        sessions:
+          create: "Acessar"
+          new: "Acessa o sistema"
+        unlocks:
+          create: "Reenviar"
+          new: "Desbloquear acesso"

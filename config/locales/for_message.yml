@@ -1,0 +1,7 @@
+pt-BR:
+  enumerations:
+    for_message:
+      student: "Alunos"
+      company: "Compania"
+      secretary: "Secretário"
+      administrator: "Administrador"

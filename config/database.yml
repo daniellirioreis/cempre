@@ -1,0 +1,22 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: donald_development
+  pool: 5
+  username: daniellirio
+  password: 120188
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: donald_test
+  pool: 5
+  username: daniellirio
+  password: 120188
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: donald_production
+  pool: 5
+  username: daniellirio
+  password: 120188

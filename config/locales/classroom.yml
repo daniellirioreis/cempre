@@ -1,0 +1,33 @@
+pt-BR:
+  title:
+    classrooms:
+      index: 'Listagem de Turmas'
+      new: 'Nova Turma'
+      edit: 'Editar Turma'
+      create: 'Nova Turma'
+      update: 'Editar Turma'
+      show: 'Informações'
+      schedules: 'Quadro Horários'
+      daily: "Diário"
+      for_month_print_daily: 'Imprimir Diário'
+      schedules_for_week_day: 'Horários por dia da semana'
+      throw_faults: 'Lançar faltas'
+  activerecord:
+    models:
+      classroom:
+        one: "Turma"
+        many: "Turmas"
+    attributes:
+      classroom:
+        name: "Nome"
+        day_week: 'Dia da Semana'
+        teacher: 'Professor'
+        time_start: 'Hora Inicial'
+        time_end: 'Hora Final'
+        course: 'Curso'
+        teacher_id: 'Professor'
+        course_id: 'Curso'
+        capacity: "Capacidade"
+        calendar_id: 'Calendário'
+        open_for_enrollments: 'Turma aberta para matrícula'
+        closed: 'Fechar'

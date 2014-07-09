@@ -1,0 +1,31 @@
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"> <%= link_to "Geral", "#main", :"data-toggle" => :tab %></li>
+    <li> <%= link_to "Informações", "#info", :"data-toggle" => :tab %></li>
+  </ul>
+</div>
+<div class="tab-content">
+  <div class="tab-pane fade active in" id="main">
+    <blockquote>
+      <p>
+        <strong>Nome: </strong><%=@company%><br>
+        <strong>Email: </strong><%=@company.email%><br>
+        <strong>telefone: </strong><%=@company.phone%><br>
+
+      </p>
+    </blockquote>
+    <blockquote>
+      <address>
+        <p>
+          <%= @company.street %>, <%= @company.house_number %> <%= @company.neighborhood %><br/>
+          <%= @company.zip_code%> - <%= @company.city %><br/>
+        </p>
+      </address>
+    </blockquote>
+
+  </div>
+  <div class="tab-pane" id="info">
+    <%= render 'info_students'%>
+  </div>
+
+</div>

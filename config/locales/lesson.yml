@@ -1,0 +1,16 @@
+pt-BR:
+  title:
+    lessons:
+      index: 'Listagem aulas'
+      new: 'Nova Aula'
+      edit: 'Editar Aula'
+      create: 'Nova Aula'
+      update: 'Editar Aula'
+  activerecord:
+    models:
+      lesson:
+        one: "Aula"
+        many: "Aulas"
+    attributes:
+      lesson:
+        calendar_day_id: "Dia"

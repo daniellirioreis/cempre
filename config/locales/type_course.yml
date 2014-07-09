@@ -1,0 +1,7 @@
+pt-BR:
+  enumerations:
+    type_course:
+      english: "Inglês"
+      spanish: "Espanhol"
+      conversation_english: "Conversação em inglês"
+      conversation_spanish: "Conversação em espanhol"

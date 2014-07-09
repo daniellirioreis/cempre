@@ -1,0 +1,36 @@
+<%= label_tag 'txtBusca', 'Pesquisar' %>
+<%= text_field_tag 'txtBusca', '', :class => 'span11', :id => 'txtBusca' %>
+
+<div id='div_color'>
+  <table id="ulItens" class="table table-striped table-hover table-bordered">
+    <colgroup>
+      <col>
+      <col width="160">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Selecione a turma para ver mais detalhes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @classrooms.any? %>
+        <% @classrooms.each do |classroom| %>
+          <tr>
+            <td>
+                <%=  link_to "#{classroom}", classroom, title: 'Ver detalhes' %><br/>
+                <b>Professor:</b> <%= classroom.teacher %><br/>
+                <b>Capacidade: </b> <%= classroom.capacity %><br/>
+                <b>Quantidades alunos: <%= classroom.count_students %><br/>
+                <b>Vaga:</b> <%= classroom.vacancy %><br/>
+                <b>Dia da Semana: <%= classroom.day_week_humanize %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+      <tr>
+        <td colspan='2'>Nenhum registro foi encontrado.</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

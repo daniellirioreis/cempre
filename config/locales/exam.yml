@@ -1,0 +1,20 @@
+pt-BR:
+  title:
+    exams:
+      index: 'Listagem de Avaliações'
+      new: 'Nova Avaliação'
+      edit: 'Editar Avaliação'
+      create: 'Novo Aluno'
+      update: 'Editar Avaliação'
+      show: 'Informação'
+  activerecord:
+    models:
+      exam:
+        one: "Avaliação"
+        many: "Avaliações"
+    attributes:
+      exam:
+        name: "Nome"
+        lesson_id: 'Dia'
+        type_exam: 'Tipo de Avaliação'
+        value: 'Nota'

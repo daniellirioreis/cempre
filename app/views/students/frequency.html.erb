@@ -1,0 +1,65 @@
+<% @student.group_active.each do |g| %>
+<div class="alert alert-info">
+  <blockquote>
+   <i class="icon-home"></i><strong><%= g.classroom%></strong><br>
+   <strong>Curso:</strong>
+   <%= g.classroom.course %><br>
+   <strong>Escola:</strong>
+   <%= g.classroom.company %><br>
+   <strong>Dia da Semana:</strong>
+   <%= g.classroom.day_week_humanize %><br>
+   <strong>Hora Inicial:</strong>
+   <%= g.classroom.time_start.try(:strftime, '%H:%M') %><br>
+   <strong>Hora final:</strong>
+   <%= g.classroom.time_end.try(:strftime, '%H:%M') %><br>
+   <strong>Professor:</strong>
+   <%= g.classroom.teacher %>
+  </blockquote>
+  <blockquote>
+    <i class="icon-calendar"></i><strong><%= g.classroom.calendar%></strong><br/>
+    <strong>Quantidades Aulas: </strong><%= g.classroom.lessons.count %>
+  </blockquote>
+  <blockquote>
+    <i class="icon-signal"></i><%= g.frequency%>%
+  </blockquote>
+  <h4 align='center'>Frequência</h4><br>
+   <div class="progress
+  <% if g.frequency <= g.classroom.calendar.limit_of_faults %>
+    progress-danger
+  <% end %>
+  <% if g.frequency >= g.classroom.calendar.limit_of_faults %>
+    progress-success
+  <%end%>
+  <% if g.frequency < g.classroom.calendar.limit_of_faults + 4  and  g.frequency >= g.classroom.calendar.limit_of_faults  %>
+    progress-warning
+  <%end%>
+progress-striped active">
+     <div class="bar" style="width: <%=g.frequency%>%"></div>
+   </div>
+  <% if g.faults.count > 0 %>
+    <h4 align='center'>Faltas</h4><br>
+  <% end %>
+
+  <%contador = 0 %>
+  <table class="table">
+      <% g.faults.each do |f| %>
+        <% if contador == 0 %>
+          <tr>
+          <%end%>
+          <%  contador = contador + 1 %>
+          <td>
+            <div class="alert alert-danger">
+              <strong><%= f.to_string %></strong><br>
+              <% f.lesson.schedules.each do |s|%>
+                <%= s.description %>
+              <% end %>
+            </div>
+          </td>
+          <% if contador == 4 %>
+            <%contador = 0%>
+          </tr>
+        <%end%>
+      <% end %>
+    </table>
+</div>
+<%end %>

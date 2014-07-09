@@ -1,0 +1,9 @@
+pt-BR:
+  title:
+    questionnaires:
+      new: 'Novo Questionário'
+  activerecord:
+    models:
+      questionnaire:
+        one: "Questionário"
+        many: "Questionários"

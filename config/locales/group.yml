@@ -1,0 +1,23 @@
+pt-BR:
+  title:
+    groups:
+      index: 'Turmas'
+      new: 'Nova Enturmação'
+      edit: 'Editar Enturmação'
+      create: 'Novo Enturmação'
+      update: 'Editar Enturmação'
+      questionnaire: 'Questionário'
+  activerecord:
+    models:
+      group:
+        one: "Enturmação"
+        many: "Enturmações"
+    attributes:
+      group:
+        name: "Nome"
+        student: 'Aluno'
+        student_id: 'Aluno'
+        classroom_id: 'Turma'
+        classroom: 'Turma'
+        new_classroom_id: "Nova Turma"
+        justification: 'Justificativa'

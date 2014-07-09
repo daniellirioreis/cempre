@@ -1,0 +1,9 @@
+pt-BR:
+  enumerations:
+    day:
+      monday_and_wednesday: "Segunda-Feira e Quarta-Feira"
+      tuesday_and_thursday: "Terça-Feira e Quinta-Feira"
+      saturday: "Sábado"
+      wednesday: "Quarta-Feira"
+      monday: "Segunda-Feira"
+      thursday: "Quinta-Feira"

@@ -1,0 +1,9 @@
+pt-BR:
+  enumerations:
+    status_group:
+      active: "Ativo"
+      transfer: "Transferido"
+      locked: "Matrícula Trancada"
+      folded: "Desistiu"
+      approved: 'Aprovado'
+      failed: 'Reprovado'
