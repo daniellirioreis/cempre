@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625232206) do
+ActiveRecord::Schema.define(version: 20140709022028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -278,12 +278,12 @@ ActiveRecord::Schema.define(version: 20140625232206) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "street",       limit: 50
-    t.string   "house_number", limit: 8
-    t.string   "complement",   limit: 20
-    t.string   "zip_code",     limit: 10
-    t.string   "neighborhood", limit: 50
-    t.string   "city",         limit: 50
+    t.string   "street",                   limit: 50
+    t.string   "house_number",             limit: 8
+    t.string   "complement",               limit: 20
+    t.string   "zip_code",                 limit: 10
+    t.string   "neighborhood",             limit: 50
+    t.string   "city",                     limit: 50
     t.integer  "federal_unit"
     t.string   "email"
     t.date     "birth_date"
@@ -291,6 +291,7 @@ ActiveRecord::Schema.define(version: 20140625232206) do
     t.text     "obs"
     t.string   "document"
     t.string   "cell_phone"
+    t.boolean  "block_schedule_different",            default: false
   end
 
   add_index "students", ["company_id"], name: "index_students_on_company_id", using: :btree

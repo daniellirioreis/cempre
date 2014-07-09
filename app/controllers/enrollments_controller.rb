@@ -1,5 +1,5 @@
 class EnrollmentsController < ApplicationController
-  before_filter :authorize_controller!
+  # before_filter :authorize_controller!
 
   before_action :set_enrollment, only: [:show, :edit, :update, :destroy]
 
@@ -13,8 +13,10 @@ class EnrollmentsController < ApplicationController
     @groups_active = current_calendar.groups_active.open_for_enrollments.count
     @remaining_vacancies = current_calendar.remaining_vacancies
   end
+
   def create_re
     @old_classroom = Classroom.find(params[:old_classroom_id])
+    @new_classroom = Classroom.find(params[:new_classroom_id])
     message = []
 
     if params[:status] == 'aprovado'
@@ -22,7 +24,20 @@ class EnrollmentsController < ApplicationController
       @groups.each do |g|
         new_group = Group.new(classroom_id: params[:new_classroom_id], status: StatusGroup::ACTIVE, student_id: g.student_id, re_enrollment: false)
          if new_group.save
+
+
+           unless @new_classroom.time_start.try(:strftime, '%H:%M').to_s == @old_classroom.time_start.try(:strftime, '%H:%M').to_s
+             g.student.update_attribute(:block_schedule_different, true)             
+           end
+           
+           unless @new_classroom.day_week_humanize.to_s == @old_classroom.day_week_humanize.to_s
+             g.student.update_attribute(:block_schedule_different, true)             
+           end
+           
+
            g.update_attribute(:re_enrollment, false)
+           
+           
          else
           message  <<  new_group.errors.full_messages
          end
@@ -41,7 +56,18 @@ class EnrollmentsController < ApplicationController
       @groups.each do |g|
         new_group = Group.new(classroom_id: params[:new_classroom_id], status: StatusGroup::ACTIVE, student_id: g.student_id, re_enrollment: false)
          if new_group.save
+           
+           unless @new_classroom.time_start.try(:strftime, '%H:%M').to_s == @old_classroom.time_start.try(:strftime, '%H:%M').to_s
+             g.student.update_attribute(:block_schedule_different, true)             
+           end
+           
+           unless @new_classroom.day_week_humanize.to_s == @old_classroom.day_week_humanize.to_s
+             g.student.update_attribute(:block_schedule_different, true)             
+           end
+           
+           
            g.update_attribute(:re_enrollment, false)
+
          else
           message  <<  new_group.errors.full_messages
          end
@@ -85,8 +111,6 @@ class EnrollmentsController < ApplicationController
     else
       @block = true
     end
-
-
   end
 
   def new

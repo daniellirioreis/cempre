@@ -33,3 +33,4 @@ pt-BR:
         cell_phone: 'Celular'
         birth_date: 'Data Nascimento'
         document: "CERTIDÃO/CPF/RG"
+        block_schedule_different: 'aluno foi avisado sobre troca de horário'

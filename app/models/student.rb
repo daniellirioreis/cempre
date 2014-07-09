@@ -13,6 +13,8 @@ class Student < ActiveRecord::Base
   after_save :create_user
 
   scope :sorted, -> { order(:name) }
+  scope :block_schedule_different, -> {where(block_schedule_different: true )}
+  
 
 
   def to_s

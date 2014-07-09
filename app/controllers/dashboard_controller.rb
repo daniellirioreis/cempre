@@ -9,6 +9,12 @@ class DashboardController < ApplicationController
     @importants = []
     @birthdates = []
     @notes = []
+    @students_block_schedule_different = []
+    
+    if current_user.adm 
+      @students_block_schedule_different = current_company.students.block_schedule_different
+    end
+    
     if current_user.student?
       @company_active = current_user.student.company_active
       if @company_active.present?

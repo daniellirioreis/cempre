@@ -57,6 +57,26 @@
   </div>
 <% end %>
 
+<% if @students_block_schedule_different.any? %>
+	  <div class="alert alert-error">
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	  <i class="icon-user"></i><strong>Alunos enturmados fora do horário passado(<%= @students_block_schedule_different.count %>)</strong><br>
+	<%= label_tag 'txtBusca', 'Pesquisar' %>
+	<%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_students" %>
+	<table class="list_students">
+	    <tbody>
+		  <% @students_block_schedule_different.sorted.each do |s| %>
+			<tr>
+				<td>
+					<%= link_to "#{s}", s  %><br>				    
+				</td>
+			</tr>
+		<% end %>		  
+		</tbody>
+	</table>
+	</div>
+<% end %>
+
 <% if @birthdates.count > 0  %>
   <div class="alert alert-success">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
