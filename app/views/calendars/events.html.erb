@@ -1,7 +1,8 @@
 <% @group_active.each do |g| %>
   <p class='text-info'><i class="icon-calendar"></i> <%= g.classroom%> - <%= g.classroom.calendar%></p>
   <% contador = 0 %>
-  <table class="table table-striped table-hover table-bordered">
+  <% if g.classroom.lessons.any?  %>
+	<table class="table table-striped table-hover table-bordered">
       <% g.classroom.lessons.sort_by(&:day).each do |l| %>
         <% if contador == 0 %>
           <tr>
@@ -21,5 +22,10 @@
           </tr>
         <%end%>
       <% end %>
-    </table>
+  	</table>
+  <% else %>
+  	<div class="alert alert-info">
+		Cronograma não foi definido.
+	</div>
+  <% end %>
 <% end %>

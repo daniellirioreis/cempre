@@ -72,9 +72,13 @@ class Group < ActiveRecord::Base
   def frequency
     total_lessons = classroom.lessons.count
     total_faults =  faults.count
-    m = total_faults * 100
-    mm = m / total_lessons
-    100 - mm
+    unless total_faults == 0 && total_lessons == 0
+      m = total_faults * 100
+      mm = m / total_lessons
+      100 - mm      
+    else
+      0
+    end
   end
 
   private

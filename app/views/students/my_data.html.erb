@@ -2,7 +2,7 @@
 <p>
   <strong>Nome: </strong><%=@student%><br>
   <strong>Data Nascimento: </strong><%= l @student.birth_date unless @student.birth_date.nil?  %><br>
-  <strong>Idade: </strong><%= @student.age %><br>
+  <strong>Idade: </strong><%= @student.age[:ano] %><br>
 </p>
 <hr/>
 <h4>Endereço</h4>
