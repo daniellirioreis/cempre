@@ -67,7 +67,12 @@
 		  <% @students_block_schedule_different.sorted.each do |s| %>
 			<tr>
 				<td>
-					<%= link_to "#{s}", s  %><br>				    
+					<%= link_to "#{s}", s  %>
+				</td>
+				<td>
+					<% s.groups.each do |g|  %>
+					<%= "#{g.classroom}()" %>
+					<% end %>
 				</td>
 			</tr>
 		<% end %>		  

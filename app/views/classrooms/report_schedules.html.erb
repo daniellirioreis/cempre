@@ -12,8 +12,15 @@
          <% total_students = total_students + count_students %>
 
          <td>
-             <%= c %>(<%= c.teacher %>)<br>
-             <i title='Quantidades de alunos'class="icon-user"></i> <%= count_students %>
+						<%if c.open_for_enrollments %>
+							<div class= "alert alert-info">
+						<% end %>
+	             <%= c %>(<%= c.teacher %>)<br>
+	             <i title='Quantidades de alunos'class="icon-user"></i> <%= count_students %>
+						<%if c.open_for_enrollments %>
+							</div>
+						<% end %>
+						
          </td>
        <% end %>
      </tr>
@@ -45,8 +52,15 @@
          <% total_students = total_students + count_students %>
 
          <td>
-             <%= c %>(<%= c.teacher %>)<br>
-             <i title='Quantidades de alunos'class="icon-user"></i> <%= count_students %>
+						<%if c.open_for_enrollments %>
+							<div class= "alert alert-info">
+						<% end %>
+	
+	             <%= c %>(<%= c.teacher %>)<br>
+	             <i title='Quantidades de alunos'class="icon-user"></i> <%= count_students %>
+						<%if c.open_for_enrollments %>
+							</div>
+						<% end %>						
          </td>
        <% end %>
      </tr>
@@ -78,8 +92,14 @@
          <% total_students = total_students + count_students %>
 
          <td>
-             <%= c %>(<%= c.teacher %>)<br>
-             <i title='Quantidades de alunos'class="icon-user"></i> <%= count_students %>
+						<%if c.open_for_enrollments %>
+							<div class= "alert alert-info">
+						<% end %>
+								<%= c %>(<%= c.teacher %>)<br>
+	             <i title='Quantidades de alunos'class="icon-user"></i> <%= count_students %>	             
+						<%if c.open_for_enrollments %>
+							</div>
+						<% end %>
          </td>
        <% end %>
      </tr>
