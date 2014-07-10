@@ -7,6 +7,11 @@
         <%= link_to "#{d.first}", schedules_for_week_day_classrooms_path(week_day: d.last, week_day_string: d.first) %><br>
       </td>
     <%end%>
+	<td>
+		<%= link_to report_schedules_classrooms_path, :tabindex => "-1" do %>
+          <i class="icon-print"></i>
+        <% end %>        
+	</td>
   </tr>
 </table>
 

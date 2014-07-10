@@ -42,6 +42,7 @@ actions_more_classrooms:
   - for_month_print_daily
   - schedules_for_week_day
   - throw_faults
+  - report_schedules
 actions_more_calendars:
   - events
   - finalize

@@ -87,7 +87,11 @@ class ApplicationController < ActionController::Base
                 if params['action'] == 'report_re_enrollments'
                   'print'
                 else
-                  nil
+                  if params['action'] == 'report_schedules'
+                    'print'                    
+                  else
+                    nil                    
+                  end
                 end
               end
             end

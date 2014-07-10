@@ -12,6 +12,7 @@ pt-BR:
       for_month_print_daily: 'Imprimir Diário'
       schedules_for_week_day: 'Horários por dia da semana'
       throw_faults: 'Lançar faltas'
+      report_schedules: 'Quadro horário'
   activerecord:
     models:
       classroom:

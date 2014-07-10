@@ -11,6 +11,10 @@ class ClassroomsController < ApplicationController
     @classrooms = current_calendar.classrooms
   end
 
+  def report_schedules
+    @classrooms = current_calendar.classrooms    
+  end
+
   def throw_faults
     if params[:month].blank?
       params[:month] = Date.today.month
@@ -21,7 +25,7 @@ class ClassroomsController < ApplicationController
   def schedules_for_week_day
     wday = params[:week_day]
     wday1 = params[:week_day]
-    @classrooms = current_company.classrooms.day_week(wday, wday1).open
+    @classrooms = current_calendar.classrooms.day_week(wday, wday1).open
   end
 
   def show
