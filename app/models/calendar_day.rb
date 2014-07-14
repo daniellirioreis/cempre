@@ -13,6 +13,9 @@ class CalendarDay < ActiveRecord::Base
 
   scope :by_year, lambda { |year| where(" EXTRACT(YEAR FROM day) = #{year}") }
 
+  scope :company_id, lambda { |company_id| where(" calendars.company_id = #{company_id}").joins(:calendar) }
+
+
   def to_s
     "#{day.day}/#{day.month}"
   end
