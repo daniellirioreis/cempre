@@ -13,6 +13,8 @@ class Calendar < ActiveRecord::Base
 
   scope :not_equal_id, lambda { |id| where("id <> ?", id) }
 
+  scope :sorted, -> { order("calendars.date_start") }
+
 
   def to_s
     "#{name} - #{date_start.day}/#{date_start.month}/#{date_start.year} à #{date_end.day}/#{date_end.month}/#{date_end.year}"
@@ -30,6 +32,11 @@ class Calendar < ActiveRecord::Base
   def groups_active
     Group.calendar_id(id).active
   end
+  
+  def groups
+    Group.calendar_id(id)
+  end
+  
 
   def groups_re_enrollments
     Group.calendar_id(id).active_or_approved_or_failed.re_enrollment

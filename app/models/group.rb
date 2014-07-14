@@ -14,6 +14,7 @@ class Group < ActiveRecord::Base
 
   validate :validate_group
 
+  scope :status, lambda { |status| where("status = ?", status) }
 
   scope :active, -> {where("status = ?", StatusGroup::ACTIVE)}
 
