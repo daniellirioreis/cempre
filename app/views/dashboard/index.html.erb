@@ -63,6 +63,12 @@
 	  <i class="icon-user"></i><strong>Alunos enturmados fora do horário passado(<%= @students_block_schedule_different.count %>)</strong><br>
 	<%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_students" %>
 	<table class="list_students">
+			<thead>
+	        <tr>
+	            <th>Aluno</th>
+	            <th>Turma/Horário</th>
+	        </tr>
+	    </thead>    
 	    <tbody>
 		  <% @students_block_schedule_different.sorted.each do |s| %>
 			<tr>
@@ -71,7 +77,7 @@
 				</td>
 				<td>
 					<% s.groups.each do |g|  %>
-					<%= "#{g.classroom}()" %>
+					<%= "#{g.classroom}(#{g.classroom.time_start.try(:strftime, '%H:%M')} às #{g.classroom.time_end.try(:strftime, '%H:%M')})" %>
 					<% end %>
 				</td>
 			</tr>
