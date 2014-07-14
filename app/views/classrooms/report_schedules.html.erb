@@ -1,5 +1,4 @@
-<% total = 0  %>	
-<% total_students = 0  %>	
+<% total_segunda_quarta = 0  %>	
 <h4 align='center'>Segunda e Quarta</h4>
 <table class="table table-striped table-hover table-bordered">
    <% @classrooms.day_week(Day::MONDAY, Day::MONDAY_AND_WEDNESDAY).sorted.group_by(&:time_start).each do |time_start, classrooms| %>
@@ -8,15 +7,13 @@
          <p class="text-success"><b><i class="icon-time"></i> <%= time_start.try(:strftime, '%H:%M') %></b></p>
        </td>
        <% classrooms.each do |c| %>
-         <% count_students = c.count_students%>
-         <% total_students = total_students + count_students %>
-
+					<% total_segunda_quarta = total_segunda_quarta + c.count_students %>
          <td>
 						<%if c.open_for_enrollments %>
 							<div class= "alert alert-info">
 						<% end %>
 	             <%= c %>(<%= c.teacher %>)<br>
-	             <i title='Quantidades de alunos'class="icon-user"></i> <%= count_students %>
+	             <i title='Quantidades de alunos'class="icon-user"></i> <%= c.count_students %>
 						<%if c.open_for_enrollments %>
 							</div>
 						<% end %>
@@ -32,14 +29,13 @@
 			<strong>Quantidade de Alunos</strong>
 		</td>
 		<td>
-			<%= total_students %>
+			<%= total_segunda_quarta %>
 		</td>		
 	</tr>
 </table>
-<% total = total + total_students  %>	
 <div style="page-break-before:always"></div>
+<%= total_terca_quinta = 0  %>
 
-<% total_students = 0  %>	
 <h4 align='center'>Terça e Quinta</h4>
 <table class="table table-striped table-hover table-bordered">
    <% @classrooms.day_week(Day::THURSDAY, Day::TUESDAY_AND_THURSDAY).sorted.group_by(&:time_start).each do |time_start, classrooms| %>
@@ -48,16 +44,14 @@
          <p class="text-success"><b><i class="icon-time"></i> <%= time_start.try(:strftime, '%H:%M') %></b></p>
        </td>
        <% classrooms.each do |c| %>
-         <% count_students = c.count_students%>
-         <% total_students = total_students + count_students %>
-
+				<% total_terca_quinta = total_terca_quinta + c.count_students %>
          <td>
 						<%if c.open_for_enrollments %>
 							<div class= "alert alert-info">
 						<% end %>
 	
 	             <%= c %>(<%= c.teacher %>)<br>
-	             <i title='Quantidades de alunos'class="icon-user"></i> <%= count_students %>
+	             <i title='Quantidades de alunos'class="icon-user"></i> <%= c.count_students %>
 						<%if c.open_for_enrollments %>
 							</div>
 						<% end %>						
@@ -72,14 +66,13 @@
 			<strong>Quantidade de Alunos</strong>
 		</td>
 		<td>
-			<%= total_students %>
+			<%= total_terca_quinta %>
 		</td>		
 	</tr>
 </table>
-<% total = total + total_students  %>	
-<div style="page-break-before:always"></div>
 
-<% total_students = 0  %>	
+<div style="page-break-before:always"></div>
+<%= total_sabado = 0 %>
 <h4 align='center'>Sábado</h4>
 <table class="table table-striped table-hover table-bordered">
    <% @classrooms.day_week(Day::SATURDAY, Day::SATURDAY).sorted.group_by(&:time_start).each do |time_start, classrooms| %>
@@ -88,15 +81,14 @@
          <p class="text-success"><b><i class="icon-time"></i> <%= time_start.try(:strftime, '%H:%M') %></b></p>
        </td>
        <% classrooms.each do |c| %>
-         <% count_students = c.count_students%>
-         <% total_students = total_students + count_students %>
-
+				<% total_sabado = total_sabado + c.count_students %>
+				
          <td>
 						<%if c.open_for_enrollments %>
 							<div class= "alert alert-info">
 						<% end %>
 								<%= c %>(<%= c.teacher %>)<br>
-	             <i title='Quantidades de alunos'class="icon-user"></i> <%= count_students %>	             
+	             <i title='Quantidades de alunos'class="icon-user"></i> <%= c.count_students %>	             
 						<%if c.open_for_enrollments %>
 							</div>
 						<% end %>
@@ -105,13 +97,14 @@
      </tr>
    <% end %>
  </table>
+
 <table class="table table-striped">
 	<tr>
 		<td>
 		<strong>Quantidade de Alunos</strong>
 		</td>
 		<td>
-			<%= total_students %>
+			<%= total_sabado %>
 		</td>		
 	</tr>
 	<tr>
@@ -119,7 +112,7 @@
 			<strong>Total de Alunos</strong>
 		</td>
 		<td>
-			<%= total %>
+			<%= total_sabado + total_terca_quinta + total_segunda_quarta %>
 		</td>		
 	</tr>
 </table>
