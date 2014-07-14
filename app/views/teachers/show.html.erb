@@ -44,7 +44,7 @@
   <div class="tab-pane" id="quant_students_for_level">
     <%total = 0 %>
     <% @courses.each do |c| %>
-    <% classrooms = @teacher.classrooms.find_all_by_teacher_id_and_course_id_and_closed(@teacher.id, c.id, false) %>
+    <% classrooms = @teacher.classrooms.find_all_by_teacher_id_and_course_id(@teacher.id, c.id) %>
       <% if classrooms.any? %>
         <div class="alert alert-info">
           <h5 align='center'><%= c %><h5>

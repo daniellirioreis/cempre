@@ -13,12 +13,10 @@
 </table>
 <%= label_tag 'txtBusca', 'Pesquisar' %>
 <%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_classrooms" %>
-<div id='div_color'>
   <table class="list_classrooms table table-striped table-hover table-bordered">
       <thead>
           <tr>
               <th>Nome</th>
-              <th>Curso</th>
               <th>Professor</th>
               <th>Dia da Semana</th>
               <th>Horário</th>
@@ -35,7 +33,6 @@
           <% @classrooms.sorted.each do |c| %>
             <tr class="<% if  c.closed%>success<% end %>">
                 <td><%= c %></td>
-                <td><%= c.course %></td>
                 <td><%= c.teacher%></td>
                 <td><%= c.day_week_humanize%></td>
                 <td><%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>
@@ -58,7 +55,6 @@
         <% end %>
       </tbody>
   </table>
-</div>
 
 <div class="form-actions">
   <%= link_to 'Nova Turma', new_classroom_path, :class => "btn btn-success" %>
