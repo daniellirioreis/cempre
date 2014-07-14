@@ -60,7 +60,7 @@
         <strong>Data Nascimento: </strong><%= l @student.birth_date unless @student.birth_date.nil?  %><br>
         <strong>Idade: </strong><%= @student.age[:ano] %> ano(s) <%= @student.age[:mes]%> mês(es) <%= @student.age[:dia]%> dia(s)<br>
         <strong>email: </strong> <%= @student.email%><br>
-        <strong>Telefones: </strong> <%= @student.phone%> / <%= @student.cell_phone><br>
+        <strong>Telefones: </strong> <%= @student.phone%> / <%= @student.cell_phone%><br>
         <strong>Documentos: </strong> <%= @student.document%><br>
         <strong>Observações: </strong> <%= @student.obs%>
           <% if @student.birth_date.present? %>
