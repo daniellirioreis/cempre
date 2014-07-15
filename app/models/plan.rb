@@ -21,7 +21,7 @@ class Plan < ActiveRecord::Base
   private
 
   def create_schedules
-    if calendar.present? and self.new_record?
+    if calendar.present?
       days.each do |day|
         case day_week
           when Day::MONDAY_AND_WEDNESDAY
