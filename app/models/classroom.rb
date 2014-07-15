@@ -20,6 +20,8 @@ class Classroom < ActiveRecord::Base
 
   scope :day_week, lambda { |day_week, day_week1| where("day_week = ? OR day_week = ?", day_week, day_week1) }
 
+  scope :calendar_id, lambda { |calendar_id| where("calendar_id = ? ", calendar_id) }
+
   scope :sequence_and_type_course, lambda { |sequence, type_course| where("courses.sequence = ? and courses.type_course = ? ", sequence, type_course).joins(:course) }
 
   scope :sorted, -> { order(:day_week, :time_start) }

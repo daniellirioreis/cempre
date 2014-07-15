@@ -12,7 +12,9 @@ class ClassroomsController < ApplicationController
   end
 
   def report_schedules
-    @classrooms = current_calendar.classrooms    
+    
+    @classrooms = current_calendar.classrooms
+    
   end
 
   def throw_faults

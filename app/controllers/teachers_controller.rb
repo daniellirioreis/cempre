@@ -17,7 +17,7 @@ class TeachersController < ApplicationController
 
   def show
     @courses =  current_company.courses
-    @classrooms =  @teacher.classrooms.open
+    @classrooms =  @teacher.classrooms.calendar_id(current_calendar.id)
     @lessons = @teacher.lessons
   end
 
