@@ -21,56 +21,60 @@ class Plan < ActiveRecord::Base
   private
 
   def create_schedules
-    if calendar.present?
-      days.each do |day|
-        case day_week
-          when Day::MONDAY_AND_WEDNESDAY
-            if day.day.wday == 1
-              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
-              if schedule.save
+    if  new_record? 
+    
+      
+      if calendar.present?
+        days.each do |day|
+          case day_week
+            when Day::MONDAY_AND_WEDNESDAY
+              if day.day.wday == 1
+                schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+                if schedule.save
+                end
               end
-            end
 
-            if day.day.wday == 3
-              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
-              if schedule.save
+              if day.day.wday == 3
+                schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+                if schedule.save
+                end
               end
-            end
-          when Day::TUESDAY_AND_THURSDAY
-            if day.day.wday == 2
-              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
-              if schedule.save
+            when Day::TUESDAY_AND_THURSDAY
+              if day.day.wday == 2
+                schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+                if schedule.save
+                end
               end
-            end
-            if day.day.wday == 4
-              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
-              if schedule.save
+              if day.day.wday == 4
+                schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+                if schedule.save
+                end
               end
-            end
-          when Day::SATURDAY
-            if day.day.wday == 6
-              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
-              if schedule.save
+            when Day::SATURDAY
+              if day.day.wday == 6
+                schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+                if schedule.save
+                end
               end
-            end
-          when Day::WEDNESDAY
-            if day.day.wday == 3
-              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
-              if schedule.save
+            when Day::WEDNESDAY
+              if day.day.wday == 3
+                schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+                if schedule.save
+                end
               end
-            end
-          when Day::MONDAY
-            if day.day.wday == 1
-              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
-              if schedule.save
+            when Day::MONDAY
+              if day.day.wday == 1
+                schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+                if schedule.save
+                end
               end
-            end
-          when Day::THURSDAY
-            if day.day.wday == 4
-              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
-              if schedule.save
-              end
-            end            
+            when Day::THURSDAY
+              if day.day.wday == 4
+                schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+                if schedule.save
+                end
+              end            
+          end
         end
       end
     end
