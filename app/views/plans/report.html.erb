@@ -1,0 +1,54 @@
+<h4 align='center'><%= @plan.book%> - <%= @plan.course%></h4>
+<h4 align='center'>(<%= @plan.course.classrooms.calendar_id(current_calendar.id).count %> turmas de <%= @plan.minutes_for_class%> minutos) </h4>
+
+<table class="table table-bordered table-striped table-condensed">
+    <thead>
+        <tr>
+            <th rowspan='2' >Dia</th>
+            <th rowspan='2'>Aula</th>
+            <th rowspan='2'>Lição</th>
+            <th rowspan='2'>Tipo de Atividade</th>
+            <th rowspan='2'>Tamanho da Atividade</th>
+            <th colspan='2'>Progressão aula</th>
+        </tr>
+					<tr>
+						 <th> No horário </th> 						
+						 <th> Último passo pronto</th> 						
+						
+					</td>
+    </thead>
+    <tbody>
+        <% if @plan.schedules.any? %>
+					<% contador = 0 %>
+          <% @plan.schedules.sort_by(&:calendar_day_id).each do |s| %>
+						<%contador = contador + 1%>
+            <tr>
+                <td align="center">
+                  <%= s.calendar_day %>
+                </td>
+                <td>
+									<%= contador %>ª
+                </td>
+								<td>
+									<%= s.description%>
+								</td>
+								<td>									
+								</td>								
+								<td>									
+								</td>																
+								<td>									
+								</td>																
+								<td>									
+								</td>																								
+            </tr>
+						<% if contador < 5 %>
+							<div style="page-break-before:always"></div>											
+						<% end %>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan='2'>Nenhum registro foi encontrado.</td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>

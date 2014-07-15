@@ -90,7 +90,11 @@ class ApplicationController < ActionController::Base
                   if params['action'] == 'report_schedules'
                     'print'                    
                   else
-                    nil                    
+                    if params['action'] == 'report'
+                      'print_not_head'
+                    else
+                      nil                                          
+                    end
                   end
                 end
               end

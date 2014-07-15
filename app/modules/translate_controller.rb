@@ -118,6 +118,8 @@ class TranslateController
         'Rematriculas'
       when 'report_re_enrollments'
         'Imprimir Rematriculas'
+      when 'report'
+        'Imprimir'
     end
   end
 end

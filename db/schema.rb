@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709022028) do
+ActiveRecord::Schema.define(version: 20140715035157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -197,6 +197,8 @@ ActiveRecord::Schema.define(version: 20140709022028) do
     t.integer  "day_week"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "book"
+    t.integer  "minutes_for_class", default: 0
   end
 
   add_index "plans", ["calendar_id"], name: "index_plans_on_calendar_id", using: :btree

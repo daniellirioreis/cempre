@@ -12,5 +12,4 @@ class Schedule < ActiveRecord::Base
   def to_s
     to_string
   end
-
 end

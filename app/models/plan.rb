@@ -21,7 +21,7 @@ class Plan < ActiveRecord::Base
   private
 
   def create_schedules
-    if calendar.present?
+    if calendar.present? and self.new_record?
       days.each do |day|
         case day_week
           when Day::MONDAY_AND_WEDNESDAY
@@ -65,6 +65,12 @@ class Plan < ActiveRecord::Base
               if schedule.save
               end
             end
+          when Day::THURSDAY
+            if day.day.wday == 4
+              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+              if schedule.save
+              end
+            end            
         end
       end
     end

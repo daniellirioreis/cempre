@@ -1,9 +1,13 @@
 class PlansController < ApplicationController
   before_filter :authorize_controller!
 
-  before_action :set_plan, only: [:show, :edit, :update, :destroy]
-  before_action :set_calendar, only: [:new, :create, :index, :edit, :update, :destroy]
+  before_action :set_plan, only: [:show, :edit, :update, :destroy, :report]
+  before_action :set_calendar, only: [:new, :create, :index, :edit, :update]
 
+  def report
+    
+  end
+  
   def show
 
   end
@@ -24,6 +28,25 @@ class PlansController < ApplicationController
     respond_with @plan, :location => plans_path(calendar_id: @plan.calendar_id)
   end
 
+  def update
+    @plan = Plan.find(params[:id])
+
+    @plan.update_attributes(plan_params)
+
+    respond_with @plan, :location => plans_path(calendar_id: @plan.calendar_id)
+    
+  end
+  
+  def destroy
+    @plan = Plan.find(params[:id])
+
+    @plan.destroy
+
+    respond_with @plan, :location => plans_path(calendar_id: @plan.calendar_id)
+
+  end
+  
+
   private
 
   def set_plan
@@ -36,6 +59,6 @@ class PlansController < ApplicationController
 
 
   def plan_params
-    params.require(:plan).permit(:course_id, :calendar_id, :day_week)
+    params.require(:plan).permit(:course_id, :calendar_id, :day_week, :book, :minutes_for_class)
   end
 end

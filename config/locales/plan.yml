@@ -7,6 +7,7 @@ pt-BR:
       create: 'Novo Cronograma'
       update: 'Editar Cronograma'
       show: 'Cronograma'
+      report: 'Cronograma'
   activerecord:
     models:
       plan:
@@ -16,3 +17,5 @@ pt-BR:
       plan:
         course_id: "Curso"
         day_week: 'Dia da semana'
+        book: "Livro"        
+        minutes_for_class: 'Minutos por aula'

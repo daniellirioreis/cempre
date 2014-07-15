@@ -15,7 +15,9 @@ Donald::Application.routes.draw do
 
   resources :lessons
 
-  resources :plans
+  resources :plans do 
+    get :report, on: :member
+  end
 
   resources :questionnaire_questions
 
