@@ -1,5 +1,5 @@
 <h4 align='center'><%= @plan.book%> - <%= @plan.course%></h4>
-<h4 align='center'>(<%= @plan.course.classrooms.calendar_id(current_calendar.id).count %> turmas de <%= @plan.minutes_for_class%> minutos) </h4> <%= @plan.day_week_humanize%>
+<h4 align='center'>(<%= @plan.course.classrooms.calendar_id(current_calendar.id).count %> turmas de <%= @plan.minutes_for_class%> minutos) <%= @plan.day_week_humanize%> </h4> 
 
 <table class="table table-bordered table-striped table-condensed">
     <thead>
