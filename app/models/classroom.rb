@@ -19,6 +19,10 @@ class Classroom < ActiveRecord::Base
   scope :open_for_enrollments, -> {where(open_for_enrollments: true )}
 
   scope :day_week, lambda { |day_week, day_week1| where("day_week = ? OR day_week = ?", day_week, day_week1) }
+  
+  scope :day_week3, lambda { |day_week, day_week1, day_week2| where("day_week = ? OR day_week = ? OR day_week = ?", day_week, day_week1, day_week2) }
+  
+  
 
   scope :calendar_id, lambda { |calendar_id| where("calendar_id = ? ", calendar_id) }
 
