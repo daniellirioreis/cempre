@@ -12,9 +12,10 @@ class ClassroomsController < ApplicationController
   end
 
   def report_schedules
-    
-    @classrooms = current_calendar.classrooms
-    
+    classrooms = current_calendar.classrooms
+    @classrooms_monday_wednesday = classrooms.day_week(Day::MONDAY, Day::MONDAY_AND_WEDNESDAY)
+    @classrooms_tuesday_thursday = classrooms.day_week(Day::THURSDAY, Day::TUESDAY_AND_THURSDAY)
+    @classrooms_saturday = classrooms.day_week(Day::SATURDAY, Day::SATURDAY)    
   end
 
   def throw_faults
