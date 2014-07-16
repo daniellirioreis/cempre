@@ -96,6 +96,7 @@
 </div>
 <div class="form-actions">
   <%= link_to 'Editar', edit_teacher_path(@teacher), class: 'btn btn-primary' %>
+  <%= link_to 'imprimir', report_teacher_teacher_path(@teacher), class: 'btn btn-warnning' %>
   <%= link_to 'Deletar', @teacher, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
   <%= link_to 'Voltar', teachers_path, class: 'btn' %>
 </div>

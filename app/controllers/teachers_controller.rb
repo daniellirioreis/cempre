@@ -1,8 +1,13 @@
 class TeachersController < ApplicationController
   before_filter :authorize_controller!
 
-  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  before_action :set_teacher, only: [:show, :edit, :update, :destroy, :report_teacher]
 
+  def report_teacher
+    @classrooms =  @teacher.classrooms.calendar_id(current_calendar.id)    
+    @courses =  current_company.courses    
+  end
+  
   def index
     @teachers = current_company.teachers
   end

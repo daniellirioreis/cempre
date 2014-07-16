@@ -93,7 +93,11 @@ class ApplicationController < ActionController::Base
                     if params['action'] == 'report'
                       'print_not_head'
                     else
-                      nil                                          
+                      if params['action'] == 'report_teacher'
+                        'print'                                            
+                      else
+                        nil                                                                  
+                      end
                     end
                   end
                 end

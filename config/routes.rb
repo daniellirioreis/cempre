@@ -75,7 +75,9 @@ Donald::Application.routes.draw do
     get :report_schedules, on: :collection
   end
 
-  resources :teachers
+  resources :teachers do 
+    get :report_teacher, on: :member
+  end
 
   resources :courses
 

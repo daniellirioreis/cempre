@@ -69,4 +69,6 @@ actions_more_enrollments:
   - list_classrooms_to_re_enrollments
   - create_re
 actions_more_plans:
-- report
+  - report
+actions_more_teachers:
+  - report_teacher
