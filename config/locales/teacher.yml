@@ -7,6 +7,7 @@ pt-BR:
       create: 'Novo Professor'
       update: 'Editar Professor'
       show: 'Informações'
+      report_teacher: 'Relatório sobre Professor'
   activerecord:
     models:
       teacher:
