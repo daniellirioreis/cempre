@@ -1,6 +1,10 @@
 <%= label_tag 'txtBusca', 'Pesquisar' %>
 <%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_students" %>
 
+<div class="form-actions">
+  <%= link_to 'Novo Aluno', new_student_path, :class => "btn btn-success" %>
+<div>
+	
 <table class="list_students table table-striped table-hover table-bordered">
     <thead>
         <tr>
@@ -36,7 +40,3 @@
         <% end %>
     </tbody>
 </table>
-
-<div class="form-actions">
-  <%= link_to 'Nova Turma', new_classroom_path, :class => "btn btn-success" %>
-<div>
