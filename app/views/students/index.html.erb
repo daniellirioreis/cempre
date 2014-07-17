@@ -1,10 +1,17 @@
+<blockquote>
+  <table class='table'>
+    <tr>
+      <td>
+        <%= link_to new_classroom_path(@classroom), role: 'button' do %>
+          <h2 class="text-success" title='Novo Aluno'><i class="icon-plus"></i></h2>
+        <% end %>
+      </td>
+	 </tr>
+	</table>
+<blockquote>
 <%= label_tag 'txtBusca', 'Pesquisar' %>
 <%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_students" %>
 
-<div class="form-actions">
-  <%= link_to 'Novo Aluno', new_student_path, :class => "btn btn-success" %>
-</div>
-	
 <table class="list_students table table-striped table-hover table-bordered">
     <thead>
         <tr>
