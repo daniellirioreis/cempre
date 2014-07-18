@@ -1,35 +1,45 @@
-<table class="table table-striped table-hover table-bordered">
-  <colgroup>
-    <col>
-    <col width="160">
-  </colgroup>
-  <thead>
+<blockquote>
+  <table class='table'>
     <tr>
-      <th>Nome</th>
-      <th>Ação</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @teachers.any? %>
-      <% @teachers.each do |teacher| %>
+      <td>
+        <%= link_to new_teacher_path, role: 'button' do %>
+          <h2 class="text-success" title='Novo Professor'><i class="icon-plus"></i></h2>
+        <% end %>
+      </td>
+	 </tr>
+	</table>
+</blockquote>
+
+<%= label_tag 'txtBusca', 'Pesquisar' %>
+<%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_teachers" %>
+
+<table class="list_teacher table table-striped table-hover table-bordered">
+    <thead>
         <tr>
-          <td><%= teacher %></td>
-          <td align='center'>
-            <div class="btn-group">
-              <%= link_to "Editar", edit_teacher_path(teacher), :class => "btn btn-primary", :title => "Editar #{teacher}" %>
-              <%= link_to "Informações", teacher, :class => "btn btn-info" %>
-              <%= link_to 'Deletar', teacher, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
-            </div>
-          </td>
+            <th>Nome</th>
+            <th> Ação </th>
+        </tr>
+    </thead>
+    <tbody>
+      <% if @teachers.any? %>
+        <% @teachers.sorted.each do |t| %>
+          <tr>
+              <td><%= c %></td>
+              <td>
+								<%= link_to "Editar", edit_teacher_path(t), :class => "btn btn-primary", :title => "Editar #{t}" %>
+								<%= link_to "Informações", t, :class => "btn btn-info" %>
+								<%= link_to 'Deletar', t, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn" %>
+								 </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan='9'>Nenhum registro foi encontrado.</td>
         </tr>
       <% end %>
-    <% else %>
-    <tr>
-      <td colspan='2'>Nenhum registro foi encontrado.</td>
-    </tr>
-    <% end %>
-  </tbody>
+    </tbody>
 </table>
-<div class="form-actions">
-  <%= link_to 'Novo Professor', new_teacher_path, :class => "btn btn-success" %>
-</div>
+
+
+
+
