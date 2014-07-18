@@ -77,7 +77,7 @@
 				</td>
 				<td>
 					<% s.groups.each do |g|  %>
-					<%= "#{g.classroom}(#{g.classroom.time_start.try(:strftime, '%H:%M')} às #{g.classroom.time_end.try(:strftime, '%H:%M')})" %>
+					<%= "#{g.classroom}(#{g.classroom.time_start.try(:strftime, '%H:%M')} às #{g.classroom.time_end.try(:strftime, '%H:%M')} #{g.day_week_humanize})" %> |
 					<% end %>
 				</td>
 			</tr>
