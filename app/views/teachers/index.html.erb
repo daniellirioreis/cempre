@@ -24,7 +24,7 @@
       <% if @teachers.any? %>
         <% @teachers.sorted.each do |t| %>
           <tr>
-              <td><%= c %></td>
+              <td><%= t %></td>
               <td>
 								<%= link_to "Editar", edit_teacher_path(t), :class => "btn btn-primary", :title => "Editar #{t}" %>
 								<%= link_to "Informações", t, :class => "btn btn-info" %>
