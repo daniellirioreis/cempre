@@ -5,6 +5,8 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy, :second_change_exam, :questionnaire, :re_enrollment ]
   before_action :set_classroom, only:[:new, :create]
 
+  before_action :set_new_classrooms, only:[:edit, :update]
+
 
   def questionnaire
     @questionnaire = @group.questionnaire
@@ -48,11 +50,6 @@ class GroupsController < ApplicationController
 
   def edit
     @group.status = params[:status]
-    @classrooms_new = current_calendar.
-                      classrooms.
-                      sequence_and_type_course(@group.classroom.sequence, @group.classroom.type_course)
-
-
   end
 
   def create
@@ -82,6 +79,14 @@ class GroupsController < ApplicationController
 
 
   private
+
+    def set_new_classrooms
+      @classrooms_new = current_calendar.
+                        classrooms.
+                        sequence_and_type_course(@group.classroom.sequence, @group.classroom.type_course)
+    
+    end
+
     def set_group
       @group = Group.find(params[:id])
     end

@@ -1,7 +1,6 @@
   <p class="lead active">
     Você deseja realmente Transferir  <%= @group%> da turma <%= @group.classroom%> para
   </p>
-
     <%= label_tag 'txtBusca', 'Pesquisar' %>
     <%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_classrooms" %>
 
@@ -46,17 +45,24 @@
                   <td><%= c.count_students%></td>
                   <td><%= c.vacancy%></td>
                   <td>
-                    <div class="btn-group">
-                      <%= simple_form_for(@group) do |f| %>
-                        <%= f.input :status, as: :hidden %>
-                        <%= f.input :student_id, as: :hidden %>
-                        <%= f.input :classroom_id, as: :hidden %>
-                        <%= f.input :classroom_id, :as => "hidden"%>
-                        <%= hidden_field_tag :classroom_id, params[:classroom_id] %>
-                        <%= f.input :new_classroom_id, :as => "hidden", input_html: { value: c.id }%>
-                       <%= f.button :submit, class: 'btn btn-success' %>
-                      <% end %>
-                    </div>
+											<% unless c.vacancy.zero? %>
+											<div class="btn-group">
+	                        <%= simple_form_for(@group) do |f| %>
+		                        <%= f.input :status, as: :hidden, input_html: { value: @group.status } %>
+		                        <%= f.input :student_id, as: :hidden %>
+		                        <%= f.input :classroom_id, as: :hidden %>
+		                        <%= f.input :classroom_id, :as => "hidden"%>
+		                        <%= hidden_field_tag :classroom_id, params[:classroom_id] %>
+		                        <%= hidden_field_tag :status, params[:status] %>
+		                        <%= f.input :new_classroom_id, :as => "hidden", input_html: { value: c.id }%>
+		                       <%= f.button :submit, class: 'btn btn-success' %>
+		                      <% end %>
+		                    </div>		                  
+											<% else %>
+												<div class= "alert alert-danger">
+													Vagas esgotadas
+                       </div>
+											<% end %>
                   </td>
               </tr>
             <% end %>
