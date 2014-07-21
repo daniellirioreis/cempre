@@ -45,17 +45,17 @@ class ClassroomsController < ApplicationController
 
   def schedules
     @head = Date.today
-    @calendar_day = CalendarDay.find_by_day(@head)
+    @calendar_day = CalendarDay.company_id(current_company.id)
+    @calendar_day = @calendar_day.find_by_day(@head)
+    
     @time_now = Time.now - 3.hours
-     if @calendar_day.present?
-       if @calendar_day.calendar.company_id == current_company.id
-         @lessons =  @calendar_day.lessons         
-        else
-          @lessons = []          
-        end       
-     else
-       @lessons = []
-     end
+
+    if @calendar_day.present?
+      @lessons =  @calendar_day.lessons         
+    else
+      @lessons = []
+    end
+
   end
 
   def new
