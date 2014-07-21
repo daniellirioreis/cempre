@@ -2,6 +2,38 @@
   <strong>Nome:</strong>
   <%= @course.name %>
 </p>
+<% count = 0 %>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Turma</th>
+            <th>Quantidade </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @course.classrooms.calendar_id(current_calendar.id).any? %>
+				<% @course.classrooms.calendar_id(current_calendar.id).each do |c| %>
+            <tr>
+                <td align="center">
+                  <%= c %>
+                </td>
+                <td>
+									<%= c.count_students  %>
+									<% count = count +  c.count_students  %>									
+                </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan='2'>Nenhum registro foi encontrado.</td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
+<p>
+	<strong>Total de Alunos: </strong><%= count %>
+</p>
+
 <div class="form-actions">
   <%= link_to 'Editar', edit_course_path(@course), class: 'btn btn-primary' %>
   <%= link_to 'Deletar', @course, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
