@@ -18,6 +18,13 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def destroy 
+    @event.destroy    
+    
+    respond_with @event, :location => calendar_path(id: @event.calendar_day.calendar, calendar_day_id: @event.calendar_day_id )
+    
+  end
+
   def finalize
     if @event.closed
       flash[:notice] = 'Evento aberto com sucesso'
