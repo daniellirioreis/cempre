@@ -25,85 +25,65 @@
       <% if group.folded? %>warning<%end%>
       <% if group.locked? %>warning<%end%>
       ">
-
-
-          <td><%count  = count + 1 %>
-            <% if group.second_change_exam %>
-              <a title="Aluno foi marcado para 2ª chamada" data-placement="right" data-toggle="tooltip" href="#" data-original-title=""><h5 class='text-alert'><i class="icon-warning-sign"></i></h5>
-              </a>
-            <% else %>
-                <%= count %>
-            <% end %>
-
-            <% if group.re_enrollment %>
-              <a title="Aluno Rematriculado" data-placement="right" data-toggle="tooltip" href="#" data-original-title=""><h5 class='text-alert'><i class="icon-ok"></i></h5>
-              </a>
-            <% else %>
-                <%= count %>
-            <% end %>
-          </td>
-
           <td>
-            <li class="dropdown">
-              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                <%= group%>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                    <%= link_to 'Informações sobre aluno', group.student %>
-                </li>
-                <% if params[:controller] == 'classrooms' %>
-                  <% unless group.transfer? %>
-                    <% unless group.locked? %>
-                      <li>
-                        <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) %>
-                      </li>
-                      <li>
-                          <%= link_to 'Trancar', edit_group_path(group, status: StatusGroup::LOCKED) %>
-                      </li>
-                      <li>
-                          <%= link_to 'Ativar', edit_group_path(group, status: StatusGroup::ACTIVE) %>
-                      </li>
-                    <% end %>
-                    <% unless group.folded? %>
-                      <li>
-                        <%= link_to 'Desistir', edit_group_path(group, status: StatusGroup::FOLDED)%>
-                      </li>
-                      <li>
-                        <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) %>
-                      </li>
-                    <% end %>
-                    <% if group.active? %>
-                    <li>
-                      <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group)%>
-                    </li>
-                      <li>
-                        <%= link_to 'Transferir', edit_group_path(group, status: StatusGroup::TRANSFER) %>
-                      </li>
-                      <li>
-                        <%= link_to 'Deletar', group, method: :delete %>
-                      </li>
-                    <% end %>
-                  <% end %>
-                  <li>
-                    <%= link_to 'Lançar Faltas', new_fault_path(group_id: group.id) if group.active? %>
-                  </li>
-                  <li>
-                    <%= link_to 'Lançar Avaliações', new_exam_path(group_id: group.id) if group.active? %>
-                  </li>
-                  <li>
-                    <%= link_to "#{group.second_change_exam ? 'Desmarcar 2ª chamada' : 'Marcar 2ª chamada '}", second_change_exam_group_path(group) if group.active? %>
-                  </li>
-                  <li>
-                    <%= link_to 'Informações sobre faltas', faults_path(group_id: group.id)%>
-                  </li>
-                  <li>
-                    <%= link_to 'Informações sobre avaliações', exams_path(group_id: group.id) %>
-                  </li>
-                <% end %>
-              </ul>
-            </li>
+						<%=count  = count + 1 %>
+						<% if group.second_change_exam %>
+						  <a title="Aluno foi marcado para 2ª chamada" data-placement="right" data-toggle="tooltip" href="#" data-original-title=""><h5 class='text-alert'><i class="icon-warning-sign"></i></h5>
+						  </a>
+						<% end %>
+
+						<% if group.re_enrollment %>
+						  <a title="Aluno Rematriculado" data-placement="right" data-toggle="tooltip" href="#" data-original-title=""><h5 class='text-alert'><i class="icon-ok"></i></h5>
+						  </a>
+						<% end %>
+          <td>
+						<li class="dropdown">
+							<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+							<%= group%>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<%= link_to 'Informações sobre aluno', group.student %>
+								</li>
+								<li>
+			            <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) %>
+			          </li>
+			          <li>
+			              <%= link_to 'Trancar', edit_group_path(group, status: StatusGroup::LOCKED) %>
+			          </li>
+			          <li>
+			              <%= link_to 'Ativar', edit_group_path(group, status: StatusGroup::ACTIVE) %>
+			          </li>
+			          <li>
+			            <%= link_to 'Desistir', edit_group_path(group, status: StatusGroup::FOLDED)%>
+			          </li>
+			          <li>
+			            <%= link_to 'Transferir', edit_group_path(group, status: StatusGroup::TRANSFER) %>
+			          </li>
+			          <li>
+			            <%= link_to 'Deletar', group, method: :delete %>
+			          </li>
+					      <li>
+					        <%= link_to 'Lançar Faltas', new_fault_path(group_id: group.id) if group.active? %>
+					      </li>
+					      <li>
+					        <%= link_to 'Lançar Avaliações', new_exam_path(group_id: group.id) if group.active? %>
+					      </li>
+					      <li>
+					        <%= link_to "#{group.second_change_exam ? 'Desmarcar 2ª chamada' : 'Marcar 2ª chamada '}", second_change_exam_group_path(group) if group.active? %>
+					      </li>
+					      <li>
+					        <%= link_to 'Informações sobre faltas', faults_path(group_id: group.id)%>
+					      </li>
+					      <li>
+					        <%= link_to 'Informações sobre avaliações', exams_path(group_id: group.id) %>
+					      </li>
+			
+							</ul>
+						</li>
           </td>
+
+
           <td>
             <%= "#{group.student.age[:ano]} ano(s) #{group.student.age[:mes]} mês(es) #{group.student.age[:dia]} dia(s)" %>
           </td>
