@@ -1,8 +1,8 @@
 <%= f.input :classroom_id, :as => "hidden"%>
 <%= hidden_field_tag :classroom_id, params[:classroom_id] %>
 <%= f.input :status, as: :hidden %>
+<%= f.input :status, as: :hidden, input_html: { value: @group.status } %>
 <%= hidden_field_tag :status, params[:status] %>
-
 
 <%= f.input :student_id, as: :hidden %>
 

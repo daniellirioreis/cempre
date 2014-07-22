@@ -1,6 +1,7 @@
 class Group < ActiveRecord::Base
   belongs_to :student
   belongs_to :classroom
+  belongs_to :new_classroom, :class_name => "Classroom", :foreign_key => "new_classroom_id"
   has_many :faults, :dependent => :restrict_with_error
   has_many :exams, :dependent => :restrict_with_error
   has_one :questionnaire
@@ -15,6 +16,9 @@ class Group < ActiveRecord::Base
   validate :validate_group
 
   scope :status, lambda { |status| where("status = ?", status) }
+  
+  scope :different_id, lambda { |id| where("id = ?", id) }
+  
 
   scope :active, -> {where("status = ?", StatusGroup::ACTIVE)}
 
@@ -86,24 +90,23 @@ class Group < ActiveRecord::Base
 
   def validate_group
 
-    if (classroom.groups.active.count + 1) > classroom.capacity
-      errors.add(:student_id, "não pode ser enturmamado, turma não possui mais vaga")
-    else
-      if self.new_record?
-        group = Group.student_id(student_id).active.type_course(classroom.course.type_course)
-         if group.any?
-           errors.add(:student_id, "já possui outra enturmação ativa na turma #{group.last.classroom}")
-         end
-      end
-
-      unless self.new_record?
-        if status == StatusGroup::LOCKED || status == StatusGroup::FOLDED
-          if justification.blank?
-            errors.add(:justification, :blank )
-          end
+    unless self.new_record?
+      if status == StatusGroup::LOCKED || status == StatusGroup::FOLDED
+        if justification.blank?
+          errors.add(:justification, :blank )
         end
       end
+
+      if status == StatusGroup::TRANSFER        
+        if (new_classroom.groups.active.count + 1) > new_classroom.capacity
+          errors.add(:student_id, "não pode ser enturmamado, turma não possui mais vaga") 
+        end
+      end
+      
+    else
+      errors.add(:student_id, "não pode ser enturmamado, turma não possui mais vaga") if (classroom.groups.active.count + 1) > classroom.capacity
     end
+
   end
 
   def create_transfer
