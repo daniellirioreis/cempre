@@ -30,7 +30,7 @@
           <% end %>
         </tr>
         <% count = 0 %>
-        <% @classroom.groups.each do |g| %>
+        <% @classroom.groups.sort_by(&:student).each do |g| %>
         <tr>
           <td>
             <%= count = count + 1 %>
@@ -41,7 +41,7 @@
               <% unless  g.active? %>(<%= g.status_humanize %>)<%end%>
             </small>
           </td>
-          <% @lessons.each do |lesson| %>
+          <% @lessons.sort_by(&:to_s).each do |lesson| %>
             <td align="center">
               <span style="padding-left:20px">
                 <% if g.transfer? %>
