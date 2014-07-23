@@ -34,7 +34,7 @@
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <i class="icon-calendar"></i><strong>Importante</strong><br>
   <% @importants.each do |i| %>
-    <%= i.calendar_day.to_string %> | <%=i.description%><br>
+    <%= i.calendar_day.to_string %> |<%= i.time_start.try(:strftime, '%H:%M') %> <%=i.description%><br>
   <% end %>
   </div>
 <% end %>

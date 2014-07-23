@@ -34,7 +34,7 @@
     <td>
       <p class="text-success"><b><i class="icon-time"></i> <%= time_start.try(:strftime, '%H:%M') %></b></p>
     </td>
-    <% lessons.each do |l| %>
+    <% lessons.sort_by(&:teacher).each do |l| %>
       <td>
         <%= link_to "#{l.classroom} - #{l.classroom.teacher}" , l.classroom %><br/>
           <% minutes = l.classroom.minutos_restantes(@time_now) %>
