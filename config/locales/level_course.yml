@@ -1,0 +1,6 @@
+pt-BR:
+  enumerations:
+    level_course:
+      elementary: "Básico"
+      intermediate: "Intermediário"
+      advanced: "Avançado"
