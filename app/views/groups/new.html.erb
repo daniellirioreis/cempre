@@ -67,7 +67,7 @@
       <%= f.input :classroom_id, :as => "hidden"%>
       <%= f.input :status, as: :hidden %>
       <%= f.input :status, as: :hidden %>
-      <%= f.input :student_id, collection: Student.sorted, input_html: { class: 'span10' } %>
+      <%= f.input :student_id, collection: company_current.students.sorted, input_html: { class: 'span10' } %>
     </div>
     <div class="span3">
       <br/>
