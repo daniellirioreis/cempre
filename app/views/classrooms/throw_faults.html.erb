@@ -27,8 +27,10 @@
     <%end%>
   </tr>
 </table>
+<%= label_tag 'txtBusca', 'Pesquisar' %>
+<%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_students" %>
 
-<table width="940" class="table table-striped table-hover table-bordered">
+<table width="940" class="table table-striped table-hover table-bordered list_students">
     <tbody>
       <tr>
         <th rowspan="2"><b>Nº</b></th>
