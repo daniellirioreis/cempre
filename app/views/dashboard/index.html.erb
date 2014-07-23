@@ -42,17 +42,12 @@
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 <i class="icon-comment"></i><strong>Mensagens</strong><br>
 	<% @notes.each do |n|%>
+			<% if current_user.adm %>
+	      <%= link_to "Editar", edit_note_path(n), method: :delete, data: { confirm: 'Confirma exclusão?' } %>
+				<%= link_to "Apagar", n %>
+	    <% end %> 
 	    <%= n.subject %><br>
 	    <strong>Ass: </strong><%= n.user.name %>
-	    <% if current_user.adm %>
-	      <br>
-	      <br>
-	      <%= link_to edit_note_path(n), :tabindex => "-1" do %>
-	      <i class="icon-pencil"></i>
-	      <% end %>
-	      <%= link_to n , method: :delete, data: { confirm: 'Confirma exclusão?' }, :tabindex => "-1" do %>
-	      <i class="icon-trash"></i>
-	      <% end %>
 	    <% end %>
 			<hr>
 	<% end %>
