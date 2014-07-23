@@ -46,7 +46,10 @@
 	      <%= link_to "Editar", edit_note_path(n) %>
 				<%= link_to "Apagar", n , method: :delete, data: { confirm: 'Confirma exclusão?' } %><br>
 	    <% end %> 
-	    <%= n.subject %><br>
+				<pre>
+					<%=  raw n.subject %>
+				</pre>
+				<br>
 	    <strong>Ass: </strong><%= n.user.name %>
 			<hr>
 	<% end %>
