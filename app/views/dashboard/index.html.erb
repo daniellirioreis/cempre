@@ -43,12 +43,11 @@
 <i class="icon-comment"></i><strong>Mensagens</strong><br>
 	<% @notes.each do |n|%>
 			<% if current_user.adm %>
-	      <%= link_to "Editar", edit_note_path(n), method: :delete, data: { confirm: 'Confirma exclusão?' } %>
-				<%= link_to "Apagar", n %>
+	      <%= link_to "Editar", edit_note_path(n) %>
+				<%= link_to "Apagar", n , method: :delete, data: { confirm: 'Confirma exclusão?' } %>
 	    <% end %> 
 	    <%= n.subject %><br>
 	    <strong>Ass: </strong><%= n.user.name %>
-	    <% end %>
 			<hr>
 	<% end %>
 </div>
