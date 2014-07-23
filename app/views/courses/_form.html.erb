@@ -6,6 +6,10 @@
     <div class="span3"><%= f.input :type_course, collection: TypeCourse %></div>
     <div class="span3"><%= f.input :sequence, input_html: { class: 'span3' } %></div>
   </div>
+	<div class="row-fluid">
+    <div class="span3"><%= f.input :level_course, collection: LevelCourse %></div>
+  </div>
+  
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-success' %>
     <%= link_to 'Voltar', courses_path, class: 'btn' %>

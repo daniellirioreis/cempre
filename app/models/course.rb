@@ -5,8 +5,9 @@ class Course < ActiveRecord::Base
   validates :name, uniqueness: { scope: :company_id }
 
   has_enumeration_for :type_course, :create_helpers => true, :create_scopes => true
+  has_enumeration_for :level_course, :create_helpers => true, :create_scopes => true
 
-  scope :sorted, -> { order(:name) }
+  scope :sorted, -> { order(:type_course, :sequence) }
 
   def to_s
     name

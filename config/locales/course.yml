@@ -17,3 +17,4 @@ pt-BR:
         name: "Nome"
         type_course: "Tipo Curso"
         sequence: "Sequência"
+        level_course: 'Nível'
