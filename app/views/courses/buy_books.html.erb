@@ -1,0 +1,63 @@
+<% count_books = 0 %>
+<% @groups.group_by(&:classroom).each do |classroom, groups| %>
+<% count_books_for_classroom = 0 %>
+<% repeats = 0 %>
+<h3 align='center'>Pedido de livro <%= @course %></h3>
+<h5><%= classroom %> - <%= classroom.day_week_humanize %> - <%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M')%> </h5>
+<table class="list_groups table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Aluno</th>
+            <th>Status</th>
+            <th>Assinatura</th>							
+            <th class="no-print" > Ação </th>
+        </tr>
+    </thead>
+    <tbody>
+      <% if groups.any? %>
+        <% groups.each do |g| %>
+          <tr>
+              <td><%= g %></td>
+              <td>
+              	<% if g.repeat %>
+									Repetente
+									<% repeats  = repeats + 1 %>
+								<% else %>
+									<% count_books = count_books + 1 %>
+									<% count_books_for_classroom  = count_books_for_classroom + 1 %>
+								<% end %>								
+              </td>
+              <td>
+              </td>
+              <td class="no-print" >
+                <div class="btn-group">
+                </div>
+              </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan='9'>Nenhum registro foi encontrado.</td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+<p>
+	<table class="table">
+		<tr>
+			<th>
+				<strong>Quantidade livros:</strong> <%= count_books_for_classroom %>					
+			</td>
+			<th>
+				<strong>Quantidade repetentes:</strong> <%= repeats %>					
+			</td>			
+		</tr>
+	</table>
+	<hr>
+</p>
+<div style="page-break-before:always"></div>
+<% end %>
+<p>
+	<strong>Total de Livros:</strong> <%= count_books %>
+</p>
+
