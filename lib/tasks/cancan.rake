@@ -114,6 +114,13 @@ namespace :cancan do
         end
       end
       
+      yaml['actions_more_courses'].each do |action|
+        r = Role.find_by_action_and_controller(action, 'courses')
+        unless r.present?
+          Role.create(:controller => 'courses', :action => action)
+        end
+      end
+      
     end
   end
 end

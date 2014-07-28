@@ -1,8 +1,12 @@
 class CoursesController < ApplicationController
   before_filter :authorize_controller!
 
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :buy_books]
 
+  def buy_books
+    @groups =  @course.groups(current_calendar.id).sorted
+  end
+  
   def index
     @courses = current_company.courses.sorted
   end

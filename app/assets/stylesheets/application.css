@@ -85,3 +85,11 @@
   font-family: Arial;
   float: left;
 }
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}

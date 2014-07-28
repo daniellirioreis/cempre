@@ -72,3 +72,5 @@ actions_more_plans:
   - report
 actions_more_teachers:
   - report_teacher
+actions_more_courses:
+  - buy_books

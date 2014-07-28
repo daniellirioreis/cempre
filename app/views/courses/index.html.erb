@@ -35,6 +35,7 @@
                 <div class="btn-group">
                   <%= link_to "Editar", edit_course_path(c), :class => "btn btn-primary" %>
                   <%= link_to "Informações",c, :class => "btn btn-info" %>
+                  <%= link_to "Pedido de Livros", buy_books_course_path(c), :class => "btn btn-success" if c.buy_the_book %>
                 </div>
               </td>
           </tr>

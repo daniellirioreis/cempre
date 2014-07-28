@@ -53,6 +53,14 @@ class Group < ActiveRecord::Base
   scope :student_id, lambda { |id| where("student_id = ?", id) }
 
   scope :calendar_id, lambda { |id| where("classrooms.calendar_id = ?", id).joins(:classroom) }
+  
+  scope :course_id, lambda { |id| where("classrooms.course_id = ?", id)}
+
+  scope :join_classroom_find_course_id, lambda { |id| where("classrooms.course_id = ?", id).joins(:classroom) }
+
+  scope :different_group_id, lambda { |id| where("groups.id  <> ?", id)}
+  
+  
 
   scope :down_average, lambda { |down_average| where("exams.value <=?", down_average).joins(:exams) }
 
@@ -84,6 +92,10 @@ class Group < ActiveRecord::Base
     else
       0
     end
+  end
+  
+  def repeat
+    student.groups.join_classroom_find_course_id(classroom.course_id).different_group_id(id).any?
   end
 
   private

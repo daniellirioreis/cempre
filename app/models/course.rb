@@ -12,4 +12,9 @@ class Course < ActiveRecord::Base
   def to_s
     name
   end
+
+  def groups(calendar_id)
+    Group.active.calendar_id(calendar_id).course_id(id)
+  end
+  
 end

@@ -79,7 +79,9 @@ Donald::Application.routes.draw do
     get :report_teacher, on: :member
   end
 
-  resources :courses
+  resources :courses do 
+    get :buy_books, on: :member
+  end
 
   resources :students do
     get :my_data, on: :member

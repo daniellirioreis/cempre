@@ -7,6 +7,7 @@ pt-BR:
       create: 'Novo curso'
       update: 'Editar curso'
       show: 'Detalhes do Curso'
+      buy_books: "Compra de Livros"
   activerecord:
     models:
       course:
