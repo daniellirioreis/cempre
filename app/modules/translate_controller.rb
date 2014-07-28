@@ -120,6 +120,10 @@ class TranslateController
         'Imprimir Rematriculas'
       when 'report'
         'Imprimir'
+      when 'have_book'
+        'Pedido de livro'
+      when 'buy_books'
+        'Pedido de livro'      
     end
   end
 end

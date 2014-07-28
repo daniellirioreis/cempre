@@ -21,6 +21,9 @@ class Group < ActiveRecord::Base
   
 
   scope :active, -> {where("status = ?", StatusGroup::ACTIVE)}
+  
+  scope :not_have_book, -> {where("have_book = ?", false)}
+  
 
   scope :re_enrollment, -> {where("re_enrollment = ?", true)}
 

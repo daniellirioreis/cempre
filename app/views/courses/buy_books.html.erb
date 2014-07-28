@@ -8,7 +8,7 @@
     <thead>
         <tr>
             <th>Aluno</th>
-            <th>Status</th>
+            <th  class="no-print" >Status</th>
             <th>Assinatura</th>							
             <th class="no-print" > Ação </th>
         </tr>
@@ -16,22 +16,25 @@
     <tbody>
       <% if groups.any? %>
         <% groups.each do |g| %>
-          <tr>
+          <tr class="<%if g.repeat %>no-print<% end %>" >
               <td><%= g %></td>
-              <td>
+              <td  class="no-print" >
               	<% if g.repeat %>
 									Repetente
 									<% repeats  = repeats + 1 %>
 								<% else %>
-									<% count_books = count_books + 1 %>
-									<% count_books_for_classroom  = count_books_for_classroom + 1 %>
+									<% unless  g.have_book %>
+										<% count_books = count_books + 1 %>
+										<% count_books_for_classroom  = count_books_for_classroom + 1 %>									
+									<% end  %>
 								<% end %>								
               </td>
               <td>
               </td>
               <td class="no-print" >
                 <div class="btn-group">
-                </div>
+	                <%= link_to "#{g.have_book ? 'Tenho Livro' : 'Não tenho livro'}", have_book_group_path(g), :class => "btn #{ g.have_book ? 'btn-success' : 'btn-danger' }" %>
+	              </div>
               </td>
           </tr>
         <% end %>

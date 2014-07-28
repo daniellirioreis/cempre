@@ -63,6 +63,7 @@ Donald::Application.routes.draw do
       get :second_change_exam, on: :member
       get :questionnaire, on: :member
       get :re_enrollment, on: :member
+      get :have_book, on: :member
   end
 
   resources :classrooms do

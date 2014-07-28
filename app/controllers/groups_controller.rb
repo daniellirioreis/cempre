@@ -2,12 +2,23 @@ class GroupsController < ApplicationController
 
   before_filter :authorize_controller!
 
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :second_change_exam, :questionnaire, :re_enrollment ]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :second_change_exam, :questionnaire, :re_enrollment, :have_book ]
   before_action :set_classroom, only:[:new, :create]
 
   before_action :set_new_classrooms, only:[:edit, :update]
 
 
+  def have_book
+    if @group.have_book
+      @group.update_attribute(:have_book, false)
+      flash[:notice] = '2ª chamada desmarcada com sucesso'
+    else
+      flash[:info] = '2ª chamada marcada com sucesso'
+      @group.update_attribute(:have_book, true)
+    end
+    redirect_to  buy_books_course_path(@group.classroom.course)
+  end
+  
   def questionnaire
     @questionnaire = @group.questionnaire
   end

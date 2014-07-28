@@ -53,6 +53,7 @@ actions_more_calendars:
 actions_more_groups:
   - second_change_exam
   - re_enrollment
+  - have_book
 actions_more_events:
   - finalize
 actions_more_birthdays_months:
