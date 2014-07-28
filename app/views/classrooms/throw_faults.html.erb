@@ -44,7 +44,7 @@
         <% end %>
       </tr>
       <% count = 0 %>
-      <% @classroom.groups.group_by(&:student).each do |g| %>
+      <% @classroom.groups.sorted.each do |g| %>
       <tr>
         <td>
           <p class='text-center'>
