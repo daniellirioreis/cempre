@@ -41,6 +41,9 @@
           <%if time < time_now %>
             <% if minutes > 0 %>
             <p class="text-error">Tempo restante: <%= minutes %> minutos</p>
+						<p>
+							<i class="icon-user"></i> <%= l.classroom.count_students%>
+						</p>
             <ul class="pager">
               <% @calendar_day.schedules_of_day(l.classroom.day_week, l.classroom.course_id, @calendar_day.id).each do |s| %>
                 <li>
