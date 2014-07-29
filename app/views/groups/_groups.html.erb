@@ -48,6 +48,9 @@
 								<li>
 			            <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) %>
 			          </li>
+								<li>
+			            <%= link_to "#{group.have_book ? 'Tenho livro' : 'Não Livro'}", re_enrollment_group_path(group) %>
+			          </li>
 			          <li>
 			              <%= link_to 'Trancar', edit_group_path(group, status: StatusGroup::LOCKED) %>
 			          </li>

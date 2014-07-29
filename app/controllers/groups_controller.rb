@@ -93,8 +93,7 @@ class GroupsController < ApplicationController
 
     def set_new_classrooms
       @classrooms_new = current_calendar.
-                        classrooms.
-                        sequence_and_type_course(@group.classroom.sequence, @group.classroom.type_course)
+                        classrooms
     
     end
 
