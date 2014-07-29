@@ -32,6 +32,7 @@ class Classroom < ActiveRecord::Base
   scope :sequence_and_type_course, lambda { |sequence, type_course| where("courses.sequence = ? and courses.type_course = ? ", sequence, type_course).joins(:course) }
 
   scope :sorted, -> { order(:day_week, :time_start) }
+    
 
   def to_s
     name
