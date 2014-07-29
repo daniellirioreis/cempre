@@ -8,6 +8,8 @@ class Book < ActiveRecord::Base
   has_enumeration_for :level, :with => LevelBook,  :create_helpers => true, :create_scopes => true
   has_enumeration_for :language, :create_helpers => true, :create_scopes => true
 
+  scope :sorted, -> { order(:title)}
+
   def returned
     rents.not_returned.empty?
   end

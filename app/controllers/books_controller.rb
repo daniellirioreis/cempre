@@ -5,9 +5,9 @@ class BooksController < ApplicationController
 
   def index
     if current_user.student?
-      @books = current_user.student.company_active.books
+      @books = current_user.student.company_active.books.sorted
     else
-      @books = current_company.books
+      @books = current_company.books.sorted
     end
   end
 
