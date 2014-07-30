@@ -31,7 +31,7 @@
 											Novato
 									<% else %>
 										<% g.student.groups.different_group_id(g.id).each do |g| %>
-											<%= g.classroom %> - 
+											<%= g.classroom %>(<%= g.status_humanize %>) - 
 										<% end %>
 									<% end %>
 								<% end %>								
