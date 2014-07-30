@@ -8,7 +8,7 @@
     <thead>
         <tr>
             <th>Aluno</th>
-            <th  class="no-print" >Status</th>
+            <th  class="no-print" >Histórico</th>
             <th>Assinatura</th>							
             <th class="no-print" > Ação </th>
         </tr>
@@ -27,6 +27,9 @@
 										<% count_books = count_books + 1 %>
 										<% count_books_for_classroom  = count_books_for_classroom + 1 %>									
 									<% end  %>
+									<% g.student.groups.different_group_id(g.id).each do |g| %>
+										<%= g.classroom %> - 
+									<% end %>
 								<% end %>								
               </td>
               <td>

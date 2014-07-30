@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
-
-gem 'unicorn'
+ruby '2.1.1'
 
 gem 'rails', '4.0.0'
 gem 'pg'
@@ -29,7 +27,6 @@ gem 'has_scope'
 gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
 
-
 gem 'will_paginate', '~> 3.0'
 
 group :doc do
@@ -38,10 +35,16 @@ end
 
 gem "enumerate_it"
 
+gem "unicorn"
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
   gem 'pry-doc'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv' 
+  gem 'capistrano-rvm', github: "capistrano/rvm"
 end
 
 group :test do
