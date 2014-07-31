@@ -11,9 +11,9 @@ class GroupsController < ApplicationController
   def have_book
     if @group.have_book
       @group.update_attribute(:have_book, false)
-      flash[:notice] = '2ª chamada desmarcada com sucesso'
+      flash[:notice] = 'Aluno marcado para comprar livro'
     else
-      flash[:info] = '2ª chamada marcada com sucesso'
+      flash[:info] = 'Aluno já possui comprar livro'
       @group.update_attribute(:have_book, true)
     end
     redirect_to  buy_books_course_path(@group.classroom.course)
