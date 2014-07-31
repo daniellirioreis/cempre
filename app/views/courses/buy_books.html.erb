@@ -1,3 +1,7 @@
+<p class="no-print" >
+	<%= link_to 'Voltar', courses_path %>
+</p>
+
 <% count_books = 0 %>
 <% @groups.group_by(&:classroom).each do |classroom, groups| %>
 <% count_books_for_classroom = 0 %>
