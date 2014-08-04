@@ -21,3 +21,4 @@ pt-BR:
         time_start: 'Hora inicial'
         teacher_id: 'Monitor(a)'
         student_id: 'Aluno'
+        closed: 'Fechar Evento'
