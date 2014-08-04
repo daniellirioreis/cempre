@@ -1,31 +1,33 @@
 <a id='open' href="#">Calendário</a>
-<a id='close' href="#">x</a>
-  <% contador = 0 %>
-  <table id='information'class="table table-striped table-hover table-bordered">
-      <% @calendar.days.sort_by(&:day).each do |l| %>
-        <% if contador == 0 %>
-          <tr>
-          <%end%>
-          <%  contador = contador + 1 %>
-          <td>
-            <div class="alert <% if l.day < Date.today %>alert-success<%else%> alert-info <%end%>">
-              <p class='text-info'><strong><%= l.to_string %></strong></p><br>
-              <% l.schedules.each do |s| %>
-                <%= s.description %> - <%= s.plan %>
-                <hr>
-              <%end%>
-              <% l.events.each do |e| %>
-                <%= e.description %>
+<div id='information'>
+  <a id='close' href="#">x</a>
+	<% @calendar.days.group_by(&:week).each do |week, days| %>
+		<% week %>
+		<table class='table'>
+				<tr>
+					<% days.each do |d|%>
+						<td title="<%d.events.each do  |e| %><%= e %><%end%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title="">
+							<%if d.day  == Date.current %>
+								<div class="alert alert-info">
+								<%= link_to "#{d.to_string}", new_event_path(calendar_day_id: d.id) %>																	
+							<% end %>														
 
-                <hr>
-              <%end%>
-
-            </div>
-          </td>
-
-          <% if contador == 4 %>
-            <%contador = 0%>
-          </tr>
-        <%end%>
-      <% end %>
-    </table>
+							<%if d.day < Date.current %>
+								<div class="alert alert-success">
+								<%=  d.to_string %>																	
+							<% end %>							
+							<% if d.day > Date.current %>
+								<%= link_to "#{d.to_string}", new_event_path(calendar_day_id: d.id) %>																									
+							<% end %>							
+							<% if d.day  == Date.current %>
+								</div>					  	
+							<% end %>
+							<%if d.day < Date.current %>
+								</div>
+							<% end %>														
+						</td>
+					<% end %>					
+				</tr>
+		</table>
+	<% end %>
+</div>
