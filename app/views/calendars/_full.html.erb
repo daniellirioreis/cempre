@@ -1,33 +1,93 @@
-<a id='open' href="#">Calendário</a>
-<div id='information'>
-  <a id='close' href="#">x</a>
-	<% @calendar.days.group_by(&:week).each do |week, days| %>
-		<% week %>
+	<% @calendar.days.group_by(&:month_string).each do |month_string, days| %>
+		 <h4 class="text-success"><%= month_string %></h4>
 		<table class='table'>
-				<tr>
-					<% days.each do |d|%>
-						<td title="<%d.events.each do  |e| %><%= e %><%end%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title="">
-							<%if d.day  == Date.current %>
-								<div class="alert alert-info">
-								<%= link_to "#{d.to_string}", new_event_path(calendar_day_id: d.id) %>																	
-							<% end %>														
-
-							<%if d.day < Date.current %>
-								<div class="alert alert-success">
-								<%=  d.to_string %>																	
-							<% end %>							
-							<% if d.day > Date.current %>
-								<%= link_to "#{d.to_string}", new_event_path(calendar_day_id: d.id) %>																									
-							<% end %>							
-							<% if d.day  == Date.current %>
-								</div>					  	
-							<% end %>
-							<%if d.day < Date.current %>
-								</div>
-							<% end %>														
-						</td>
-					<% end %>					
-				</tr>
+			<tr>
+				<td>
+				 <h4 class="text-success">D</h4>
+				</td>
+				<td>
+				 <h4 class="text-success">S</h4>
+				</td>
+				<td>
+				 <h4 class="text-success">T</h4>
+				</td>
+				<td>
+				 <h4 class="text-success">Q</h4>
+				</td>
+				<td>
+				 <h4 class="text-success">Q</h4>
+				</td>
+				<td>
+				 <h4 class="text-success">S</h4>
+				</td>
+				<td>
+				 <h4 class="text-success">S</h4>
+				</td>				
+			</tr>
+			<tr>
+				<td>
+					<% days.sort_by(&:week).each do |d| %>
+						<% if d.wday ==  DayWeek::SUNDAY %>
+						<p>
+							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+						</p>
+						<% end %>
+				  <% end %>
+				</td>
+				<td>
+					<% days.sort_by(&:week).each do |d| %>					
+						<% if d.wday ==  DayWeek::MONDAY %>
+							<p>
+								 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+							</p>
+						<% end %>
+				  <% end %>					
+				</td>
+				<td>
+					<% days.sort_by(&:week).each do |d| %>
+						<% if d.wday ==  DayWeek::TUESDAY %>
+						<p>
+							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+						</p>
+						<% end %>
+				  <% end %>					
+				</td>
+				<td>
+					<% days.sort_by(&:week).each do |d| %>
+						<% if d.wday ==  DayWeek::WEDNESDAY %>
+						<p>
+							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+						</p>
+						<% end %>
+				  <% end %>										
+				</td>
+				<td>
+					<% days.sort_by(&:week).each do |d| %>
+						<% if d.wday ==  DayWeek::THURSDAY %>
+						<p>
+							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+						</p>
+						<% end %>
+				  <% end %>															
+				</td>
+				<td>
+					<% days.sort_by(&:week).each do |d| %>
+						<% if d.wday ==  DayWeek::FRIDAY %>
+						<p>
+							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+						</p>
+						<% end %>
+				  <% end %>																				
+				</td>
+				<td>
+					<% days.sort_by(&:week).each do |d| %>
+						<% if d.wday ==  DayWeek::SATURDAY %>
+						<p>
+							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+						</p>
+						<% end %>
+				  <% end %>																				
+				</td>
+			</tr>
 		</table>
 	<% end %>
-</div>

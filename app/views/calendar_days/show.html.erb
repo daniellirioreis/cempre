@@ -1,9 +1,60 @@
 <p id="notice"><%= notice %></p>
+<h2 class="text-info"><%= @calendar_day.to_string %></h2>
+<table class=" table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Horário</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @calendar_day.events.any? %>
+				<% @calendar_day.events.each do |e|  %>
+            <tr>
+                <td align="center">
+                  <%= e.time_start.try(:strftime, '%H:%M') %> às  <%= e.time_end.try(:strftime, '%H:%M') %>
+                </td>
+                <td>
+									<%= e.description %>
+                </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan='2'>Nenhum registro foi encontrado.</td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
+<table class=" table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th> </th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @calendar_day.schedules.any? %>
+				<% @calendar_day.schedules.each do |s|  %>
+            <tr>
+                <td align="center">
+                </td>
+                <td>
+									<%= s.description%>(<%= s.plan %> - cronograma) 
+								</td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan='2'>Nenhum registro foi encontrado.</td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
 
-<p>
-  <strong>Day:</strong>
-  <%= @calendar_day.day %>
-</p>
+<div class="form-actions">
+  <%= link_to "Criar Eventos", new_event_path(calendar_day_id: @calendar_day.id), :class => 'btn btn-success'%>
+  <%= link_to 'Voltar', calendar_path(id: @calendar_day.calendar, calendar_day_id: @calendar_day_id ), class: 'btn' %>
+</div>
 
-<%= link_to 'Edit', edit_calendar_day_path(@calendar_day) %> |
-<%= link_to 'Back', calendar_days_path %>
+
