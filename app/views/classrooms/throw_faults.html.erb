@@ -63,7 +63,7 @@
           </p>
         </td>
         <% @lessons.each do |lesson| %>
-          <td title="<%=lesson.calendar_day%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title="">
+          <td title="<%=lesson.calendar_day%>">
             <p class='text-center'>
                 <% if g.transfer? %>
                    <% date_transfer = g.updated_at.strftime("%Y%m%d").to_i %>
