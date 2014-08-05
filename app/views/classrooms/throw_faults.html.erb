@@ -54,7 +54,7 @@
         <td>
           <small>
             <%= g %>
-            <%= link_to 'Desistir', edit_group_path(group, status: StatusGroup::FOLDED)%>
+            <%= link_to 'Desistir', edit_group_path(g, status: StatusGroup::FOLDED)%>
             <% unless  g.active? %>(<%= g.status_humanize %>)<%end%>
           </small>
         </td>
