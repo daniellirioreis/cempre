@@ -22,7 +22,13 @@
   <tr>
     <% @classroom.calendar.months.each do |m| %>
       <td>
-        <%= link_to "#{m}", throw_faults_classroom_path(@classroom, month: m) %><br>
+				<% if m == params[:month].to_i %>
+					<div class= "alert alert-info">
+				<% end %>
+        	<%= link_to "#{TranslateMonths.translate(m)}", throw_faults_classroom_path(@classroom, month: m) %><br>
+					<% if m == params[:month].to_i %>
+						</div>
+					<% end %>					
       </td>
     <%end%>
   </tr>
@@ -70,7 +76,7 @@
                    <% date_transfer = g.updated_at.strftime("%Y%m%d").to_i %>
                    <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
                    <% if date_transfer >= date_lesson %>
-                     <%= link_to "#{g.faults.find_by_group_id_and_lesson_id(g.id, lesson.id ).present? ? 'F' : 'P'}", create_with_click_faults_path(lesson_id: lesson.id, group_id: g.id) %>
+                     <%= link_to "#{g.faults.find_by_group_id_and_lesson_id(g.id, lesson.id ).present? ? 'F' : 'P'}", create_with_click_faults_path(lesson_id: lesson.id, group_id: g.id, month: params[:month]) %>
                   <% else %>
                     -
                   <% end %>
@@ -78,7 +84,7 @@
                   <% date_active = g.created_at.strftime("%Y%m%d").to_i %>
                   <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
                    <% if date_active <= date_lesson %>
-                   <%= link_to "#{g.faults.find_by_group_id_and_lesson_id(g.id, lesson.id ).present? ? 'F' : 'P'}", create_with_click_faults_path(lesson_id: lesson.id, group_id: g.id) %>
+                   <%= link_to "#{g.faults.find_by_group_id_and_lesson_id(g.id, lesson.id ).present? ? 'F' : 'P'}", create_with_click_faults_path(lesson_id: lesson.id, group_id: g.id, month: params[:month]) %>
                   <% else %>
                       -
                   <% end %>

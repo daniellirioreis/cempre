@@ -39,7 +39,7 @@ class FaultsController < ApplicationController
       end
     end
 
-    redirect_to throw_faults_classroom_path(@fault.group.classroom)
+    redirect_to throw_faults_classroom_path(@fault.group.classroom, month: params[:month])
 
   end
 
