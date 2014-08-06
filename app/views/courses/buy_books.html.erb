@@ -21,25 +21,17 @@
       <% if groups.any? %>
         <% groups.each do |g| %>
           <tr class="<%if g.repeat || g.have_book %>no-print<% end %>" >
-              <td><%= g %></td>
+              <td><%= g %>
+								<% unless  g.have_book %>
+									<% count_books = count_books + 1 %>
+									<% count_books_for_classroom  = count_books_for_classroom + 1 %>									
+								<% end  %>								
+							</td>
               <td  class="no-print" >
-              	<% if g.repeat %>
-									Repetente
-									<% repeats  = repeats + 1 %>
-								<% else %>
-									<% unless  g.have_book %>
-										<% count_books = count_books + 1 %>
-										<% count_books_for_classroom  = count_books_for_classroom + 1 %>									
-									<% end  %>
-									<% if g.student.groups.different_group_id(g.id).empty? %>
-											Novato
-									<% else %>
-										<% g.student.groups.different_group_id(g.id).each do |g| %>
-											<%= g.classroom %>(<%= g.status_humanize %>) - 
-										<% end %>
-									<% end %>
-								<% end %>								
-              </td>
+								<% g.student.groups.different_group_id(g.id).each do |g| %>
+									<%= g.classroom %>(<%= g.status_humanize %>) - 
+								<% end %>
+	            </td>
               <td>
               </td>
               <td class="no-print" >
@@ -61,10 +53,7 @@
 		<tr>
 			<th>
 				<strong>Quantidade livros:</strong> <%= count_books_for_classroom %>					
-			</td>
-			<th>
-				<strong>Quantidade repetentes:</strong> <%= repeats %>					
-			</td>			
+			</th>
 		</tr>
 	</table>
 	<hr>
