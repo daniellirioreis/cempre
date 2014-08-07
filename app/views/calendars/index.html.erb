@@ -1,3 +1,14 @@
+<blockquote>
+  <table class='table'>
+    <tr>
+      <td>
+        <%= link_to new_calendar_path, role: 'button' do %>
+          <h2 class="text-success" title='Novo Aluno'><i class="icon-plus"></i></h2>
+        <% end %>
+      </td>
+	 </tr>
+	</table>
+</blockquote>
 
 <table class="table table-striped table-hover table-bordered">
   <colgroup>
@@ -40,6 +51,3 @@
     <% end %>
   </tbody>
 </table>
-<div class="form-actions">
-  <%= link_to 'Novo Período', new_calendar_path, :class => "btn btn-success" %>
-</div>

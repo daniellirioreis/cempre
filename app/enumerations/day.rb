@@ -4,7 +4,7 @@ class Day < EnumerateIt::Base
                    :saturday                            => 2,
                    :wednesday                           => 3,
                    :monday                              => 4,
-                   :thursday                            => 5
-
+                   :thursday                            => 5,
+                   :tuesday                             => 6
 
 end
