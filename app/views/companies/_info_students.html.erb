@@ -3,7 +3,7 @@
 	<% total_groups = 0 %>
 	<% StatusGroup.to_a.each do |s| %>
 		<% groups = c.groups.status(s.last.to_i)%>
-		<h5><%= s.first %>(<%= count_groups %>)</h5>
+		<h5><%= s.first %>(<%= groups.count %>)</h5>
  			<% if s.first.to_s == 'Ativo' %>
 					<% cc = 0%>
 					<% groups.group_by(&:classroom).each do |classroom, groups| %>
