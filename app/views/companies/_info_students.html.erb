@@ -10,12 +10,8 @@
 					<% cc = 0%>
 					<% groups.group_by(&:classroom).each do |classroom, groups| %>
 						<%cc = cc +  groups.count %>
-						<%= "#{classroom} - #{groups.count}" %><br>
 					<% end %>
-					<%= cc %>
 			<% end %>
  <% end %>
-
-
 	<h5> Total: <%= total_groups %><h5>
 <%end%>
