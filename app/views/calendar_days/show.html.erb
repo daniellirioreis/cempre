@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         <% if @calendar_day.events.any? %>
-				<% @calendar_day.events.each do |e|  %>
+				<% @calendar_day.sort_by(&:time_start).events.each do |e|  %>
             <tr>
                 <td align="center">
                   <%= e.time_start.try(:strftime, '%H:%M') %> às  <%= e.time_end.try(:strftime, '%H:%M') %>
