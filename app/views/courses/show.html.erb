@@ -15,7 +15,7 @@
 				<% @course.classrooms.calendar_id(current_calendar.id).each do |c| %>
             <tr>
                 <td align="center">
-                  <%=  link_to "#{c}" %> - <%= c.teacher %>
+                  <%=  link_to "#{c}", c  %> - <%= c.teacher %>
                 </td>
                 <td>
 									<%= c.count_students  %>
