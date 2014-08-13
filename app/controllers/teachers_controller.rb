@@ -50,6 +50,7 @@ class TeachersController < ApplicationController
 
     def teacher_params
       params.require(:teacher).permit(:name,:street, :house_number, :complement, :zip_code, :neighborhood,
-                                      :district, :city, :federal_unit, :email, :birth_date, :phone, :cell_phone)
+                                      :district, :city, :federal_unit, :email, :birth_date, :phone, :cell_phone, :monitor,
+                                      schedule_teachers_attributes: [:id, :time_start, :time_end, :day_week, :_destroy])
     end
 end

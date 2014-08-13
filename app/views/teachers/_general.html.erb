@@ -14,3 +14,17 @@
   <div class="span3"><%= f.input :phone, input_html: { class: 'span8 phone' } %></div>
   <div class="span3"><%= f.input :cell_phone, input_html: { class: 'span8 phone' } %></div>
 </div>
+<div class="row-fluid">
+  <div class="span3"><%= f.input :monitor %></div>
+</div>
+
+<h3>Horarios</h3>
+  <div id="schedule_teachers">
+    <%= f.simple_fields_for :schedule_teachers do |schedule_teacher| %>
+      <%= render "schedule_teacher_fields", :f => schedule_teacher %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= link_to_add_association 'adicionar horário', f, :schedule_teachers, :class => "btn btn-default" %>
+  </div>

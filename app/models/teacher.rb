@@ -2,8 +2,12 @@ class Teacher < ActiveRecord::Base
 
   belongs_to :company
   has_many :classrooms
-
+  has_many :schedule_teachers
+  accepts_nested_attributes_for :schedule_teachers, :reject_if => :all_blank, :allow_destroy => true
+  
   scope :sorted, -> { order(:name) }
+  scope :monitor, -> {where(monitor: true )}
+  
 
   def to_s
     name

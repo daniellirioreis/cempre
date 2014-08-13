@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728183754) do
+ActiveRecord::Schema.define(version: 20140813134020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -267,6 +267,17 @@ ActiveRecord::Schema.define(version: 20140728183754) do
     t.datetime "updated_at"
   end
 
+  create_table "schedule_teachers", force: true do |t|
+    t.time     "time_start"
+    t.time     "time_end"
+    t.integer  "day_week"
+    t.integer  "teacher_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "schedule_teachers", ["teacher_id"], name: "index_schedule_teachers_on_teacher_id", using: :btree
+
   create_table "schedules", force: true do |t|
     t.integer  "plan_id"
     t.integer  "calendar_day_id"
@@ -317,6 +328,7 @@ ActiveRecord::Schema.define(version: 20140728183754) do
     t.string   "email"
     t.date     "birth_date"
     t.string   "cell_phone"
+    t.boolean  "monitor",                 default: false
   end
 
   add_index "teachers", ["company_id"], name: "index_teachers_on_company_id", using: :btree

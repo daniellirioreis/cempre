@@ -28,7 +28,7 @@
       <div class="span10"><%= f.input :student_id, collection: Student.sorted, input_html: { class: 'span10' } %></div>
     </div>
     <div class='row-fluid' >
-      <div class="span10"><%= f.input :teacher_id, collection: Teacher.all, input_html: { class: 'span10' } %></div>
+      <div class="span10"><%= f.input :teacher_id, collection: current_company.teachers.monitor, input_html: { class: 'span10' } %></div>
     </div>
   </blockquote>
 </div>

@@ -31,7 +31,8 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :teacher_id, :if => :monitoring?
   validates_presence_of :student_id, :if => :monitoring?
-
+  validate :monitoring
+  
   def to_s
     if monitoring?
       "#{description} - #{student} - #{teacher}"
@@ -39,4 +40,30 @@ class Event < ActiveRecord::Base
        "#{description}"
     end
   end
+  
+  def monitoring
+    if teacher.present? 
+      unless teacher.schedule_teachers.empty?
+        schedule_teachers = teacher.schedule_teachers.day_week(calendar_day.day.wday)      
+        if  schedule_teachers.any?
+          s = []
+          schedule_teachers.each do |st|
+            if 
+              s << st                
+            end
+          end
+                    
+          if s.empty?              
+            errors.add(:teacher_id, "não possui horário definido para dia selecionado.")                       
+          end
+          
+        else
+          errors.add(:teacher_id, "não possui horário definido para dia selecionado.")           
+        end
+      else
+        errors.add(:teacher_id, "não possui horário definido.") 
+      end      
+    end
+  end
+
 end

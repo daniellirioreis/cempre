@@ -27,3 +27,5 @@ pt-BR:
         phone: 'Fone'
         cell_phone: 'Celular'
         birth_date: 'Data Nascimento'
+        schedule_teachers_attributes:
+          time_start: 'Hora Inicial'

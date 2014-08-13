@@ -10,7 +10,6 @@ gem "cpf_validator"
 gem 'cnpj_validator'
 gem 'validates_timeliness'
 gem 'i18n_alchemy', :git => 'https://github.com/carlosantoniodasilva/i18n_alchemy.git'
-gem 'cocoon'
 gem "active_model_serializers"
 gem 'postgres-copy'
 gem 'pundit'
@@ -20,7 +19,7 @@ gem 'puma'
 gem 'devise'
 gem "cancan"
 
-gem 'cocoon'
+gem "cocoon"
 
 gem 'responders', :git => 'https://github.com/plataformatec/responders.git'
 gem 'has_scope'
@@ -32,8 +31,6 @@ gem 'will_paginate', '~> 3.0'
 group :doc do
   gem 'sdoc', :require => false
 end
-
-gem "enumerate_it"
 
 gem "unicorn"
 
