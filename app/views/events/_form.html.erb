@@ -2,7 +2,7 @@
 <div class="form-actions">
   <%= hidden_field_tag :calendar_day_id, params[:calendar_day_id] %>
   <%= f.input :calendar_day_id, :as => "hidden"%>
-  <b>Dia:</b> <%= @event.calendar_day.to_string %><br>
+	<h2 class="text-info"><%= @event.calendar_day.to_string %></h2>
 </div>
 <div class="row-fluid">
   <div class="span3"><%= f.input :time_start, input_html: { class: 'span3' } %></div>
