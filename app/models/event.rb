@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :teacher_id, :if => :monitoring?
   validates_presence_of :student_id, :if => :monitoring?
-  # validate :monitoring
+  validate :monitoring
   
   def to_s
     if monitoring?
@@ -46,28 +46,29 @@ class Event < ActiveRecord::Base
       unless teacher.schedule_teachers.empty?
         schedule_teachers = teacher.schedule_teachers.day_week(calendar_day.day.wday)      
         if  schedule_teachers.any?
-          s = []
-          schedule_teachers.each do |st|                                
-            if time_end.to_i <= st.time_end.to_i and  st.time_start.to_i >=  time_start.to_i
-              s << st                              
-            end
-            
-            raise s.inspect
-            
+           hora_evento_final      =  ConvertHoursForMinutes.convert(time_end.hour, time_end.min) 
+           hora_evento_inicial    =  ConvertHoursForMinutes.convert(time_start.hour, time_start.min) 
+           
+           s = []
+           
+           schedule_teachers.each do |st|
+             hora_monitoria_inicial =  ConvertHoursForMinutes.convert(schedule_teachers.first.time_start.hour, schedule_teachers.first.time_start.min) 
+             hora_monitoria_final   =  ConvertHoursForMinutes.convert(schedule_teachers.first.time_end.hour, schedule_teachers.first.time_end.min)              
+             if hora_evento_inicial >= hora_monitoria_inicial
+               if hora_evento_final <= hora_monitoria_final
+                 s << st                             
+               end
+             end             
+           end                        
             if s.empty? 
               errors.add(:teacher_id, "não possui horário definido para dia selecionado.")                         
             end
-          end
-                    
-          if s.empty?              
-            errors.add(:teacher_id, "não possui horário definido para dia selecionado.")                       
-          end
-          
+            
         else
-          errors.add(:teacher_id, "não possui horário definido para dia selecionado.")           
+          errors.add(:teacher_id, "não possui horário de monitoria definido.")           
         end
       else
-        errors.add(:teacher_id, "não possui horário definido.") 
+        errors.add(:teacher_id, "não possui horário de monitoria definido.") 
       end      
     end
   end
