@@ -32,7 +32,7 @@
             <% if e.party? %>success<% end %>
 
             ">
-              <td colspan='2'><b><%= e.time_start.try(:strftime, '%H:%M')%> às <%= e.time_end.try(:strftime, '%H:%M')%></b> - <%= e %>(<%= e.type_event_humanize %>)
+              <td colspan='2'><b><%= e.time_start.try(:strftime, '%H:%M')%> às <%= e.time_end.try(:strftime, '%H:%M')%></b> - <%= e %>(<%= e.type_event_humanize %><%if e.closed%> - FECHADO <% end %>)
               </td>
               <td colspan=>
                 <div class="btn-group">
