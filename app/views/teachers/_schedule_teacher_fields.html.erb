@@ -1,0 +1,9 @@
+<div class="nested-fields form-actions">
+	<div class="row-fluid">
+	  <div class="span3"><%= f.input :time_start, input_html: { class: 'span3'}, label: 'Hora Inicial' %></div>
+	  <div class="span3"><%= f.input :time_end, input_html: { class: 'span3' }, label: 'Hora Final' %></div>
+	  <div class="span3"><%= f.input :day_week, collection: DayWeek,  label: 'Dia da Semana' %></div>	
+		<div class="span3"><br><%= link_to_remove_association "Remove horário", f, :class => "btn btn-danger" %>
+	  </div>
+	</div>
+</div>
