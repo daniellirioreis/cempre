@@ -29,7 +29,13 @@
 					<% days.sort_by(&:week).each do |d| %>
 						<% if d.wday ==  DayWeek::SUNDAY %>
 						<p>
-							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+							<% if d.day == Date.current %>								
+								<div class= "alert alert-success">
+							<% end %>
+								<h4 class="text-error"><%= link_to "#{d.day.day}", d  %></h4>							 
+							<% if d.day == Date.current %>								
+								</div>							
+							<% end %>
 						</p>
 						<% end %>
 				  <% end %>
@@ -37,9 +43,15 @@
 				<td>
 					<% days.sort_by(&:week).each do |d| %>					
 						<% if d.wday ==  DayWeek::MONDAY %>
-							<p>
-								 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
-							</p>
+						<p>
+							<% if d.day == Date.current %>								
+								<div class= "alert alert-success">
+							<% end %>
+								<h4 class="text-error"><%= link_to "#{d.day.day}", d  %></h4>							 
+							<% if d.day == Date.current %>								
+								</div>							
+							<% end %>
+						</p>
 						<% end %>
 				  <% end %>					
 				</td>
@@ -47,7 +59,13 @@
 					<% days.sort_by(&:week).each do |d| %>
 						<% if d.wday ==  DayWeek::TUESDAY %>
 						<p>
-							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+							<% if d.day == Date.current %>								
+								<div class= "alert alert-success">
+							<% end %>
+								<h4 class="text-error"><%= link_to "#{d.day.day}", d  %></h4>							 
+							<% if d.day == Date.current %>								
+								</div>							
+							<% end %>
 						</p>
 						<% end %>
 				  <% end %>					
@@ -56,7 +74,13 @@
 					<% days.sort_by(&:week).each do |d| %>
 						<% if d.wday ==  DayWeek::WEDNESDAY %>
 						<p>
-							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+							<% if d.day == Date.current %>								
+								<div class= "alert alert-success">
+							<% end %>
+								<h4 class="text-error"><%= link_to "#{d.day.day}", d  %></h4>							 
+							<% if d.day == Date.current %>								
+								</div>							
+							<% end %>
 						</p>
 						<% end %>
 				  <% end %>										
@@ -65,7 +89,13 @@
 					<% days.sort_by(&:week).each do |d| %>
 						<% if d.wday ==  DayWeek::THURSDAY %>
 						<p>
-							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+							<% if d.day == Date.current %>								
+								<div class= "alert alert-success">
+							<% end %>
+								<h4 class="text-error"><%= link_to "#{d.day.day}", d  %></h4>							 
+							<% if d.day == Date.current %>								
+								</div>							
+							<% end %>
 						</p>
 						<% end %>
 				  <% end %>															
@@ -74,7 +104,13 @@
 					<% days.sort_by(&:week).each do |d| %>
 						<% if d.wday ==  DayWeek::FRIDAY %>
 						<p>
-							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+							<% if d.day == Date.current %>								
+								<div class= "alert alert-success">
+							<% end %>
+								<h4 class="text-error"><%= link_to "#{d.day.day}", d  %></h4>							 
+							<% if d.day == Date.current %>								
+								</div>							
+							<% end %>
 						</p>
 						<% end %>
 				  <% end %>																				
@@ -83,7 +119,13 @@
 					<% days.sort_by(&:week).each do |d| %>
 						<% if d.wday ==  DayWeek::SATURDAY %>
 						<p>
-							 <h4 class="text-error"><%= link_to "#{d.day.day}", d  %><% if d.day == Date.current %>*<%end%></h4>
+							<% if d.day == Date.current %>								
+								<div class= "alert alert-success">
+							<% end %>
+								<h4 class="text-error"><%= link_to "#{d.day.day}", d  %></h4>							 
+							<% if d.day == Date.current %>								
+								</div>							
+							<% end %>
 						</p>
 						<% end %>
 				  <% end %>																				
