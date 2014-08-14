@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :teacher_id, :if => :monitoring?
   validates_presence_of :student_id, :if => :monitoring?
-  validate :monitoring
+  # validate :monitoring
   
   def to_s
     if monitoring?
@@ -47,9 +47,15 @@ class Event < ActiveRecord::Base
         schedule_teachers = teacher.schedule_teachers.day_week(calendar_day.day.wday)      
         if  schedule_teachers.any?
           s = []
-          schedule_teachers.each do |st|
-            if 
-              s << st                
+          schedule_teachers.each do |st|                                
+            if time_end.to_i <= st.time_end.to_i and  st.time_start.to_i >=  time_start.to_i
+              s << st                              
+            end
+            
+            raise s.inspect
+            
+            if s.empty? 
+              errors.add(:teacher_id, "não possui horário definido para dia selecionado.")                         
             end
           end
                     
