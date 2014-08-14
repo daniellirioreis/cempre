@@ -10,8 +10,8 @@
         <% end %>
       </td>
 			<td>
-				<%= calendar_path(id: @calendar_day.calendar, calendar_day_id: @calendar_day_id ), role: 'button' do %>
-          <h2 class="text-success" title='Novo Aluno'><i class="icon-arrow-left"></i></h2>
+				<%= link_to calendar_path(id: @calendar_day.calendar, calendar_day_id: @calendar_day_id ), role: 'button' do %>
+          <h2 class="text-info" title='Novo Aluno'><i class="icon-arrow-left"></i></h2>
         <% end %>        
 			</td>
 	 </tr>
