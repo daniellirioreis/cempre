@@ -11,7 +11,9 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     @event.save
-
+    
+    EventMailer.information_for_event(@event).deliver
+    
     respond_with @event, :location => calendar_path(id: @event.calendar_day.calendar, calendar_day_id: @event.calendar_day_id )
   end
 
@@ -41,7 +43,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     @event.update_attributes(event_params)
-
+    
+    EventMailer.information_for_event(@event).deliver
+    
     respond_with @event, :location => calendar_path(id: @event.calendar_day.calendar, calendar_day_id: @event.calendar_day_id )
   end
 
