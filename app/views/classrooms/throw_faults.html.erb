@@ -79,9 +79,11 @@
                      <%= link_to "#{g.faults.find_by_group_id_and_lesson_id_and_justification(g.id, lesson.id, 0 ).present? ? 'F' : 'P'}", create_with_click_faults_path(lesson_id: lesson.id, group_id: g.id, month: params[:month]) %>
 
 										<% fault = g.faults.find_by_group_id_and_lesson_id_and_justification(g.id, lesson.id, 0) %>
+								
 										<% if fault.present? %>
-											| <%= link_to "justif.", edit_fault_path(fault) %>											
+											|<%= link_to edit_fault_path(fault), :tabindex => "-1" do %><i class="icon-check"></i><% end %>				              				
 										<% end %>
+										
 
                   <% else %>
                     -
@@ -94,7 +96,7 @@
 
 										<% fault = g.faults.find_by_group_id_and_lesson_id_and_justification(g.id, lesson.id, 0 ) %>
 										<% if fault.present? %>
-										| <%= link_to "justif.", edit_fault_path(fault) %>											
+											| <%= link_to edit_fault_path(fault), :tabindex => "-1" do %><i class="icon-check"></i><% end %>				              				
 										<% end %>
 
                   <% else %>
