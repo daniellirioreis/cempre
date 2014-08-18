@@ -12,6 +12,9 @@ class Fault < ActiveRecord::Base
 
   scope :student_id, lambda { |id| where("groups.student_id = ?", id).joins(:group) }
   
+  scope :justification, lambda { |justification| where("faults.justification = ?", justification) }
+  
+  
   scope :calendar_id_and_student_id, lambda { |calendar_id, student_id| where("classrooms.calendar_id = ? AND groups.student_id = ?", calendar_id, student_id).joins(:group => :classroom) }
 
   delegate :to_string, to: :lesson

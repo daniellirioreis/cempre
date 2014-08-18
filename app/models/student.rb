@@ -77,7 +77,7 @@ class Student < ActiveRecord::Base
   end
 
   def faults_for_calendar(calendar_id)
-     Fault.calendar_id_and_student_id(calendar_id, id)  
+     Fault.calendar_id_and_student_id(calendar_id, id).justification(JustificationsFault::NONE)  
   end
 
   private

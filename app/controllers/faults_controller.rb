@@ -49,7 +49,8 @@ class FaultsController < ApplicationController
 
     @fault.update_attributes(fault_params)
 
-    respond_with @fault, :location => @fault.group.classroom
+    redirect_to throw_faults_classroom_path(@fault.group.classroom, month: @fault.lesson.calendar_day.day.month)
+
   end
 
   def destroy
