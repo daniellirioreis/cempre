@@ -1,0 +1,29 @@
+<h1>Olá <%= @event.teacher %></h1>
+ <%@student = @event.student%>, Você possui uma monitoria
+<blockquote>
+  <% if @event.closed %>
+    <h3 class='text-success'>Monitoria Realizada</h3>
+  <% end %>
+  <hr>
+  <p>
+    <strong>Dia: </strong><%= l @event.calendar_day.day%><br>
+    <strong>Horário: </strong><%=@event.time_start.try(:strftime, '%H:%M') %> às <%= @event.time_end.try(:strftime, '%H:%M') %><br>
+    <strong>Nome: </strong><%=@event.student%><br>
+    <strong>Data Nascimento: </strong><%= l @event.student.birth_date unless @event.student.birth_date.nil?  %><br>
+    <strong>Idade: </strong><%= "#{ @event.student.age[:ano] } anos(s) #{ @event.student.age[:mes]} meses #{ @event.student.age[:dia]} anos" %><br>
+    <strong>email: </strong> <%= @event.student.email%><br>
+    <strong>Telefones: </strong> <%= @event.student.phone%><br>
+    <strong>Observações: </strong> <%= @event.student.obs%><br>
+    <strong>Nível: </strong> <%= @event.student.groups.active.first.try(:classroom).try(:course)%>
+    <strong>Turma: </strong> <%= @event.student.groups.active.first.try(:classroom)%>
+
+  </p>
+</blockquote>
+<br/>
+<blockquote>
+  <p>
+    <strong>Monitor(a): </strong><%=@event.teacher%><br>
+  </p>
+</blockquote>
+
+ 

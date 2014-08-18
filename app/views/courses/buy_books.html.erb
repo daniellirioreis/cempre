@@ -20,7 +20,7 @@
     <tbody>
       <% if groups.any? %>
         <% groups.each do |g| %>
-          <tr class="<%if g.repeat || g.have_book %>no-print<% end %>" >
+          <tr class="<%if g.have_book %>no-print<% end %>" >
               <td><%= g %>
 								<% unless  g.have_book %>
 									<% count_books = count_books + 1 %>
