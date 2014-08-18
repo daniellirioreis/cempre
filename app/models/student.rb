@@ -76,6 +76,10 @@ class Student < ActiveRecord::Base
     Exam.student_id(id)
   end
 
+  def faults_for_calendar(calendar_id)
+     Fault.calendar_id_and_student_id(calendar_id, id)  
+  end
+
   private
 
 

@@ -11,6 +11,8 @@ class Fault < ActiveRecord::Base
   validates :lesson_id, uniqueness: { scope: :group_id }
 
   scope :student_id, lambda { |id| where("groups.student_id = ?", id).joins(:group) }
+  
+  scope :calendar_id_and_student_id, lambda { |calendar_id, student_id| where("classrooms.calendar_id = ? AND groups.student_id = ?", calendar_id, student_id).joins(:group => :classroom) }
 
   delegate :to_string, to: :lesson
 

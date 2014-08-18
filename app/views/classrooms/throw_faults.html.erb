@@ -66,7 +66,7 @@
         </td>
         <td>
           <p class='text-center'>
-            <%= g.faults.count %>
+            <%= g.student.faults_for_calendar(g.classroom.calendar_id).count %>
           </p>
         </td>
         <% @lessons.each do |lesson| %>
