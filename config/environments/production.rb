@@ -84,7 +84,7 @@ Donald::Application.configure do
     port: 587,
     authentication: "plain",
     user_name: "cemprecruzeiro@gmail.com",
-    password: "inglesespanhol"
+    password: "inglesespanhol",
     enable_starttls_auto: false
   }
   config.action_mailer.raise_delivery_errors = true
