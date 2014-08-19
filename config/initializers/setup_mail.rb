@@ -6,5 +6,5 @@ ActionMailer::Base.smtp_settings = {
 :user_name => "cemprecruzeiro@gmail.com",
 :password => "inglesespanhol",
 :authentication => "plain",
-:enable_starttls_auto => true
+:enable_starttls_auto => false
 }
