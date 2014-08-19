@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813134020) do
+ActiveRecord::Schema.define(version: 20140819201548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -308,6 +308,8 @@ ActiveRecord::Schema.define(version: 20140813134020) do
     t.string   "document"
     t.string   "cell_phone"
     t.boolean  "block_schedule_different",            default: false
+    t.string   "monther"
+    t.string   "father"
   end
 
   add_index "students", ["company_id"], name: "index_students_on_company_id", using: :btree

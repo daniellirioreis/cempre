@@ -34,3 +34,5 @@ pt-BR:
         birth_date: 'Data Nascimento'
         document: "CERTIDÃO/CPF/RG"
         block_schedule_different: 'aluno não foi avisado sobre troca de horário'
+        mother: "Nome da Mãe"
+        father:: "Nome do Pai"
