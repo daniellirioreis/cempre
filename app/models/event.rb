@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :teacher_id, :if => :monitoring?
   validates_presence_of :student_id, :if => :monitoring?
-  validate :monitoring
+  # validate :monitoring
   
   def to_s
     if monitoring?
