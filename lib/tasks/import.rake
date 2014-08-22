@@ -25,14 +25,14 @@ task :import  => :environment do
 
 
 
-   # CSV.foreach('lib/files_import/levels_cristais.csv', headers: true) do |row|
-   #  new_course = Course.new( name: row["NIVEL"].upcase, company_id: Company.last.id , type_course: row["TIPO"].to_i)
-   #   if new_course.save
-   #      puts new_course.inspect
-   #   else
-   #     puts 'error ao criar curso'
-   #   end
-   #  end
+   CSV.foreach('lib/files_import/levels_cristais.csv', headers: true) do |row|
+    new_course = Course.new( name: row["NIVEL"].upcase, company_id: Company.last.id , type_course: row["TIPO"].to_i)
+     if new_course.save
+        puts new_course.inspect
+     else
+       puts 'error ao criar curso'
+     end
+    end
 
     CSV.foreach('lib/files_import/classrooms_cristais.csv', headers: true) do |row|
       @calendar = Company.last.calendars.last
@@ -70,46 +70,46 @@ task :import  => :environment do
          end
       end
     end
-    # 
-    # CSV.foreach('lib/files_import/students.csv', headers: true) do |row|
-    #  birth_date = row['NASCIMENTO'].split('/') unless row["NASCIMENTO"].nil?
-    #  birth_date = "#{birth_date[2]}-#{birth_date[1]}-#{birth_date[0]}" unless row["NASCIMENTO"].nil?
-    #  new_student = Student.find_by_name(row["NOME"].upcase)
-    #   if new_student.present?
-    #     puts "Aluno já existe na base: #{row["NOME"].upcase}"
-    #     new_student.update_attributes(phone: row['TELEFONE'], obs: row["OBS"], document: row["DOCUMENTO"], birth_date: birth_date)
-    #     # unless row['TURMA'].nil?
-    #     #   classroom = Classroom.find_by_name(row['TURMA'].upcase)
-    #     #   if classroom.present?
-    #     #     group = Group.new(student_id: new_student.id, classroom_id: classroom.id, status: StatusGroup::ACTIVE)
-    #     #     if group.save
-    #     #       puts group.inspect
-    #     #     else
-    #     #       puts 'error in group'
-    #     #     end
-    #     #   end
-    #     # end
-    #   else
-    #     puts "Novo Aluno: #{row["NOME"].upcase}"
-    #     new_student = Student.new( name: row["NOME"].upcase, company_id: Company.first.id, phone: row['TELEFONE'], obs: row["OBS"], document: row["DOCUMENTO"], birth_date: birth_date)
-    #     new_student.email = new_student.default_email
-    #     puts "#{new_student.default_email}"
-    #     if new_student.save!
-    #       puts 'aluno salvo'
-    #       # unless row['TURMA'].nil?
-    #       #   classroom = Classroom.find_by_name(row['TURMA'].upcase)
-    #       #   if classroom.present?
-    #       #     group = Group.new(student_id: new_student.id, classroom_id: classroom.id, status: StatusGroup::ACTIVE)
-    #       #     if group.save
-    #       #       puts group.inspect
-    #       #     else
-    #       #       puts 'error in group'
-    #       #     end
-    #       #   end
-    #       # end
-    #     else
-    #       puts "error"
-    #     end
-    #   end
-    # end
+    
+    CSV.foreach('lib/files_import/students_cristais.csv', headers: true) do |row|
+     birth_date = row['NASCIMENTO'].split('/') unless row["NASCIMENTO"].nil?
+     birth_date = "#{birth_date[2]}-#{birth_date[1]}-#{birth_date[0]}" unless row["NASCIMENTO"].nil?
+     new_student = Student.find_by_name_and_company_id(row["NOME"].upcase, Company.last.id)
+      if new_student.present?
+        puts "Aluno já existe na base: #{row["NOME"].upcase}"
+        new_student.update_attributes(phone: row['TELEFONE'], obs: row["OBS"], document: row["DOCUMENTO"], birth_date: birth_date)
+        unless row['TURMA'].nil?
+          classroom = Classroom.find_by_name(row['TURMA'].upcase)
+          if classroom.present?
+            group = Group.new(student_id: new_student.id, classroom_id: classroom.id, status: StatusGroup::ACTIVE)
+            if group.save
+              puts group.inspect
+            else
+              puts 'error in group'
+            end
+          end
+        end
+      else
+        puts "Novo Aluno: #{row["NOME"].upcase}"
+        new_student = Student.new( name: row["NOME"].upcase, company_id: Company.last.id, phone: row['TELEFONE'], obs: row["OBS"], document: row["DOCUMENTO"], birth_date: birth_date)
+        new_student.email = new_student.default_email
+        puts "#{new_student.default_email}"
+        if new_student.save!
+          puts 'aluno salvo'
+          unless row['TURMA'].nil?
+            classroom = Classroom.find_by_name(row['TURMA'].upcase)
+            if classroom.present?
+              group = Group.new(student_id: new_student.id, classroom_id: classroom.id, status: StatusGroup::ACTIVE)
+              if group.save
+                puts group.inspect
+              else
+                puts 'error in group'
+              end
+            end
+          end
+        else
+          puts "error"
+        end
+      end
+    end
 end
