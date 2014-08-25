@@ -77,6 +77,18 @@ class Plan < ActiveRecord::Base
               if schedule.save
               end
             end          
+          
+          when Day::MONDAY_AND_TUESDAY
+            if day.day.wday == 2
+              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+              if schedule.save
+              end
+            end                      
+            if day.day.wday == 1
+              schedule = Schedule.new(:calendar_day_id => day.id, :plan_id => id)
+              if schedule.save
+              end
+            end                      
         end
       end
     end

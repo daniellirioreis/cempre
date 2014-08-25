@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      schedule_teacher:
+        one: "Horário monitoria"
+        many: "horário monitoria"
+    attributes:
+      event:
+        time_start: "Hora Inicial"
+        time_end: 'Hora Final'
+        day_week: 'Dia Semana'
