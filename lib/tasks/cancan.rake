@@ -1,3 +1,4 @@
+
 namespace :cancan do
   desc 'Create admin profile'
   task :create_admin_profile => :create_roles do
@@ -121,6 +122,12 @@ namespace :cancan do
         end
       end
       
+      yaml['actions_more_calendar_days'].each do |action|
+        r = Role.find_by_action_and_controller(action, 'calendar_days')
+        unless r.present?
+          Role.create(:controller => 'calendar_days', :action => action)
+        end
+      end
     end
   end
 end

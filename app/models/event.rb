@@ -32,6 +32,10 @@ class Event < ActiveRecord::Base
   validates_presence_of :teacher_id, :if => :monitoring?
   validates_presence_of :student_id, :if => :monitoring?
   # validate :monitoring
+
+  def title
+    "#{time_start.try(:strftime, '%H:%M')}  às  #{time_end.try(:strftime, '%H:%M')} -  #{to_s}"
+  end
   
   def to_s
     if monitoring?

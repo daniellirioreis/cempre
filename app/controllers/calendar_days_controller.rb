@@ -1,11 +1,16 @@
 class CalendarDaysController < ApplicationController
+  respond_to :html, :js, :json
   before_filter :authorize_controller!
 
   before_action :set_calendar_day, only: [:show, :edit, :update, :destroy]
 
+  def find
+
+    redirect_to(action: "index")  
+  end
+
   def index
-    @calendar_days = CalendarDay.all
-    respond_with(@calendar_days)
+    @calendar_days = current_calendar.days
   end
 
   def show

@@ -48,7 +48,9 @@ Donald::Application.routes.draw do
     get :create_with_click, on: :collection
   end
 
-  resources :calendar_days
+  resources :calendar_days do 
+    get :find, on: :collection
+  end
 
   resources :calendars do
     get :finalize, on: :member

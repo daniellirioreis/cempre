@@ -3,6 +3,10 @@ class EventsController < ApplicationController
 
   before_action :set_event, only: [:show, :edit, :update, :destroy, :finalize]
 
+  def index
+    @events = Event.all
+  end
+  
   def new
     @event = Event.new(calendar_day_id: params[:calendar_day_id])
   end

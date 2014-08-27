@@ -10,10 +10,11 @@
 //= require bootstrap
 //= require theme
 //= require cocoon
-//= require tributario
 //= require classrooms
 //= requere bootstrap-admin
-//= require_self
+//= require turbolinks
+//= require fullcalendar
+//= require_tree .
 
 $(function(){
     $(".input-search").keyup(function(){

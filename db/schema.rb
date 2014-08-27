@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819201548) do
+ActiveRecord::Schema.define(version: 20140825233738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "answers", force: true do |t|
     t.string   "name"
@@ -128,6 +129,9 @@ ActiveRecord::Schema.define(version: 20140819201548) do
     t.integer  "teacher_id"
     t.integer  "student_id"
     t.boolean  "closed",          default: false
+    t.date     "start_at"
+    t.date     "end_at"
+    t.string   "name"
   end
 
   add_index "events", ["calendar_day_id"], name: "index_events_on_calendar_day_id", using: :btree
@@ -308,7 +312,7 @@ ActiveRecord::Schema.define(version: 20140819201548) do
     t.string   "document"
     t.string   "cell_phone"
     t.boolean  "block_schedule_different",            default: false
-    t.string   "monther"
+    t.string   "mother"
     t.string   "father"
   end
 
