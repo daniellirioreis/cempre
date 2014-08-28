@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819201548) do
+ActiveRecord::Schema.define(version: 20140827215650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "answers", force: true do |t|
     t.string   "name"
@@ -104,6 +105,19 @@ ActiveRecord::Schema.define(version: 20140819201548) do
     t.integer "user_id"
   end
 
+  create_table "control_points", force: true do |t|
+    t.integer  "teacher_id"
+    t.integer  "calendar_day_id"
+    t.time     "time_start"
+    t.time     "time_end"
+    t.boolean  "closed",          default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "control_points", ["calendar_day_id"], name: "index_control_points_on_calendar_day_id", using: :btree
+  add_index "control_points", ["teacher_id"], name: "index_control_points_on_teacher_id", using: :btree
+
   create_table "courses", force: true do |t|
     t.integer  "company_id"
     t.string   "name"
@@ -128,6 +142,9 @@ ActiveRecord::Schema.define(version: 20140819201548) do
     t.integer  "teacher_id"
     t.integer  "student_id"
     t.boolean  "closed",          default: false
+    t.date     "start_at"
+    t.date     "end_at"
+    t.string   "name"
   end
 
   add_index "events", ["calendar_day_id"], name: "index_events_on_calendar_day_id", using: :btree
@@ -308,7 +325,7 @@ ActiveRecord::Schema.define(version: 20140819201548) do
     t.string   "document"
     t.string   "cell_phone"
     t.boolean  "block_schedule_different",            default: false
-    t.string   "monther"
+    t.string   "mother"
     t.string   "father"
   end
 
@@ -386,6 +403,9 @@ ActiveRecord::Schema.define(version: 20140819201548) do
 
   add_foreign_key "companies_users", "companies", name: "companies_users_company_id_fk"
   add_foreign_key "companies_users", "users", name: "companies_users_user_id_fk"
+
+  add_foreign_key "control_points", "calendar_days", name: "control_points_calendar_day_id_fk"
+  add_foreign_key "control_points", "teachers", name: "control_points_teacher_id_fk"
 
   add_foreign_key "courses", "companies", name: "courses_company_id_fk"
 

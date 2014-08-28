@@ -23,6 +23,7 @@ roles:
   - questionnaire_questions
   - enrollments
   - managers
+  - control_points
 actions:
   - create
   - read
@@ -75,3 +76,5 @@ actions_more_teachers:
   - report_teacher
 actions_more_courses:
   - buy_books
+actions_more_control_points:
+  - info

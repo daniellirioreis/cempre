@@ -51,6 +51,8 @@ class TranslateController
         'Inscrição'
       when 'managers'
         'Acesso'
+      when 'control_points'
+        'Controle de Ponto'
     end
   end
 
@@ -124,6 +126,9 @@ class TranslateController
         'Pedido de livro'
       when 'buy_books'
         'Pedido de livro'      
+      when 'info'
+        'Controle de Ponto'      
+      
     end
   end
 end

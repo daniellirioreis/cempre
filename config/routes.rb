@@ -1,5 +1,9 @@
 Donald::Application.routes.draw do
 
+  resources :control_points do 
+    get :info, on: :collection
+  end
+  
   resources :managers do
     get :change_companies, on: :member
     get :create_calendar,  on: :member

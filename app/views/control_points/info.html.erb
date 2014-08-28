@@ -1,0 +1,93 @@
+<blockquote>
+	<div class="alert alert-info">
+		<i class="icon-user"></i><strong><%= @teacher %></strong><br>
+		<strong>Data Nascimento: </strong><%= l @teacher.birth_date unless @teacher.birth_date.nil?  %><br>
+    <strong>Idade: </strong><%= @teacher.age %><br>
+    <strong>email: </strong> <%= @teacher.email%><br>
+    <strong>Telefones: </strong> <%= @teacher.phone%>/ <%= @teacher.cell_phone %><br>
+	</div>
+</blockquote>	
+<b>Meses</b>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <% current_calendar.months.each do |m| %>
+      <td>
+				<% if m == params[:month].to_i %>
+					<div class= "alert alert-info">
+				<% end %>
+        	<%= link_to "#{TranslateMonths.translate(m)}", info_control_points_path(teacher_id: @teacher.id, month: m) %><br>
+					<% if m == params[:month].to_i %>
+						</div>
+					<% end %>					
+      </td>
+    <%end%>
+  </tr>
+</table>
+<blockquote>
+  <table class='table'>
+    <tr>
+      <td>
+        <%= link_to new_control_point_path(teacher_id: @teacher.id ), role: 'button' do %>
+          <h2 class="text-success" title='Novo Controle'><i class="icon-plus"></i></h2>
+        <% end %>
+      </td>
+	 </tr>
+	</table>
+</blockquote>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Dia</th>
+            <th>hora Entrada</th>
+            <th>hora saída</th>
+            <th>horas trabalhadas no período</th>
+						<% if current_user.adm %>
+            	<th>Ação</th>
+						<% end %>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @control_points.any? %>
+					<% total_minutes = 0 %>		
+          <% @control_points.each do |c| %>
+						<% total_minutes =  total_minutes + c.working_minutes %>						
+            <tr>
+                <td align="center">
+                  <%= c.to_string %>
+                </td>
+                <td>
+									<%= c.time_start.try(:strftime, '%H:%M') %>
+                </td>
+                <td>
+									<%= c.time_end.try(:strftime, '%H:%M') %>	
+                </td>
+								<td>
+									<%= ConvertHoursForMinutes.convert_hours c.working_minutes  %>
+								</td>		
+								<% if current_user.adm  %>							
+									<td>
+										<div class="btn-group">
+				              <%= link_to "Editar", edit_control_point_path(c), :class => "btn btn-primary" %>
+				              <%= link_to 'Deletar', c, method: :delete, data: { confirm: 'Confirma exclusão?'}, :class => "btn btn-danger" %>
+				            </div>				            
+									</td>										
+								<% end %>
+            </tr>
+          <% end %>
+						<tr>
+							<td colspan="<% if current_user.adm %>5<% else %>4<% end %>">
+								<i class="icon-time"></i><strong> Horas trabalhadas:</strong> <%= (ConvertHoursForMinutes.convert_hours total_minutes)%>										
+							</td>	            
+						</tr>
+        <% else %>
+          <tr>
+            <td colspan='4'>Nenhum registro foi encontrado.</td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
+
+	<div class="form-actions">
+  <%= link_to 'Voltar', control_points_path, class: 'btn' %>
+  <%= link_to 'Imprimir', "", class: 'btn' %>
+</div>

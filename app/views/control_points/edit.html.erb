@@ -1,0 +1,54 @@
+<%= simple_form_for(@control_point) do |f| %>
+	<%= f.input :teacher_id, :as => "hidden"%>
+	<blockquote>
+		<div class="alert alert-info">
+			<i class="icon-user"></i><strong><%= @control_point.teacher %></strong><br>
+			<strong>Data Nascimento: </strong><%= l @control_point.teacher.birth_date unless @control_point.teacher.birth_date.nil?  %><br>
+	    <strong>Idade: </strong><%= @control_point.teacher.age %><br>
+	    <strong>email: </strong> <%= @control_point.teacher.email%><br>
+	    <strong>Telefones: </strong> <%= @control_point.teacher.phone%>/ <%= @control_point.teacher.cell_phone %><br>
+		</div>
+	</blockquote>	
+	
+<% if current_user.adm  %>
+	<div class="row-fluid">
+	  <div class="span7">
+				  <div class="span7"> <%= f.input :calendar_day_id, collection: current_calendar.days.map{|cd|[cd.to_string, cd.id]}, input_html: { class: 'span7' } %></div>
+		</div>
+	</div>
+  <div class="row-fluid">
+	  <div class="span3"><%= f.input :time_start, input_html: { class: 'span3' } %></div>
+	  <div class="span3"><%= f.input :time_end, input_html: { class: 'span3' } %></div>
+	</div>
+<% else %>
+	<%= f.input :time_end, :as => "hidden"%>	
+	<%= f.input :calendar_day_id, :as => "hidden"%>
+	<%= f.input :closed, :as => "hidden"%>
+	<%= hidden_field_tag :teacher_id, params[:teacher_id] %>
+	<blockquote>
+		<div class="alert alert-info">
+			<h2><i class="icon-calendar"></i><%= @calendar_day.to_string %></h2><br>
+			<i class="icon-time"></i>
+			<strong>Chegada:</strong> <%= @control_point.time_start.try(:strftime, '%H:%M') %><br>			
+			<h2><%= @time_now.try(:strftime, '%H:%M') %></h2>
+		
+		</div>
+	</blockquote>
+	
+
+	<blockquote>
+		<div class="alert alert-info">
+			<i class="icon-user"></i><strong><%= @control_point.teacher %></strong><br>
+			<strong>Data Nascimento: </strong><%= l @control_point.teacher.birth_date unless @control_point.teacher.birth_date.nil?  %><br>
+	    <strong>Idade: </strong><%= @control_point.teacher.age %><br>
+	    <strong>email: </strong> <%= @control_point.teacher.email%><br>
+	    <strong>Telefones: </strong> <%= @control_point.teacher.phone%>/ <%= @control_point.teacher.cell_phone %><br>
+		</div>
+	</blockquote>	
+<% end %>
+	
+	<div class="form-actions">
+	   <%= f.button :submit, class: 'btn btn-success' %>
+	   <%= link_to 'Voltar', control_points_path, class: 'btn' %>
+	</div>
+<% end %>

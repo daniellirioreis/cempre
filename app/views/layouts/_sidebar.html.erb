@@ -13,6 +13,7 @@
   <%= menu.item :id => 'Respostas', :icon => 'ok', :path => answers_path if can?(:read, 'answers')  %>
 
   <%= menu.item :id => 'Quadro_de_horários', :icon => :time, :path => schedules_classrooms_path if can?(:schedules, 'classrooms') %>
+  <%= menu.item :id => 'Controle_de_Ponto', :icon => :time, :path => control_points_path if can?(:read, 'control_points') %>
   <%= menu.item :id => 'Inscrição', :icon => :tasks, :path => enrollments_path if can?(:read, 'enrollments') %>
   <%= menu.item :id => 'Alunos', :icon => :user, :path => students_path if can?(:read, 'students')  %>
   <%= menu.item :id => 'Agrupar_Alunos', :icon => :random, :path => groups_path if can?(:read, 'groups') %>
