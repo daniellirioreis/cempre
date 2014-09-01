@@ -30,9 +30,21 @@
 	<blockquote>
 		<div class="alert alert-info">
 			<h2><i class="icon-calendar"></i><%= @calendar_day.to_string %></h2><br>
-			<h2><%= @time_now.try(:strftime, '%H:%M') %></h2>			
-			<i class="icon-time"></i>
+			<table class='table'>
+				<tr>
+					<td>
+						<i class="icon-time"></i>						
+					</td>
+					<td>
+						<h3>Chegada: </h3><%= @control_point.time_start.try(:strftime, '%H:%M') %><br>						
+					</td>
+					<td>
+						<h3>Saída: </h3><%= @time_now.try(:strftime, '%H:%M') %>										
+					</td>
+				</tr>
+			</table>
 		</div>
+		
 	</blockquote>
 	
 

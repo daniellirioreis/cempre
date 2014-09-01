@@ -1,7 +1,7 @@
 class ControlPointsController < ApplicationController
   before_filter :authorize_controller!
   
-  before_action :set_teacher, only: [:new, :check, :info]
+  before_action :set_teacher, only: [:new, :check, :info, :create]
 
   before_action :set_calendar_day, only: [:new, :show, :update, :edit, :update, :destroy, :check, :info]
   
@@ -34,13 +34,10 @@ class ControlPointsController < ApplicationController
   end
 
   def edit
+      @control_point = ControlPoint.find(params[:id])           
      unless current_user.adm
-       @control_point = ControlPoint.find(params[:id])       
-     else
-       @time_now = Time.now  - 3.hours
-       @control_point = ControlPoint.find(params[:id])
-       @control_point.time_end = @time_now    
-       @control_point.closed = true       
+       @time_now = Time.now  - 3.hours       
+       @control_point.closed = true                     
      end
   end
   
