@@ -62,7 +62,7 @@
             <% end %> | 
 
             <%= link_to  re_enrollment_group_path(group), role: 'button' do %>
-            	<i title= "<%= group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular' %>" class="icon-pencil"></i>
+            	<i title= "<%= group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular' %>" class="icon-remove"></i>
             <% end %> | 				
 
             <%= link_to  edit_group_path(group, status: StatusGroup::LOCKED), role: 'button' do %>
