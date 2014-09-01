@@ -1,7 +1,7 @@
 class ControlPointsController < ApplicationController
   before_filter :authorize_controller!
   
-  before_action :set_teacher, only: [:new, :check, :info, :create, :update]
+  before_action :set_teacher, only: [:new, :check, :info]
 
   before_action :set_calendar_day, only: [:new, :show, :update, :edit, :update, :destroy, :check, :info]
   
