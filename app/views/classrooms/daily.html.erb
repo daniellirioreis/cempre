@@ -32,7 +32,7 @@
       </tr>
       <% count = 0 %>
       <% @classroom.groups.sorted.each do |g| %>
-      <tr>
+      <tr class="<%unless g.active?%>error<%end%>">
         <td>
           <p class='text-center'>
             <%= count = count + 1 %>
@@ -40,7 +40,7 @@
         </td>
         <td>
           <small>
-            <%= g %><%= g.status_humanize  unless g.active? %>
+            <%= g %> <%= "#{g.status_humanize}"  unless g.active? %>
           </small>
         </td>
         <td>
