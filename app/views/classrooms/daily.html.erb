@@ -40,7 +40,7 @@
         </td>
         <td>
           <small>
-            <%= g %><%= g.status_humanize %>
+            <%= g %><%= g.status_humanize  unless g.active? %>
           </small>
         </td>
         <td>
