@@ -11,6 +11,7 @@
         <th><%= tp.first%></th>
       <% end %>
       <th>Situação</th>
+      <th>Ação</th>
     </tr>
   </thead>
   <tbody>
@@ -36,53 +37,7 @@
 						  </a>
 						<% end %>
           <td>
-						<li class="dropdown">
-							<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
 							<%= group%>
-							</a>
-							<ul class="dropdown-menu">
-								<li>
-									<%= link_to 'Informações sobre aluno', group.student %>
-								</li>
-								<li>
-			            <%= link_to "#{group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular'}", re_enrollment_group_path(group) %>
-			          </li>
-								<li>
-			            <%= link_to "#{group.have_book ? 'Tenho livro' : 'Não Livro'}", re_enrollment_group_path(group) %>
-			          </li>
-			          <li>
-			              <%= link_to 'Trancar', edit_group_path(group, status: StatusGroup::LOCKED) %>
-			          </li>
-			          <li>
-			              <%= link_to 'Ativar', edit_group_path(group, status: StatusGroup::ACTIVE) %>
-			          </li>
-			          <li>
-			            <%= link_to 'Desistir', edit_group_path(group, status: StatusGroup::FOLDED)%>
-			          </li>
-			          <li>
-			            <%= link_to 'Transferir', edit_group_path(group, status: StatusGroup::TRANSFER) %>
-			          </li>
-			          <li>
-			            <%= link_to 'Deletar', group, method: :delete %>
-			          </li>
-					      <li>
-					        <%= link_to 'Lançar Faltas', new_fault_path(group_id: group.id) if group.active? %>
-					      </li>
-					      <li>
-					        <%= link_to 'Lançar Avaliações', new_exam_path(group_id: group.id) if group.active? %>
-					      </li>
-					      <li>
-					        <%= link_to "#{group.second_change_exam ? 'Desmarcar 2ª chamada' : 'Marcar 2ª chamada '}", second_change_exam_group_path(group) if group.active? %>
-					      </li>
-					      <li>
-					        <%= link_to 'Informações sobre faltas', faults_path(group_id: group.id)%>
-					      </li>
-					      <li>
-					        <%= link_to 'Informações sobre avaliações', exams_path(group_id: group.id) %>
-					      </li>
-			
-							</ul>
-						</li>
           </td>
 
 
@@ -101,6 +56,43 @@
           <td>
             <a title="<%=group.justification%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title=""><%=group.status_humanize %></a>
           </td>
+					<td>
+						<%= link_to  group.student, role: 'button' do %>
+            	<i title='Informações sobre aluno' class="icon-info"></i>
+            <% end %> | 
+
+            <%= link_to  re_enrollment_group_path(group), role: 'button' do %>
+            	<i title= "<%= group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular' %>" class="icon-pencil"></i>
+            <% end %> | 				
+
+            <%= link_to  edit_group_path(group, status: StatusGroup::LOCKED), role: 'button' do %>
+            	<i title= "trancar" class=" icon-ban-circle"></i>
+            <% end %> | 				
+
+            <%= link_to  edit_group_path(group, status: StatusGroup::ACTIVE), role: 'button' do %>
+            	<i title= "Ativar" class="icon-ok"></i>
+            <% end %> | 				
+
+            <%= link_to  edit_group_path(group, status: StatusGroup::FOLDED), role: 'button' do %>
+            	<i title= "Desistir" class="icon-thumbs-down"></i>
+            <% end %> | 				
+
+            <%= link_to  edit_group_path(group, status: StatusGroup::TRANSFER), role: 'button' do %>
+            	<i title= "Transferir" class="icon-random"></i>
+            <% end %> | 
+
+            <%= link_to group, method: :delete, data: { confirm: 'Confirma exclusão?' }, role: 'button' do %>
+            	<i title= 'Excluir' class="icon-trash"></i>
+            <% end %>
+						<% if  group.active? %>
+							<%= link_to 	faults_path(group_id: group.id), role: 'button' do %>
+	            	<i title= "Informações sobre faltas" class="icon-check"></i>
+	            <% end %>		 | 
+							<%= link_to 	exams_path(group_id: group.id), role: 'button' do %>
+	            	<i title= "Informações sobre avaliações" class="icon-star"></i>
+	            <% end %>		
+						<% end %>
+					</td>
         </tr>
       <% end %>
     <% else %>
