@@ -13,7 +13,7 @@
        </td>
        <td>
           <%= link_to lessons_path(:classroom_id => @classroom.id), role: 'button' do %>
-            <h2 class="text-info" title='Aulas'><i class="icon-pencil"></i></h2>
+            <h2 class="text-info" title='Aulas'><i class="icon-time"></i></h2>
           <% end %>
        </td>
        <td>
@@ -23,12 +23,12 @@
        </td>
        <td>
           <%= link_to new_group_path(:classroom_id => @classroom.id), role: 'button' do %>
-            <h2 class="text-success" title='Agrupar Alunos'><i class="icon-random"></i></h2>
+            <h2 class="text-success" title='Agrupar Alunos'><i class="icon-user"></i></h2>
           <% end %>
        </td>
        <td>
           <%= link_to throw_faults_classroom_path(@classroom), role: 'button' do %>
-            <h2 class="text-success" title='Lançar faltas'><i class="icon-tags"></i></h2>
+            <h2 class="text-success" title='Lançar faltas'><i class="icon-calendar"></i></h2>
           <% end %>
        </td>
        <td>
