@@ -7,7 +7,7 @@
       <th>Nome</th>
       <th>Idade</th>
       <th>Faltas</th>
-      <% TypeExam.to_a.sort.each do |tp| %>
+      <% TypeExam.to_a.each do |tp| %>
         <th><%= tp.first%></th>
       <% end %>
       <th>Situação</th>
@@ -93,7 +93,7 @@
             <a title="<%group.student.faults_for_calendar(group.classroom.calendar_id).each do |f|%><%= "#{f}(#{f.justification_humanize}), "%><%end%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title=""><%= group.student.faults_for_calendar(group.classroom.calendar_id).count %>
             </a>
           </td>
-          <% TypeExam.to_a.sort.each do |te| %>
+          <% TypeExam.to_a.each do |te| %>
             <td>
               <%= group.exams.find_by_type_exam(te.last).try(:value) %>
             </td>
