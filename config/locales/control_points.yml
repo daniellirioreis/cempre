@@ -19,3 +19,4 @@ pt-BR:
           time_end: 'Hora saída'
           teacher_id: 'Professor'
           calendar_day_id: 'Dia'
+          closed: "Fechar controle"
