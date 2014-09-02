@@ -66,7 +66,7 @@
         </td>
         <td>
           <p class='text-center'>
-            <%= g.student.faults_for_calendar(g.classroom.calendar_id).count %>
+            <%= g.student.faults_for_calendar(g.classroom.calendar_id, g.classroom.course.type_course).count %>
           </p>
         </td>
         <% @lessons.each do |lesson| %>
@@ -76,7 +76,7 @@
                    <% date_transfer = g.updated_at.strftime("%Y%m%d").to_i %>
                    <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
                    <% if date_transfer >= date_lesson %>
-                     <%= link_to "#{g.faults.find_by_group_id_and_lesson_id_and_justification(g.id, lesson.id, 0 ).present? ? 'F' : 'P'}", create_with_click_faults_path(lesson_id: lesson.id, group_id: g.id, month: params[:month]) %>
+                     <%= link_to "#{g.faults.find_by_group_id_and_lesson_id_and_justification(g.id, lesson.id ).present? ? 'F' : 'P'}", create_with_click_faults_path(lesson_id: lesson.id, group_id: g.id, month: params[:month]) %>
 
 										<% fault = g.faults.find_by_group_id_and_lesson_id_and_justification(g.id, lesson.id, 0) %>
 								

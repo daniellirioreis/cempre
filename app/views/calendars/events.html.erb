@@ -9,7 +9,18 @@
           <%end%>
           <%  contador = contador + 1 %>
           <td>
-            <div class="alert <% if l.calendar_day.day < Date.today %>alert-success<%else%> alert-info <%end%>">
+            <div class="alert 
+
+						<% if l.calendar_day.day < Date.today %>
+								<% if Fault.calendar_day_id_and_student_id(l.calendar_day_id, current_user.student_id).any? %>
+									alert-error								
+								<% else %>
+									alert-success															
+								<% end %>
+							<%else%>
+								alert-info 
+						<%end%>
+						">
               <p class='text-info'><strong><%= l.to_string %></strong></p><br>
               <% l.schedules.each do |s| %>
                 <%= s.description %>

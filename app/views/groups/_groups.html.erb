@@ -45,7 +45,7 @@
             <%= "#{group.student.age[:ano]} ano(s) #{group.student.age[:mes]} mês(es) #{group.student.age[:dia]} dia(s)" %>
           </td>
           <td>
-            <a title="<%group.student.faults_for_calendar(group.classroom.calendar_id).each do |f|%><%= "#{f}(#{f.justification_humanize}), "%><%end%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title=""><%= group.student.faults_for_calendar(group.classroom.calendar_id).count %>
+            <a title="<%group.student.faults_for_calendar(group.classroom.calendar_id, group.classroom.course.type_course).each do |f|%><%= "#{f}(#{f.justification_humanize}), "%><%end%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title=""><%= group.student.faults_for_calendar(group.classroom.calendar_id, group.classroom.course.type_course).count %>
             </a>
           </td>
           <% TypeExam.to_a.each do |te| %>

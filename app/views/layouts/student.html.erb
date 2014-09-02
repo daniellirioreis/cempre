@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cempre<%= "- #{title}" unless title.blank? %></title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/navegation_bar' %>
+
+    <%= render 'layouts/messages' %>
+		<div class="container-fluid">
+		  <div class="row-fluid">
+		    <div class="span3">
+		      <!--Sidebar content-->
+				  <div class="navbar navbar-inner block-header">
+						<table class='table'>
+							<tr>
+								<td>
+									<img src="https://scontent-b-mia.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/960072_582129391842932_775170345_n.jpg?oh=36192baf269c0f3c26222f23d0078b91&oe=546B8CDC" class="img-circle" width='140'>
+								</td>
+								<td>
+									<p>
+						        <strong>Nome: </strong><%= link_to "#{current_user.student}", current_user.student %><br>
+						        <strong>Idade: </strong><%= current_user.student.age[:ano] %> ano(s) <%=current_user.student.age[:mes]%> mês(es) <%= current_user.student.age[:dia]%> dia(s)<br>
+						          <% if current_user.student.birth_date.present? %>
+						            <% if current_user.student.birth_date.day == Date.today.day  and  current_user.student.birth_date.month ==  Date.today.month %>
+						              <h3 class='text-error'><i class="icon-gift"> Feliz aniversário, Parabéns!</i></h3>
+						            <% end %>
+						          <% end %>
+						      </p>
+						      
+								</td>
+							</tr>
+						</table>
+		
+					</div>								
+		    </div>
+		    <div class="span6">
+				  <div class="navbar navbar-inner block-header">
+						<h2><i class="icon-file"> </i>Notícias</h2>			
+						<% if @notes.any? %>
+								<br>
+								<% @notes.each do |n|%>
+
+									<div class="alert alert-info">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+									<i class="icon-comment"></i><strong>Mensagem</strong><br>
+
+										<% if current_user.adm %>
+								      <%= link_to "Editar", edit_note_path(n) %>
+											<%= link_to "Apagar", n , method: :delete, data: { confirm: 'Confirma exclusão?' } %><br>
+								    <% end %>
+												<table class='table'>
+													<tr>
+														<td>
+															<img src="http://3.bp.blogspot.com/-GOr3y0EHgIo/UArkxti-lgI/AAAAAAAAAr4/9A38YkXQFl4/s1600/DSCN0068.JPG" class="img-circle" width='1000'>
+															
+														</td>
+														<td>
+															<% text = "" %>
+															<% n.subject.chars.each do |c| %>
+																<% if c == "\n" || c == "\r" %>
+																	<br>
+																	<%= text %>								
+																	<% text = "" %>				 				
+																<% end %>
+																<% text = text + c %>
+															<% end %>
+															<%= text %>					 				
+														</td>
+													</tr>
+												</table>
+											<br>
+								    <strong>Ass: </strong><%= n.user.name %>
+									</div>		
+									<br>
+								<% end %>
+						<% end %>
+					</div>
+		    </div>
+		    <div class="span3">
+			
+				  <div class="navbar navbar-inner block-header">
+						<% current_user.student.group_active.each do |g|%>												
+						  <h3 class= " <% if g.frequency <= g.classroom.calendar.limit_of_faults %> text-error<% else %>						  <% if g.frequency < g.classroom.calendar.limit_of_faults + 4  and  g.frequency >= g.classroom.calendar.limit_of_faults  %>text-warning<%else%> <% if g.frequency >= g.classroom.calendar.limit_of_faults %>text-success<%end%><% end %><%end%>"
+						><i class="icon-signal"></i> <%= link_to "#{g.frequency}% - #{g.classroom.course}", frequency_student_path(current_user.student) %></h3>
+						<% end %>
+				    <h3><i class="icon-book"></i> <%= link_to "#{@lessons_for_today}", events_calendars_path %></h3>
+					</div>
+		    </div>
+		  </div>
+		  <hr>
+      <%= render 'layouts/footer' %>    
+		</div>
+
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

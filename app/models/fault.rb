@@ -17,6 +17,11 @@ class Fault < ActiveRecord::Base
   
   scope :calendar_id_and_student_id, lambda { |calendar_id, student_id| where("classrooms.calendar_id = ? AND groups.student_id = ?", calendar_id, student_id).joins(:group => :classroom) }
 
+  scope :calendar_day_id_and_student_id, lambda { |calendar_day_id, student_id| where("lessons.calendar_day_id = ? AND groups.student_id = ?", calendar_day_id, student_id).joins(:group, :lesson) }
+
+  scope :calendar_id_and_student_id_type_course, lambda { |calendar_id, student_id, type_course| where("classrooms.calendar_id = ? AND groups.student_id = ? AND courses.type_course = ?", calendar_id, student_id, type_course).joins(:group => [:classroom => :course]) }
+
+
   delegate :to_string, to: :lesson
 
   def to_s

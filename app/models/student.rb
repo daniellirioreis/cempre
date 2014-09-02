@@ -67,7 +67,27 @@ class Student < ActiveRecord::Base
   def group_active
     groups.active
   end
-
+  
+  def lessons_for_today(date)
+    text = ""
+    groups.each do |g|
+      days = g.classroom.calendar.days.search(date)
+      if days.present? 
+        days.each do |d|
+          lessons = d.lessons.classroom_id(g.classroom_id)
+          lessons.each do |l|
+            l.schedules.each do |s|
+              text = "#{s.description} - #{s.plan.course }" + ", " + text
+            end
+          end
+          
+        end
+      end
+    end
+    text = 'Hoje não possui aula para seu curso' if text.blank?
+    text
+  end
+  
   def company_active
      group_active.first.company if group_active.any?
   end
@@ -76,8 +96,8 @@ class Student < ActiveRecord::Base
     Exam.student_id(id)
   end
 
-  def faults_for_calendar(calendar_id)
-     Fault.calendar_id_and_student_id(calendar_id, id).justification(JustificationsFault::NONE)  
+  def faults_for_calendar(calendar_id, type_course)
+     Fault.calendar_id_and_student_id_type_course(calendar_id, id, type_course).justification(JustificationsFault::NONE)
   end
 
   private

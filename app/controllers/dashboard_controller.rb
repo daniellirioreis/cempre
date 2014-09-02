@@ -26,6 +26,7 @@ class DashboardController < ApplicationController
 
       if current_user.student.present?
         @events = Event.student_id(current_user.student_id).no_finalized
+        @lessons_for_today = current_user.student.lessons_for_today(Date.today)
       else
         if current_calendar.present?
           @monitorings = current_calendar.events.monitoring.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted

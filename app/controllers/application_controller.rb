@@ -74,7 +74,9 @@ class ApplicationController < ActionController::Base
             when "show"
               'information_student'                        
             when "events"
-              'information_student'                                    
+              'information_student'
+            when "frequency"
+              'information_student'              
             else
               'student'                          
             end
