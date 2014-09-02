@@ -1,15 +1,5 @@
 <%= simple_form_for(@control_point) do |f| %>
 	<%= f.input :teacher_id, :as => "hidden"%>
-	<blockquote>
-		<div class="alert alert-info">
-			<i class="icon-user"></i><strong><%= @control_point.teacher %></strong><br>
-			<strong>Data Nascimento: </strong><%= l @control_point.teacher.birth_date unless @control_point.teacher.birth_date.nil?  %><br>
-	    <strong>Idade: </strong><%= @control_point.teacher.age %><br>
-	    <strong>email: </strong> <%= @control_point.teacher.email%><br>
-	    <strong>Telefones: </strong> <%= @control_point.teacher.phone%>/ <%= @control_point.teacher.cell_phone %><br>
-		</div>
-	</blockquote>	
-	
 <% if current_user.adm  %>
 	<div class="row-fluid">
 	  <div class="span7">

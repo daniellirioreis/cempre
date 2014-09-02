@@ -59,7 +59,12 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = current_company.students.find(params[:id])
+    if current_user.student? 
+      @student =  current_user.student
+    else
+      @student = current_company.students.find(params[:id])      
+    end      
+      
   end
 
   def new
