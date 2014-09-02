@@ -1,3 +1,4 @@
+<% unless current_user.student %>
 <blockquote>
   <table class='table'>
     <tr>
@@ -35,11 +36,15 @@
     </tr>
   </table>
 </blockquote>
+
 <blockquote>
   <p>
     <%=@student%>
   </p>
 </blockquote>
+
+<% end %>
+
 <div class="tabbable">
   <ul class="nav nav-tabs">
     <li class="active"> <%= link_to "Geral", "#main", :"data-toggle" => :tab %></li>

@@ -12,6 +12,10 @@ class Plan < ActiveRecord::Base
   validates :course_id, uniqueness: { scope: [:calendar_id, :day_week] }
 
   after_save :create_schedules
+  
+  
+  scope :sorted, -> { order(:course_id, :day_week) }
+  
 
 
   def to_s

@@ -70,7 +70,14 @@ class ApplicationController < ActionController::Base
   def define_layout
     if user_signed_in?
       if current_user.student?
-        'student'
+          case params['action']
+            when "show"
+              'information_student'                        
+            when "events"
+              'information_student'                                    
+            else
+              'student'                          
+            end
       else
         if params['action'] == 'declaration_of_studying'
           'print'

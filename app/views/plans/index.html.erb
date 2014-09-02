@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         <% if @plans.any? %>
-          <% @plans.each do |p| %>
+          <% @plans.sorted.each do |p| %>
             <tr>
                 <td align="center">
                   <%= p %>
