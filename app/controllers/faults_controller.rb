@@ -35,7 +35,7 @@ class FaultsController < ApplicationController
       if @fault.save
         flash[:info] = 'Falta criada com sucesso'
       else
-        flash[:alert] = 'ocorreu um erro no lançamento de falta'
+        flash[:alert] = @fault.errors.full_messages
       end
     end
 
