@@ -3,7 +3,7 @@ class ClassroomsController < ApplicationController
   before_filter :authorize_controller!
 
 
-  before_action :set_classroom, only: [:show, :edit, :update, :destroy, :daily, :generate_lessons, :for_month_print_daily, :throw_faults]
+  before_action :set_classroom, only: [:show, :edit, :update, :destroy, :daily, :generate_lessons, :for_month_print_daily, :throw_faults, :throw_exams]
 
   before_action :verify_current_calendar
 
@@ -23,6 +23,10 @@ class ClassroomsController < ApplicationController
       params[:month] = Date.today.month
     end
     @lessons = @classroom.lessons.by_month(params[:month])
+  end
+  
+  def throw_exams
+    @groups = @classroom.groups.active
   end
 
   def schedules_for_week_day

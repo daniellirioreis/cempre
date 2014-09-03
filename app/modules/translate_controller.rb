@@ -128,7 +128,17 @@ class TranslateController
         'Pedido de livro'      
       when 'info'
         'Controle de Ponto'      
-      
+      when 'throw_exams'
+        'Lançar notas'      
+      when 'report_schedules' 
+        'Relatório Quadro de Horarios'
+      when 'report_teacher'
+        'Relatório Professor'
+      when 'list_classrooms_to_re_enrollments'
+        'Listagem de turmas para rematrículas'
+      when 'create_re'
+        'Criar rematrícula'
+        
     end
   end
 end

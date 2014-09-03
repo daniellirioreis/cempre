@@ -13,6 +13,7 @@ pt-BR:
       schedules_for_week_day: 'Horários por dia da semana'
       throw_faults: 'Lançar faltas'
       report_schedules: 'Quadro horário'
+      throw_exams: 'Lançar notas'      
   activerecord:
     models:
       classroom:

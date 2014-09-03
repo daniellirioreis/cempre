@@ -77,6 +77,7 @@ Donald::Application.routes.draw do
     get :for_month_print_daily, on: :member
     get :schedules_for_week_day, on: :collection
     get :throw_faults, on: :member
+    get :throw_exams, on: :member    
     get :report_schedules, on: :collection
   end
 

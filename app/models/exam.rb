@@ -1,7 +1,9 @@
 class Exam < ActiveRecord::Base
   belongs_to :lesson
   belongs_to :group
-
+  
+  delegate :classroom, to: :group 
+  
   has_enumeration_for :type_exam, :create_helpers => true, :create_scopes => true
 
   validates :group_id, :lesson_id, :type_exam, :value, presence: true

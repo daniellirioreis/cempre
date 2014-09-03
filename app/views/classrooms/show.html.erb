@@ -31,6 +31,11 @@
             <h2 class="text-success" title='Lançar faltas'><i class="icon-calendar"></i></h2>
           <% end %>
        </td>
+			 <td>
+          <%= link_to throw_exams_classroom_path(@classroom), role: 'button' do %>
+            <h2 class="text-success" title='Lançar avaliações'><i class="icon-edit"></i></h2>
+          <% end %>
+       </td>
        <td>
          <%= link_to @classroom, method: :delete, confirm: "Confirma exclusão", role: 'button' do %>
            <h2 class="text-error" title='Apagar'><i class="icon-remove"></i></h2>

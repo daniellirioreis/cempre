@@ -44,6 +44,7 @@ actions_more_classrooms:
   - schedules_for_week_day
   - throw_faults
   - report_schedules
+  - throw_exams
 actions_more_calendars:
   - events
   - finalize

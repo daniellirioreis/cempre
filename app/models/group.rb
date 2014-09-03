@@ -73,9 +73,11 @@ class Group < ActiveRecord::Base
 
   scope :open_for_enrollments_english, -> {where("classrooms.open_for_enrollments = true AND courses.type_exam #{TypeExam::ENGLISH}").joins(:classroom => :course)}
 
-
-
   after_save :create_transfer
+  
+  def new_exam
+    Exam.new(group_id: id, value: 0)
+  end
 
   def to_s
     student
