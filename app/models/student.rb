@@ -11,6 +11,7 @@ class Student < ActiveRecord::Base
   # validates :email, uniqueness: { scope: :company_id }
   # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   after_save :create_user
+  validate :birth_date_dont_have_greater_today
 
   scope :sorted, -> { order(:name) }
   scope :block_schedule_different, -> {where(block_schedule_different: true )}
@@ -102,6 +103,9 @@ class Student < ActiveRecord::Base
 
   private
 
+  def birth_date_dont_have_greater_today
+    errors.add(:birth_date, "não pode ser maior ou igual hoje") if birth_date >= Date.today
+  end
 
   def create_user
     user = User.find_by_name(name)
