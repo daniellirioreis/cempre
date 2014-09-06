@@ -28,25 +28,28 @@
 						              <h3 class='text-error'><i class="icon-gift"> Feliz aniversário, Parabéns!</i></h3>
 						            <% end %>
 						          <% end %>
-						      </p>
-						      
+						      </p>						      
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<% current_user.student.group_active.each do |g|%>												
+									  <h4 class= " <% if g.frequency <= g.classroom.calendar.limit_of_faults %> text-error<% else %>						  <% if g.frequency < g.classroom.calendar.limit_of_faults + 4  and  g.frequency >= g.classroom.calendar.limit_of_faults  %>text-warning<%else%> <% if g.frequency >= g.classroom.calendar.limit_of_faults %>text-success<%end%><% end %><%end%>"
+									><i class="icon-signal"></i> <%= link_to "#{g.frequency}% - #{g.classroom.course}", frequency_student_path(current_user.student), title: 'Frequência' %></h4>
+									<% end %>
+							    <h4><i class="icon-book"></i> <%= link_to "#{@lessons_for_today}", events_calendars_path , title: 'Lições' %></h4>									
 								</td>
 							</tr>
 						</table>
 		
 					</div>								
 		    </div>
-		    <div class="span6">
+		    <div class="span9">
 				  <div class="navbar navbar-inner block-header">
 						<h2><i class="icon-file"> </i>Notícias</h2>			
 						<% if @notes.any? %>
 								<br>
 								<% @notes.each do |n|%>
-
-									<div class="alert alert-info">
-									<button type="button" class="close" data-dismiss="alert">&times;</button>
-									<i class="icon-comment"></i><strong>Mensagem</strong><br>
-
 										<% if current_user.adm %>
 								      <%= link_to "Editar", edit_note_path(n) %>
 											<%= link_to "Apagar", n , method: :delete, data: { confirm: 'Confirma exclusão?' } %><br>
@@ -58,6 +61,7 @@
 															
 														</td>
 														<td>
+															<h1 align='center'><%= n.title %></h1>
 															<% text = "" %>
 															<% n.subject.chars.each do |c| %>
 																<% if c == "\n" || c == "\r" %>
@@ -73,20 +77,9 @@
 												</table>
 											<br>
 								    <strong>Ass: </strong><%= n.user.name %>
-									</div>		
-									<br>
+									<hr>
 								<% end %>
 						<% end %>
-					</div>
-		    </div>
-		    <div class="span3">
-			
-				  <div class="navbar navbar-inner block-header">
-						<% current_user.student.group_active.each do |g|%>												
-						  <h3 class= " <% if g.frequency <= g.classroom.calendar.limit_of_faults %> text-error<% else %>						  <% if g.frequency < g.classroom.calendar.limit_of_faults + 4  and  g.frequency >= g.classroom.calendar.limit_of_faults  %>text-warning<%else%> <% if g.frequency >= g.classroom.calendar.limit_of_faults %>text-success<%end%><% end %><%end%>"
-						><i class="icon-signal"></i> <%= link_to "#{g.frequency}% - #{g.classroom.course}", frequency_student_path(current_user.student) %></h3>
-						<% end %>
-				    <h3><i class="icon-book"></i> <%= link_to "#{@lessons_for_today}", events_calendars_path %></h3>
 					</div>
 		    </div>
 		  </div>

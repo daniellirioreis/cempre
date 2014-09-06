@@ -19,10 +19,10 @@ class DashboardController < ApplicationController
     if current_user.student?
       @company_active = current_user.student.company_active
       if @company_active.present?
-        @notes = current_user.student.company_active.notes.find_all_by_for_note(ForMessage::STUDENT)
+        @notes = current_user.student.company_active.notes.sorted.for_student
       end
     else
-      @notes = current_company.notes
+      @notes = current_company.notes.sorted
     end
 
       if current_user.student.present?

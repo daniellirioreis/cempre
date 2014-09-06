@@ -35,7 +35,7 @@ class Event < ActiveRecord::Base
   
   def to_s
     if monitoring?
-      "#{description} - #{student} - #{teacher}"
+      "#{description} - #{student} - #{teacher}(#{type_event_humanize.upcase})"
     else
        "#{description}"
     end
