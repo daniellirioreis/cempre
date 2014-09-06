@@ -17,7 +17,7 @@
 						<table class='table'>
 							<tr>
 								<td>
-									<img src="https://scontent-b-mia.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/960072_582129391842932_775170345_n.jpg?oh=36192baf269c0f3c26222f23d0078b91&oe=546B8CDC" class="img-circle" width='140'>									
+									<img src="<%if current_user.student.link_photo.blank? %>http://1.bp.blogspot.com/-r0QcumkGNUM/UcO0IGrUSrI/AAAAAAAAB6Q/6BLe12xjsU4/s320/sem+rosto+facebook.jpg<%else%><%= current_user.student.link_photo %><%end%>" class="img-circle" width='140'>							
 								</td>
 								<td>
 									<strong>Nome: </strong><%= link_to "#{current_user.student.name}",  current_user.student %>

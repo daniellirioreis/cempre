@@ -71,7 +71,7 @@ class Student < ActiveRecord::Base
   
   def lessons_for_today(date)
     text = ""
-    groups.each do |g|
+    groups.active.each do |g|
       days = g.classroom.calendar.days.search(date)
       if days.present? 
         days.each do |d|

@@ -10,6 +10,7 @@ class DashboardController < ApplicationController
     @birthdates = []
     @notes = []
     @students_block_schedule_different = []
+    @rents_books = []
     
     if current_user.adm 
       @students_block_schedule_different = current_company.students.block_schedule_different

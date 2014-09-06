@@ -16,3 +16,4 @@ pt-BR:
       note:
         subject: "Assunto"
         for_note: "para"
+        link_image: 'Url imagem'

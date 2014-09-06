@@ -120,6 +120,6 @@ class StudentsController < ApplicationController
 
     def student_params
       params.require(:student).permit(:name,:street, :house_number, :complement, :zip_code, :neighborhood,
-                                      :district, :city, :federal_unit, :email, :birth_date, :phone, :block_schedule_different, :cell_phone, :document, :obs, :mother, :father)
+                                      :district, :city, :federal_unit, :email, :birth_date, :phone, :block_schedule_different, :cell_phone, :document, :obs, :mother, :father, :link_photo)
     end
 end

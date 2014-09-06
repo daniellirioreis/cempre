@@ -42,7 +42,7 @@ progress-striped active">
 
   <%contador = 0 %>
   <table class="table">
-      <% g.faults.each do |f| %>
+      <% g.student.faults_for_calendar(g.classroom.calendar_id, g.classroom.course.type_course).each do |f| %>
         <% if contador == 0 %>
           <tr>
           <%end%>
