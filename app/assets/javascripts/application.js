@@ -48,7 +48,7 @@ jQuery(function($){
   $("#event_type_event").on("change", function(e) {
     var selectedValue = $(this).val(),
         monitoringContainer = $('#div_monitoring');
-    if (selectedValue == "1" || selectedValue == "2" || selectedValue == "3" || selectedValue == "4" || selectedValue == "5") {
+    if (selectedValue == "1" || selectedValue == "2" || selectedValue == "3" || selectedValue == "4" || selectedValue == "5" || selectedValue == "6" || selectedValue == "7" || selectedValue == "8") {
       monitoringContainer.addClass("hidden");
       $("#event_teacher_id").val("");
       $("#event_student_id").val("");
@@ -72,6 +72,19 @@ jQuery(function($){
       if (selectedValue == "5" ){
         $("#event_description").val("IMPORTANTE");
       }
+
+      if (selectedValue == "6" ){
+        $("#event_description").val("PROVA MIDTERM");
+      }
+
+      if (selectedValue == "7" ){
+        $("#event_description").val("PROVA FINAL");
+      }
+
+      if (selectedValue == "8" ){
+        $("#event_description").val("PROVA ORAL");
+      }
+
 
     } else {
       monitoringContainer.removeClass("hidden");

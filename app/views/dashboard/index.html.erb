@@ -29,6 +29,18 @@
   </div>
 <% end %>
 
+<% if @rents_books.count > 0 %>
+  <% @rents_books.each do |rb| %>
+		<% if rb.days_rent >=  6 %>
+			<div class="alert alert-error">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <i class="icon-book"></i><strong>Empréstimo de livro</strong><br>
+					<strong><%= rb.days_rent %> dias </strong> | <%= rb.book %> - <%= link_to "#{rb.student}" , rb.student %>
+			</div>
+		<% end %>
+  <% end %>
+<% end %>
+
 <% if @importants.count > 0 %>
   <div class="alert alert-error">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -40,10 +52,13 @@
 <% end %>
 
 <% if @notes.any? %>
-	<div class="alert alert-info">
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
-	<i class="icon-comment"></i><strong>Mensagens</strong><br>
+		<br>
 		<% @notes.each do |n|%>
+		
+			<div class="alert alert-info">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<i class="icon-comment"></i><strong>Mensagem</strong><br>
+		
 				<% if current_user.adm %>
 		      <%= link_to "Editar", edit_note_path(n) %>
 					<%= link_to "Apagar", n , method: :delete, data: { confirm: 'Confirma exclusão?' } %><br>
@@ -60,9 +75,9 @@
 						<%= text %>
 					<br>
 		    <strong>Ass: </strong><%= n.user.name %>
-				<hr>
+			</div>		
+			<br>
 		<% end %>
-	</div>
 <% end %>
 
 
@@ -101,7 +116,7 @@
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <i class="icon-gift"></i><strong>Aniversários</strong><br>
   <% @birthdates.each do |b|%>
-    <string><%= b.student %></strong> (<%=b.classroom%>|<%= b.classroom.day_week_humanize %>|<%= b.classroom.time_start.try(:strftime, '%H:%M')%> às <%= b.classroom.time_end.try(:strftime, '%H:%M')%> <%= b.classroom.teacher%>)<br>
+    <string><%= link_to "#{b.student}", b.student %></strong> (<%=b.classroom%>|<%= b.classroom.day_week_humanize %>|<%= b.classroom.time_start.try(:strftime, '%H:%M')%> às <%= b.classroom.time_end.try(:strftime, '%H:%M')%> <%= b.classroom.teacher%>)<br>
   <%end%>
   </div>
 <% end %>

@@ -69,37 +69,50 @@ class ApplicationController < ActionController::Base
 
   def define_layout
     if user_signed_in?
-      if params['action'] == 'declaration_of_studying'
-        'print'
+      if current_user.student?
+          case params['action']
+            when "show"
+              'information_student'                        
+            when "events"
+              'information_student'
+            when "frequency"
+              'information_student'              
+            else
+              'student'                          
+            end
       else
-        if params['action'] == 'daily'
+        if params['action'] == 'declaration_of_studying'
           'print'
         else
-          if params['action'] == 'down_average'
+          if params['action'] == 'daily'
             'print'
           else
-            if params['action'] ==  'print'
+            if params['action'] == 'down_average'
               'print'
             else
-              if params['action'] == 'report_calendar'
+              if params['action'] ==  'print'
                 'print'
               else
-                if params['action'] == 'report_re_enrollments'
+                if params['action'] == 'report_calendar'
                   'print'
                 else
-                  if params['action'] == 'report_schedules'
-                    'print'                    
+                  if params['action'] == 'report_re_enrollments'
+                    'print'
                   else
-                    if params['action'] == 'report'
-                      'print_not_head'
+                    if params['action'] == 'report_schedules'
+                      'print'                    
                     else
-                      if params['action'] == 'report_teacher'
-                        'print'                                            
+                      if params['action'] == 'report'
+                        'print_not_head'
                       else
-                        if params['action'] == 'buy_books'
-                          'print_not_head'
+                        if params['action'] == 'report_teacher'
+                          'print'                                            
                         else
-                          nil                                                                                            
+                          if params['action'] == 'buy_books'
+                            'print_not_head'
+                          else
+                            nil                                                                                            
+                          end
                         end
                       end
                     end
@@ -108,7 +121,8 @@ class ApplicationController < ActionController::Base
               end
             end
           end
-        end
+        
+      end
       end
     else
       "login"

@@ -73,9 +73,52 @@ class Group < ActiveRecord::Base
 
   scope :open_for_enrollments_english, -> {where("classrooms.open_for_enrollments = true AND courses.type_exam #{TypeExam::ENGLISH}").joins(:classroom => :course)}
 
-
-
   after_save :create_transfer
+  
+  def new_exam(type_event)
+    lesson_id = nil
+    if type_event == 'Midterm'
+      event = Event.calendar_id(classroom.calendar_id).midterm
+      if event.present?
+        lessons = event.first.calendar_day.lessons
+        if lessons.any?
+          lesson = lessons.find_by_classroom_id(classroom_id)
+          if lesson.present?
+            lesson_id = lesson.id
+          end  
+        end
+      end  
+    end
+    
+    if type_event == 'final'
+      event = Event.calendar_id(classroom.calendar_id).midterm
+      if event.present?
+        lessons = event.first.calendar_day.lessons
+        if lessons.any?
+          lesson = lessons.find_by_classroom_id(classroom_id)
+          if lesson.present?
+            lesson_id = lesson.id
+          end  
+        end
+      end  
+    end
+    
+    if type_event == 'oral'
+      event = Event.calendar_id(classroom.calendar_id).midterm
+      if event.present?
+        lessons = event.first.calendar_day.lessons
+        if lessons.any?
+          lesson = lessons.find_by_classroom_id(classroom_id)
+          if lesson.present?
+            lesson_id = lesson.id
+          end  
+        end
+      end  
+    end
+    
+    
+    Exam.new(group_id: id, value: 0, lesson_id: lesson_id)
+  end
 
   def to_s
     student
@@ -87,7 +130,7 @@ class Group < ActiveRecord::Base
 
   def frequency
     total_lessons = classroom.lessons.count
-    total_faults =  faults.count
+    total_faults =  student.faults_for_calendar(classroom.calendar_id, classroom.course.type_course).count
     unless total_faults == 0 && total_lessons == 0
       m = total_faults * 100
       mm = m / total_lessons

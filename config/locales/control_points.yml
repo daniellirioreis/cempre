@@ -1,0 +1,22 @@
+pt-BR:
+  title:
+    control_points:
+      index: 'Listagem de professores'
+      new: 'Controle de ponto - Entrada'
+      edit: 'Controle de ponto - Saída'
+      create: 'Controle de ponto - Entrada'
+      update: 'Controle de ponto - Saída'
+      show: 'Informações'
+      info: 'Controle de ponto'
+  activerecord:
+    models:
+      control_point:
+        one: "Controle de ponto"
+        many: "Controle de pontos"
+    attributes:
+      control_point:
+          time_start: 'Hora chegada'
+          time_end: 'Hora saída'
+          teacher_id: 'Professor'
+          calendar_day_id: 'Dia'
+          closed: "Fechar controle"

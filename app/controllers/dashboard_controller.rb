@@ -10,6 +10,7 @@ class DashboardController < ApplicationController
     @birthdates = []
     @notes = []
     @students_block_schedule_different = []
+    @rents_books = []
     
     if current_user.adm 
       @students_block_schedule_different = current_company.students.block_schedule_different
@@ -18,19 +19,22 @@ class DashboardController < ApplicationController
     if current_user.student?
       @company_active = current_user.student.company_active
       if @company_active.present?
-        @notes = current_user.student.company_active.notes.find_all_by_for_note(ForMessage::STUDENT)
+        @notes = current_user.student.company_active.notes.sorted.for_student
       end
     else
-      @notes = current_company.notes
+      @notes = current_company.notes.sorted
     end
 
       if current_user.student.present?
         @events = Event.student_id(current_user.student_id).no_finalized
+        @lessons_for_today = current_user.student.lessons_for_today(Date.today)
       else
         if current_calendar.present?
           @monitorings = current_calendar.events.monitoring.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
           @days_trial = current_calendar.events.day_trial.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
-          @importants = current_calendar.events.important.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
+          @importants = current_calendar.events.important.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted          
+          @rents_books = Rent.company_id(current_company.id).not_returned
+          
         end
       end
 

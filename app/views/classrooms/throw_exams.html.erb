@@ -1,0 +1,64 @@
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <td>
+      <small>
+        <b>NOME: </b><%= @classroom.name %><br/>
+        <b>CURSO: </b><%= @classroom.course %><br/>
+        <b>HORÁRIO: </b><%= @classroom.time_start.try(:strftime, '%H:%M') %> às <%= @classroom.time_end.try(:strftime, '%H:%M') %>
+     </small>
+    </td>
+    <td>
+      <small>
+        <b>PROFESSOR: </b><%= @classroom.teacher %><br/>
+        <b>DIA DA SEMANA: </b><%= @classroom.day_week_humanize %><br/>
+      </small>
+    </td>
+  </tr>
+</table>
+
+<%= label_tag 'txtBusca', 'Pesquisar' %>
+<%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_students" %>
+  <table class="list_students table table-striped table-hover table-bordered">
+      <thead>
+          <tr>
+					<th>Aluno</th>
+					<% TypeExam.to_a.each do |te|%>
+						<th> <%= te.first%> </th>              
+					<% end %>
+          </tr>
+      </thead>
+      <tbody>
+        <% if @groups.any? %>
+          <% @groups.sorted.each do |g| %>
+						<tr>
+							<td>
+								<%= g%>
+							</td>
+							<% TypeExam.to_a.each do |te|%>
+								<td>
+									<% exam  =  g.exams.find_by_type_exam(te.last) %>
+									<% unless exam.present? %>
+										<%  exam = g.new_exam(te.first) %>
+									<% end %>
+									<%= simple_form_for(exam) do |f| %>
+							    <div class="span6">
+									  <%= f.input :group_id, :as => "hidden"%>
+									  <%= f.input :type_exam, :as => "hidden", input_html: {value: te.last }%>									
+									  <%= f.input :lesson_id, :as => "hidden"%>																		
+										<%= f.input :value, input_html: { class: 'span6' } %>
+									</div>
+									<% end %>
+								</td>
+							<% end %>
+						</tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan='9'>Nenhum registro foi encontrado.</td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+	<div class="form-actions">
+	  <%= link_to 'Voltar', @classroom, :class => "btn" %>
+	</div>

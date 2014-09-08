@@ -15,6 +15,6 @@ pt-BR:
     attributes:
       exam:
         name: "Nome"
-        lesson_id: 'Dia'
+        lesson_id: 'Aula'
         type_exam: 'Tipo de Avaliação'
         value: 'Nota'

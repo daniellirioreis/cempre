@@ -1,13 +1,23 @@
 <%= simple_form_for(@note) do |f| %>
 <div class="row-fluid">
+	<div class="row-fluid">
+		<div class="span10"><%= f.input :title, input_html: { class: 'span10' } %></div>	
+	</div>	
+</div>
+<div class="row-fluid">
   <div class="span6">
       <%= f.input :user_id, :as => "hidden"%>
       <%= f.input :subject, input_html: { rows: 10 } %>
-    </div>
+  </div>
 </div>
 <div class="row-fluid">
   <div class="span3"><%= f.input :for_note, collection: ForMessage %></div>
 </div>
+<div class="row-fluid">
+	<div class="span10"><%= f.input :link_image, as: :string, input_html: { class: 'span10' } %></div>	
+</div>
+
+
 
 <div class="form-actions">
   <%= f.button :submit, :class => "btn btn-success" %>

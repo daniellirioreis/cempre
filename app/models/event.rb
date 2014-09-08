@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
 
   scope :day_start, lambda { |date| where("calendar_days.day >= ?", date).joins(:calendar_day) }
   scope :day_end, lambda { |date| where("calendar_days.day <= ?", date).joins(:calendar_day) }
-  scope :sorted, -> { order("calendar_days.day") }
+  scope :sorted, -> { order("calendar_days.day, time_start") }
 
   scope :no_finalized, -> {where("closed = ?", false)}
 
@@ -21,6 +21,8 @@ class Event < ActiveRecord::Base
 
   scope :day_trial, -> {where("type_event = ?", TypeEvent::DAY_TRIAL )}
   scope :important, -> {where("type_event = ?", TypeEvent::IMPORTANT )}
+  scope :midterm, -> {where("type_event = ?", TypeEvent::MIDTERM )}
+
 
 
 
@@ -39,7 +41,7 @@ class Event < ActiveRecord::Base
   
   def to_s
     if monitoring?
-      "#{description} - #{student} - #{teacher}"
+      "#{description} - #{student} - #{teacher}(#{type_event_humanize.upcase})"
     else
        "#{description}"
     end

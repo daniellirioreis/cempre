@@ -21,13 +21,31 @@ class ExamsController < ApplicationController
   end
 
   def create
+
     @exam = Exam.new(exam_params)
-
-    @exam.save
-
-    respond_with @exam, :location => exams_path(:group_id => @exam.group_id)
+        
+     if @exam.save
+       flash[:info] = "Nota lançada com sucesso !" 
+        redirect_to throw_exams_classroom_path(@exam.classroom) 
+     else
+        flash[:alert] = @exam.errors.full_messages
+        redirect_to throw_exams_classroom_path(@exam.classroom)         
+     end
   end
 
+  def update
+    @exam = Exam.find(params[:id])
+
+    if @exam.update_attributes(exam_params)
+      flash[:info] = "Nota lançada com sucesso !" 
+       redirect_to throw_exams_classroom_path(@exam.classroom)       
+    else
+      flash[:alert] = @exam.errors.full_messages
+      redirect_to throw_exams_classroom_path(@exam.classroom)               
+    end
+    
+    
+  end
 
   private
     def set_exam

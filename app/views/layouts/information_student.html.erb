@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cempre<%= "- #{title}" unless title.blank? %></title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/navegation_bar' %>
+
+    <%= render 'layouts/messages' %>
+		<div class="container-fluid">
+		  <div class="row-fluid">
+		    <div class="span3">
+		      <!--Sidebar content-->
+				  <div class="navbar navbar-inner block-header">
+						<table class='table'>
+							<tr>
+								<td>
+									<img src="<%if current_user.student.link_photo.blank? %>http://1.bp.blogspot.com/-r0QcumkGNUM/UcO0IGrUSrI/AAAAAAAAB6Q/6BLe12xjsU4/s320/sem+rosto+facebook.jpg<%else%><%= current_user.student.link_photo %><%end%>" class="img-circle" width='140'>							
+								</td>
+								<td>
+									<strong>Nome: </strong><%= link_to "#{current_user.student.name}",  current_user.student %>
+								</td>
+							</tr>
+						</table>
+		
+					</div>								
+		    </div>
+		    <div class="span9">
+				  <div class="navbar navbar-inner block-header">
+						<br>
+					  <%= yield %>		      
+					</div>
+		    </div>
+		  </div>
+		</div>
+
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

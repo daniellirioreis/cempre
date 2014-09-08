@@ -121,6 +121,13 @@ namespace :cancan do
           Role.create(:controller => 'courses', :action => action)
         end
       end
+
+      yaml['actions_more_control_points'].each do |action|
+        r = Role.find_by_action_and_controller(action, 'control_points')
+        unless r.present?
+          Role.create(:controller => 'control_points', :action => action)
+        end
+      end
       
       yaml['actions_more_calendar_days'].each do |action|
         r = Role.find_by_action_and_controller(action, 'calendar_days')

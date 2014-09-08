@@ -23,6 +23,7 @@ roles:
   - questionnaire_questions
   - enrollments
   - managers
+  - control_points
 actions:
   - create
   - read
@@ -43,6 +44,7 @@ actions_more_classrooms:
   - schedules_for_week_day
   - throw_faults
   - report_schedules
+  - throw_exams
 actions_more_calendars:
   - events
   - finalize
@@ -77,5 +79,5 @@ actions_more_courses:
   - buy_books
 actions_more_calendar_days:
   - find
-  
-  
+actions_more_control_points:
+  - info

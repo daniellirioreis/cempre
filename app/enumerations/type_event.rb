@@ -4,5 +4,8 @@ class TypeEvent< EnumerateIt::Base
                    :recess                => 2,
                    :holiday               => 3,
                    :day_trial             => 4,
-                   :important             => 5
+                   :important             => 5,
+                   :midterm               => 6,
+                   :final                 => 7,
+                   :oral                  => 8
 end

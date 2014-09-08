@@ -13,7 +13,7 @@
        </td>
        <td>
           <%= link_to lessons_path(:classroom_id => @classroom.id), role: 'button' do %>
-            <h2 class="text-info" title='Aulas'><i class="icon-pencil"></i></h2>
+            <h2 class="text-info" title='Aulas'><i class="icon-time"></i></h2>
           <% end %>
        </td>
        <td>
@@ -23,12 +23,17 @@
        </td>
        <td>
           <%= link_to new_group_path(:classroom_id => @classroom.id), role: 'button' do %>
-            <h2 class="text-success" title='Agrupar Alunos'><i class="icon-random"></i></h2>
+            <h2 class="text-success" title='Agrupar Alunos'><i class="icon-user"></i></h2>
           <% end %>
        </td>
        <td>
           <%= link_to throw_faults_classroom_path(@classroom), role: 'button' do %>
-            <h2 class="text-success" title='Lançar faltas'><i class="icon-tags"></i></h2>
+            <h2 class="text-success" title='Lançar faltas'><i class="icon-calendar"></i></h2>
+          <% end %>
+       </td>
+			 <td>
+          <%= link_to throw_exams_classroom_path(@classroom), role: 'button' do %>
+            <h2 class="text-success" title='Lançar avaliações'><i class="icon-edit"></i></h2>
           <% end %>
        </td>
        <td>
@@ -38,6 +43,7 @@
        </td>
     </tr>
   </table>
+</blockquote>
   <a id='open' href="#"><h3><%=@classroom%></h3></a>
   <div id='information'>
     <a id='close' href="#">x</a>
@@ -97,7 +103,9 @@
     </blockquote>
   </div>
 
-<hr/>
-  <h3 align='center'>Alunos</h3>
-<hr/>
-<%= render '/groups/groups'%>
+<blockquote>
+	<hr/>
+	  <h3  class="text-info"  align='center'>Alunos</h3>
+	<%= render '/groups/groups'%>
+</blockquote>
+

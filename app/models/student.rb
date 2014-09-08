@@ -11,6 +11,7 @@ class Student < ActiveRecord::Base
   # validates :email, uniqueness: { scope: :company_id }
   # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   after_save :create_user
+  validate :birth_date_dont_have_greater_today
 
   scope :sorted, -> { order(:name) }
   scope :block_schedule_different, -> {where(block_schedule_different: true )}
@@ -67,7 +68,27 @@ class Student < ActiveRecord::Base
   def group_active
     groups.active
   end
-
+  
+  def lessons_for_today(date)
+    text = ""
+    groups.active.each do |g|
+      days = g.classroom.calendar.days.search(date)
+      if days.present? 
+        days.each do |d|
+          lessons = d.lessons.classroom_id(g.classroom_id)
+          lessons.each do |l|
+            l.schedules.each do |s|
+              text = "#{s.description} - #{s.plan.course }" + ", " + text
+            end
+          end
+          
+        end
+      end
+    end
+    text = 'Hoje não possui aula para seu curso' if text.blank?
+    text
+  end
+  
   def company_active
      group_active.first.company if group_active.any?
   end
@@ -76,12 +97,15 @@ class Student < ActiveRecord::Base
     Exam.student_id(id)
   end
 
-  def faults_for_calendar(calendar_id)
-     Fault.calendar_id_and_student_id(calendar_id, id).justification(JustificationsFault::NONE)  
+  def faults_for_calendar(calendar_id, type_course)
+     Fault.calendar_id_and_student_id_type_course(calendar_id, id, type_course).justification(JustificationsFault::NONE)
   end
 
   private
 
+  def birth_date_dont_have_greater_today
+    errors.add(:birth_date, "não pode ser maior ou igual hoje") if birth_date >= Date.today
+  end
 
   def create_user
     user = User.find_by_name(name)

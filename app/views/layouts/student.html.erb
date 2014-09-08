@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cempre<%= "- #{title}" unless title.blank? %></title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/navegation_bar' %>
+
+    <%= render 'layouts/messages' %>
+		<div class="container-fluid">
+		  <div class="row-fluid">
+		    <div class="span3">
+		      <!--Sidebar content-->
+				  <div class="navbar navbar-inner block-header">
+						<table class='table'>
+							<tr>
+								<td>
+									<img src="<%if current_user.student.link_photo.blank? %>http://1.bp.blogspot.com/-r0QcumkGNUM/UcO0IGrUSrI/AAAAAAAAB6Q/6BLe12xjsU4/s320/sem+rosto+facebook.jpg<%else%><%= current_user.student.link_photo %><%end%>" class="img-circle" width='140'>							
+								</td>
+								<td>
+									<p>
+						        <strong>Nome: </strong><%= link_to "#{current_user.student}", current_user.student %><br>
+						        <strong>Idade: </strong><%= current_user.student.age[:ano] %> ano(s) <%=current_user.student.age[:mes]%> mês(es) <%= current_user.student.age[:dia]%> dia(s)<br>
+						          <% if current_user.student.birth_date.present? %>
+						            <% if current_user.student.birth_date.day == Date.today.day  and  current_user.student.birth_date.month ==  Date.today.month %>
+						              <h3 class='text-error'><i class="icon-gift"> Feliz aniversário, Parabéns!</i></h3>
+						            <% end %>
+						          <% end %>
+						      </p>						      
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<% current_user.student.group_active.each do |g|%>												
+									  <h4 class= " <% if g.frequency <= g.classroom.calendar.limit_of_faults %> text-error<% else %>						  <% if g.frequency < g.classroom.calendar.limit_of_faults + 4  and  g.frequency >= g.classroom.calendar.limit_of_faults  %>text-warning<%else%> <% if g.frequency >= g.classroom.calendar.limit_of_faults %>text-success<%end%><% end %><%end%>"
+									><i class="icon-signal"></i> <%= link_to "#{g.frequency}% - #{g.classroom.course}", frequency_student_path(current_user.student), title: 'Frequência' %></h4>
+									<% end %>
+							    <h4><i class="icon-book"></i> <%= link_to "#{@lessons_for_today}", events_calendars_path , title: 'Lições' %></h4>									
+								</td>
+							</tr>
+						</table>
+		
+					</div>								
+		    </div>
+		    <div class="span9">
+				  <div class="navbar navbar-inner block-header">
+						<h2><i class="icon-file"> </i>Notícias</h2>			
+						<% if @notes.any? %>
+								<br>
+								<% @notes.each do |n|%>
+										<% if current_user.adm %>
+								      <%= link_to "Editar", edit_note_path(n) %>
+											<%= link_to "Apagar", n , method: :delete, data: { confirm: 'Confirma exclusão?' } %><br>
+								    <% end %>
+												<table class='table'>
+													<tr>
+														<td>
+															<img src="<%=n.link_image%>" class="img-circle" width='1000'>
+															
+														</td>
+														<td>
+															<h1 align='center'><%= n.title %></h1>
+															<% text = "" %>
+															<% n.subject.chars.each do |c| %>
+																<% if c == "\n" || c == "\r" %>
+																	<br>
+																	<%= text %>								
+																	<% text = "" %>				 				
+																<% end %>
+																<% text = text + c %>
+															<% end %>
+															<%= text %>					 				
+														</td>
+													</tr>
+												</table>
+											<br>
+								    <strong>Ass: </strong><%= n.user.name %>
+									<hr>
+								<% end %>
+						<% end %>
+					</div>
+		    </div>
+		  </div>
+		  <hr>
+      <%= render 'layouts/footer' %>    
+		</div>
+
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

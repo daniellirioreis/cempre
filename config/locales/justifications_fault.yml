@@ -3,3 +3,6 @@ pt-BR:
     justifications_fault:
       none: "Nenhuma"
       declaration: "Declaração"
+      medical_certificate: 'Atestado Médico'
+      others: 'Outros'
+      

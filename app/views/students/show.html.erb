@@ -1,3 +1,4 @@
+<% unless current_user.student %>
 <blockquote>
   <table class='table'>
     <tr>
@@ -35,11 +36,15 @@
     </tr>
   </table>
 </blockquote>
+
 <blockquote>
   <p>
     <%=@student%>
   </p>
 </blockquote>
+
+<% end %>
+
 <div class="tabbable">
   <ul class="nav nav-tabs">
     <li class="active"> <%= link_to "Geral", "#main", :"data-toggle" => :tab %></li>
@@ -55,20 +60,32 @@
 <div class="tab-content">
   <div class="tab-pane fade active in" id="main">
     <blockquote>
-      <p>
-        <strong>Nome: </strong><%=@student%><br>
-        <strong>Data Nascimento: </strong><%= l @student.birth_date unless @student.birth_date.nil?  %><br>
-        <strong>Idade: </strong><%= @student.age[:ano] %> ano(s) <%= @student.age[:mes]%> mês(es) <%= @student.age[:dia]%> dia(s)<br>
-        <strong>email: </strong> <%= @student.email%><br>
-        <strong>Telefones: </strong> <%= @student.phone%> / <%= @student.cell_phone%><br>
-        <strong>Documentos: </strong> <%= @student.document%><br>
-        <strong>Observações: </strong> <%= @student.obs%>
-          <% if @student.birth_date.present? %>
-            <% if @student.birth_date.day == Date.today.day  and  @student.birth_date.month ==  Date.today.month %>
-              <h2 class='text-error'><i class="icon-gift"> Meu Aniversário</i></h2>
-            <% end %>
-          <% end %>
-      </p>
+			<table>
+				<tr>
+					<td>
+						<img src="<%if @student.link_photo.blank? %>http://1.bp.blogspot.com/-r0QcumkGNUM/UcO0IGrUSrI/AAAAAAAAB6Q/6BLe12xjsU4/s320/sem+rosto+facebook.jpg<%else%><%= @student.link_photo %><%end%>" class="img-circle" width='140'>							
+					</td>
+					<td>
+						&nbsp;&nbsp;
+					</td>
+					<td>
+						<p>
+			        <strong>Nome: </strong><%=@student%><br>
+			        <strong>Data Nascimento: </strong><%= l @student.birth_date unless @student.birth_date.nil?  %><br>
+			        <strong>Idade: </strong><%= @student.age[:ano] %> ano(s) <%= @student.age[:mes]%> mês(es) <%= @student.age[:dia]%> dia(s)<br>
+			        <strong>email: </strong> <%= @student.email%><br>
+			        <strong>Telefones: </strong> <%= @student.phone%> / <%= @student.cell_phone%><br>
+			        <strong>Documentos: </strong> <%= @student.document%><br>
+			        <strong>Observações: </strong> <%= @student.obs%>
+			          <% if @student.birth_date.present? %>
+			            <% if @student.birth_date.day == Date.today.day  and  @student.birth_date.month ==  Date.today.month %>
+			              <h2 class='text-error'><i class="icon-gift"> Meu Aniversário</i></h2>
+			            <% end %>
+			          <% end %>
+			      </p>			      
+					</td>
+				</tr>
+			</table>
     </blockquote>
   </div>
   <div class="tab-pane" id="address">
