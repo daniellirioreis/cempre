@@ -30,7 +30,9 @@
             <% if e.monitoring? %>info<% end %>
             <% if e.recess? %>warning<% end %>
             <% if e.party? %>success<% end %>
-
+						<% if e.midterm? %>error<% end %>
+            <% if e.oral? %>error<% end %>
+						<% if e.final? %>error<% end %>						
             ">
               <td colspan='2'><b><%= e.time_start.try(:strftime, '%H:%M')%> às <%= e.time_end.try(:strftime, '%H:%M')%></b> - <%= e %>(<%= e.type_event_humanize %><%if e.closed%> - FECHADO <% end %>)
               </td>

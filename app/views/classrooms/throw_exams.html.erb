@@ -38,13 +38,13 @@
 								<td>
 									<% exam  =  g.exams.find_by_type_exam(te.last) %>
 									<% unless exam.present? %>
-										<%  exam = g.new_exam %>
+										<%  exam = g.new_exam(te.first) %>
 									<% end %>
 									<%= simple_form_for(exam) do |f| %>
 							    <div class="span6">
 									  <%= f.input :group_id, :as => "hidden"%>
 									  <%= f.input :type_exam, :as => "hidden", input_html: {value: te.last }%>									
-									  <%= f.input :lesson_id, :as => "hidden", input_html: {value: current_calendar.days.first.lessons.first.id}%>																		
+									  <%= f.input :lesson_id, :as => "hidden"%>																		
 										<%= f.input :value, input_html: { class: 'span6' } %>
 									</div>
 									<% end %>

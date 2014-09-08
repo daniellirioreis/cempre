@@ -21,6 +21,8 @@ class Event < ActiveRecord::Base
 
   scope :day_trial, -> {where("type_event = ?", TypeEvent::DAY_TRIAL )}
   scope :important, -> {where("type_event = ?", TypeEvent::IMPORTANT )}
+  scope :midterm, -> {where("type_event = ?", TypeEvent::MIDTERM )}
+
 
 
 

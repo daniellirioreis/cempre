@@ -75,8 +75,49 @@ class Group < ActiveRecord::Base
 
   after_save :create_transfer
   
-  def new_exam
-    Exam.new(group_id: id, value: 0)
+  def new_exam(type_event)
+    lesson_id = nil
+    if type_event == 'Midterm'
+      event = Event.calendar_id(classroom.calendar_id).midterm
+      if event.present?
+        lessons = event.first.calendar_day.lessons
+        if lessons.any?
+          lesson = lessons.find_by_classroom_id(classroom_id)
+          if lesson.present?
+            lesson_id = lesson.id
+          end  
+        end
+      end  
+    end
+    
+    if type_event == 'final'
+      event = Event.calendar_id(classroom.calendar_id).midterm
+      if event.present?
+        lessons = event.first.calendar_day.lessons
+        if lessons.any?
+          lesson = lessons.find_by_classroom_id(classroom_id)
+          if lesson.present?
+            lesson_id = lesson.id
+          end  
+        end
+      end  
+    end
+    
+    if type_event == 'oral'
+      event = Event.calendar_id(classroom.calendar_id).midterm
+      if event.present?
+        lessons = event.first.calendar_day.lessons
+        if lessons.any?
+          lesson = lessons.find_by_classroom_id(classroom_id)
+          if lesson.present?
+            lesson_id = lesson.id
+          end  
+        end
+      end  
+    end
+    
+    
+    Exam.new(group_id: id, value: 0, lesson_id: lesson_id)
   end
 
   def to_s
