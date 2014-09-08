@@ -1,10 +1,13 @@
 class EventsController < ApplicationController
   before_filter :authorize_controller!
+  respond_to :json, :js
+  
 
   before_action :set_event, only: [:show, :edit, :update, :destroy, :finalize]
 
   def index
-    @events = Event.all
+    @events = Event.calendar_id(current_calendar.id)
+    @event = Event.new
   end
   
   def new

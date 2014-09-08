@@ -43,21 +43,8 @@
 		</div>
   </blockquote>
 </div>
-<blockquote>
-	<div class="alert alert-info">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<i class="icon-file"></i><strong>Histórico</strong><br>
-		<% @event.calendar_day.events.each do |e|  %>
-			<%= e.time_start.try(:strftime, '%H:%M') %> às  <%= e.time_end.try(:strftime, '%H:%M') %> <%= e.description %><%= " - #{e.student}" if e.monitoring? %><br>
-		<% end %>
-		<% @event.calendar_day.schedules.each do |s|  %>
-			<%= s.description%>(<%= s.plan %> - cronograma) <br>
-		<% end %>	
-	</div>
-</blockquote>
 <div class="form-actions">
   <%= f.button :submit, :class => "btn btn-success" %>
-  <%= link_to 'Voltar', calendar_path(id: @event.calendar_day.calendar, calendar_day_id: @event.calendar_day_id ), class: 'btn' %>
 </div>
 
 <% end %>

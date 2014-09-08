@@ -12,6 +12,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20140906190928) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pg_stat_statements"
@@ -141,9 +142,6 @@ ActiveRecord::Schema.define(version: 20140906190928) do
     t.integer  "teacher_id"
     t.integer  "student_id"
     t.boolean  "closed",          default: false
-    t.date     "start_at"
-    t.date     "end_at"
-    t.string   "name"
   end
 
   add_index "events", ["calendar_day_id"], name: "index_events_on_calendar_day_id", using: :btree

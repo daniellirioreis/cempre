@@ -5,8 +5,15 @@ class CalendarDaysController < ApplicationController
   before_action :set_calendar_day, only: [:show, :edit, :update, :destroy]
 
   def find
+     date = Date.parse(params[:date])
 
-    redirect_to(action: "index")  
+     @calendar_day = current_calendar.days.search(date).first
+     if @calendar_day.present?
+       redirect_to @calendar_day       
+     else
+       flash[:alert] = 'Data não encontrada, calendário não foi gerado'
+       redirect_to current_calendar
+     end
   end
 
   def index
