@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :finalize]
 
   def index
-    @events = Event.calendar_id(current_calendar.id)
+    @events = Event.calendar_id(current_calendar.id).no_finalized
     @event = Event.new
   end
   
