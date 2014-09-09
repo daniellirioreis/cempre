@@ -22,3 +22,4 @@ pt-BR:
         teacher_id: 'Monitor(a)'
         student_id: 'Aluno'
         closed: 'Fechar Evento'
+        student_came_in_monitoring: 'Aluno estava presente na monitoria'
