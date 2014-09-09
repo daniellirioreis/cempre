@@ -34,7 +34,7 @@ $(document).ready(function() {
 		allDayText: "ganztägig",
 
 	    events: '/events.json',
-		eventColor: '#BFEFFF',
+		eventColor: '#4169E1',
 	
 	    dayClick: function(date, jsEvent, view) {
 			response = $.ajax({
