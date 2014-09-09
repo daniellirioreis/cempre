@@ -9,6 +9,14 @@
 	  <%= render 'full'%>  
   </div>
   <div class="tab-pane" id="address">
+		<%= form_tag @calendar, :method => 'get' do  %>
+		   <form class="form-search">
+		      <div class="input-append">
+		        <%= text_field_tag "day" , "", class: 'span12 search-query date' %>
+		        <%= submit_tag  "Pesquisar", :class => :btn%>
+		      </div>
+		    </form>
+		 <% end %>
 		<% if @calendar_days.any?%>
 		  <%@calendar_days.each do |cd|%>
 		    <table class="table table-striped table-bordered table-hover" >
