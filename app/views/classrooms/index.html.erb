@@ -6,6 +6,16 @@
           <h2 class="text-success" title='Novo Aluno'><i class="icon-plus"></i></h2>
         <% end %>
       </td>
+      <td>
+        <%= link_to envelopes_for_exams_classrooms_path(type_exam: TypeExam::MIDTERM), role: 'button' do %>
+          <h2 class="text-warnning" title='Imprimir envelope prova midterm'><i class="icon-print"></i></h2>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to envelopes_for_exams_classrooms_path(type_exam: TypeExam::FINAL), role: 'button' do %>
+          <h2 class="text-error" title='Imprimir envelope prova final'><i class="icon-print"></i></h2>
+        <% end %>
+      </td>
 	 </tr>
 	</table>
 </blockquote>

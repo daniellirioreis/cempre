@@ -111,7 +111,11 @@ class ApplicationController < ActionController::Base
                           if params['action'] == 'buy_books'
                             'print_not_head'
                           else
-                            nil                                                                                            
+                            if params['action'] == "envelopes_for_exams"
+                              'print_not_head'                              
+                            else
+                              nil                                                                                                                          
+                            end  
                           end
                         end
                       end

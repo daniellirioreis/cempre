@@ -137,8 +137,9 @@ class TranslateController
       when 'list_classrooms_to_re_enrollments'
         'Listagem de turmas para rematrículas'
       when 'create_re'
-        'Criar rematrícula'
-        
+        'Criar rematrícula'     
+      when 'envelopes_for_exams'
+        'Envelopes para provas'
     end
   end
 end

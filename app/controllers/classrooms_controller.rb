@@ -7,6 +7,11 @@ class ClassroomsController < ApplicationController
 
   before_action :verify_current_calendar
 
+
+  def envelopes_for_exams
+    @classrooms = current_calendar.classrooms
+  end
+  
   def index
     @classrooms = current_calendar.classrooms
   end
