@@ -1,31 +1,24 @@
-<table class="table table-striped table-hover table-bordered">
-  <colgroup>
-    <col>
-    <col width="160">
-  </colgroup>
-  <thead>
-    <tr>
-      <th>Aula</th>
-      <th>Justificativa</th>
-      <th>Turma</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @student.faults.any? %>
-      <% @student.faults.each do |f| %>
-        <tr>
-          <td><%= f %></td>
-          <td><%= f.justification_humanize %></td>
-          <td><%= f.group.classroom %></td>
-        </tr>
-      <% end %>
-    <% else %>
-    <tr>
-      <td colspan='3'>Nenhum registro foi encontrado.</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<p>
-  <b>Quantidades faltas:</b> <%= @student.faults.count %>
-</p>
+<%@student.faults.sorted.group_by(&:calendar).each do |calendar, faults|%>
+	<% count_fauts = 0 %>
+	<div class="alert alert-info">
+		<p class='text-info'><i class="icon-calendar"></i> <%= calendar%></p>	  
+		<table class='table'>
+			<tr>
+				<th>Dia</th>
+				<th>Justificativa</th>
+			</tr>			
+		<% faults.each do |f| %>	
+			<%count_fauts = count_fauts + 1 %>
+			<tr>
+				<td><%= f %></td>
+				<td><%= f.justification_humanize %></td>				
+			</tr>
+		<% end %>
+			<tr>
+				<td colspan='2'>
+					<strong>Quantidade de faltas:</strong> <%= count_fauts %>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>

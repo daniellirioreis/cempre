@@ -21,8 +21,11 @@ class Fault < ActiveRecord::Base
 
   scope :calendar_id_and_student_id_type_course, lambda { |calendar_id, student_id, type_course| where("classrooms.calendar_id = ? AND groups.student_id = ? AND courses.type_course = ?", calendar_id, student_id, type_course).joins(:group => [:classroom => :course]) }
 
+  scope :sorted, -> { order("calendar_days.day").joins(:lesson => :calendar_day) }
 
   delegate :to_string, to: :lesson
+  delegate :classroom, to: :group
+  delegate :calendar, to: :classroom
 
   def to_s
     "#{lesson.calendar_day}"

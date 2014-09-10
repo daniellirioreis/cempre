@@ -47,6 +47,13 @@
 		    <div class="span9">
 				  <div class="navbar navbar-inner block-header">
 						<h2><i class="icon-file"> </i>Notícias</h2>			
+						
+						<div id="myCarousel" class="carousel slide">
+						  <ol class="carousel-indicators">
+						    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						    <li data-target="#myCarousel" data-slide-to="1"></li>
+						    <li data-target="#myCarousel" data-slide-to="2"></li>
+						  </ol>
 						<% if @notes.any? %>
 								<br>
 								<% @notes.each do |n|%>
