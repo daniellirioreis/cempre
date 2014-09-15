@@ -114,7 +114,11 @@ class ApplicationController < ActionController::Base
                             if params['action'] == "envelopes_for_exams"
                               'print_not_head'                              
                             else
-                              nil                                                                                                                          
+                              if params['controller'] == 'warnings' and params['action'] == 'show'
+                                'print'                              
+                              else
+                                nil                                                                                                                                                          
+                              end
                             end  
                           end
                         end

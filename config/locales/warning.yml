@@ -1,0 +1,18 @@
+pt-BR:
+  title:
+    warnings:
+      new: 'Nova Advertência'
+      edit: 'Editar Advertência'
+      create: 'Nova Advertência'
+      update: 'Editar Advertência'
+      show: 'Advertência'
+  activerecord:
+    models:
+      warning:
+        one: "Advertência"
+        many: "Advertências"
+    attributes:
+      warning:
+        calendar_day_id: "Dia"
+        description: "Motivo"
+        student_id: 'Aluno'

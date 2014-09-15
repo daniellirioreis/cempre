@@ -1,5 +1,7 @@
 Donald::Application.routes.draw do
 
+  resources :warnings
+
   resources :control_points do 
     get :info, on: :collection
   end

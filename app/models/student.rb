@@ -4,6 +4,8 @@ class Student < ActiveRecord::Base
   has_many :groups, :dependent => :restrict_with_error
   has_many :events
   has_many :rents
+  has_many :warnings
+  
 
   validates :company_id, :name, presence: true
   # :street, :neighborhood, :city, :federal_unit, :house_number

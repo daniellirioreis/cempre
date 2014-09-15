@@ -53,6 +53,8 @@ class TranslateController
         'Acesso'
       when 'control_points'
         'Controle de Ponto'
+      when 'warnings'
+        'Advertências'      
     end
   end
 

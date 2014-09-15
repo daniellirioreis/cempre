@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909183238) do
+ActiveRecord::Schema.define(version: 20140915194236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -388,6 +388,17 @@ ActiveRecord::Schema.define(version: 20140909183238) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  create_table "warnings", force: true do |t|
+    t.integer  "student_id"
+    t.integer  "calendar_day_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "warnings", ["calendar_day_id"], name: "index_warnings_on_calendar_day_id", using: :btree
+  add_index "warnings", ["student_id"], name: "index_warnings_on_student_id", using: :btree
+
   add_foreign_key "answers", "companies", name: "answers_company_id_fk"
 
   add_foreign_key "books", "companies", name: "books_company_id_fk"
@@ -455,5 +466,8 @@ ActiveRecord::Schema.define(version: 20140909183238) do
 
   add_foreign_key "users", "profiles", name: "users_profile_id_fk"
   add_foreign_key "users", "students", name: "users_student_id_fk"
+
+  add_foreign_key "warnings", "calendar_days", name: "warnings_calendar_day_id_fk"
+  add_foreign_key "warnings", "students", name: "warnings_student_id_fk"
 
 end
