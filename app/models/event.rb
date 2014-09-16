@@ -47,6 +47,31 @@ class Event < ActiveRecord::Base
     end
   end
   
+  def color
+    
+    if monitoring?
+      '#1E90FF'
+    else
+      if midterm? || oral?
+        "#20B2AA"            
+      else
+        if recess?  || holiday?
+          "#9370DB"
+        else
+          if party?
+            '#DB7093'
+          else
+            if important?
+              '#FF6347'
+            end        
+            
+          end                  
+        end
+      end  
+    end        
+    
+  end
+  
   def monitoring
     if teacher.present? 
       unless teacher.schedule_teachers.empty?
