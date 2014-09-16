@@ -52,7 +52,7 @@ class Event < ActiveRecord::Base
     if monitoring?
       '#1E90FF'
     else
-      if midterm? || oral?
+      if midterm? || oral? || final?
         "#20B2AA"            
       else
         if recess?  || holiday?
