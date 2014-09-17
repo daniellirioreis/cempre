@@ -84,6 +84,7 @@ Donald::Application.routes.draw do
     get :throw_exams, on: :member    
     get :report_schedules, on: :collection
     get :envelopes_for_exams, on: :collection
+    get :print, on: :collection
   end
 
   resources :teachers do 

@@ -46,6 +46,7 @@ actions_more_classrooms:
   - report_schedules
   - throw_exams
   - envelopes_for_exams
+  - print
 actions_more_calendars:
   - events
   - finalize

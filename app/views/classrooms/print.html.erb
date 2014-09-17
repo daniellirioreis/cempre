@@ -1,0 +1,26 @@
+<table class="list_classrooms table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Professor</th>
+            <th>Dia da Semana</th>
+            <th>Horário</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% if @classrooms.any? %>
+        <% @classrooms.sorted.each do |c| %>
+          <tr class="<% if  c.closed%>success<% end %>">
+              <td><%= c %></td>
+              <td><%= c.teacher%></td>
+              <td><%= c.day_week_humanize%></td>
+              <td><%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan='9'>Nenhum registro foi encontrado.</td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

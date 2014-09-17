@@ -8,6 +8,10 @@ class ClassroomsController < ApplicationController
   before_action :verify_current_calendar
 
 
+  def print
+    @classrooms = current_calendar.classrooms    
+  end
+  
   def envelopes_for_exams
     @classrooms = current_calendar.classrooms
   end

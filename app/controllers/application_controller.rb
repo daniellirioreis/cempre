@@ -117,7 +117,11 @@ class ApplicationController < ActionController::Base
                               if params['controller'] == 'warnings' and params['action'] == 'show'
                                 'print'                              
                               else
-                                nil                                                                                                                                                          
+                                 if params['controller'] == 'calendars' and params['action'] == 'show'
+                                   nil                                                                                                                                                                                             
+                                 else
+                                   nil                                                                                                                                                                                             
+                                 end
                               end
                             end  
                           end
