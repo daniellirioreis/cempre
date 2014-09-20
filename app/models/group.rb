@@ -127,7 +127,21 @@ class Group < ActiveRecord::Base
   def value_tatal
     (exams.sum(:value) / exams.count).round(2)
   end
-
+  
+  def fault_title(lesson_id)
+    f = faults.find_by_group_id_and_lesson_id(id, lesson_id)  
+    if f.present?
+       if f.justification != 0 
+        "FJ"
+       else
+         'F'
+       end
+    else
+      "p"
+    end  
+  end
+  
+  
   def frequency
     total_lessons = classroom.lessons.count
     total_faults =  student.faults_for_calendar(classroom.calendar_id, classroom.course.type_course).count
