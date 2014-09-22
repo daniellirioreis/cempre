@@ -84,14 +84,12 @@
             <%= link_to group, method: :delete, data: { confirm: 'Confirma exclusão?' }, role: 'button' do %>
             	<i title= 'Excluir' class="icon-trash"></i>
             <% end %>
-						<% if  group.active? %>
-							<%= link_to 	faults_path(group_id: group.id), role: 'button' do %>
-	            	<i title= "Informações sobre faltas" class="icon-check"></i>
-	            <% end %>		 | 
-							<%= link_to 	exams_path(group_id: group.id), role: 'button' do %>
-	            	<i title= "Informações sobre avaliações" class="icon-star"></i>
-	            <% end %>		
-						<% end %>
+						<%= link_to 	faults_path(group_id: group.id), role: 'button' do %>
+            	<i title= "Informações sobre faltas" class="icon-check"></i>
+            <% end %>		 | 
+						<%= link_to 	exams_path(group_id: group.id), role: 'button' do %>
+            	<i title= "Informações sobre avaliações" class="icon-star"></i>
+            <% end %>		
 					</td>
         </tr>
       <% end %>
