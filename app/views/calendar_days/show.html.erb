@@ -26,7 +26,11 @@
 			<td>
 				<% events.each do |e|%>
 				<div class="<% if params[:event_id].to_i == e.id %>alert alert-success<%else%>alert alert-info<%end%>">
-						<%= link_to "#{e.title}", edit_event_path(e) %>						
+					<% if e.student.present? %>
+						<%= link_to e.student, role: 'button' do %><i class="icon-user"></i>
+						<% end %>
+	       	<% end %>        									
+					<%= link_to "#{e.title}", edit_event_path(e) %> 
 			  </div>
 				<% end %>
 			</td>
