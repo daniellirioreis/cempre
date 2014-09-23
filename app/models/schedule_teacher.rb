@@ -9,5 +9,6 @@ class ScheduleTeacher < ActiveRecord::Base
   scope :day_week, lambda { |day_week| where("day_week = ?", day_week)}  
   scope :time_start, lambda { |time_start| where("time_start >= ?", time_start)}
   scope :time_end, lambda { |time_start| where("time_end <= ?", time_end)}
+  scope :company_id, lambda { |company_id| where("teachers.company_id = ?", company_id).joins(:teacher)}  
   
 end
