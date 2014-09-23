@@ -1,8 +1,8 @@
 class CalendarDay < ActiveRecord::Base
   belongs_to :calendar, :class_name => "Calendar", :foreign_key => "calendar_id"
-  has_many :events, dependent: :destroy
-  has_many :schedules, dependent: :destroy
-  has_many :lessons, dependent: :destroy
+  has_many :events, dependent: :delete_all
+  has_many :schedules, dependent: :delete_all
+  has_many :lessons, dependent: :delete_all
 
   validates_presence_of :calendar_id, :day
   validates_uniqueness_of :day, :scope => :calendar_id
