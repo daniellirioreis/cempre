@@ -1,16 +1,21 @@
 <% @company.calendars.sorted.each do |c| %>
-  <h4><%=c%></h4><br>
+  <h4 class='text-error'><i class="icon-calendar"></i> <%=c%></h4><br>
 	<% total_groups = 0 %>
-	<% StatusGroup.to_a.each do |s| %>
-		<% groups = c.groups.status(s.last.to_i)%>
-		<h5><%= s.first %>(<%= groups.count %>)</h5>
- 			<% if s.first.to_s == 'Ativo' %>
-					<% cc = 0%>
-					<% groups.group_by(&:classroom).each do |classroom, groups| %>
-						<%cc = cc +  groups.count %>
-					<% end %>
-					<% total_groups =  total_groups + cc %>					
-			<% end %>
+	<% c.months.each do |m| %>
+	<div class="alert alert-info">
+			<h4 class='text-center'><%= TranslateMonths.translate(m) %>	</h4>
+		<% StatusGroup.to_a.each do |s| %>
+			<% groups = c.groups.by_month(m).status(s.last.to_i)%>
+			<h5><%= s.first %>(<%= groups.count %>)</h5>
+	 			<% if s.first.to_s == 'Ativo' %>
+						<% cc = 0%>
+						<% groups.group_by(&:classroom).each do |classroom, groups| %>
+							<%cc = cc +  groups.count %>
+						<% end %>
+						<% total_groups =  total_groups + cc %>					
+				<% end %>
+		<% end %>		
+	</div>
  <% end %>
 	<h5> Total: <%= total_groups %><h5>
 <%end%>

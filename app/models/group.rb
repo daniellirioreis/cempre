@@ -73,6 +73,8 @@ class Group < ActiveRecord::Base
 
   scope :open_for_enrollments_english, -> {where("classrooms.open_for_enrollments = true AND courses.type_exam #{TypeExam::ENGLISH}").joins(:classroom => :course)}
 
+  scope :by_month, lambda { |month| where(" EXTRACT(MONTH FROM groups.created_at) = #{month}") }
+
   after_save :create_transfer
   
   def new_exam(type_event)
