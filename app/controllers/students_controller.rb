@@ -13,11 +13,12 @@ class StudentsController < ApplicationController
 
   def index
     @students = current_company.students.sorted
-
+    @groups_second_change_exam = []
+    @groups_down_average = []    
+    
     unless current_calendar.nil?
-      @groups_second_change_exam = current_calendar.groups_second_change_exam
-      @groups_active = current_calendar.groups_active
-      @groups_down_average = @groups_active.down_average(current_calendar.average)
+      @groups_second_change_exam = current_calendar.groups_second_change_exam  if params[:second_change_exam] == 'true'
+      # @groups_down_average = @groups_active.down_average(current_calendar.average)
 
       unless params[:type_exam].nil?
         case params[:type_exam].to_i
@@ -29,9 +30,6 @@ class StudentsController < ApplicationController
             @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
         end
       end
-    else
-      @groups_second_change_exam = []
-      @groups_down_average = []
     end
   end
 

@@ -23,3 +23,4 @@ pt-BR:
         student_id: 'Aluno'
         closed: 'Fechar Evento'
         student_came_in_monitoring: 'Aluno estava presente na monitoria'
+        calendar_day_id: 'Dia'

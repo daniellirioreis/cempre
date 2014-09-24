@@ -6,12 +6,67 @@
           <h2 class="text-success" title='Novo Aluno'><i class="icon-plus"></i></h2>
         <% end %>
       </td>
+      <td>
+        <%= link_to students_path, role: 'button' do %>
+          <h2 class="text-info" title='todos'><i class="icon-user"></i></h2>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to students_path(second_change_exam: 'true'), role: 'button' do %>
+          <h2 class="text-error" title='Listar alunos em 2ª chamada'><i class="icon-user"></i></h2>
+        <% end %>
+      </td>
 	 </tr>
 	</table>
 </blockquote>
 <%= label_tag 'txtBusca', 'Pesquisar' %>
 <%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_students" %>
 
+<% if params[:second_change_exam] == 'true' %>
+	<table class="list_students table table-striped table-hover table-bordered">
+	    <thead>
+	        <tr>
+	            <th>Nome</th>
+	            <th>Idade</th>
+							<th>Dia de Prova</th>
+	            <th>Ação</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <% if @groups_second_change_exam.any? %>
+	          <% @groups_second_change_exam.each do |s| %>
+	            <tr>
+	                <td align="center">
+	                  <%= s.student %>
+	                </td>
+	                <td>
+	                  <% age = s.student.age %>
+	                  <%= age[:ano]%> anos(s)
+	                  <%= age[:mes]%> mês(es)
+	                  <%= age[:dia]%> dia(s)
+	                </td>
+									<td>
+										<%s.student.second_exam(current_calendar.id).each do |e| %>
+											<%= e.calendar_day.to_string %> <%= "#{e.time_start.try(:strftime, '%H:%M')}  às  #{e.time_end.try(:strftime, '%H:%M')}"%><br>
+										<%end%>																				
+									</td>
+	                <td>
+	                  <div class="btn-group">
+												<% unless s.student.second_exam(current_calendar.id).any? %>
+	                    <%= link_to "Criar Horario", new_event_path(student_id: s.student_id, second_change_exam: 'true' ), :class => "btn btn-success" %>
+											<% end %>
+	                  </div>
+	                </td>
+	            </tr>
+	          <% end %>
+	        <% else %>
+	          <tr>
+	            <td colspan='2'>Nenhum registro foi encontrado.</td>
+	          </tr>
+	        <% end %>
+	    </tbody>
+	</table>	
+<% else %>
 <table class="list_students table table-striped table-hover table-bordered">
     <thead>
         <tr>
@@ -47,3 +102,5 @@
         <% end %>
     </tbody>
 </table>
+<% end %>
+

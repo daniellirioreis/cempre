@@ -11,7 +11,12 @@ class EventsController < ApplicationController
   end
   
   def new
-    @event = Event.new(calendar_day_id: params[:calendar_day_id])
+    if params[:second_change_exam] == "true"
+       @student = Student.find(params[:student_id])
+      @event = Event.new(description: "PROVA 2ª CHAMADA #{@student.name}", type_event: TypeEvent::DAY_TRIAL, student_id: params[:student_id])            
+    else
+      @event = Event.new(calendar_day_id: params[:calendar_day_id])    
+    end  
   end
 
   def create

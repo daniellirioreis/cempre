@@ -33,6 +33,11 @@ class Student < ActiveRecord::Base
   def borrowed_books
     rents.not_returned
   end
+  
+  def second_exam(calendar_id)
+    events.no_finalized.calendar_id(calendar_id).day_trial
+  end
+  
 
   def age
     idade_calculada = {:ano => nil, :mes => nil, :dia => nil}

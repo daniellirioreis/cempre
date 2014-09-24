@@ -1,9 +1,22 @@
 <%= simple_form_for(@event) do |f| %>
-<div class="form-actions">
-  <%= hidden_field_tag :calendar_day_id, params[:calendar_day_id] %>
-  <%= f.input :calendar_day_id, :as => "hidden"%>
-	<h2 class="text-info"><%= @event.calendar_day.to_string %></h2>
-</div>
+<% if params[:calendar_day_id].nil? ||  params[:calendar_day_id].blank? %>
+	<%= hidden_field_tag :student_id, params[:student_id] %>
+	<%= f.input :student_id, :as => "hidden"%>
+	<div class="row-fluid">
+	  <div class="span7">
+				  <div class="span7"> <%= f.input :calendar_day_id, collection: current_calendar.days.map{|cd|[cd.to_string, cd.id]}, input_html: { class: 'span7' } %></div>
+		</div>
+	</div>	
+<% else %>
+	<div class="form-actions">
+	  <%= hidden_field_tag :calendar_day_id, params[:calendar_day_id] %>
+	  <%= f.input :calendar_day_id, :as => "hidden"%>
+		<h2 class="text-info"><%= @event.calendar_day.to_string %></h2>
+	</div>
+<% end %>
+
+
+
 <div class="row-fluid">
   <div class="span3"><%= f.input :time_start, input_html: { class: 'span3' } %></div>
   <div class="span3"><%= f.input :time_end, input_html: { class: 'span3' } %></div>

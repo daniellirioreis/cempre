@@ -63,6 +63,11 @@ class Event < ActiveRecord::Base
           else
             if important?
               '#FF6347'
+            else
+              if day_trial?
+                '#333333'
+            end
+            
             end        
             
           end                  

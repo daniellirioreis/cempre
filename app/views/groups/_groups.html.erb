@@ -61,6 +61,10 @@
             	<i title='Informações sobre aluno' class="icon-info"></i>
             <% end %> | 
 
+            <%= link_to  second_change_exam_group_path(group), role: 'button' do %>
+            	<i title= "<%= group.second_change_exam ? 'Cancelar 2ª chamada' : 'Marca 2ª chamada' %>" class=" icon-share-alt"></i>
+            <% end %> | 				
+
             <%= link_to  re_enrollment_group_path(group), role: 'button' do %>
             	<i title= "<%= group.re_enrollment ? 'Cancelar Rematricula' : 'Rematricular' %>" class="icon-file"></i>
             <% end %> | 				
