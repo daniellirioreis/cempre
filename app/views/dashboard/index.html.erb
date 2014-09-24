@@ -12,6 +12,27 @@
     <%= d.calendar_day.to_string %> | <%=d.description%><br>
   <% end %>
 </div>
+<% if @days_trial.count > 0 %>
+  <div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <i class="icon-calendar"></i><strong>Dia de Prova</strong><br>
+  <% @days_trial.each do |d| %>
+    <%= d.calendar_day.to_string %> | <%=d.description%><br>
+  <% end %>
+  </div>
+<% end %>
+
+<% if @importants.count > 0 %>
+  <div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <i class="icon-calendar"></i><strong>Importante</strong><br>
+  <% @importants.each do |i| %>
+    <%= i.calendar_day.to_string %> |<%= i.time_start.try(:strftime, '%H:%M') %> <%=i.description%><br>
+  <% end %>
+  </div>
+<% end %>
+
+
 
 <% if @monitorings.count > 0 %>
   <div class="alert alert-alert">
@@ -33,17 +54,6 @@
   <% end %>
   </div>
 <% end %>
-
-<% if @days_trial.count > 0 %>
-  <div class="alert alert-error">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <i class="icon-calendar"></i><strong>Dia de Prova</strong><br>
-  <% @days_trial.each do |d| %>
-    <%= d.calendar_day.to_string %> | <%=d.description%><br>
-  <% end %>
-  </div>
-<% end %>
-
 <% if @rents_books.count > 0 %>
   <% @rents_books.each do |rb| %>
 		<% if rb.days_rent >=  6 %>
@@ -54,16 +64,6 @@
 			</div>
 		<% end %>
   <% end %>
-<% end %>
-
-<% if @importants.count > 0 %>
-  <div class="alert alert-error">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <i class="icon-calendar"></i><strong>Importante</strong><br>
-  <% @importants.each do |i| %>
-    <%= i.calendar_day.to_string %> |<%= i.time_start.try(:strftime, '%H:%M') %> <%=i.description%><br>
-  <% end %>
-  </div>
 <% end %>
 
 <% if @notes.any? %>
