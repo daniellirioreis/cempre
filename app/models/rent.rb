@@ -8,8 +8,16 @@ class Rent < ActiveRecord::Base
 
 
   scope :not_returned, -> {where("returned = ?", false)}
+  
+  scope :company_id, lambda { |company_id| where("books.company_id = ? ", company_id).joins(:book) }
+  
 
   def to_s
     student
+  end
+  
+  def days_rent
+    date = Date.parse(created_at.to_s.split(" ").first)
+    (date..Date.today).count    		
   end
 end

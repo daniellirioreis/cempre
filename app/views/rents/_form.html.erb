@@ -12,7 +12,7 @@
   </blockquote>
   <div class="row-fluid">
     <div class="span8">
-      <%= f.input :student_id, collection: Student.sorted, input_html: { class: 'span10' } %>
+      <%= f.input :student_id, collection: current_company.students.sorted, input_html: { class: 'span10' } %>
     </div>
   </div>
   <div class="form-actions">

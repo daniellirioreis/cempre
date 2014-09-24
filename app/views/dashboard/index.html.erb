@@ -29,6 +29,18 @@
   </div>
 <% end %>
 
+<% if @rents_books.count > 0 %>
+  <% @rents_books.each do |rb| %>
+		<% if rb.days_rent >=  6 %>
+			<div class="alert alert-error">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <i class="icon-book"></i><strong>Empréstimo de livro</strong><br>
+					<strong><%= rb.days_rent %> dias </strong> | <%= rb.book %> - <%= link_to "#{rb.student}" , rb.student %>
+			</div>
+		<% end %>
+  <% end %>
+<% end %>
+
 <% if @importants.count > 0 %>
   <div class="alert alert-error">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
