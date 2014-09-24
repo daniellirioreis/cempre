@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
 
   def index
     @monitorings = []
+    @midterms = []    
     @days_trial = []
     @importants = []
     @birthdates = []
@@ -33,6 +34,9 @@ class DashboardController < ApplicationController
           @monitorings = current_calendar.events.monitoring.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
           @days_trial = current_calendar.events.day_trial.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted
           @importants = current_calendar.events.important.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted          
+          
+          @midterms = current_calendar.events.midterm.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted          
+          
           @rents_books = Rent.company_id(current_company.id).not_returned
           
         end
