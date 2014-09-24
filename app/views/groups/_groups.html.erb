@@ -11,6 +11,7 @@
         <th><%= tp.first%></th>
       <% end %>
       <th>Situação</th>
+      <th>Reprovado Semestre anterior</th>
       <th>Ação</th>
     </tr>
   </thead>
@@ -56,6 +57,11 @@
           <td>
             <a title="<%=group.justification%>" data-placement="top" data-toggle="tooltip" href="#" data-original-title=""><%=group.status_humanize %></a>
           </td>
+					<td>
+						<% if group.repeat %>
+						<h3 class='text-error text-center'><i title= "trancar" class="icon-thumbs-up"></i><h3>
+						<% end %>
+					</td>
 					<td>
 						<%= link_to  group.student, role: 'button' do %>
             	<i title='Informações sobre aluno' class="icon-info"></i>

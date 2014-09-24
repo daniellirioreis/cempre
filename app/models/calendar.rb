@@ -12,7 +12,9 @@ class Calendar < ActiveRecord::Base
   scope :open, -> {where(closed: false )}
 
   scope :not_equal_id, lambda { |id| where("id <> ?", id) }
-
+  
+  scope :next_calendar_id, lambda { |id| where("next_calendar_id = ?", id) }
+  
   scope :sorted, -> { order("calendars.date_start") }
 
 

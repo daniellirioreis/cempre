@@ -155,7 +155,8 @@ class Group < ActiveRecord::Base
   end
   
   def repeat
-    student.groups.join_classroom_find_course_id(classroom.course_id).different_group_id(id).any?
+   calendar_previus =  Calendar.next_calendar_id(classroom.calendar_id).first
+   student.groups.calendar_id(calendar_previus.id).course_id(classroom.course.id).status(StatusGroup::FAILED).any?
   end
 
   private
