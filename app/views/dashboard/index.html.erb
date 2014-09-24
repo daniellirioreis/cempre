@@ -1,8 +1,14 @@
 
 <div class="alert alert-success">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
-	<i class="icon-file"></i><strong>Midterm</strong><br>  
+	<i class="icon-file"></i><strong>Provas</strong><br>  
   <% @midterms.each do |d| %>
+    <%= d.calendar_day.to_string %> | <%=d.description%><br>
+  <% end %>
+  <% @finals.each do |d| %>
+    <%= d.calendar_day.to_string %> | <%=d.description%><br>
+  <% end %>
+  <% @orals.each do |d| %>
     <%= d.calendar_day.to_string %> | <%=d.description%><br>
   <% end %>
 </div>

@@ -36,6 +36,8 @@ class DashboardController < ApplicationController
           @importants = current_calendar.events.important.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted          
           
           @midterms = current_calendar.events.midterm.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted          
+          @finals = current_calendar.events.final.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted          
+          @orals = current_calendar.events.oral.no_finalized.day_start(Date.today).day_end(Date.today + 3.day).sorted          
           
           @rents_books = Rent.company_id(current_company.id).not_returned
           
