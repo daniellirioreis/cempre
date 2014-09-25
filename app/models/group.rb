@@ -158,7 +158,11 @@ class Group < ActiveRecord::Base
   
   def repeat
    calendar_previus =  Calendar.next_calendar_id(classroom.calendar_id).first
-   student.groups.calendar_id(calendar_previus.id).course_id(classroom.course.id).status(StatusGroup::FAILED).any?
+   if calendar_previus.present? 
+     student.groups.calendar_id(calendar_previus.id).course_id(classroom.course.id).status(StatusGroup::FAILED).any?     
+   else
+     false
+   end   
   end
 
   private
