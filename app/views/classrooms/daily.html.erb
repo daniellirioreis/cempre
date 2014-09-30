@@ -45,8 +45,7 @@
         </td>
         <td>
           <p class='text-center'>
-            <%= g.faults.count %>
-          </p>
+  					<%= g.student.faults_for_calendar(g.classroom.calendar_id, g.classroom.course.type_course).count %>          </p>
         </td>
         <% @lessons.sort_by(&:to_s).each do |lesson| %>
           <td title="<%=lesson.calendar_day%>">
