@@ -80,42 +80,203 @@ class Group < ActiveRecord::Base
   def new_exam(type_event)
     lesson_id = nil
     if type_event == 'Midterm'
-      event = Event.calendar_id(classroom.calendar_id).midterm
-      if event.present?
-        lessons = event.first.calendar_day.lessons
-        if lessons.any?
-          lesson = lessons.find_by_classroom_id(classroom_id)
-          if lesson.present?
-            lesson_id = lesson.id
-          end  
+      events = Event.calendar_id(classroom.calendar_id).midterm
+      if events.any?
+        event = nil
+        events.each do |e|
+           
+           if classroom.monday_and_wednesday? 
+             if e.wday  == 1  || e.wday == 3
+               event = e 
+             end  
+           end 
+           
+           if classroom.tuesday_and_thursday? 
+             if e.wday  == 2  || e.wday == 4
+               event = e 
+             end  
+           end 
+
+           if classroom.saturday?
+             if e.wday  == 6
+               event = e 
+             end  
+           end 
+
+           if classroom.wednesday?
+             if e.wday  == 3
+               event = e 
+             end  
+           end 
+
+           if classroom.monday?
+             if e.wday  == 1
+               event = e 
+             end  
+           end 
+
+           if classroom.thursday?
+             if e.wday  == 4
+               event = e 
+             end  
+           end 
+
+           if classroom.tuesday?
+             if e.wday  == 2
+               event = e 
+             end  
+           end 
+           
+           if classroom.monday_and_tuesday?
+             if e.wday  == 2 || e.wday == 1
+               event = e 
+             end  
+           end 
+        end
+        if event.present?
+          lessons = event.calendar_day.lessons
+          if lessons.any?
+            lesson = lessons.find_by_classroom_id(classroom_id)
+            if lesson.present?
+              lesson_id = lesson.id
+            end  
+          end
         end
       end  
     end
     
     if type_event == 'final'
-      event = Event.calendar_id(classroom.calendar_id).midterm
-      if event.present?
-        lessons = event.first.calendar_day.lessons
-        if lessons.any?
-          lesson = lessons.find_by_classroom_id(classroom_id)
-          if lesson.present?
-            lesson_id = lesson.id
-          end  
+      events = Event.calendar_id(classroom.calendar_id).final
+      if events.any?
+        event = nil
+        events.each do |e|
+           
+           if classroom.monday_and_wednesday? 
+             if e.wday  == 1  || e.wday == 3
+               event = e 
+             end  
+           end 
+           
+           if classroom.tuesday_and_thursday? 
+             if e.wday  == 2  || e.wday == 4
+               event = e 
+             end  
+           end 
+
+           if classroom.saturday?
+             if e.wday  == 6
+               event = e 
+             end  
+           end 
+
+           if classroom.wednesday?
+             if e.wday  == 3
+               event = e 
+             end  
+           end 
+
+           if classroom.monday?
+             if e.wday  == 1
+               event = e 
+             end  
+           end 
+
+           if classroom.thursday?
+             if e.wday  == 4
+               event = e 
+             end  
+           end 
+
+           if classroom.tuesday?
+             if e.wday  == 2
+               event = e 
+             end  
+           end 
+           
+           if classroom.monday_and_tuesday?
+             if e.wday  == 2 || e.wday == 1
+               event = e 
+             end  
+           end 
+        end
+        if event.present?
+          lessons = event.calendar_day.lessons
+          if lessons.any?
+            lesson = lessons.find_by_classroom_id(classroom_id)
+            if lesson.present?
+              lesson_id = lesson.id
+            end  
+          end
         end
       end  
+      
     end
     
     if type_event == 'oral'
-      event = Event.calendar_id(classroom.calendar_id).midterm
-      if event.present?
-        lessons = event.first.calendar_day.lessons
-        if lessons.any?
-          lesson = lessons.find_by_classroom_id(classroom_id)
-          if lesson.present?
-            lesson_id = lesson.id
-          end  
+      events = Event.calendar_id(classroom.calendar_id).oral
+      if events.any?
+        event = nil
+        events.each do |e|
+           
+           if classroom.monday_and_wednesday? 
+             if e.wday  == 1  || e.wday == 3
+               event = e 
+             end  
+           end 
+           
+           if classroom.tuesday_and_thursday? 
+             if e.wday  == 2  || e.wday == 4
+               event = e 
+             end  
+           end 
+
+           if classroom.saturday?
+             if e.wday  == 6
+               event = e 
+             end  
+           end 
+
+           if classroom.wednesday?
+             if e.wday  == 3
+               event = e 
+             end  
+           end 
+
+           if classroom.monday?
+             if e.wday  == 1
+               event = e 
+             end  
+           end 
+
+           if classroom.thursday?
+             if e.wday  == 4
+               event = e 
+             end  
+           end 
+
+           if classroom.tuesday?
+             if e.wday  == 2
+               event = e 
+             end  
+           end 
+           
+           if classroom.monday_and_tuesday?
+             if e.wday  == 2 || e.wday == 1
+               event = e 
+             end  
+           end 
+        end
+        if event.present?
+          lessons = event.calendar_day.lessons
+          if lessons.any?
+            lesson = lessons.find_by_classroom_id(classroom_id)
+            if lesson.present?
+              lesson_id = lesson.id
+            end  
+          end
         end
       end  
+      
     end
     
     

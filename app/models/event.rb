@@ -47,6 +47,10 @@ class Event < ActiveRecord::Base
     end
   end
   
+  def wday
+    calendar_day.wday
+  end
+  
   def color
     
     if monitoring?
