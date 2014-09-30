@@ -55,8 +55,10 @@
                    <% date_transfer = g.updated_at.strftime("%Y%m%d").to_i %>
                    <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
                    <% if date_transfer >= date_lesson %>
-                     <% f = g.fault_title(lesson.id) %>
-											<%= " " if f == 'P' %>
+                     <% if g.fault_title(lesson.id) == "P" %>
+											<% else %>
+												<%= g.fault_title(lesson.id) %>                     
+											<% end %>
                   <% else %>
                     -
                   <% end %>
@@ -64,8 +66,10 @@
                   <% date_active = g.created_at.strftime("%Y%m%d").to_i %>
                   <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
                    <% if date_active <= date_lesson %>
-                   <% f = g.fault_title(lesson.id) %>
-										<%= " " if f == 'P' %>
+                   <% if g.fault_title(lesson.id) == "P" %>
+										<% else %>
+											<%= g.fault_title(lesson.id) %>                     
+										<% end %>
                   <% else %>
                       -
                   <% end %>
