@@ -300,7 +300,7 @@ class Group < ActiveRecord::Base
          'F'
        end
     else
-      "p"
+      "P"
     end  
   end
   
