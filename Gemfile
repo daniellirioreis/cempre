@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'fullcalendar-rails'
 gem 'calendar_date_select'
 
+gem "google_visualr", "~> 2.1.0"
+
 
 gem 'responders', :git => 'https://github.com/plataformatec/responders.git'
 gem 'has_scope'

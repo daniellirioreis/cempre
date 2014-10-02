@@ -35,6 +35,23 @@ class Calendar < ActiveRecord::Base
     Group.calendar_id(id).active
   end
   
+  def groups_approved
+    Group.calendar_id(id).approved
+  end
+  
+  def groups_failed
+    Group.calendar_id(id).failed
+  end
+
+  def groups_folded
+    Group.calendar_id(id).folded
+  end
+
+  def groups_locked
+    Group.calendar_id(id).locked
+  end
+  
+  
   def groups
     Group.calendar_id(id)
   end

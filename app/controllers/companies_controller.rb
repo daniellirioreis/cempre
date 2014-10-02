@@ -18,7 +18,25 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    respond_with(@company)
+    data_table = GoogleVisualr::DataTable.new
+    data_table.new_column('string', 'Task')
+    data_table.new_column('number', 'Hours per Day')
+    data_table.add_rows(5)
+    data_table.set_cell(0, 0, 'Aprovados'     )
+    data_table.set_cell(0, 1, current_calendar.groups_approved.count )
+    data_table.set_cell(1, 0, 'Reprovados'      )
+    data_table.set_cell(1, 1, current_calendar.groups_failed.count  )
+    data_table.set_cell(2, 0, 'Abandonou'  )
+    data_table.set_cell(2, 1, current_calendar.groups_folded.count  )
+    data_table.set_cell(3, 0, 'Matricula Trancada'  )
+    data_table.set_cell(3, 1, current_calendar.groups_locked.count  )
+    data_table.set_cell(4, 0, 'Ativo'  )
+    data_table.set_cell(4, 1, current_calendar.groups_active.count  )
+    
+    
+    
+    opts   = { :width => 1000, :height => 500, :title => "Grafico Resultados alunos #{current_calendar}", :is3D => true }
+    @chart = GoogleVisualr::Interactive::PieChart.new(data_table, opts)
   end
 
   def new

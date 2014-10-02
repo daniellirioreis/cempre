@@ -31,6 +31,11 @@ class Group < ActiveRecord::Base
 
   scope :approved, -> {where("status = ?", StatusGroup::APPROVED)}
 
+  scope :folded, -> {where("status = ?", StatusGroup::FOLDED)}
+  scope :locked, -> {where("status = ?", StatusGroup::LOCKED)}
+  
+  
+
   scope :locked_or_folded, -> {where("status = ? OR status = ?", StatusGroup::LOCKED, StatusGroup::FOLDED)}
 
 
