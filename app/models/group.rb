@@ -72,6 +72,8 @@ class Group < ActiveRecord::Base
 
   scope :down_average, lambda { |down_average| where("exams.value <?", down_average).joins(:exams) }
   
+  scope :teacher_id, lambda { |id| where("classrooms.teacher_id = ?", id).joins(:classroom) }
+  
   scope :type_exam, lambda { |type_exam| where("exams.type_exam = ?", type_exam)}
   
   
