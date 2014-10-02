@@ -24,6 +24,21 @@ class TeachersController < ApplicationController
     @courses =  current_company.courses
     @classrooms =  @teacher.classrooms.calendar_id(current_calendar.id)
     @lessons = @teacher.lessons
+    
+    data_table = GoogleVisualr::DataTable.new
+    data_table.new_column('string', 'Task')
+    data_table.new_column('number', 'Hours per Day')
+    data_table.add_rows(2)
+    data_table.set_cell(0, 0, 'Acima da Media'     )
+    data_table.set_cell(0, 1, current_calendar.groups.up_average(current_calendar.average).type_exam(TypeExam::MIDTERM).teacher_id(@teacher.id).count)
+    data_table.set_cell(1, 0, 'Abaixo da Média'      )
+    data_table.set_cell(1, 1, current_calendar.groups.down_average(current_calendar.average).type_exam(TypeExam::MIDTERM).teacher_id(@teacher.id).count)
+    
+    
+    
+    opts   = { :width => 1000, :height => 500, :title => "Gráfico prova MIDTERM", :is3D => true }
+    @chart = GoogleVisualr::Interactive::PieChart.new(data_table, opts)
+  
   end
 
   def create
