@@ -35,8 +35,26 @@ class CompaniesController < ApplicationController
     
     
     
-    opts   = { :width => 1000, :height => 500, :title => "Grafico Resultados alunos #{current_calendar}", :is3D => true }
+    opts   = { :width => 1000, :height => 500, :title => "Gráfico Alunos #{current_calendar}", :is3D => true }
     @chart = GoogleVisualr::Interactive::PieChart.new(data_table, opts)
+    
+    
+
+    data_table = GoogleVisualr::DataTable.new
+    data_table.new_column('string', 'Task')
+    data_table.new_column('number', 'Hours per Day')
+    data_table.add_rows(2)
+    data_table.set_cell(0, 0, 'Acima da Media'     )
+    data_table.set_cell(0, 1, current_calendar.groups.up_average(current_calendar.average).type_exam(TypeExam::MIDTERM).count)
+    data_table.set_cell(1, 0, 'Abaixo da Média'      )
+    data_table.set_cell(1, 1, current_calendar.groups.down_average(current_calendar.average).type_exam(TypeExam::MIDTERM).count)
+    
+    
+    
+    opts   = { :width => 1000, :height => 500, :title => "Gráfico prova MIDTERM", :is3D => true }
+    @chart1 = GoogleVisualr::Interactive::PieChart.new(data_table, opts)
+    
+    
   end
 
   def new

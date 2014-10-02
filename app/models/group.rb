@@ -70,7 +70,13 @@ class Group < ActiveRecord::Base
   
   
 
-  scope :down_average, lambda { |down_average| where("exams.value <=?", down_average).joins(:exams) }
+  scope :down_average, lambda { |down_average| where("exams.value <?", down_average).joins(:exams) }
+  
+  scope :type_exam, lambda { |type_exam| where("exams.type_exam = ?", type_exam)}
+  
+  
+  scope :up_average, lambda { |down_average| where("exams.value >=?", down_average).joins(:exams) }
+  
 
   scope :type_exam, lambda { |type_exam| where("exams.type_exam = ?", type_exam) }
 
