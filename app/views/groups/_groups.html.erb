@@ -51,7 +51,10 @@
           </td>
           <% TypeExam.to_a.each do |te| %>
             <td>
-              <%= group.exams.find_by_type_exam(te.last).try(:value) %>
+              <% nota = group.exams.find_by_type_exam(te.last).try(:value) %>
+							<p class="text-<%if nota.to_f < current_calendar.average.to_f %>error<%else%>info<%end%>">
+								<strong><%= nota %></strong>
+							</p>
             </td>
           <% end %>
           <td>
