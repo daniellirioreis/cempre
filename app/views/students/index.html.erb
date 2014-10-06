@@ -27,7 +27,7 @@
 	    <thead>
 	        <tr>
 	            <th>Nome</th>
-	            <th>Idade</th>
+	            <th>Turma</th>
 							<th>Dia de Prova</th>
 	            <th>Ação</th>
 	        </tr>
@@ -40,10 +40,12 @@
 	                  <%= s.student %>
 	                </td>
 	                <td>
-	                  <% age = s.student.age %>
-	                  <%= age[:ano]%> anos(s)
-	                  <%= age[:mes]%> mês(es)
-	                  <%= age[:dia]%> dia(s)
+							      <p>
+							        <strong>Dia da Semana:</strong><%= s.classroom.day_week_humanize %><br>
+							        <strong>Hora Inicial:</strong> <%= s.classroom.time_start.try(:strftime, '%H:%M') %><br>
+							        <strong>Hora final:</strong>
+							        <%= s.time_end.try(:strftime, '%H:%M') %>									
+							      </p>
 	                </td>
 									<td>
 										<%s.student.second_exam(current_calendar.id).each do |e| %>
@@ -91,6 +93,8 @@
                 <td>
                   <div class="btn-group">
                     <%= link_to "Ver", s, :class => "btn btn-primary" %>
+                    <%= link_to "notas", bulletin_student_path(s
+), :class => "btn btn-primary" %>
                   </div>
                 </td>
             </tr>
