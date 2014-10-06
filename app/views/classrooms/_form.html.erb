@@ -3,7 +3,7 @@
   <div class="span6"><%= f.input :name, input_html: { class: 'span6' } %></div>
 </div>
 <div class="row-fluid">
-  <div class="span3"><%= f.input :course_id, collection: Course.all %></div>
+  <div class="span3"><%= f.input :course_id, collection: current_company.courses %></div>
   <div class="span3"><%= f.input :calendar_id, collection: current_company.calendars.open %></div>
   <div class="span3"><%= f.input :day_week, collection: Day %></div>
 </div>
