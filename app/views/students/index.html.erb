@@ -44,7 +44,7 @@
 							        <strong>Dia da Semana:</strong><%= s.classroom.day_week_humanize %><br>
 							        <strong>Hora Inicial:</strong> <%= s.classroom.time_start.try(:strftime, '%H:%M') %><br>
 							        <strong>Hora final:</strong>
-							        <%= s.time_end.try(:strftime, '%H:%M') %>									
+							        <%= s.classroom.time_end.try(:strftime, '%H:%M') %>									
 							      </p>
 	                </td>
 									<td>
