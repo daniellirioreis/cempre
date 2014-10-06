@@ -44,69 +44,58 @@
     </tr>
   </table>
 </blockquote>
-  <a id='open' href="#"><h3><%=@classroom%></h3></a>
-  <div id='information'>
-    <a id='close' href="#">x</a>
-    <blockquote>
-    <table class='table'>
-      <tr>
-        <td>
-          <p>
-            <strong>Nome:</strong>
-            <%= @classroom.name %>
-          </p>
-        <td>
-          <p>
-            <strong>Curso:</strong>
-            <%= @classroom.course %>
-          </p>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>
-            <strong>Escola:</strong>
-            <%= @classroom.company %>
-          </p>
-        </td>
-        <td>
-          <p>
-            <strong>Dia da Semana:</strong>
-            <%= @classroom.day_week_humanize %>
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>
-            <strong>Hora Inicial:</strong>
-            <%= @classroom.time_start.try(:strftime, '%H:%M') %>
-          </p>
-        </td>
-        <td>
-          <p>
-            <strong>Hora final:</strong>
-            <%= @classroom.time_end.try(:strftime, '%H:%M') %>
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>
-            <strong>Professor:</strong>
-            <%= link_to "#{@classroom.teacher}", @classroom.teacher %>
-          </p>
-        </td>
-      <tr>
-    </table>
-		
-		<script src='http://www.google.com/jsapi'></script>
-		<div id='chart_midterm'></div>
-		<%= render_chart @chart_midterm, 'chart_midterm' %>
-		
-    </blockquote>
-  </div>
+<blockquote>
+<h3 class='text-info'><%=@classroom%></h3>	
+<table class='table'>
+  <tr>
+    <td>
+      <p>
+        <strong>Curso:</strong>
+        <%= @classroom.course %>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        <strong>Escola:</strong>
+        <%= @classroom.company %>
+      </p>
+    </td>
+    <td>
+      <p>
+        <strong>Dia da Semana:</strong>
+        <%= @classroom.day_week_humanize %>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        <strong>Hora Inicial:</strong>
+        <%= @classroom.time_start.try(:strftime, '%H:%M') %>
+      </p>
+    </td>
+    <td>
+      <p>
+        <strong>Hora final:</strong>
+        <%= @classroom.time_end.try(:strftime, '%H:%M') %>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        <strong>Professor:</strong>
+        <%= link_to "#{@classroom.teacher}", @classroom.teacher %>
+      </p>
+    </td>
+  <tr>
+</table>
+<script src='http://www.google.com/jsapi'></script>
+<div id='chart_midterm'></div>
+<%= render_chart @chart_midterm, 'chart_midterm' %>
+</blockquote>
 
 <blockquote>
 	<hr/>
