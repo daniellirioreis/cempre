@@ -32,28 +32,28 @@ class Calendar < ActiveRecord::Base
   end
 
   def groups_active
-    Group.calendar_id(id).active
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(id).active
   end
   
   def groups_approved
-    Group.calendar_id(id).approved
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(id).approved
   end
   
   def groups_failed
-    Group.calendar_id(id).failed
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(id).failed
   end
 
   def groups_folded
-    Group.calendar_id(id).folded
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(id).folded
   end
 
   def groups_locked
-    Group.calendar_id(id).locked
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(id).locked
   end
   
   
   def groups
-    Group.calendar_id(id)
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(id)
   end
   
 
