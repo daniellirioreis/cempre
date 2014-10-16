@@ -57,6 +57,10 @@ class Group < ActiveRecord::Base
   scope :classroom_id, lambda { |id| where("classroom_id = ?", id) }
 
   scope :type_course, lambda { |type| where("courses.type_course = ?", type).joins(:classroom => :course) }
+  
+  
+  scope :types_courses, lambda { |type1, type2| where("courses.type_course = ? OR courses.type_course = ? ", type1, type2).joins(:classroom => :course) }
+  
 
   scope :student_id, lambda { |id| where("student_id = ?", id) }
 
