@@ -1,21 +1,16 @@
-<% @company.calendars.sorted.each do |c| %>
-  <h4 class='text-error'><i class="icon-calendar"></i> <%=c%></h4><br>
-	<% total_groups = 0 %>
-	<% c.months.each do |m| %>
-	<div class="alert alert-info">
-			<h4 class='text-center'><%= TranslateMonths.translate(m) %>	</h4>
-		<% StatusGroup.to_a.each do |s| %>
-			<% groups = c.groups.by_month(m).status(s.last.to_i)%>
-			<h5><%= s.first %>(<%= groups.count %>)</h5>
-	 			<% if s.first.to_s == 'Ativo' %>
-						<% cc = 0%>
-						<% groups.group_by(&:classroom).each do |classroom, groups| %>
-							<%cc = cc +  groups.count %>
-						<% end %>
-						<% total_groups =  total_groups + cc %>					
-				<% end %>
-		<% end %>		
-	</div>
- <% end %>
-	<h5> Total: <%= total_groups %><h5>
+<%current_calendar.months.each do |m| %>
+	<% count = 0 %>
+	<h4 class='text-info text-center'><%= TranslateMonths.translate(m) %></h4><hr>
+	<% current_calendar.groups.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).by_month(m).sort_by(&:student).group_by(&:student).each do |student, groups| %>
+		  <h5 class='text-success'><%=student%></h5><br>
+		
+			<% groups.each do |g|%>
+				<%= g.classroom %> <strong><%= g.status_humanize.upcase %></strong><br>
+				<% count =  count + 1 %>
+	 		<% end %>
+		 	<hr>
+		
+		
+	<% end %>
+	<strong>Quantidade de matriculas:</strong> <%= count %>
 <%end%>

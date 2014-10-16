@@ -15,9 +15,11 @@ class Group < ActiveRecord::Base
 
   validate :validate_group
 
-  scope :status, lambda { |status| where("status = ?", status) }
+  scope :status, lambda { |status| where("groups.status = ?", status) }
   
-  scope :different_id, lambda { |id| where("id = ?", id) }
+  scope :different_id, lambda { |id| where("groups.id = ?", id) }
+
+  scope :less_id, lambda { |id| where("groups.id < ?", id) }
   
 
   scope :active, -> {where("status = ?", StatusGroup::ACTIVE)}
@@ -90,7 +92,7 @@ class Group < ActiveRecord::Base
 
   scope :open_for_enrollments_english, -> {where("classrooms.open_for_enrollments = true AND courses.type_exam #{TypeExam::ENGLISH}").joins(:classroom => :course)}
 
-  scope :by_month, lambda { |month| where(" EXTRACT(MONTH FROM groups.updated_at) = #{month}") }
+  scope :by_month, lambda { |month| where(" EXTRACT(MONTH FROM groups.created_at) = #{month}") }
 
   after_save :create_transfer
   
