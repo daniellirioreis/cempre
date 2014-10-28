@@ -79,7 +79,7 @@ class ClassroomsController < ApplicationController
     @calendar_day = CalendarDay.company_id(current_company.id)
     @calendar_day = @calendar_day.find_by_day(@head)
     
-    @time_now = Time.now - 3.hours
+    @time_now = Time.now.in_time_zone(Time.zone)
 
     if @calendar_day.present?
       @lessons =  @calendar_day.lessons         
