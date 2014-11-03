@@ -1,0 +1,80 @@
+<%= stylesheet_link_tag "application", media: "all" %>
+<% contador = 0 %>
+<% @classrooms.each do |c| %>
+<% if contador != 0 %>
+	<div style="page-break-before:always"></div>		
+<% end %>
+<% contador =  contador + 1 %>
+	<%if c.course.english? || c.course.spanish?  %>
+		<table width='100%'>
+			<tr>
+				<td>
+	        <%= image_tag  "/images/brasao_NL.png", :width => 100 %>
+				</td>
+				<td align='center'><b>
+					SECRETARIA MUNICIPAL DE EDUCAÇÃO<br/>
+					LISTA DE REMATRICULAS PARA O 2º SEMESTRE DE 2014</b>
+				</td>
+				<td>
+	        <%= image_tag  "/images/cempre.png", :width => 100 %>
+				</td>			
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td align='center'><b>
+						O aluno interessado em continuar os estudos nessa unidade no 2º semestre, deverá assinar a lista a baixo.</b>
+				</td>
+				<td>
+				</td>			
+			</tr>
+		</table>
+		<br>
+		<table class='table table-bordered'>
+			<tr>
+				<td>
+					<b>Nível:</b> <%=c %>
+				</td>
+				<td>
+					<b>Dia:</b> <%= c.day_week_humanize %>
+				</td>			
+				<td>
+					<b>Hora:</b> <%= c.time_start.try(:strftime, '%H:%M') %> às <%= c.time_end.try(:strftime, '%H:%M') %>                
+				</td>						
+				<td>
+					<b>Professor</b> <%= c.teacher %>
+				</td>
+			</tr>		
+		</table>
+		<table class='table table-bordered'>
+			<tr>
+				<th colspan='2'>
+					<p class='text-center'>
+						Alunos
+					</p>
+				</th>
+				<th>
+					<p class='text-center'>
+						Assinatura					
+					</p>
+				</th>			
+			</tr>
+			<% contador_aluno = 0 %>
+			<% c.groups.sorted.active.each do |g| %>
+				<% contador_aluno  = contador_aluno + 1%>
+				<tr>
+					<td width='1%'>
+						<%= contador_aluno %>
+					</td>
+					<td width='50%'>
+						<small>
+							<%= g %>
+						</small>					
+					</td>
+					<td width='50%'>
+					</td>
+				</tr>					
+			<% end %>
+		</table>
+	<% end %>
+<% end %>

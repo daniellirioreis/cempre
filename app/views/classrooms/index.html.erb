@@ -21,6 +21,11 @@
           <h2 class="text-info" title='Imprimir turmas'><i class="icon-print"></i></h2>
         <% end %>
       </td>
+      <td>
+        <%= link_to print_classrooms_path(re_enrollment: true), role: 'button' do %>
+          <h2 class="text-success" title='Imprimir turmas'><i class="icon-list"></i></h2>
+        <% end %>
+      </td>
 	 </tr>
 	</table>
 </blockquote>

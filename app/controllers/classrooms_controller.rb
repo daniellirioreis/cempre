@@ -9,7 +9,13 @@ class ClassroomsController < ApplicationController
 
 
   def print
-    @classrooms = current_calendar.classrooms    
+    if params[:re_enrollment] == 'true'
+      @classrooms = current_calendar.classrooms.sorted
+      render :list_re_enrollment, :layout => false      
+    else
+      @classrooms = current_calendar.classrooms 
+    end
+    
   end
   
   def envelopes_for_exams
@@ -54,15 +60,9 @@ class ClassroomsController < ApplicationController
     data_table.set_cell(1, 0, 'Abaixo da Média'      )
     data_table.set_cell(1, 1, @classroom.groups.down_average(current_calendar.average).type_exam(TypeExam::MIDTERM).count)
     
-    
-    
     opts   = { :width => 500, :height => 300, :title => "GRAFICO PROVA MIDTERM", :is3D => true }
     @chart_midterm = GoogleVisualr::Interactive::PieChart.new(data_table, opts)
-    
-    
-    
-    
-    
+
     respond_to do |format|
          format.html # index.html.erb
          format.json { render json: @classroom }
