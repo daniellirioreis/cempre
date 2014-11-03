@@ -12,7 +12,7 @@
 						<%if c.open_for_enrollments %>
 							<div class= "alert alert-info">
 						<% end %>
-            <%= c.teacher %> <br>
+            <%= c %> - <%= c.teacher %> <br>
 	             <i title='Quantidades de alunos'class="icon-user"></i> <%= c.count_students %>
 						<%if c.open_for_enrollments %>
 							</div>
@@ -48,9 +48,8 @@
          <td>
 						<%if c.open_for_enrollments %>
 							<div class= "alert alert-info">
-						<% end %>
-	
-            	<%= c.teacher %><br>
+						<% end %>	
+						<%= c %> - <%= c.teacher %><br>
 	             <i title='Quantidades de alunos'class="icon-user"></i> <%= c.count_students %>
 						<%if c.open_for_enrollments %>
 							</div>
@@ -87,7 +86,7 @@
 						<%if c.open_for_enrollments %>
 							<div class= "alert alert-info">
 						<% end %>
-							<%= c.teacher %> <br>
+							<%= c %> - <%= c.teacher %> <br>
 	             <i title='Quantidades de alunos'class="icon-user"></i> <%= c.count_students %>	             
 						<%if c.open_for_enrollments %>
 							</div>
