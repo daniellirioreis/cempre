@@ -65,21 +65,21 @@ class StudentsController < ApplicationController
       @student = current_company.students.find(params[:id])      
     end      
 
-    data_table = GoogleVisualr::DataTable.new
-    data_table.new_column('string', 'Year')
-    data_table.new_column('number', 'Sales')
-    data_table.add_rows(2)
-    data_table.set_cell(0, 0, 'janeiro')
-    data_table.set_cell(0, 1, 1000)
-    data_table.set_cell(0, 2, 400)
-    data_table.set_cell(1, 0, 'Fevereiro')
-    data_table.set_cell(1, 1, 1170)
-    data_table.set_cell(1, 2, 460)
-    
-
-    opts   = { :width => 700, :height => 400, :title => 'Company Performance', :legend => 'bottom' }
-    @chart = GoogleVisualr::Interactive::LineChart.new(data_table, opts)
-    
+    # data_table = GoogleVisualr::DataTable.new
+    # data_table.new_column('string', 'Year')
+    # data_table.new_column('number', 'Sales')
+    # data_table.add_rows(2)
+    # data_table.set_cell(0, 0, 'janeiro')
+    # data_table.set_cell(0, 1, 1000)
+    # data_table.set_cell(0, 2, 400)
+    # data_table.set_cell(1, 0, 'Fevereiro')
+    # data_table.set_cell(1, 1, 1170)
+    # data_table.set_cell(1, 2, 460)
+    # 
+    # 
+    # opts   = { :width => 700, :height => 400, :title => 'Company Performance', :legend => 'bottom' }
+    # @chart = GoogleVisualr::Interactive::LineChart.new(data_table, opts)
+    # 
 
   end
 
