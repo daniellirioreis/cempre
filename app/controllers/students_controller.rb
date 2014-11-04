@@ -14,22 +14,24 @@ class StudentsController < ApplicationController
   def index
     @students = current_company.students.sorted
     @groups_second_change_exam = []
-    @groups_down_average = []    
     
     unless current_calendar.nil?
       @groups_second_change_exam = current_calendar.groups_second_change_exam  if params[:second_change_exam] == 'true'
-      # @groups_down_average = @groups_active.down_average(current_calendar.average)
+      @children = current_calendar.groups_active  if params[:children] == 'true'
+      
+      
 
-      unless params[:type_exam].nil?
-        case params[:type_exam].to_i
-          when TypeExam::FINAL
-            @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
-          when TypeExam::MIDTERM
-            @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
-          when TypeExam::ORAL
-            @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
-        end
-      end
+      # @groups_down_average = @groups_active.down_average(current_calendar.average)
+      # unless params[:type_exam].nil?
+      #   case params[:type_exam].to_i
+      #     when TypeExam::FINAL
+      #       @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
+      #     when TypeExam::MIDTERM
+      #       @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
+      #     when TypeExam::ORAL
+      #       @groups_down_average = @groups_down_average.type_exam(params[:type_exam])
+      #   end
+      # end
     end
   end
 
@@ -62,7 +64,23 @@ class StudentsController < ApplicationController
     else
       @student = current_company.students.find(params[:id])      
     end      
-      
+
+    data_table = GoogleVisualr::DataTable.new
+    data_table.new_column('string', 'Year')
+    data_table.new_column('number', 'Sales')
+    data_table.add_rows(2)
+    data_table.set_cell(0, 0, 'janeiro')
+    data_table.set_cell(0, 1, 1000)
+    data_table.set_cell(0, 2, 400)
+    data_table.set_cell(1, 0, 'Fevereiro')
+    data_table.set_cell(1, 1, 1170)
+    data_table.set_cell(1, 2, 460)
+    
+
+    opts   = { :width => 700, :height => 400, :title => 'Company Performance', :legend => 'bottom' }
+    @chart = GoogleVisualr::Interactive::LineChart.new(data_table, opts)
+    
+
   end
 
   def new
