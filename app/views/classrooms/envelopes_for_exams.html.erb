@@ -2,106 +2,110 @@
 	<%= link_to 'Voltar', classrooms_path %>
 </p>
 <% @classrooms.each do |c| %>
-<table class='table table-bordered'>
-	<tr>
-		<td>			
-			<%= image_tag  "/images/logo_login.png", :width => 100 %>      
-		</td>
-		<td>
-			<h4 class='text-center'> 
-			<% if params[:type_exam].to_i == TypeExam::FINAL %> FINAL <% end %> 
-			<% if params[:type_exam].to_i == TypeExam::MIDTERM %> MIDTERM <% end %>EXAM </h4>
-		</td>
-		<td>			
-			<%= image_tag  "/images/ccaa.gif", :width => 50 %>      			
-		</td>		
-	</tr>
-</table>
-<table class="table table-striped table-hover table-bordered">
-  <tr>
-    <td>
-      <small>
-        <b>NOME: </b><%= c.name %><br/>
-        <b>CURSO: </b><%= c.course %><br/>
-        <b>HORÁRIO: </b><%= c.time_start.try(:strftime, '%H:%M') %> às <%= c.time_end.try(:strftime, '%H:%M') %>
-     </small>
-    </td>
-    <td>
-      <small>
-        <b>PROFESSOR: </b><%= c.teacher %><br/>
-        <b>PROFESSOR APLICADOR: </b><%= c.teacher %><br/>
-        <b>DIA DA SEMANA: </b><%= c.day_week_humanize %><br/>
-        <b>DATA DE APLICAÇÃO: </b>___/___/_____<br/>
-				<b>DATA DE DEVOLUÇÃO:</b> ___/___/_____
-      </small>
-    </td>
-  </tr>
-</table>
-<table class="table table-striped table-hover table-bordered">
-  <thead>
-    <tr>
-      <th>
-				ALUNO					
-			</th>
-      <th>
-				<p class='text-center'>
-					CHAMADA					
-				</p >
-			</th>
-      <th>
-				<p class='text-center'>
-					OK/NÀO OK					
-				</p>
-			</th>
-      <th width='15%'>
-				<p class='text-center'>
-					NOTA
-				</p>
-			</th>
-			<% if params[:type_exam].to_i == TypeExam::FINAL %>
-				<th>
-					<p class='text-center'>
-						SOS/ 2ª CHAMADA
-					</p>
-				</th>	      
-				<th>
-					<p class='text-center'>
-						APROV/REPROV									
-					</p>
-				</th>																				
-			<% end %>
-    </tr>
-  </thead>
-  <tbody>
-		<% c.groups.sorted.active.each do |g| %>
-			<tr>
-				<td>
-					<%= g %>
-				</td>				
-				<td>				
-				</td>								
-				<td>				
-				</td>												
-				<td>				
-				</td>																
-				<td>				
-				</td>																
-				<td>				
-				</td>																				
-			</tr>
-		<% end %>
-	</tbody>
-</table>	
-<p>
-	<h3 class='text-center'>ATENÇÃO!!!</h3>
-	<strong>
-		• Conferir as provas antes de entregar aos alunos;<br>
-		• Quando o aluno terminar e entregar a prova, antes que ele saia de sala, conferir<br>
-		para ter certeza de que nenhuma questão ficou em branco;<br>
-		• INFORMAR aos alunos para NÃO escreverem na prova e sim, na folha de
-		respostas;<br>
-		• Provas feitas a lápis não dão direito a reclamação posterior à correção.<br><br>
-	</strong>
-</p>
-<div style="page-break-before:always"></div>
+<% if c.course.english? ||  c.course.spanish? %>
+	<table class='table table-bordered'>
+		<tr>
+			<td>			
+				<%= image_tag  "/images/logo_login.png", :width => 100 %>      
+			</td>
+			<td>
+				<h4 class='text-center'> 
+				<% if params[:type_exam].to_i == TypeExam::FINAL %> FINAL <% end %> 
+				<% if params[:type_exam].to_i == TypeExam::MIDTERM %> MIDTERM <% end %>EXAM </h4>
+			</td>
+			<td>			
+				<%= image_tag  "/images/ccaa.gif", :width => 50 %>      			
+			</td>		
+		</tr>
+	</table>
+	<small>
+		<table class="table table-striped table-hover table-bordered">
+		  <tr>
+		    <td>
+		      <small>
+		        <b>NOME: </b><%= c.name %><br/>
+		        <b>CURSO: </b><%= c.course %><br/>
+		        <b>HORÁRIO: </b><%= c.time_start.try(:strftime, '%H:%M') %> às <%= c.time_end.try(:strftime, '%H:%M') %>
+		     </small>
+		    </td>
+		    <td>
+		      <small>
+		        <b>PROFESSOR: </b><%= c.teacher %><br/>
+		        <b>PROFESSOR APLICADOR: </b><%= c.teacher %><br/>
+		        <b>DIA DA SEMANA: </b><%= c.day_week_humanize %><br/>
+		        <b>DATA DE APLICAÇÃO: </b>___/___/_____<br/>
+						<b>DATA DE DEVOLUÇÃO:</b> ___/___/_____
+		      </small>
+		    </td>
+		  </tr>
+		</table>
+		<table class="table table-striped table-hover table-bordered">
+		  <thead>
+		    <tr>
+		      <th>
+						ALUNO					
+					</th>
+		      <th>
+						<p class='text-center'>
+							CHAMADA					
+						</p >
+					</th>
+		      <th>
+						<p class='text-center'>
+							OK/NÀO OK					
+						</p>
+					</th>
+		      <th width='15%'>
+						<p class='text-center'>
+							NOTA
+						</p>
+					</th>
+					<% if params[:type_exam].to_i == TypeExam::FINAL %>
+						<th>
+							<p class='text-center'>
+								SOS/ 2ª CHAMADA
+							</p>
+						</th>	      
+						<th>
+							<p class='text-center'>
+								APROV/REPROV									
+							</p>
+						</th>																				
+					<% end %>
+		    </tr>
+		  </thead>
+		  <tbody>
+				<% c.groups.sorted.active.each do |g| %>
+					<tr>
+						<td>
+							<%= g %>
+						</td>				
+						<td>				
+						</td>								
+						<td>				
+						</td>												
+						<td>				
+						</td>																
+						<td>				
+						</td>																
+						<td>				
+						</td>																				
+					</tr>
+				<% end %>
+			</tbody>
+		</table>	
+		<p>
+			<h3 class='text-center'>ATENÇÃO!!!</h3>
+			<strong>
+				• Conferir as provas antes de entregar aos alunos;<br>
+				• Quando o aluno terminar e entregar a prova, antes que ele saia de sala, conferir<br>
+				para ter certeza de que nenhuma questão ficou em branco;<br>
+				• INFORMAR aos alunos para NÃO escreverem na prova e sim, na folha de
+				respostas;<br>
+				• Provas feitas a lápis não dão direito a reclamação posterior à correção.<br><br>
+			</strong>
+		</p>
+		<div style="page-break-before:always"></div>
+	</small>
+	<% end %>
 <% end %>
