@@ -40,10 +40,36 @@
 <table class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
-      <th>ALUNO</th>
-      <th>CHAMADA</th>
-      <th>OK/NÀO OK</th>
-      <th>NOTA</th>
+      <th>
+				ALUNO					
+			</th>
+      <th>
+				<p class='text-center'>
+					CHAMADA					
+				</p >
+			</th>
+      <th>
+				<p class='text-center'>
+					OK/NÀO OK					
+				</p>
+			</th>
+      <th width='15%'>
+				<p class='text-center'>
+					NOTA
+				</p>
+			</th>
+			<% if params[:type_exam].to_i == TypeExam::FINAL %>
+				<th>
+					<p class='text-center'>
+						SOS/ 2ª CHAMADA
+					</p>
+				</th>	      
+				<th>
+					<p class='text-center'>
+						APROVADO/REPROVADO										
+					</p>
+				</th>																				
+			<% end %>
     </tr>
   </thead>
   <tbody>
@@ -58,6 +84,10 @@
 				</td>												
 				<td>				
 				</td>																
+				<td>				
+				</td>																
+				<td>				
+				</td>																				
 			</tr>
 		<% end %>
 	</tbody>
