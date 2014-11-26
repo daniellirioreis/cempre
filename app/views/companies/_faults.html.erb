@@ -9,7 +9,7 @@
   </thead>
   <tbody>
 		<% current_calendar.groups_active.each do |g| %>
-		<%count_faults = g.faults.count %>
+		<%count_faults = g.faults.justification(JustificationsFault::NONE).count %>
 		<% if count_faults >= 6 %>
 			<tr class="
 				<%if count_faults >= 9 %>error<%end%>
