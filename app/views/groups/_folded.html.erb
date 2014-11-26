@@ -2,7 +2,7 @@
 <%= hidden_field_tag :classroom_id, params[:classroom_id] %>
 <%= f.input :status, as: :hidden %>
 <%= hidden_field_tag :status, params[:status] %>
-
+<%= hidden_field_tag :manager_fault, params[:manager_fault] %>
 <p class="lead active">Aluno  <%= @group%>  realmente desistiu do curso <%= @group.classroom.course %> turma <%= @group.classroom%> ?
 </p>
 <div class="row-fluid">

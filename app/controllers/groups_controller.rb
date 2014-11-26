@@ -75,8 +75,12 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
 
     @group.update_attributes(group_params)
-
-    respond_with @group, :location => @group.classroom
+    
+    if params[:manager_fault] == 'true'
+      respond_with @group, :location => @group.classroom.company      
+    else
+      respond_with @group, :location => @group.classroom      
+    end
   end
 
   def destroy

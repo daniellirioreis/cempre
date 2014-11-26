@@ -50,6 +50,8 @@ class Group < ActiveRecord::Base
 
   scope :sorted, -> { order("groups.status, students.name").joins(:student) }
 
+  scope :sorted_week_and_time, -> { order("classrooms.day_week, classrooms.time_start").joins(:classroom) }
+
 
   scope :bithday, lambda { |month| where(" EXTRACT(MONTH FROM birth_date) = #{month}").joins(:student) }
 
