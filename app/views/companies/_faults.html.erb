@@ -1,0 +1,36 @@
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Quantidade de faltas</th>
+      <th>Turma</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+		<% current_calendar.groups_active.each do |g| %>
+		<%count_faults = g.faults.count %>
+		<% if count_faults >= 6 %>
+			<tr class="
+				<%if count_faults >= 9 %>error<%end%>
+				<%if [7,8].include?(count_faults) %>warning<%end%>
+				
+				">
+				<td>
+					<%= g %>
+				</td>
+				<td>
+					<%= count_faults %>
+				</td>	
+				<td>
+					<%= g.classroom %> - <%= g.classroom.day_week_humanize %> - <%= g.classroom.time_start.try(:strftime, '%H:%M') %> às <%= g.classroom.time_end.try(:strftime, '%H:%M') %>						        
+				</td>
+				<td>					
+				</td>
+			</tr>		
+		<% 	end %>
+		<% end %>
+	</tbody>
+</table>
+
+	
