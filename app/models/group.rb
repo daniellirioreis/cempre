@@ -28,6 +28,8 @@ class Group < ActiveRecord::Base
   
 
   scope :re_enrollment, -> {where("re_enrollment = ?", true)}
+  scope :no_enrollment, ->  {where("re_enrollment != ?", true)}
+  
 
   scope :second_change_exam, -> {where("second_change_exam = ?", true)}
 

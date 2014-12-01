@@ -60,6 +60,11 @@ class Calendar < ActiveRecord::Base
   def groups_re_enrollments
     Group.calendar_id(id).active_or_approved_or_failed.re_enrollment
   end
+  
+  def groups_not_re_enrollments
+    Group.calendar_id(id).no_enrollment.active
+  end
+  
 
   def groups_locked_or_folded
     Group.calendar_id(id).no_transfer.locked_or_folded
