@@ -1,7 +1,7 @@
 
 <%= label_tag 'txtBusca', 'Pesquisar' %>
 <%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list" %>
-Quantidade de alunos rematriculas = <%= @groups_re_enrollments %>
+Quantidade de alunos rematriculas = <%= @groups_re_enrollments.count %>
 <table class="list table table-striped table-hover table-bordered">
     <thead>
         <tr>
