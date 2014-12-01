@@ -46,7 +46,12 @@ class GroupsController < ApplicationController
       flash[:info] = 'Rematricula feita com sucesso'
       @group.update_attribute(:re_enrollment, true)
     end
-    redirect_to  @group.classroom
+    
+    if params[:list] == 'true' 
+      redirect_to re_enrollments_calendars_path(list: true)
+    else
+      redirect_to  @group.classroom      
+    end  
   end
 
 

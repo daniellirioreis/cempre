@@ -14,22 +14,30 @@ class CalendarsController < ApplicationController
   end
 
   def re_enrollments
-    @groups_re_enrollments = current_calendar.groups_re_enrollments
-    wday = params[:week_day]
-    wday1 = params[:week_day]
-    if wday == nil && wday1 == nil
-      wday = "0"
-      wday = "0"
-      params[:week_day_string] = "Segunda-Feira e Quarta-Feira"
+    if params[:list] == "true"
+      @groups_not_re_enrollments = current_calendar.groups_not_re_enrollments
+      render 'list_re_enrollments'            
+    else 
+      @groups_re_enrollments = current_calendar.groups_re_enrollments      
+      wday = params[:week_day]
+      wday1 = params[:week_day]
+      if wday == nil && wday1 == nil
+        wday = "0"
+        wday = "0"
+        params[:week_day_string] = "Segunda-Feira e Quarta-Feira"
+      end
+
+      @classrooms = current_calendar.classrooms.day_week(wday, wday1).closed
+
+      @next_calendar = current_calendar.next_calendar
+
+      if @next_calendar.present?
+        @new_classrooms = @next_calendar.classrooms.day_week(wday, wday1).open
+      end      
     end
-
-    @classrooms = current_calendar.classrooms.day_week(wday, wday1).closed
-
-    @next_calendar = current_calendar.next_calendar
-
-    if @next_calendar.present?
-      @new_classrooms = @next_calendar.classrooms.day_week(wday, wday1).open
-    end
+    
+    
+    
 
   end
 
