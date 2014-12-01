@@ -1,0 +1,36 @@
+<%= label_tag 'txtBusca', 'Pesquisar' %>
+<%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list" %>
+
+<table class="list table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Turma</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @groups_not_re_enrollments.any? %>
+          <% @groups_not_re_enrollments.each do |g| %>
+            <tr>
+                <td align="center">
+                  <%= g %>
+                </td>
+								<td>
+									<%= g.classroom%><br>
+									<%= g.classroom.time_start.try(:strftime, '%H:%M') %> às
+									<%= g.classroom.time_end.try(:strftime, '%H:%M') %><br>
+					        <%= g.classroom.day_week_humanize %>
+								</td>
+                <td>
+									<%= link_to 'Rematricular', re_enrollment_group_path(g, list: 'true'), class: "btn btn-success" %>
+                </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan='2'>Nenhum registro foi encontrado.</td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
