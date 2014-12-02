@@ -168,7 +168,7 @@ class Group < ActiveRecord::Base
       end  
     end
     
-    if type_event == 'final'
+    if type_event == 'Final'
       events = Event.calendar_id(classroom.calendar_id).final
       if events.any?
         event = nil
@@ -235,7 +235,7 @@ class Group < ActiveRecord::Base
       
     end
     
-    if type_event == 'oral'
+    if type_event == 'Oral'
       events = Event.calendar_id(classroom.calendar_id).oral
       if events.any?
         event = nil
