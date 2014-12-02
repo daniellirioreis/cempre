@@ -169,7 +169,7 @@ class Group < ActiveRecord::Base
     end
     
     if type_event == 'Speech'
-      events = Event.calendar_id(classroom.calendar_id).final
+      events = Event.calendar_id(classroom.calendar_id).speech
       if events.any?
         event = nil
         events.each do |e|

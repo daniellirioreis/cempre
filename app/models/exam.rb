@@ -3,6 +3,7 @@ class Exam < ActiveRecord::Base
   belongs_to :group
   
   delegate :classroom, to: :group 
+    
   
   has_enumeration_for :type_exam, :create_helpers => true, :create_scopes => true
 
@@ -15,6 +16,10 @@ class Exam < ActiveRecord::Base
   validates :type_exam, uniqueness: { scope: :group_id }
 
   scope :student_id, lambda { |id| where("groups.student_id = ?", id).joins(:group) }
+  
+  def calendar
+    classroom.calendar
+  end
   
   private 
   
