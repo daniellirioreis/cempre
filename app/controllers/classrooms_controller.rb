@@ -62,6 +62,21 @@ class ClassroomsController < ApplicationController
     
     opts   = { :width => 500, :height => 300, :title => "GRAFICO PROVA MIDTERM", :is3D => true }
     @chart_midterm = GoogleVisualr::Interactive::PieChart.new(data_table, opts)
+    
+    
+    
+    data_table = GoogleVisualr::DataTable.new
+    data_table.new_column('string', 'Task')
+    data_table.new_column('number', 'Hours per Day')
+    data_table.add_rows(2)
+    data_table.set_cell(0, 0, 'Acima da Média'     )
+    data_table.set_cell(0, 1, @classroom.groups.up_average(current_calendar.average).type_exam(TypeExam::FINAL).count)
+    data_table.set_cell(1, 0, 'Abaixo da Média'      )
+    data_table.set_cell(1, 1, @classroom.groups.down_average(current_calendar.average).type_exam(TypeExam::FINAL).count)
+    
+    opts   = { :width => 500, :height => 300, :title => "GRAFICO PROVA FINAL", :is3D => true }
+    @chart_final = GoogleVisualr::Interactive::PieChart.new(data_table, opts)
+    
 
     respond_to do |format|
          format.html # index.html.erb
