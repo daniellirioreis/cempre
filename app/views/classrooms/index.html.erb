@@ -64,7 +64,7 @@
         <% if @classrooms.any? %>
           <% @classrooms.sorted.each do |c| %>
             <tr class="<% if  c.closed%>success<% end %>">
-                <td><%= c %></td>
+                <td><%if c.open_for_enrollments%><h4 class="text-warning"><i class="icon-certificate"></i></h4><% end %><%= c %></td>
                 <td><%= c.teacher%></td>
                 <td><%= c.day_week_humanize%></td>
                 <td><%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>
