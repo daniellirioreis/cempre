@@ -7,5 +7,6 @@ class TypeEvent< EnumerateIt::Base
                    :important             => 5,
                    :midterm               => 6,
                    :final                 => 7,
-                   :oral                  => 8
+                   :oral                  => 8,
+                   :speech                => 9
 end
