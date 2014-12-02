@@ -15,7 +15,6 @@ class CalendarsController < ApplicationController
 
   def re_enrollments
     @groups_re_enrollments = current_calendar.groups_re_enrollments    
-    raise @groups_re_enrollments.inspect
     if params[:list] == "true"
       
       @groups_not_re_enrollments = current_calendar.groups_not_re_enrollments
