@@ -14,11 +14,14 @@ class CalendarsController < ApplicationController
   end
 
   def re_enrollments
+    @groups_re_enrollments = current_calendar.groups_re_enrollments    
+    
     if params[:list] == "true"
+      
       @groups_not_re_enrollments = current_calendar.groups_not_re_enrollments
+      
       render 'list_re_enrollments'            
     else 
-      @groups_re_enrollments = current_calendar.groups_re_enrollments      
       wday = params[:week_day]
       wday1 = params[:week_day]
       if wday == nil && wday1 == nil
