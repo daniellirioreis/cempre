@@ -1,21 +1,15 @@
-<table class='table'>
-	<tr class='success'>
-		<td>
-			<b>Rematriculas</b>
-		</td>
-		<td>
-			<%= @groups_re_enrollments.count %>
-		</td>		
-	</tr>
-	<tr class='error'>
-		<td>
-			<b> Há Confirmar</b>			
-		</td>
-		<td>
-			<%= @groups_not_re_enrollments.count %>			
-		</td>		
-	</tr>	
-</table>
+  <table class='table'>
+    <tr>
+      <td>
+          <h2 class="text-success" title='Alunos rematriculados'><i class="icon-user"></i><%= @groups_re_enrollments.count%> </h2>
+      </td>
+      <td>
+	      <h3 class="text-error" title='Alunos não rematriculados'><i class="icon-user"></i> <%= @groups_not_re_enrollments.count%></h3> 
+      </td>
+    </tr>
+  </table>
+</blockquote>
+
 
 <%= label_tag 'txtBusca', 'Pesquisar' %>
 <%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list" %>
