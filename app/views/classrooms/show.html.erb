@@ -93,12 +93,22 @@
   <tr>
 </table>
 <script src='http://www.google.com/jsapi'></script>
-<div id='chart_midterm'></div>
-<%= render_chart @chart_midterm, 'chart_midterm' %>
-
-<div id='chart_final'></div>
-<%= render_chart @chart_final, 'chart_final' %>
-
+<table>
+	<tr>
+		<td>
+			<div id='chart_midterm'></div>
+			<%= render_chart @chart_midterm, 'chart_midterm' %>			
+		</td>
+		<td>
+			<div id='chart_final'></div>
+			<%= render_chart @chart_final, 'chart_final' %>			
+		</td>		
+		<td>
+			<div id='chart_oral'></div>
+			<%= render_chart @chart_oral, 'chart_oral' %>			
+		</td>				
+	</tr>
+</table>
 </blockquote>
 
 <blockquote>
