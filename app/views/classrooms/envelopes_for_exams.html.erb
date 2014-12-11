@@ -1,108 +1,198 @@
-<% @classrooms.each do |c| %>
-<% if c.course.english? ||  c.course.spanish? %>
+<%if current_company.neighborhood == 'BNH'%>
 
-<table width="100%">
-		<tr>
-			<td align='center'>			
-				<%= image_tag  "/images/logo.png", :width => 100 %>      
-			</td>
-			<td align='center'>			
-				<h4> 
-				<% if params[:type_exam].to_i == TypeExam::FINAL %> FINAL <% end %> 
-				<% if params[:type_exam].to_i == TypeExam::MIDTERM %> MIDTERM <% end %>EXAM </h4>
-			</td>
-			<td align='center'>			
-				<%= image_tag  "/images/ccaa.gif", :width => 50 %>      			
-			</td>		
-		</tr>
-	</table>
-	<br>
-	<font size='2'>
+	<% @classrooms.each do |c| %>
+		<% if c.course.english? ||  c.course.spanish? %>
+		
 		<table width="100%">
-		  <tr>
-		    <td>
-		        <b>NOME: </b><%= c.name %><br/>
-		        <b>CURSO: </b><%= c.course %><br/>
-		        <b>HORÁRIO: </b><%= c.time_start.try(:strftime, '%H:%M') %> às <%= c.time_end.try(:strftime, '%H:%M') %>
-		    </td>
-		    <td>
-		        <b>PROFESSOR: </b><%= c.teacher %><br/>
-		        <b>PROFESSOR APLICADOR: </b><%= c.teacher %><br/>
-		        <b>DIA DA SEMANA: </b><%= c.day_week_humanize %><br/>
-		        <b>DATA DE APLICAÇÃO: </b>___/___/_____<br/>
-						<b>DATA DE DEVOLUÇÃO:</b> ___/___/_____
-		    </td>
-		  </tr>
+				<tr>
+					<td align='center'>			
+						<%= image_tag  "/images/logo.png", :width => 100 %>      
+					</td>
+					<td align='center'>			
+						<h4> 
+						<% if params[:type_exam].to_i == TypeExam::FINAL %> FINAL <% end %> 
+						<% if params[:type_exam].to_i == TypeExam::MIDTERM %> MIDTERM <% end %>EXAM </h4>
+					</td>
+					<td align='center'>			
+						<%= image_tag  "/images/achieve_logo.jpg", :width => 200 %>      			
+					</td>		
+				</tr>
+			</table>
+			<br>
+			<font size='2'>
+				<table width="100%">
+				  <tr>
+				    <td>
+				        <b>NOME: </b><%= c.name %><br/>
+				        <b>CURSO: </b><%= c.course %><br/>
+				        <b>HORÁRIO: </b><%= c.time_start.try(:strftime, '%H:%M') %> às <%= c.time_end.try(:strftime, '%H:%M') %>
+				    </td>
+				    <td>
+				        <b>PROFESSOR: </b><%= c.teacher %><br/>
+				        <b>PROFESSOR APLICADOR: </b><%= c.teacher %><br/>
+				        <b>DIA DA SEMANA: </b><%= c.day_week_humanize %><br/>
+				        <b>DATA DE APLICAÇÃO: </b>___/___/_____<br/>
+								<b>DATA DE DEVOLUÇÃO:</b> ___/___/_____
+				    </td>
+				  </tr>
+				</table>
+			</font>
+			<table width="100%"class="bordasimples">
+			    <tr>
+						<td>
+							<b>ALUNO</b>
+						</td>
+			      <td align='center'>
+							<b>MIDTERM</b>
+						</td>						
+			      <td align='center'>
+							<b>FINAL</b>
+						</td>						
+			      <td align='center'>
+							<b>ORAL</b>
+						</td>												
+			      <td align='center'>
+							<b>NOTA X2</b>
+						</td>												
+			      <td align='center'>
+							<b>APROV/REPROV</b>
+						</td>																		
+			    </tr>
+			  <tbody>
+					<% c.groups.sorted.active.each do |g| %>
+						<tr>
+							<td>
+								<%= g %>
+							</td>			
+							<td>	
+							</td>
+							<td>	
+							</td>							
+							<td>	
+							</td>							
+							<td>	
+							</td>														
+							<td>	
+							</td>																					
+						</tr>
+					<% end %>
+				</tbody>
+			</table>	
+			<div style="page-break-before:always"></div>					
+		<% end %>
+	<% end %>
+	
+<% end %>
+
+
+
+<% if current_company.neighborhood == "Cruzeiro"%>
+	<% @classrooms.each do |c| %>
+	<% if c.course.english? ||  c.course.spanish? %>
+
+	<table width="100%">
+			<tr>
+				<td align='center'>			
+					<%= image_tag  "/images/logo.png", :width => 100 %>      
+				</td>
+				<td align='center'>			
+					<h4> 
+					<% if params[:type_exam].to_i == TypeExam::FINAL %> FINAL <% end %> 
+					<% if params[:type_exam].to_i == TypeExam::MIDTERM %> MIDTERM <% end %>EXAM </h4>
+				</td>
+				<td align='center'>			
+					<%= image_tag  "/images/ccaa.gif", :width => 50 %>      			
+				</td>		
+			</tr>
 		</table>
-	</font>
-	<br>		
-		<table width="100%"class="bordasimples">
-		    <tr>
-		      <td>
-						<b>
-							ALUNO					
-						</b>
-					</td>
-		      <td align='center'>
-						<b>
-							CHAMADA												
-						</b>
-					</td>
-		      <td align='center'>
+		<br>
+		<font size='2'>
+			<table width="100%">
+			  <tr>
+			    <td>
+			        <b>NOME: </b><%= c.name %><br/>
+			        <b>CURSO: </b><%= c.course %><br/>
+			        <b>HORÁRIO: </b><%= c.time_start.try(:strftime, '%H:%M') %> às <%= c.time_end.try(:strftime, '%H:%M') %>
+			    </td>
+			    <td>
+			        <b>PROFESSOR: </b><%= c.teacher %><br/>
+			        <b>PROFESSOR APLICADOR: </b><%= c.teacher %><br/>
+			        <b>DIA DA SEMANA: </b><%= c.day_week_humanize %><br/>
+			        <b>DATA DE APLICAÇÃO: </b>___/___/_____<br/>
+							<b>DATA DE DEVOLUÇÃO:</b> ___/___/_____
+			    </td>
+			  </tr>
+			</table>
+		</font>
+		<br>		
+			<table width="100%"class="bordasimples">
+			    <tr>
+			      <td>
 							<b>
-								OK/NÀO OK													
+								ALUNO					
 							</b>
-					</td>
-		      <td align='center'>
-						<b>
-							NOTA							
-						</b>
-					</td>
-					<% if params[:type_exam].to_i == TypeExam::FINAL %>
-		      <td align='center'>
-						<b>
-							SOS/ 2ª CHAMADA						
-						</b>
-						</td>	      
+						</td>
 			      <td align='center'>
 							<b>
-								APROV/REPROV																	
+								CHAMADA												
 							</b>
-						</td>																				
+						</td>
+			      <td align='center'>
+								<b>
+									OK/NÀO OK													
+								</b>
+						</td>
+			      <td align='center'>
+							<b>
+								NOTA							
+							</b>
+						</td>
+						<% if params[:type_exam].to_i == TypeExam::FINAL %>
+			      <td align='center'>
+							<b>
+								SOS/ 2ª CHAMADA						
+							</b>
+							</td>	      
+				      <td align='center'>
+								<b>
+									APROV/REPROV																	
+								</b>
+							</td>																				
+						<% end %>
+			    </tr>
+			  <tbody>
+					<% c.groups.sorted.active.each do |g| %>
+						<tr>
+							<td>
+								<%= g %>
+							</td>				
+							<td>				
+							</td>								
+							<td>				
+							</td>												
+							<td>				
+							</td>																
+							<td>				
+							</td>																
+							<td>				
+							</td>																				
+						</tr>
 					<% end %>
-		    </tr>
-		  <tbody>
-				<% c.groups.sorted.active.each do |g| %>
-					<tr>
-						<td>
-							<%= g %>
-						</td>				
-						<td>				
-						</td>								
-						<td>				
-						</td>												
-						<td>				
-						</td>																
-						<td>				
-						</td>																
-						<td>				
-						</td>																				
-					</tr>
-				<% end %>
-			</tbody>
-		</table>	
-		<p>
-			<h3 align='center'>ATENÇÃO!!!</h3>
-			<strong>
-				• Conferir as provas antes de entregar aos alunos;<br>
-				• Quando o aluno terminar e entregar a prova, antes que ele saia de sala, conferir<br>
-				para ter certeza de que nenhuma questão ficou em branco;<br>
-				• INFORMAR aos alunos para NÃO escreverem na prova e sim, na folha de
-				respostas;<br>
-				• Provas feitas a lápis não dão direito a reclamação posterior à correção.<br><br>
-			</strong>
-		</p>
-		<div style="page-break-before:always"></div>
-	</small>
+				</tbody>
+			</table>	
+			<p>
+				<h3 align='center'>ATENÇÃO!!!</h3>
+				<strong>
+					• Conferir as provas antes de entregar aos alunos;<br>
+					• Quando o aluno terminar e entregar a prova, antes que ele saia de sala, conferir<br>
+					para ter certeza de que nenhuma questão ficou em branco;<br>
+					• INFORMAR aos alunos para NÃO escreverem na prova e sim, na folha de
+					respostas;<br>
+					• Provas feitas a lápis não dão direito a reclamação posterior à correção.<br><br>
+				</strong>
+			</p>
+			<div style="page-break-before:always"></div>
+		</small>
+		<% end %>
 	<% end %>
 <% end %>
