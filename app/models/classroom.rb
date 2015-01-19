@@ -25,6 +25,8 @@ class Classroom < ActiveRecord::Base
   
 
   scope :calendar_id, lambda { |calendar_id| where("calendar_id = ? ", calendar_id) }
+
+  scope :teacher_id, lambda { |id| where("teacher_id = ? ", id) }
   
   scope :course_id, lambda { |course_id| where("course_id = ? ", course_id) }
   
@@ -33,6 +35,17 @@ class Classroom < ActiveRecord::Base
 
   scope :sorted, -> { order(:day_week, :time_start) }
     
+
+  def working_minutes
+    minutes_start = ConvertHoursForMinutes.convert(time_start.hour.to_i, time_start.min.to_i )
+    if time_end.present?
+      minutes_end = ConvertHoursForMinutes.convert(time_end.hour.to_i, time_end.min.to_i )      
+    else
+      minutes_end = 0
+    end
+    minutes_end - minutes_start
+  end
+
 
   def to_s
     name

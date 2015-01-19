@@ -8,7 +8,58 @@
     <strong>Telefones: </strong> <%= @teacher.phone%><br>
   </p>
 </blockquote>
-<h4>Turmas</h4>
+<% if  @previous_calendar.present? %>
+
+<h4>Turmas - <%= @previous_calendar %> </h4>
+<%count = 0%>
+<table>
+<% @previous_calendar.classrooms.teacher_id(@teacher.id).sorted.each do |c |%>
+		<% if 
+			count == 0 %>
+      <tr>
+    <%end%>
+    	<%  count = count + 1 %>
+      <td>
+				<div class="alert alert-info">
+					<%= c %><br>
+					<%= c.day_week_humanize%> - <%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>  		
+			  </div>		
+      </td>
+      <% if count == 3%>
+        <%count = 0%>
+        </tr>
+      <%end%>    
+<% end %>
+</table>
+<br>
+
+<p class='text-info'><b>Quantidade de aluno(s) entregue:
+	<%= @teacher.groups(@previous_calendar.id).count %></b>
+</p>
+<p class='text-info'><b>Quantidade de aluno(s) transferidos:
+	<%= @teacher.groups_transfer(@previous_calendar.id).count %></b>
+</p>
+<p class='text-warning'><b>Quantidade de aluno(s) trancado(s):
+	<%= @teacher.groups_locked(@previous_calendar.id).count %>	 
+</p>
+<p class='text-warning'><b>Quantidade de aluno(s) que abandoram:
+	<%= @teacher.groups_folded(@previous_calendar.id).count %>	 
+</p>
+
+<p class='text-success'><b>Quantidade de aluno(s) aprovado(s):
+	<%= @teacher.groups_approved(@previous_calendar.id).count %></b>
+</p>
+<p class='text-error'><b>Quantidade de aluno(s) reprovado(s):
+	<%= @teacher.groups_failed(@previous_calendar.id).count %></b>
+</p>
+
+
+
+
+<% end %> 
+
+
+<h4>Turmas - <%= current_calendar %></h4>
 <%count = 0%>
 <table>
 <% @classrooms.sorted.each do |c |%>
