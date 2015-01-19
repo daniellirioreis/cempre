@@ -44,5 +44,18 @@ class Teacher < ActiveRecord::Base
     Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id).failed
   end
   
+  def groups_folded(calendar_id)
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id).folded
+  end
+
+  def groups_locked(calendar_id)
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id).locked
+  end
+    
+  def groups(calendar_id)
+    Group.select(:student_id).distinct.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id)
+  end
+  
+  
 
 end

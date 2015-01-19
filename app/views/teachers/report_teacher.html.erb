@@ -30,10 +30,21 @@
 <% end %>
 </table>
 <br>
-<p class='text-success'><b>Quantidade de alunos aprovado(s):
+
+<p class='text-info'><b>Quantidade de aluno(s) entregue:
+	<%= @teacher.groups(current_calendar.id).count %></b>
+</p>
+<p class='text-warning'><b>Quantidade de aluno(s) trancado(s):
+	<%= @teacher.groups_locked(current_calendar.id).count %>	 
+</p>
+<p class='text-warning'><b>Quantidade de aluno(s) que abandoram:
+	<%= @teacher.groups_locked(current_calendar.id).count %>	 
+</p>
+
+<p class='text-success'><b>Quantidade de aluno(s) aprovado(s):
 	<%= @teacher.groups_approved(current_calendar.id).count %></b>
 </p>
-<p class='text-error'><b>Quantidade de alunos reprovado(s):
+<p class='text-error'><b>Quantidade de aluno(s) reprovado(s):
 	<%= @teacher.groups_failed(current_calendar.id).count %></b>
 </p>
 
