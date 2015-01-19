@@ -51,15 +51,15 @@ class Teacher < ActiveRecord::Base
   def groups_locked(calendar_id)
     Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id).locked
   end
-  
-  def groups_transfer(calendar_id)
-    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id).transfer
-  end
-  
     
   def groups(calendar_id)
-    Group.select(:student_id).distinct.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id)
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id)
   end
+  
+  def groups_transfer(calendar_id)
+    Group.select(:student_id).distinct.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id).transfer
+  end
+  
   
   
 
