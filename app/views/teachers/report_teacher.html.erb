@@ -34,6 +34,9 @@
 <p class='text-info'><b>Quantidade de aluno(s) entregue:
 	<%= @teacher.groups(current_calendar.id).count %></b>
 </p>
+<p class='text-info'><b>Quantidade de aluno(s) transferidos:
+	<%= @teacher.groups_transfer(current_calendar.id).count %></b>
+</p>
 <p class='text-warning'><b>Quantidade de aluno(s) trancado(s):
 	<%= @teacher.groups_locked(current_calendar.id).count %>	 
 </p>
