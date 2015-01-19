@@ -9,37 +9,31 @@
   </p>
 </blockquote>
 <h4>Turmas</h4>
-<blockquote>
-	<%count = 0%>
-	<%count_classrooms = 0 %>
-	<table>
-		<% @classrooms.sorted.each do |c |%>
-      <% if count == 0 %>
-        <tr>
-      <%end%>
-      <%  count = count + 1 %>
-      <%  count_classrooms = count_classrooms + 1 %>
+<%count = 0%>
+<table>
+<% @classrooms.sorted.each do |c |%>
+		<% if 
+			count == 0 %>
+      <tr>
+    <%end%>
+    	<%  count = count + 1 %>
       <td>
-				<blockquote>
-						<strong><%= c %></strong><br>
-						<%= c.time_start.try(:strftime, '%H:%M') %> às <%= c.time_end.try(:strftime, '%H:%M') %><br>
-						<%= c.day_week_humanize%><br>			
-				</blockquote>
+				<div class="alert alert-info">
+					<%= c %><br>
+					<%= c.day_week_humanize%> - <%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>  		
+			  </div>		
       </td>
-      <% if count == 5 %>
+      <% if count == 3%>
         <%count = 0%>
         </tr>
       <%end%>    
-		<% end %>
-	</table>
-	<blockquote>
-		<% @courses.each do |c|%>
-			 <%cc = @classrooms.course_id(c.id)%>
-			 <% if cc.any? %>
-				<strong><%= c %>:</strong> <%= cc.count %><br>
-			 <% end %>
-		<% end %>		
-		<strong>Total: </strong><%= count_classrooms%> turmas
-	</blockquote>
-</blockquote>
+<% end %>
+</table>
+<br>
+<p class='text-success'><b>Quantidade de alunos aprovado(s):
+	<%= @teacher.groups_approved(current_calendar.id).count %></b>
+</p>
+<p class='text-error'><b>Quantidade de alunos reprovado(s):
+	<%= @teacher.groups_failed(current_calendar.id).count %></b>
+</p>
 

@@ -14,6 +14,14 @@ class Teacher < ActiveRecord::Base
     name
   end
 
+  def working_minutes(calendar_id)
+    m = 0
+    classrooms.calendar_id(calendar_id).each do |c|
+      m =  m +  c.working_minutes
+    end
+    m
+  end
+
   def lessons
      Lesson.teacher_id(id)
   end
@@ -27,5 +35,14 @@ class Teacher < ActiveRecord::Base
       Date.today.year - birth_date.year
     end
   end
+  
+  def groups_approved(calendar_id)
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id).approved
+  end
+  
+  def groups_failed(calendar_id)
+    Group.types_courses(TypeCourse::ENGLISH, TypeCourse::SPANISH).calendar_id(calendar_id).not_join_classroom_teacher_id(id).failed
+  end
+  
 
 end
