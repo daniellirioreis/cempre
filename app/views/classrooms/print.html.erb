@@ -5,6 +5,10 @@
             <th>Professor</th>
             <th>Dia da Semana</th>
             <th>Horário</th>
+            <th>Aprovados</th>
+						<th>Reprovados</th>
+						<th>Quantidade aprov/reprov</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -15,6 +19,9 @@
               <td><%= c.teacher%></td>
               <td><%= c.day_week_humanize%></td>
               <td><%= c.time_start.try(:strftime, '%H:%M')%> às <%= c.time_end.try(:strftime, '%H:%M') %>
+              <td><%= a = c.groups_re_enrollment_approved%></td>
+              <td><%= f = c.groups_re_enrollment_failed%></td>  
+							<td> <%= a  + f %></td>							
           </tr>
         <% end %>
       <% else %>
