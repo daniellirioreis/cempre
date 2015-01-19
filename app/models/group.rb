@@ -73,6 +73,7 @@ class Group < ActiveRecord::Base
   scope :calendar_id, lambda { |id| where("classrooms.calendar_id = ?", id).joins(:classroom) }
   
   scope :course_id, lambda { |id| where("classrooms.course_id = ?", id)}
+  
 
   scope :join_classroom_find_course_id, lambda { |id| where("classrooms.course_id = ?", id).joins(:classroom) }
 
@@ -83,6 +84,9 @@ class Group < ActiveRecord::Base
   scope :down_average, lambda { |down_average| where("exams.value <?", down_average).joins(:exams) }
   
   scope :teacher_id, lambda { |id| where("classrooms.teacher_id = ?", id).joins(:classroom) }
+  
+  scope :not_join_classroom_teacher_id, lambda { |id| where("classrooms.teacher_id = ?", id) }
+  
   
   scope :type_exam, lambda { |type_exam| where("exams.type_exam = ?", type_exam)}
   
