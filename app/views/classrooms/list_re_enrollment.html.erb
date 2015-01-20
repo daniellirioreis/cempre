@@ -60,7 +60,7 @@
 				</th>			
 			</tr>
 			<% contador_aluno = 0 %>
-			<% c.groups.sorted.active.each do |g| %>
+			<% c.groups.sorted.active_or_approved_or_failed.each do |g| %>
 				<% contador_aluno  = contador_aluno + 1%>
 				<tr>
 					<td width='1%'>
