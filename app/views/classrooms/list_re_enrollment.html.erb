@@ -64,14 +64,11 @@
 				<% contador_aluno  = contador_aluno + 1%>
 				<tr>
 					<td width='2%'>
-						<% if g.failed? %>
-							<b>*</b> 
-						<% end %>
 						<%= contador_aluno %>
 					</td>
 					<td width='50%'>
-						<small>
-							<%= g %>
+						<small class="<%if g.failed? %>text-error<% end %>">
+							<%= g %>							
 						</small>					
 					</td>
 					<td width='50%'>
