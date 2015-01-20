@@ -99,15 +99,6 @@
   display: none !important;
 }
 
-@media print {
-  .visible-print {
-    display: inherit !important;
-  }
-  .hidden-print {
-    display: none !important;
-  }
-}
-
 @media (min-width: 1200px) {
   .row {
     margin-left: -30px;
