@@ -63,7 +63,10 @@
 			<% c.groups.sorted.active_or_approved_or_failed.each do |g| %>
 				<% contador_aluno  = contador_aluno + 1%>
 				<tr>
-					<td width='1%'>
+					<td width='2%'>
+						<% if g.failed? %>
+							<b>*</b> 
+						<% end %>
 						<%= contador_aluno %>
 					</td>
 					<td width='50%'>
