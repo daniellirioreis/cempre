@@ -129,7 +129,7 @@
 	<% else %>
 	
 	<% if params[:enrolled] == 'true' %>
-	 <p><strong>Quantidade de alunos sem avisar</strong> <%= @groups_active.count %></p>
+	<% count = 0 %>
 	<table class="list_students table table-striped table-hover table-bordered">
 		<thead>
         <tr>
@@ -144,6 +144,7 @@
         <% if @groups_active.any? %>
           <% @groups_active.each do |s| %>
 						<% if s.student.start_class == false%>
+							<% count = count + 1 %>
 	            <tr>
 								<td>
 									<%= s.student %>
@@ -178,6 +179,8 @@
         </tr>        
 				<% end %>
 	</table>	
+	 <p><strong>Quantidade de alunos </strong> <%= count %></p>
+	
 	<% else %>
 		<table class="list_students table table-striped table-hover table-bordered">
 		    <thead>
