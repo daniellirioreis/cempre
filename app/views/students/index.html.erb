@@ -135,7 +135,7 @@
             <th>Nome</th>
             <th>Turma</th>
             <th>Telefone</th>
-
+						<th>Ação</th>
         </tr>
     </thead>    
     <tbody>
@@ -157,7 +157,10 @@
 		            <%= s.classroom.day_week_humanize %><br/>
 		            <b>Período:</b>
 		            <%= s.classroom.calendar %>		            
-							</td>							
+							</td>
+							<td>
+								<%= link_to "Ver", edit_student(s.student), class: 'btn btn-primary' %>								
+							</td>
 						</tr>
 					<% end %>
 				<% else %>
