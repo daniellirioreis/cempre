@@ -36,3 +36,4 @@ pt-BR:
         block_schedule_different: 'aluno não foi avisado sobre troca de horário'
         mother: "Nome da Mãe"
         father: "Nome do Pai"
+        start_class: 'Foi avisado do inicio das aulas'

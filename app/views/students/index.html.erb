@@ -141,27 +141,29 @@
     <tbody>
         <% if @groups_active.any? %>
           <% @groups_active.each do |s| %>
-            <tr>
-							<td>
-								<%= s.student %>
-							</td>
-							<td>
-								<%= s.student.phone%> / <%= s.student.cell_phone%>								
-							</td>
-							<td>
-								<%= link_to "#{s.classroom}", s.classroom %>
-		            <br/>
-		            <b>Professor:</b> <%= s.classroom.teacher%><br/>
-		            <b>Horário:</b> <%= s.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= s.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
-		            <b>Dia da Semana:</b>
-		            <%= s.classroom.day_week_humanize %><br/>
-		            <b>Período:</b>
-		            <%= s.classroom.calendar %>		            
-							</td>
-							<td>
-								<%= link_to "Ver", edit_student_path(s.student), class: 'btn btn-primary' %>								
-							</td>
-						</tr>
+						<% if s.student.start_class == false%>
+	            <tr>
+								<td>
+									<%= s.student %>
+								</td>
+								<td>
+									<%= s.student.phone%> / <%= s.student.cell_phone%>								
+								</td>
+								<td>
+									<%= link_to "#{s.classroom}", s.classroom %>
+			            <br/>
+			            <b>Professor:</b> <%= s.classroom.teacher%><br/>
+			            <b>Horário:</b> <%= s.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= s.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
+			            <b>Dia da Semana:</b>
+			            <%= s.classroom.day_week_humanize %><br/>
+			            <b>Período:</b>
+			            <%= s.classroom.calendar %>		            
+								</td>
+								<td>
+									<%= link_to "Ver", edit_student_path(s.student), class: 'btn btn-primary' %>								
+								</td>
+							</tr>
+						<% end %>
 					<% end %>
 				<% else %>
 				<tr>
