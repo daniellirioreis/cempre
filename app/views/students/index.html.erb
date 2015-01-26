@@ -23,7 +23,7 @@
       </td>
       <td>
         <%= link_to students_path(enrolled: 'true'), role: 'button' do %>
-          <h2 class="text-error" title='Alunos matriculados'><i class="icon-file"></i></h2>
+          <h2 class="text-success" title='Alunos matriculados'><i class="icon-file"></i></h2>
         <% end %>
       </td>
 
@@ -129,9 +129,43 @@
 	<% else %>
 	
 	<% if params[:enrolled] == 'true' %>
-		<%= @groups_active.count %>
-		
-		
+	<table class="list_students table table-striped table-hover table-bordered">
+		<thead>
+        <tr>
+            <th>Nome</th>
+            <th>Turma</th>
+            <th>Telefone</th>
+
+        </tr>
+    </thead>    
+    <tbody>
+        <% if @groups_active.any? %>
+          <% @groups_active.each do |s| %>
+            <tr>
+							<td>
+								<%= s.student %>
+							</td>
+							<td>
+								<%= s.phone%> / <%= s.cell_phone%>								
+							</td>
+							<td>
+								<%= link_to "#{g.classroom}", s.classroom %>
+		            <br/>
+		            <b>Professor:</b> <%= s.classroom.teacher%><br/>
+		            <b>Horário:</b> <%= s.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= g.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
+		            <b>Dia da Semana:</b>
+		            <%= s.classroom.day_week_humanize %><br/>
+		            <b>Período:</b>
+		            <%= s.classroom.calendar %>		            
+							</td>							
+						</tr>
+					<% end %>
+				<% else %>
+				<tr>
+          <td colspan='3'>Nenhum registro foi encontrado.</td>
+        </tr>        
+				<% end %>
+	</table>	
 	<% else %>
 		<table class="list_students table table-striped table-hover table-bordered">
 		    <thead>
