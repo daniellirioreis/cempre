@@ -149,7 +149,7 @@
 								<%= s.student.phone%> / <%= s.student.cell_phone%>								
 							</td>
 							<td>
-								<%= link_to "#{g.classroom}", s.classroom %>
+								<%= link_to "#{s.classroom}", s.classroom %>
 		            <br/>
 		            <b>Professor:</b> <%= s.classroom.teacher%><br/>
 		            <b>Horário:</b> <%= s.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= s.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
