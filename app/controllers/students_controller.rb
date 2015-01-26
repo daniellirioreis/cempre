@@ -19,8 +19,11 @@ class StudentsController < ApplicationController
       @groups_second_change_exam = current_calendar.groups_second_change_exam  if params[:second_change_exam] == 'true'
       @children = current_calendar.groups_active  if params[:children] == 'true'
       
-      @groups_active = current_calendar.groups_active  if params[:enrolled] == 'true'
       
+      if params[:enrolled] == 'true'
+        @groups_active = current_calendar.groups_active  
+        @title = title + "para avisar início das aulas"
+      end
       
 
       # @groups_down_average = @groups_active.down_average(current_calendar.average)
