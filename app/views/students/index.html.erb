@@ -22,13 +22,8 @@
         <% end %>
       </td>
       <td>
-        <%= link_to students_path(children: 'true'), role: 'button' do %>
-          <h2 class="text-error" title='Alunos menores de idade'><i class="icon-hand-down"></i></h2>
-        <% end %>
-      </td>
-      <td>
         <%= link_to students_path(enrolled: 'true'), role: 'button' do %>
-          <h2 class="text-error" title='Alunos matriculados'><i class="icon-hand-down"></i></h2>
+          <h2 class="text-error" title='Alunos matriculados'><i class="icon-file"></i></h2>
         <% end %>
       </td>
 
@@ -134,7 +129,7 @@
 	<% else %>
 	
 	<% if params[:enrolled] == 'true' %>
-		<%= groups_active.count %>
+		<%= @groups_active.count %>
 		
 		
 	<% else %>
