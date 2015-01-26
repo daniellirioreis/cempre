@@ -152,7 +152,7 @@
 								<%= link_to "#{g.classroom}", s.classroom %>
 		            <br/>
 		            <b>Professor:</b> <%= s.classroom.teacher%><br/>
-		            <b>Horário:</b> <%= s.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= g.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
+		            <b>Horário:</b> <%= s.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= s.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
 		            <b>Dia da Semana:</b>
 		            <%= s.classroom.day_week_humanize %><br/>
 		            <b>Período:</b>
