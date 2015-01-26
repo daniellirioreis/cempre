@@ -19,7 +19,7 @@ class StudentsController < ApplicationController
       @groups_second_change_exam = current_calendar.groups_second_change_exam  if params[:second_change_exam] == 'true'
       @children = current_calendar.groups_active  if params[:children] == 'true'
       
-      @groups_active = current_calendar.groups_active.closed_for_enrollments  if params[:enrolled] == 'true'
+      @groups_active = current_calendar.groups_active  if params[:enrolled] == 'true'
       
       
 
