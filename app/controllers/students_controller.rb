@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
       
       if params[:enrolled] == 'true'
         @groups_active = current_calendar.groups_active  
-        @title = title + "para avisar início das aulas"
+        @title = title + " para avisar início das aulas"
       end
       
 
