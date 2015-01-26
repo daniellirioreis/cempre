@@ -133,8 +133,9 @@
 		<thead>
         <tr>
             <th>Nome</th>
-            <th>Turma</th>
             <th>Telefone</th>
+						<th>Turma</th>
+            <th>Reprovado semestre anterior</th>
 						<th>Ação</th>
         </tr>
     </thead>    
@@ -158,6 +159,11 @@
 			            <%= s.classroom.day_week_humanize %><br/>
 			            <b>Período:</b>
 			            <%= s.classroom.calendar %>		            
+								</td>
+								<td>
+									<% if group.repeat %>
+									<h3 class='text-error text-center'><i title= "trancar" class="icon-thumbs-up"></i><h3>
+									<% end %>									
 								</td>
 								<td>
 									<%= link_to "Ver", edit_student_path(s.student), class: 'btn btn-primary' %>								
