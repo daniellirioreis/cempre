@@ -1,5 +1,5 @@
 <small>
-<h5>Geral</h5>
+<strong>Geral</strong>
     <strong>Nome: </strong><%=@teacher%><br>
     <strong>Data Nascimento: </strong><%= l @teacher.birth_date unless @teacher.birth_date.nil?  %><br>
     <strong>Idade: </strong><%= @teacher.age %><br>
@@ -58,9 +58,8 @@
 	<%= @teacher.groups_failed(@previous_calendar.id).count %></b>
 </p>
 <% end %> 
-</small>
 
-<h4>Turmas - <%= current_calendar %></h4>
+<strong>Turmas - <%= current_calendar %></strong>
 <%count = 0%>
 <table>
 <% @classrooms.sorted.each do |c |%>
@@ -115,4 +114,5 @@
 <p class='text-error'><b>Quantidade de aluno(s) reprovado(s):
 	<%= @teacher.groups_failed(current_calendar.id).count %></b>
 </p>
+</small>
 
