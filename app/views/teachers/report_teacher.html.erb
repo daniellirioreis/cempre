@@ -91,9 +91,9 @@
 		<td><strong>Total: </strong><%=@classrooms.count%><td>
 	</tr>
 </table>
-<strong>Carga Horária:</strong> <%= @teacher.working_minutes(current_calendar.id) %>
+<strong>Carga Horária:</strong> <%= ConvertHoursForMinutes.(@teacher.working_minutes(current_calendar.id)) %>
 
-<table class='table'>
+<table class='table'> 
 	<tr>
 		<td>
 			<p class='text-info'>Aluno(s) entregue:<%= @teacher.groups(current_calendar.id).count %></p>			
