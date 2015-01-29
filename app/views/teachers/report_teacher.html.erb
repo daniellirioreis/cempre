@@ -1,13 +1,11 @@
 <h4>Geral</h4>
-<blockquote>
-  <p>
+  <small>
     <strong>Nome: </strong><%=@teacher%><br>
     <strong>Data Nascimento: </strong><%= l @teacher.birth_date unless @teacher.birth_date.nil?  %><br>
     <strong>Idade: </strong><%= @teacher.age %><br>
     <strong>email: </strong> <%= @teacher.email%><br>
     <strong>Telefones: </strong> <%= @teacher.phone%><br>
-  </p>
-</blockquote>
+  </small>
 <% if  @previous_calendar.present? %>
 
 <h4>Turmas - <%= @previous_calendar %> </h4>
