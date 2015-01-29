@@ -41,7 +41,7 @@
 			<p class='text-info'>Aluno(s) entregue:<%= @teacher.groups(@previous_calendar.id).count %></p>			
 		</td>
 		<td>
-			<p class='text-info'>Transferidos: <%=@teacher.groups_transfer(@previous_calendar.id).count %></p>			
+			<p class='text-info'>Transferido(s): <%=@teacher.groups_transfer(@previous_calendar.id).count %></p>			
 		</td>		
 		<td>
 			<p class='text-warning'>Trancado(s):<%= @teacher.groups_locked(@previous_calendar.id).count %></p>			
@@ -91,13 +91,15 @@
 		<td><strong>Total: </strong><%=@classrooms.count%><td>
 	</tr>
 </table>
+<strong>Carga Horária:</strong> <%= @teacher.working_minutes(current_calendar.id) %>
+
 <table class='table'>
 	<tr>
 		<td>
 			<p class='text-info'>Aluno(s) entregue:<%= @teacher.groups(current_calendar.id).count %></p>			
 		</td>
 		<td>
-			<p class='text-info'>Transferidos: <%=@teacher.groups_transfer(current_calendar.id).count %></p>			
+			<p class='text-info'>Transferido(s): <%=@teacher.groups_transfer(current_calendar.id).count %></p>			
 		</td>		
 		<td>
 			<p class='text-warning'>Trancado(s):<%= @teacher.groups_locked(current_calendar.id).count %></p>			
