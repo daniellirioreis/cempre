@@ -57,6 +57,8 @@
 		</td>
 	</tr>
 </table>
+<strong>Carga Horária:</strong> <%= ConvertHoursForMinutes.convert_hours(@teacher.working_minutes(@previous_calendar.id)) %>
+
 <% end %> 
 
 <strong>Turmas - <%= current_calendar %></strong>
