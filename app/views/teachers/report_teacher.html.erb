@@ -34,7 +34,6 @@
 		<% end %>				
 		<td><strong>Total: </strong><%=@previous_calendar.classrooms.teacher_id(@teacher.id).count%><td>
 	</tr>
-	</table>
 </table>
 <table class='table'>
 	<tr>
@@ -42,7 +41,7 @@
 			<p class='text-info'>Aluno(s) entregue:<%= @teacher.groups(@previous_calendar.id).count %></p>			
 		</td>
 		<td>
-			<p class='text-info'><b>Transferidos: <%=@teacher.groups_transfer(@previous_calendar.id).count %></p>			
+			<p class='text-info'>Transferidos: <%=@teacher.groups_transfer(@previous_calendar.id).count %></p>			
 		</td>		
 		<td>
 			<p class='text-warning'>Trancado(s):<%= @teacher.groups_locked(@previous_calendar.id).count %></p>			
@@ -81,22 +80,24 @@
       <%end%>    
 <% end %>
 </table>
-<br>
-<% @courses.each do |c|%>
-	 <%cc = @classrooms.course_id(c.id)%>
-	 <% if cc.any? %>
-		<strong><%= c %>:</strong> <%= cc.count %><br>
-	 <% end %>
-<% end %>		
-<strong>Total: </strong><%=@classrooms.count%>
-
+<table class='table'>
+	<tr>
+		<% @courses.each do |c|%>
+	 	<%cc = @classrooms.course_id(c.id)%>
+			 <% if cc.any? %>
+				<td><strong><%= c %>:</strong> <%= cc.count %></td>
+			 <% end %>
+		<% end %>				
+		<td><strong>Total: </strong><%=@classrooms.count%><td>
+	</tr>
+</table>
 <table class='table'>
 	<tr>
 		<td>
 			<p class='text-info'>Aluno(s) entregue:<%= @teacher.groups(current_calendar.id).count %></p>			
 		</td>
 		<td>
-			<p class='text-info'><b>Transferidos: <%=@teacher.groups_transfer(current_calendar.id).count %></p>			
+			<p class='text-info'>Transferidos: <%=@teacher.groups_transfer(current_calendar.id).count %></p>			
 		</td>		
 		<td>
 			<p class='text-warning'>Trancado(s):<%= @teacher.groups_locked(current_calendar.id).count %></p>			
