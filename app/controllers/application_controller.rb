@@ -106,7 +106,7 @@ class ApplicationController < ActionController::Base
                         'print_not_head'
                       else
                         if params['action'] == 'report_teacher'
-                          'print'                                            
+                          'print_not_head'                                            
                         else
                           if params['action'] == 'buy_books'
                             'print_not_head'
