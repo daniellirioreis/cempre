@@ -1,11 +1,10 @@
-<h4>Geral</h4>
-  <small>
+<small>
+<h5>Geral</h5>
     <strong>Nome: </strong><%=@teacher%><br>
     <strong>Data Nascimento: </strong><%= l @teacher.birth_date unless @teacher.birth_date.nil?  %><br>
     <strong>Idade: </strong><%= @teacher.age %><br>
     <strong>email: </strong> <%= @teacher.email%><br>
     <strong>Telefones: </strong> <%= @teacher.phone%><br>
-  </small>
 <% if  @previous_calendar.present? %>
 
 <h4>Turmas - <%= @previous_calendar %> </h4>
@@ -59,7 +58,7 @@
 	<%= @teacher.groups_failed(@previous_calendar.id).count %></b>
 </p>
 <% end %> 
-
+</small>
 
 <h4>Turmas - <%= current_calendar %></h4>
 <%count = 0%>
