@@ -6,6 +6,7 @@ class TeachersController < ApplicationController
   def report_teacher
     @classrooms =  @teacher.classrooms.calendar_id(current_calendar.id)    
     @previous_calendar = Calendar.next_calendar_id(current_calendar.id).first    
+    @courses =  current_company.courses    
   end
   
   def index

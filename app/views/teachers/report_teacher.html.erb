@@ -31,6 +31,14 @@
       <%end%>    
 <% end %>
 </table>
+<% @courses.each do |c|%>
+	 <%cc = @previous_calendar.classrooms.teacher_id(@teacher.id).course_id(c.id)%>
+	 <% if cc.any? %>
+		<strong><%= c %>:</strong> <%= cc.count %><br>
+	 <% end %>
+<% end %>		
+<strong>Total: </strong><%=@previous_calendar.classrooms.teacher_id(@teacher.id).count%>
+
 <br>
 
 <p class='text-info'><b>Quantidade de aluno(s) entregue:
@@ -52,10 +60,6 @@
 <p class='text-error'><b>Quantidade de aluno(s) reprovado(s):
 	<%= @teacher.groups_failed(@previous_calendar.id).count %></b>
 </p>
-
-
-
-
 <% end %> 
 
 
@@ -80,6 +84,19 @@
       <%end%>    
 <% end %>
 </table>
+
+
+<br>
+
+<% @courses.each do |c|%>
+	 <%cc = @classrooms.course_id(c.id)%>
+	 <% if cc.any? %>
+		<strong><%= c %>:</strong> <%= cc.count %><br>
+	 <% end %>
+<% end %>		
+<strong>Total: </strong><%=@classrooms.count%>
+
+
 <br>
 
 <p class='text-info'><b>Quantidade de aluno(s) entregue:
