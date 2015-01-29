@@ -1,10 +1,5 @@
 <small>
-<strong>Geral</strong>
-    <strong>Nome: </strong><%=@teacher%><br>
-    <strong>Data Nascimento: </strong><%= l @teacher.birth_date unless @teacher.birth_date.nil?  %><br>
-    <strong>Idade: </strong><%= @teacher.age %><br>
-    <strong>email: </strong> <%= @teacher.email%><br>
-    <strong>Telefones: </strong> <%= @teacher.phone%><br>
+<strong>Professor(a): </strong><%=@teacher%><br>
 <% if  @previous_calendar.present? %>
 
 <strong>Turmas - <%= @previous_calendar %> </strong>
