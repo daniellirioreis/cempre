@@ -7,7 +7,7 @@
     <strong>Telefones: </strong> <%= @teacher.phone%><br>
 <% if  @previous_calendar.present? %>
 
-<h4>Turmas - <%= @previous_calendar %> </h4>
+<strong>Turmas - <%= @previous_calendar %> </strong>
 <%count = 0%>
 <table>
 <% @previous_calendar.classrooms.teacher_id(@teacher.id).sorted.each do |c |%>
