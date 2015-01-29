@@ -24,16 +24,19 @@
       <%end%>    
 <% end %>
 </table>
-<% @courses.each do |c|%>
-	 <%cc = @previous_calendar.classrooms.teacher_id(@teacher.id).course_id(c.id)%>
-	 <% if cc.any? %>
-		<strong><%= c %>:</strong> <%= cc.count %><br>
-	 <% end %>
-<% end %>		
+<table class='table'>
+	<tr>
+		<% @courses.each do |c|%>
+			 <%cc = @previous_calendar.classrooms.teacher_id(@teacher.id).course_id(c.id)%>
+			 <% if cc.any? %>
+				<td><strong><%= c %>:</strong> <%= cc.count %></td>
+			 <% end %>
+		<% end %>				
+	</tr>
+	</table>
+</table>
 <strong>Total: </strong><%=@previous_calendar.classrooms.teacher_id(@teacher.id).count%>
-
 <br>
-
 <p class='text-info'><b>Quantidade de aluno(s) entregue:
 	<%= @teacher.groups(@previous_calendar.id).count %></b>
 </p>
