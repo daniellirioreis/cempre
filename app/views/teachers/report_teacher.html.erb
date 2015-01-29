@@ -32,30 +32,32 @@
 				<td><strong><%= c %>:</strong> <%= cc.count %></td>
 			 <% end %>
 		<% end %>				
+		<td><strong>Total: </strong><%=@previous_calendar.classrooms.teacher_id(@teacher.id).count%><td>
 	</tr>
 	</table>
 </table>
-<strong>Total: </strong><%=@previous_calendar.classrooms.teacher_id(@teacher.id).count%>
-<br>
-<p class='text-info'><b>Quantidade de aluno(s) entregue:
-	<%= @teacher.groups(@previous_calendar.id).count %></b>
-</p>
-<p class='text-info'><b>Quantidade de aluno(s) transferidos:
-	<%= @teacher.groups_transfer(@previous_calendar.id).count %></b>
-</p>
-<p class='text-warning'><b>Quantidade de aluno(s) trancado(s):
-	<%= @teacher.groups_locked(@previous_calendar.id).count %>	 
-</p>
-<p class='text-warning'><b>Quantidade de aluno(s) que abandoram:
-	<%= @teacher.groups_folded(@previous_calendar.id).count %>	 
-</p>
-
-<p class='text-success'><b>Quantidade de aluno(s) aprovado(s):
-	<%= @teacher.groups_approved(@previous_calendar.id).count %></b>
-</p>
-<p class='text-error'><b>Quantidade de aluno(s) reprovado(s):
-	<%= @teacher.groups_failed(@previous_calendar.id).count %></b>
-</p>
+<table class='table'>
+	<tr>
+		<td>
+			<p class='text-info'>Aluno(s) entregue:<%= @teacher.groups(@previous_calendar.id).count %></p>			
+		</td>
+		<td>
+			<p class='text-info'><b>Transferidos: <%=@teacher.groups_transfer(@previous_calendar.id).count %></p>			
+		</td>		
+		<td>
+			<p class='text-warning'>Trancado(s):<%= @teacher.groups_locked(@previous_calendar.id).count %></p>			
+		</td>
+		<td>
+			<p class='text-warning'>Abandono: <%= @teacher.groups_folded(@previous_calendar.id).count %></p>			
+		</td>
+		<td>
+			<p class='text-success'>Aprovado(s): <%= @teacher.groups_approved(@previous_calendar.id).count %></p>			
+		</td>
+		<td>
+			<p class='text-error'>Reprovado(s):<%= @teacher.groups_failed(@previous_calendar.id).count %></p>			
+		</td>
+	</tr>
+</table>
 <% end %> 
 
 <strong>Turmas - <%= current_calendar %></strong>
