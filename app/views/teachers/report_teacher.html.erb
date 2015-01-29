@@ -91,7 +91,7 @@
 		<td><strong>Total: </strong><%=@classrooms.count%><td>
 	</tr>
 </table>
-<strong>Carga Horária:</strong> <%= ConvertHoursForMinutes.(@teacher.working_minutes(current_calendar.id)) %>
+<strong>Carga Horária:</strong> <%= ConvertHoursForMinutes.convert_hours(@teacher.working_minutes(current_calendar.id)) %>
 
 <table class='table'> 
 	<tr>
