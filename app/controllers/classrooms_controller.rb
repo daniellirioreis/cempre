@@ -29,7 +29,7 @@ class ClassroomsController < ApplicationController
   def report_schedules
     classrooms = current_calendar.classrooms
     @classrooms_monday_wednesday = classrooms.day_week3(Day::MONDAY, Day::MONDAY_AND_WEDNESDAY, Day::WEDNESDAY)
-    @classrooms_tuesday_thursday = classrooms.day_week(Day::THURSDAY, Day::TUESDAY_AND_THURSDAY)
+    @classrooms_tuesday_thursday = classrooms.day_week3(Day::THURSDAY, Day::TUESDAY_AND_THURSDAY, Day::TUESDAY)
     @classrooms_saturday = classrooms.day_week(Day::SATURDAY, Day::SATURDAY)    
   end
 
