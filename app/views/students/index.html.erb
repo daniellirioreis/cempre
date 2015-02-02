@@ -207,7 +207,7 @@
           <% @groups_active.each do |s| %>
 						<% if s.student.start_class == true %>
 							<% count = count + 1 %>
-	            <tr>
+	            <tr class="<%if student.mark?%>success<%end%>">
 								<td>
 									<%= s.student %>
 								</td>
