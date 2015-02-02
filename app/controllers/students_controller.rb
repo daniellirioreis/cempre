@@ -24,6 +24,11 @@ class StudentsController < ApplicationController
         @groups_active = current_calendar.groups_active  
         @title = title + " para avisar início das aulas"
       end
+
+      if params[:stared_class] == 'true'
+        @groups_active = current_calendar.groups_active  
+        @title = title + " Avisado(s)"
+      end
       
 
       # @groups_down_average = @groups_active.down_average(current_calendar.average)
