@@ -19,18 +19,34 @@
       </tr>
       <tr>
         <td>
-          <b>Matricula restante: </b>
+          <b>Quantidade de alunos matriculados:</b>
         </td>
         <td>
-        <%= @remaining_vacancies%>
+          <%= @groups_active + @groups_locked_or_folded %>
         </td>
       </tr>
       <tr>
         <td>
-          <b>Quantidade de alunos matriculados:</b>
+          <b>Quantidade de alunos ativos:</b>
         </td>
         <td>
-          <%= @groups_active%>
+          <%= @groups_active %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Quantidade alunos trancados ou abandonou: </b>
+        </td>
+        <td>
+          <%= @groups_locked_or_folded 	%>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Matricula restante: </b>
+        </td>
+        <td>
+        <%= @remaining_vacancies%>
         </td>
       </tr>
       <tr>
