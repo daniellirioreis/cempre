@@ -10,6 +10,9 @@ class DashboardController < ApplicationController
     @importants = []
     @birthdates = []
     @notes = []
+    @orals = []
+    @finals = []
+    
     @students_block_schedule_different = []
     @rents_books = []
     
