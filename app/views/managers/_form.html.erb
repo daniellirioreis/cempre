@@ -12,6 +12,7 @@
 
   <div class="row-fluid">
     <div class="span3"><%= f.input :profile_id, collection: Profile.all %></div>
+    <div class="span10"><%= f.input :student_id, collection: current_company.students.sorted %></div>
   </div>
     <fieldset>
       <legend> Escolas</legend>
