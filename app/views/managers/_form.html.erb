@@ -12,8 +12,11 @@
 
   <div class="row-fluid">
     <div class="span3"><%= f.input :profile_id, collection: Profile.all %></div>
-    <div class="span10"><%= f.input :student_id, collection: current_company.students.sorted %></div>
   </div>
+  <div class="row-fluid">
+	  <div class="span12"><%= f.input :student_id, collection: current_company.students.sorted, :input_html => { :class => "span12"}  %></div>  
+  </div>
+
     <fieldset>
       <legend> Escolas</legend>
       <% @companies.each do |c| %>

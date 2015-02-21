@@ -23,3 +23,4 @@ pt-BR:
         new_password_confirmation: "Confirmação da nova senha"
         timeout_in: "Tempo de expiração"
         remember_me: "Manter conectado"
+        student_id: 'Aluno'
