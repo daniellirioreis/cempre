@@ -23,6 +23,7 @@
       <thead>
           <tr>
               <th>Nome</th>
+              <th>Curso/Nível</th>
               <th>Professor</th>
               <th>Dia da Semana</th>
               <th>Horário</th>
@@ -37,6 +38,7 @@
           <% @classrooms_new.sorted.each do |c| %>
             <tr>
                 <td><%= link_to "#{c}", c %></td>
+								<td> <%= c.course %></td>
                 <td><%= c.teacher%></td>
                 <td>
                   <% if c.day_week_humanize.to_s == @classroom_old.day_week_humanize.to_s %>
