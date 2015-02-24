@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :finalize]
 
   def index
-    if current_user.profile.upcase == "ALUNOS"
+    if current_user.profile.name == "ALUNOS"
       if current_user.student.group_active.present?
         @events = Event.calendar_id(current_user.student.group_active.first.calendar.id).no_finalized
       else
