@@ -5,7 +5,7 @@ class Group < ActiveRecord::Base
   has_many :faults, :dependent => :restrict_with_error
   has_many :exams, :dependent => :restrict_with_error
   has_one :questionnaire
-  delegate :course, :company, to: :classroom
+  delegate :course, :company, :calendar, to: :classroom
 
   delegate :day_of_birth, :name, :birth_date, to: :student
 
