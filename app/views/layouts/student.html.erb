@@ -37,7 +37,7 @@
 									  <h4 class= " <% if g.frequency <= g.classroom.calendar.limit_of_faults %> text-error<% else %>						  <% if g.frequency < g.classroom.calendar.limit_of_faults + 4  and  g.frequency >= g.classroom.calendar.limit_of_faults  %>text-warning<%else%> <% if g.frequency >= g.classroom.calendar.limit_of_faults %>text-success<%end%><% end %><%end%>"
 									><i class="icon-signal"></i> <%= link_to "#{g.frequency}% - #{g.classroom.course}", frequency_student_path(current_user.student), title: 'Frequência' %></h4>
 									<% end %>
-							    <h4><i class="icon-book"></i> <%= link_to "#{@lessons_for_today}", events_calendars_path , title: 'Lições' %></h4>									
+							    <h4><i class="icon-calendar"></i> <%= link_to "Calendário", current_calendar , title: 'Calendário' %></h4>									
 								</td>
 							</tr>
 						</table>
