@@ -1,13 +1,16 @@
 <div class="tabbable">
   <ul class="nav nav-tabs">
     <li class="active"> <%= link_to "Calendário", "#general", :"data-toggle" => :tab %></li>
-    <li> <%= link_to "Agenda", "#address", :"data-toggle" => :tab %></li>
+		<% unless current_user.profile.name == 'ALUNOS' %>
+    	<li> <%= link_to "Agenda", "#address", :"data-toggle" => :tab %></li>
+		<% end %>
   </ul>
 </div>
 <div class="tab-content">
   <div class="tab-pane fade active in" id="general">
 	  <%= render 'full'%>  
   </div>
+	<% if current_user.profile.name == 'ALUNOS' %>
   <div class="tab-pane" id="address">
 		<%= form_tag @calendar, :method => 'get' do  %>
 		   <form class="form-search">
@@ -76,4 +79,5 @@
 		  </div>
 		<%end%>
   </div>
+	<% end %>
 </div>
