@@ -22,6 +22,9 @@ class Lesson < ActiveRecord::Base
   scope :teacher_id, lambda { |id| where("classrooms.teacher_id = ?", id).joins(:classroom) }
 
   scope :by_month, lambda { |month| where("EXTRACT(MONTH FROM calendar_days.day) = #{month}").joins(:calendar_day) }
+  
+  scope :sorted, -> { order("calendar_days.day").joins(:calendar_day) }
+  
 
 
   def schedules
