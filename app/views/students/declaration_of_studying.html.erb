@@ -1,5 +1,5 @@
 <% count = 0 %>
-<% @groups.each do |group| %>
+<% @groups.active.each do |group| %>
 <% count = count + 1 %>
 <p>
   <h3 align='center'>Declaração</h3>
@@ -12,7 +12,7 @@
 		<tr>
 	</table>
 	<br>
-Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso de <b><%= group.classroom.course.type_course_humanize %>(<%=group.classroom.course.level_course_humanize%>)</b> <br/>por nós ministrado e encontra-se regulamente matriculado(a), com inicio no <%= "#{group.created_at.day} de #{TranslateMonths.translate(group.clasroom.lessons.first.calendar_day.day.month)} de #group.clasroom.lessons.first.calendar_day.day.year}" %>, tendo aulas <b><%= group.classroom.day_week_humanize %></b>, no horário de <b><%= group.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= group.classroom.time_end.try(:strftime, '%H:%M') %>.</b></p>
+Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso de <b><%= group.classroom.course.type_course_humanize %>(<%=group.classroom.course.level_course_humanize%>)</b> <br/>por nós ministrado e encontra-se regulamente matriculado(a), com inicio no <%= "#{group.classroom.lessons.sorted.first.calendar_day.day.day} de #{TranslateMonths.translate(group.classroom.lessons.first.calendar_day.day.month)} de #{group.classroom.lessons.last.calendar_day.day.year}" %>, tendo aulas <b> <%= group.classroom.day_week_humanize %></b>, no horário de <b><%= group.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= group.classroom.time_end.try(:strftime, '%H:%M') %>.</b></p>
   <br/>
   <br/>
   <br/>
