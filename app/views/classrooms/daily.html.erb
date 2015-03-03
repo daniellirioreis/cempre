@@ -36,6 +36,9 @@
         <td>
           <p class='text-center'>
             <%= count = count + 1 %>
+						<% if g.student.birth_date.month == params[:month].to_i %>
+							<i class="icon-gift"></i><%= g.student.birth_date.day%>
+						<% end %>
           </p>
         </td>
         <td>
