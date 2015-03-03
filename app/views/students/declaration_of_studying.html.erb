@@ -12,7 +12,7 @@
 		<tr>
 	</table>
 	<br>
-Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso de <b><%= group.classroom.course.type_course_humanize %>(<%=group.classroom.course.level_course_humanize%>)</b> <br/>por nós ministrado e encontra-se regulamente matriculado(a), com inicio no <%= "#{current_calendar.days.first.day} de #{TranslateMonths.translate(current_calendar.days.first.month)} de #{current_calendar.days.first.year}" %>, tendo aulas <b> <%= group.classroom.day_week_humanize %></b>, no horário de <b><%= group.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= group.classroom.time_end.try(:strftime, '%H:%M') %>.</b></p>
+Declaramos para os devidos fins que <b><%= @student%></b> é aluno(a) do curso de <b><%= group.classroom.course.type_course_humanize %>(<%=group.classroom.course.level_course_humanize%>)</b> <br/>por nós ministrado e encontra-se regulamente matriculado(a), com inicio no <%= "#{current_calendar.days.first.day.day} de #{TranslateMonths.translate(current_calendar.days.first.day.month)} de #{current_calendar.days.first.day.year}" %>, tendo aulas <b> <%= group.classroom.day_week_humanize %></b>, no horário de <b><%= group.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= group.classroom.time_end.try(:strftime, '%H:%M') %>.</b></p>
   <br/>
   <br/>
   <br/>
