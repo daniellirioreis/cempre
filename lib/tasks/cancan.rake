@@ -135,6 +135,14 @@ namespace :cancan do
           Role.create(:controller => 'calendar_days', :action => action)
         end
       end
+      
+      yaml['actions_more_companies'].each do |action|
+        r = Role.find_by_action_and_controller(action, 'companies')
+        unless r.present?
+          Role.create(:controller => 'companies', :action => action)
+        end
+      end
+      
     end
   end
 end

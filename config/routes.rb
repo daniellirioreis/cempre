@@ -17,7 +17,9 @@ Donald::Application.routes.draw do
     get :create_re, on: :collection
   end
 
-  resources :schedules
+  resources :schedules do 
+    get :mark_important, on: :member    
+  end
 
   resources :lessons
 
@@ -105,7 +107,9 @@ Donald::Application.routes.draw do
   end
 
 
-  resources :companies
+  resources :companies do 
+    get :print_informations, on: :member
+  end
 
   resources :birthdays_months do
     get :print,  on: :collection

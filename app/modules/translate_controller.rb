@@ -142,6 +142,8 @@ class TranslateController
         'Criar rematrícula'     
       when 'envelopes_for_exams'
         'Envelopes para provas'
+      when 'print_informations'
+        'Imprimir Informacões'
     end
   end
 end

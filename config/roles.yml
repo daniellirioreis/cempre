@@ -83,3 +83,5 @@ actions_more_calendar_days:
   - find
 actions_more_control_points:
   - info
+actions_more_companies:
+- print_informations

@@ -1,0 +1,34 @@
+<script src='http://www.google.com/jsapi'></script>
+<div id='chart'></div>
+<%= render_chart @chart, 'chart' %>
+<hr>
+<table class='table'>
+	<tr>
+		<% unless @approved.zero?%>
+			<td>
+				<b>Aprovados: </b> <%= @approved %>
+			</td>
+		<% end %>
+		<% unless @failed.zero?%>
+			<td>
+				<b>Reprovados: </b> <%= @failed %>
+			</td>
+		<% end %>		
+		<% unless @folded.zero?%>
+			<td>
+				<b>Abandonos: </b> <%= @folded %>
+			</td>
+		<% end %>				
+		<% unless @locked.zero?%>
+			<td>
+				<b>Trancados: </b> <%= @locked %>
+			</td>
+		<% end %>				
+		<% unless @active.zero?%>
+			<td>
+				<b>Ativos: </b> <%= @active %>				
+			</td>
+		<% end %>						
+	</tr>
+</table>
+

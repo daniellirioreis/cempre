@@ -120,7 +120,11 @@ class ApplicationController < ActionController::Base
                                  if params['controller'] == 'calendars' and params['action'] == 'show'
                                    nil                                                                                                                                                                                             
                                  else
-                                   nil                                                                                                                                                                                             
+                                   if params['controller'] == 'companies' and params['action'] == 'print_informations'
+                                      'print_head_javascript'
+                                   else
+                                     nil                                                                                                                                                                                                                                  
+                                   end
                                  end
                               end
                             end  
