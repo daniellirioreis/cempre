@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
       @approved = current_calendar.groups_approved.count 
       @failed = current_calendar.groups_failed.count
       @folded = current_calendar.groups_folded
-      @locked = current_calendar.groups_locked.count
+      @locked = current_calendar.groups_locked
       @active = current_calendar.groups_active.count
     
       data_table = GoogleVisualr::DataTable.new
@@ -23,9 +23,9 @@ class CompaniesController < ApplicationController
       data_table.set_cell(1, 0, 'Reprovados'      )
       data_table.set_cell(1, 1, @failed  )
       data_table.set_cell(2, 0, 'Abandonou'  )
-      data_table.set_cell(2, 1, @folded  )
+      data_table.set_cell(2, 1, @folded.count )
       data_table.set_cell(3, 0, 'Matricula Trancada'  )
-      data_table.set_cell(3, 1, @locked)
+      data_table.set_cell(3, 1, @locked.count)
       data_table.set_cell(4, 0, 'Ativo'  )
       data_table.set_cell(4, 1, @active)
       opts   = { :width => 1000, :height => 400, :title => "Gráfico Alunos #{current_calendar}", :is3D => true }

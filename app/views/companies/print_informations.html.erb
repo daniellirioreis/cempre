@@ -19,9 +19,9 @@
 				<b>Abandonos: </b> <%= @folded.count %>
 			</td>
 		<% end %>				
-		<% unless @locked.zero?%>
+		<% unless @locked.count.zero?%>
 			<td>
-				<b>Trancados: </b> <%= @locked %>
+				<b>Trancados: </b> <%= @locked.count %>
 			</td>
 		<% end %>				
 		<% unless @active.zero?%>
@@ -32,8 +32,46 @@
 	</tr>
 </table>
 <hr>
-<h1>Abandono</h1>
-<% @folded.each do  |f| %>
-	<%= f.inspect %><br>
-<% end %>
+<h4 class='text-center'>Abandono</h4>
+<table class='table'>
+	<tr>
+		<th>
+			Aluno
+		</th>
+		<th>
+			Motivo
+		</th>		
+	</tr>
+	<% @folded.each do  |f| %>
+		<tr>
+			<td>
+				<%= f %>
+			</td>
+			<td>
+			<%= f.justification%>
+			</td>
+		</tr>	
+	<% end %>
+</table>
+<h4 class='text-center'>Trancada</h4>
+<table class='table'>
+	<tr>
+		<th>
+			Aluno
+		</th>
+		<th>
+			Motivo
+		</th>		
+	</tr>
+	<% @locked.each do  |f| %>
+		<tr>
+			<td>
+				<%= f %>
+			</td>
+			<td>
+			<%= f.justification%>
+			</td>
+		</tr>	
+	<% end %>
+</table>
 
