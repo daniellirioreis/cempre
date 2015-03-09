@@ -14,9 +14,9 @@
 				<b>Reprovados: </b> <%= @failed %>
 			</td>
 		<% end %>		
-		<% unless @folded.zero?%>
+		<% unless @folded.count.zero?%>
 			<td>
-				<b>Abandonos: </b> <%= @folded %>
+				<b>Abandonos: </b> <%= @folded.count %>
 			</td>
 		<% end %>				
 		<% unless @locked.zero?%>
@@ -31,4 +31,9 @@
 		<% end %>						
 	</tr>
 </table>
+<hr>
+<h1>Abandono</h1>
+<% @folded.each do  |f| %>
+	<%= f.inspect %><br>
+<% end %>
 

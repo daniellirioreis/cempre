@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
   def print_informations
       @approved = current_calendar.groups_approved.count 
       @failed = current_calendar.groups_failed.count
-      @folded = current_calendar.groups_folded.count
+      @folded = current_calendar.groups_folded
       @locked = current_calendar.groups_locked.count
       @active = current_calendar.groups_active.count
     
