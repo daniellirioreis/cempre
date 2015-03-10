@@ -40,7 +40,10 @@
 		</th>
 		<th>
 			Motivo
-		</th>		
+		</th>
+		<th>
+			Turma		
+		</th>
 	</tr>
 	<% @folded.each do  |f| %>
 		<tr>
@@ -49,6 +52,14 @@
 			</td>
 			<td>
 			<%= f.justification%>
+			</td>
+			<td>
+				<%= f.classroom %>
+        <br/>
+        <b>Professor:</b> <%= f.classroom.teacher%><br/>
+        <b>Horário:</b> <%= f.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= f.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
+        <b>Dia da Semana:</b>
+        <%= f.classroom.day_week_humanize %><br/>
 			</td>
 		</tr>	
 	<% end %>
@@ -61,7 +72,9 @@
 		</th>
 		<th>
 			Motivo
-		</th>		
+		</th>
+		<th>
+		</th>
 	</tr>
 	<% @locked.each do  |f| %>
 		<tr>
@@ -71,6 +84,15 @@
 			<td>
 			<%= f.justification%>
 			</td>
+			<td>
+				<%= f.classroom %>
+        <br/>
+        <b>Professor:</b> <%= f.classroom.teacher%><br/>
+        <b>Horário:</b> <%= f.classroom.time_start.try(:strftime, '%H:%M') %> às  <%= f.classroom.time_end.try(:strftime, '%H:%M') %> <br/>
+        <b>Dia da Semana:</b>
+        <%= f.classroom.day_week_humanize %><br/>
+			</td>
+			
 		</tr>	
 	<% end %>
 </table>
