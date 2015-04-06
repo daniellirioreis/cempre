@@ -1,3 +1,5 @@
+<h3 class='text-center'>Relátorio  da situação da unidade - Aluno </h3>
+<h3 class='text-center' ><%=TranslateMonths.translate(Date.today.month - 1)%></h3>
 <script src='http://www.google.com/jsapi'></script>
 <div id='chart'></div>
 <%= render_chart @chart, 'chart' %>
@@ -96,4 +98,11 @@
 		</tr>	
 	<% end %>
 </table>
+<h3 class='text-center'>Listas de Chamada</h3>
+<% @classrooms.each do |classroom|  %>
+	<% unless classroom.closed %>
+  	<%= render "classroom", :classroom => classroom %>
+	<% end %>
+<% end %>
+
 

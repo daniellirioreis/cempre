@@ -7,6 +7,7 @@ pt-BR:
       create: 'Editar Escola'
       update: 'Editar Escola'
       show: 'Informações da escola'
+      print_informations: 'Relatório da Situação da Unidade - Alunos'
 
   activerecord:
     models:

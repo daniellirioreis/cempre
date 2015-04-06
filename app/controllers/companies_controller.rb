@@ -30,6 +30,8 @@ class CompaniesController < ApplicationController
       data_table.set_cell(4, 1, @active)
       opts   = { :width => 1000, :height => 400, :title => "Gráfico Alunos #{current_calendar}", :is3D => true }
       @chart = GoogleVisualr::Interactive::PieChart.new(data_table, opts)
+
+      @classrooms = current_calendar.classrooms
       
       
   end
