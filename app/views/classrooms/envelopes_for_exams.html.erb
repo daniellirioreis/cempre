@@ -172,10 +172,12 @@
 							</td>												
 							<td>				
 							</td>																
-							<td>				
-							</td>																
-							<td>				
-							</td>																				
+							<% if params[:type_exam].to_i == TypeExam::FINAL %>							
+								<td>				
+								</td>																							
+								<td>				
+								</td>																				
+						<% end %>
 						</tr>
 					<% end %>
 				</tbody>
