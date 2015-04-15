@@ -46,6 +46,12 @@
 		<th>
 			Turma		
 		</th>
+		<th>
+			Data Entrada
+		</th>
+		<th>
+			Data Saída
+		</th>
 	</tr>
 	<% @folded.each do  |f| %>
 		<tr>
@@ -63,6 +69,12 @@
         <b>Dia da Semana:</b>
         <%= f.classroom.day_week_humanize %><br/>
 			</td>
+			<td>
+				<%= f.created_at.try(:strftime, '%d/%m/%Y') %>
+			</td>
+			<td>
+				<%= f.updated_at.try(:strftime, '%d/%m/%Y') %>
+			</td>			
 		</tr>	
 	<% end %>
 </table>
@@ -76,7 +88,14 @@
 			Motivo
 		</th>
 		<th>
+			Turma
 		</th>
+		<th>
+			Data Entrada
+		</th>
+		<th>
+			Data Saída
+		</th>		
 	</tr>
 	<% @locked.each do  |f| %>
 		<tr>
@@ -94,7 +113,12 @@
         <b>Dia da Semana:</b>
         <%= f.classroom.day_week_humanize %><br/>
 			</td>
-			
+			<td>
+				<%= f.created_at.try(:strftime, '%d/%m/%Y') %>
+			</td>
+			<td>
+				<%= f.updated_at.try(:strftime, '%d/%m/%Y') %>
+			</td>						
 		</tr>	
 	<% end %>
 </table>
