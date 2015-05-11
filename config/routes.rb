@@ -109,6 +109,7 @@ Donald::Application.routes.draw do
 
   resources :companies do 
     get :print_informations, on: :member
+    get :students_for_neighborhood, on: :member    
   end
 
   resources :birthdays_months do

@@ -8,7 +8,7 @@ pt-BR:
       update: 'Editar Escola'
       show: 'Informações da escola'
       print_informations: 'Relatório da Situação da Unidade - Alunos'
-
+      students_for_neighborhood: "Quantidade de Alunos por bairro"
   activerecord:
     models:
       company:

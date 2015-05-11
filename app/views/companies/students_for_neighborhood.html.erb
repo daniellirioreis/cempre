@@ -1,0 +1,29 @@
+<h3 class='text-center'><%= title%></h3> 
+<b>Quantidade de alunos:</b>  <%= @active.count %>
+<table class='table'>
+	<tr>
+		<th>
+			Bairro
+		</th>
+		<th>
+			Quantidade
+		</th>		
+	</tr>
+<% @active.group_by(&:neighborhood).each do |neighborhood, groups| %>
+<tr>
+	<td>
+		<%= neighborhood %> 
+	</td>		
+	<td>
+		<%= groups.count %>
+	</td>				
+</tr>
+<% end %>
+</table>
+<b>Quantidade de alunos:</b>  <%= @active.count %><br>
+
+<h3 class='text-center'>Alunos sem informação de bairro</h3> 
+
+<% @active_not_have_neighborhood.each do |s| %>
+	<%= link_to "#{s.student}", s.student %><br>
+<% end %>

@@ -7,7 +7,7 @@ class Group < ActiveRecord::Base
   has_one :questionnaire
   delegate :course, :company, :calendar, to: :classroom
 
-  delegate :day_of_birth, :name, :birth_date, to: :student
+  delegate :day_of_birth, :name, :birth_date, :neighborhood, to: :student
 
   has_enumeration_for :status, :with => StatusGroup, :create_helpers => true, :create_scopes => true
 
@@ -51,6 +51,8 @@ class Group < ActiveRecord::Base
   scope :no_transfer, -> {where("status != ?", StatusGroup::TRANSFER)}
 
   scope :sorted, -> { order("groups.status, students.name").joins(:student) }
+  scope :sorted_neighborhood, -> { order("students.neighborhood").joins(:student) }
+  
 
   scope :sorted_week_and_time, -> { order("classrooms.day_week, classrooms.time_start").joins(:classroom) }
 
@@ -104,6 +106,9 @@ class Group < ActiveRecord::Base
   scope :open_for_enrollments_english, -> {where("classrooms.open_for_enrollments = true AND courses.type_exam #{TypeExam::ENGLISH}").joins(:classroom => :course)}
 
   scope :by_month, lambda { |month| where(" EXTRACT(MONTH FROM groups.created_at) = #{month}") }
+  
+  scope :not_have_neighborhood, lambda { |type1, type2| where("students.neighborhood = ? or students.neighborhood = ?", type1, type2).joins(:student) }
+  
 
   after_save :create_transfer
   
