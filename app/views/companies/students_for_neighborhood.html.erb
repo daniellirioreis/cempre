@@ -25,5 +25,5 @@
 <h3 class='text-center'>Alunos sem informação de bairro</h3> 
 
 <% @active_not_have_neighborhood.each do |s| %>
-	<%= link_to "#{s.student}", s.student %><br>
+	<%= link_to "#{s.student} - #{s.classroom}", s.student %><br>
 <% end %>
