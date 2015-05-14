@@ -26,14 +26,14 @@
 </table>
 
 <h3 class='text-center'>Alunos sem informação de bairro</h3> 
-<%= count1 = 0 %>
+<% count1 = 0 %>
 <% @active.each do |s| %>
 	<% if  s.neighborhood == "" %>
 		<%= link_to "#{s.student} - #{s.classroom}", s.student %><br>	
 		<% count1 = count1 + 1 %>
 	<% end %>
 <% end %>
-<%= count2 = 0 %>
+<% count2 = 0 %>
 <% @active.each do |s| %>
 	<% if  s.neighborhood == nil %>
 		<%= link_to "#{s.student} - #{s.classroom}", s.student %><br>	
@@ -47,4 +47,4 @@
 
 
 
-<b>Quantidade de alunos:</b>  <%= @count2 + count1 %>
+<b>Quantidade de alunos:</b>  <%= count2 + count1 %>
