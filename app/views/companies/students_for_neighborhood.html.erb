@@ -10,6 +10,7 @@
 		</th>		
 	</tr>
 <% @active.group_by(&:neighborhood).each do |neighborhood, groups| %>
+<% if  neighborhood <> "" || neighborhood <> nil %>
 <tr>
 	<td>
 		<%= neighborhood %> 
@@ -20,6 +21,7 @@
 		<hr>		
 	</td>				
 </tr>
+<% end %>
 <% end %>
 </table>
 
