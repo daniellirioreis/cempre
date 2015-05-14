@@ -10,7 +10,7 @@
 		</th>		
 	</tr>
 <% @active.group_by(&:neighborhood).each do |neighborhood, groups| %>
-<% if  neighborhood <> "" || neighborhood <> nil %>
+<% if  neighborhood != "" and neighborhood != nil %>
 <tr>
 	<td>
 		<%= neighborhood %> 
@@ -30,3 +30,4 @@
 <% @active_not_have_neighborhood.each do |s| %>
 	<%= link_to "#{s.student} - #{s.classroom}", s.student %><br>
 <% end %>
+<b>Quantidade de alunos:</b>  <%= @active_not_have_neighborhood.count %>
