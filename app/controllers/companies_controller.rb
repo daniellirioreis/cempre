@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  # before_filter :authorize_controller!
+  before_filter :authorize_controller!
 
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
