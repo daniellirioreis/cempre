@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_filter :authorize_controller!
+  # before_filter :authorize_controller!
 
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
@@ -8,8 +8,12 @@ class CompaniesController < ApplicationController
   end
   
   def lists_present
-    @classrooms = current_calendar.classrooms    
   end
+  
+  def lists
+    @classrooms = current_calendar.classrooms
+  end
+  
 
   def students_for_neighborhood
     @active = current_calendar.groups_active.sorted_neighborhood

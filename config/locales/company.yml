@@ -9,8 +9,8 @@ pt-BR:
       show: 'Informações da escola'
       print_informations: 'Relatório da Situação da Unidade - Alunos'
       students_for_neighborhood: "Quantidade de alunos por bairro"
-      list_present: "Listas de chamada da escola"
-      
+      lists_present: "Escolha o mês"
+      lists: "Listas de Chamada"
   activerecord:
     models:
       company:

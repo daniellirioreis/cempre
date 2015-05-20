@@ -127,7 +127,7 @@ class ApplicationController < ActionController::Base
                                      if params['controller'] == 'companies' and params['action'] == 'students_for_neighborhood'
                                        "print"
                                      else
-                                       if params['controller'] == 'companies' and params['action'] == 'lists_present'
+                                       if params['controller'] == 'companies' and params['action'] == 'lists'
                                          "print"
                                        else
                                          nil                                                                                                                                                                                                                                                                         

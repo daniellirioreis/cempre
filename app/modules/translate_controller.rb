@@ -145,9 +145,11 @@ class TranslateController
       when 'print_informations'
         'Imprimir Informacões'
       when 'lists_present'
-        'Listas de chamada'
+        'Escolha o mês'
       when 'students_for_neighborhood'
-        'Quantidade de alunos por bairro'
+        'Quantidade de alunos por bairro'      
+      when 'lists'
+        'Lista de Chamada'      
     end
   end
 end

@@ -1,4 +1,9 @@
-<h3 class='text-center'>Listas de Chamada</h3>
-<% @classrooms.each do |classroom|  %>
-  	<%= render "list", :classroom => classroom %>
-<% end %>
+<table class="table">
+	<tr>
+		<% current_calendar.months.each do |month| %>
+		<td>		
+			<%= link_to "#{TranslateMonths.translate(month.to_i)}", lists_company_path(current_company, month: month)%>
+		</td>
+		<% end %>
+	</tr>
+</table>

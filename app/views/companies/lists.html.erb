@@ -1,5 +1,6 @@
-<%current_calendar.months.each do |month| %>
-	<% lessons = classroom.lessons.by_month(month.to_i)%>
+<h3 class='text-center'><%= TranslateMonths.translate(params[:month].to_i)%>	</h3>	
+<%@classrooms.each do |classroom|%>
+	<% lessons = classroom.lessons.by_month(params[:month].to_i)%>
 	<table width="940" class="table table-striped table-hover table-bordered">
 	  <tr>
 	    <td>
@@ -19,7 +20,6 @@
 	</table>
 	<p>
 	</p>
-	<h3 class='text-center'><%= TranslateMonths.translate(month.to_i)%>	</h3>	
 	<table width="940" class="table table-striped table-hover table-bordered list_students">
 	    <tbody>
 	      <tr>
@@ -84,7 +84,4 @@
 	      <% end %>
 	    </tbody>
 	  </table>
-	
-	
 <% end %>
-

@@ -112,6 +112,7 @@ Donald::Application.routes.draw do
     get :print_informations, on: :member
     get :students_for_neighborhood, on: :member    
     get :lists_present, on: :member    
+    get :lists, on: :member    
     
   end
 
