@@ -61,6 +61,7 @@ Donald::Application.routes.draw do
   end
 
   resources :calendars do
+    get :weeks, on: :member    
     get :finalize, on: :member
     get :results, on: :member
     get :classrooms, on: :member
@@ -110,6 +111,8 @@ Donald::Application.routes.draw do
   resources :companies do 
     get :print_informations, on: :member
     get :students_for_neighborhood, on: :member    
+    get :lists_present, on: :member    
+    
   end
 
   resources :birthdays_months do

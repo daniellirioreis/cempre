@@ -6,6 +6,10 @@ class CompaniesController < ApplicationController
   def report_calendar
 
   end
+  
+  def lists_present
+    @classrooms = current_calendar.classrooms    
+  end
 
   def students_for_neighborhood
     @active = current_calendar.groups_active.sorted_neighborhood

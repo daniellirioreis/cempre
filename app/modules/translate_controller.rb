@@ -144,6 +144,10 @@ class TranslateController
         'Envelopes para provas'
       when 'print_informations'
         'Imprimir Informacões'
+      when 'lists_present'
+        'Listas de chamada'
+      when 'students_for_neighborhood'
+        'Quantidade de alunos por bairro'
     end
   end
 end

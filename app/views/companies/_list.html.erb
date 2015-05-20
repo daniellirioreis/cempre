@@ -1,0 +1,90 @@
+<%current_calendar.months.each do |month| %>
+	<% lessons = classroom.lessons.by_month(month.to_i)%>
+	<table width="940" class="table table-striped table-hover table-bordered">
+	  <tr>
+	    <td>
+	      <small>
+	        <b>NOME: </b><%= classroom.name %><br/>
+	        <b>CURSO: </b><%= classroom.course %><br/>
+	        <b>HORÁRIO: </b><%= classroom.time_start.try(:strftime, '%H:%M') %> às <%= classroom.time_end.try(:strftime, '%H:%M') %>
+	     </small>
+	    </td>
+	    <td>
+	      <small>
+	        <b>PROFESSOR: </b><%= classroom.teacher %><br/>
+	        <b>DIA DA SEMANA: </b><%= classroom.day_week_humanize %><br/>
+	      </small>
+	    </td>
+	  </tr>
+	</table>
+	<p>
+	</p>
+	<h3 class='text-center'><%= TranslateMonths.translate(month.to_i)%>	</h3>	
+	<table width="940" class="table table-striped table-hover table-bordered list_students">
+	    <tbody>
+	      <tr>
+	        <th rowspan="2"><b>Nº</b></th>
+	        <th rowspan="2"><b>Aluno</b></th>
+	        <th rowspan="2"><b>Total Faltas</b></th>
+	        <th colspan="<%=lessons.count%>"><b>Frequência</b></th>
+	      </tr>
+	      <tr>
+	        <% lessons.sort_by(&:to_s).each do |lesson| %>
+	          <th ><b><%= lesson.calendar_day%></b></th>
+	        <% end %>
+	      </tr>
+	      <% count = 0 %>
+	      <% classroom.groups.sorted.each do |g| %>
+	      <tr>
+	        <td>
+	          <p class='text-center'>
+	            <%= count = count + 1 %>
+							<% unless g.student.birth_date.nil? %>
+								<% if g.student.birth_date.month == params[:month].to_i %>
+									- <i class="icon-gift"></i> - <%= g.student.birth_date.day%>
+								<% end %>
+							<% end %>
+	          </p>
+	        </td>
+	        <td>
+	          <small>
+	            <%= g %>(<%= g.status_humanize.upcase%>)
+	          </small>
+	        </td>
+	        <td>
+	          <p class='text-center'>
+	  					<%= g.student.faults_for_calendar(g.classroom.calendar_id, g.classroom.course.type_course).count %>          </p>
+	        </td>
+	        <% lessons.sort_by(&:to_s).each do |lesson| %>
+	          <td title="<%=lesson.calendar_day%>">
+	            <p class='text-center'>
+	                <% if g.transfer? || g.folded? || g.locked? %>
+
+	                   <% date_transfer = g.updated_at.strftime("%Y%m%d").to_i %>
+
+	                   <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
+	                   <% if date_transfer >= date_lesson %>
+													<%= g.fault_title(lesson.id) %>                     
+	                  <% else %>
+	                    -
+	                  <% end %>
+	                <% else %>
+										<% date_active = g.created_at.strftime("%Y%m%d").to_i %>
+	                  <% date_lesson = lesson.calendar_day.day.to_s.gsub("-","").to_i %>
+	                   <% if date_active <= date_lesson %>
+											<%= g.fault_title(lesson.id) %>                     
+	                  <% else %>
+	                      -
+	                  <% end %>	                  
+	                <% end %>
+	            </p>
+	          </td>
+	        <% end %>
+	      </tr>
+	      <% end %>
+	    </tbody>
+	  </table>
+	
+	
+<% end %>
+

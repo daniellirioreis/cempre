@@ -86,3 +86,4 @@ actions_more_control_points:
 actions_more_companies:
 - print_informations
 - students_for_neighborhood
+- lists_present
