@@ -11,6 +11,7 @@ pt-BR:
       students_for_neighborhood: "Quantidade de alunos por bairro"
       lists_present: "Escolha o mês"
       lists: "Listas de Chamada"
+      students_for_level: "Quantidade de alunos por nível"      
   activerecord:
     models:
       company:

@@ -17,9 +17,13 @@ class CompaniesController < ApplicationController
 
   def students_for_neighborhood
     @active = current_calendar.groups_active.sorted_neighborhood
-    @active_not_have_neighborhood = current_calendar.groups_active.not_have_neighborhood("", nil)
+    @active_not_have_neighborhood = current_calendar.groups_active.not_have_neighborhood("", nil)    
+  end
+
+  def students_for_level
     
   end
+  
 
   def print_informations
       @approved = current_calendar.groups_approved.count 

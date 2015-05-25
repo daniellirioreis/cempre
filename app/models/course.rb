@@ -9,6 +9,8 @@ class Course < ActiveRecord::Base
 
   scope :sorted, -> { order(:type_course, :sequence) }
 
+  scope :by_level_course, lambda { |level| where("level_course = ?", level) }
+
   def to_s
     name
   end

@@ -150,6 +150,8 @@ class TranslateController
         'Quantidade de alunos por bairro'      
       when 'lists'
         'Lista de Chamada'      
+      when 'students_for_level'
+        'Quantidade de alunos por nível'            
     end
   end
 end

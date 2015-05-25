@@ -1,0 +1,27 @@
+<%total = 0%>
+<%LevelCourse.to_a.each do |l|%>
+	<h3 class='text-center'><%= l.first %></h3>
+	<table class='table'>
+		<% count_students = 0%>
+		<% current_company.courses.by_level_course(l.last.to_i).sorted.each do |c| %>	
+		<tr>
+			<td>
+				<%= c %>(<%= c.type_course_humanize %>) 
+			</td>
+			<td>
+				<% cc  = 0%>			 
+				<%= cc = c.groups(current_calendar.id).count%>
+			</td>			
+		</tr>
+		<% count_students = count_students + cc %>		
+		<% end %>
+	<table>
+	
+	<p>
+		<b>Quantidade de Alunos: <%= count_students %></b>
+		<% total = total + count_students %>
+	</p>	
+<% end %>
+<p>
+	<b>Total de alunos: <%= total %></b>
+</p>
